@@ -1,0 +1,29 @@
+{
+ "config": "A_preset (Exp. 15 Apre_lin)",
+ "nx": 64,
+ "ny": 64,
+ "dx": 0.00002,
+ "trips": 160,
+ "inputEvery": 10,
+ "inputs": [
+  0.42,
+  0.13,
+  0.31,
+  0.05,
+  0.48,
+  0.22,
+  0.37,
+  0.09,
+  0.27,
+  0.45,
+  0.18,
+  0.33,
+  0.02,
+  0.41,
+  0.25,
+  0.11
+ ],
+ "roundTripTime": 6.673175776646975e-10,
+ "encoding": "interleaved uint8 [sqrt(I/Imax)*255, (phase+pi)/2pi*255], row-major per trip",
+ "Imax": 2.9674737935979576
+}
