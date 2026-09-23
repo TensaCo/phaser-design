@@ -166,6 +166,9 @@ export type GainSaturation =
   | { kind: 'none' }
   | { kind: 'global'; saturationIntensity: number } // homogeneous medium saturating on mean intensity
   | { kind: 'local'; saturationIntensity: number } // saturates sample-by-sample
+  /** carrier diffusion: saturates on intensity smoothed by the steady-state diffusion Green's function 1/(1 + k²L²), so a
+   *  bright region depletes the gain of its neighbours within ~L (cross-gain saturation, lateral inhibition). L → 0 is 'local'. */
+  | { kind: 'diffusive'; saturationIntensity: number; diffusionLength: number }
 
 export type GainNoise =
   | { kind: 'none' }

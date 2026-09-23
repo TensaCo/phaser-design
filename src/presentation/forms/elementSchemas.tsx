@@ -196,6 +196,10 @@ export const ELEMENT_KINDS: ElementKindInfo[] = [
           none: { label: 'none', template: () => ({ kind: 'none' }), fields: [] },
           global: { label: 'global (mean intensity)', template: () => ({ kind: 'global', saturationIntensity: 0.5 }), fields: [{ kind: 'number', path: ['saturationIntensity'], label: '$I_\\mathrm{sat}$', min: 0 }] },
           local: { label: 'local (per sample)', template: () => ({ kind: 'local', saturationIntensity: 0.5 }), fields: [{ kind: 'number', path: ['saturationIntensity'], label: '$I_\\mathrm{sat}$', min: 0 }] },
+          diffusive: {
+            label: 'diffusive (carrier diffusion, cross-gain)', template: () => ({ kind: 'diffusive', saturationIntensity: 0.5, diffusionLength: 20e-6 }),
+            fields: [{ kind: 'number', path: ['saturationIntensity'], label: '$I_\\mathrm{sat}$', min: 0 }, { kind: 'number', path: ['diffusionLength'], label: '$L_\\mathrm{d}$', unit: U.um, min: 0 }],
+          },
         },
       },
       {

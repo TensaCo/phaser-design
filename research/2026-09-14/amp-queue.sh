@@ -3,7 +3,7 @@
 # program, optimised jointly through the validated twin (A64s_amp, 1.6e-14 vs JS), each re-evaluated in JS to 1e4 trips.
 # Operating point from the hand-built absorbing-mask memory (02-nl-amp.ts): G0 3, s −0.8, I_a 0.2.
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export TORCH_THREADS=2 OMP_NUM_THREADS=2 VECLIB_MAXIMUM_THREADS=2
 design() {
   local tag; tag=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['tag'])" "$2")

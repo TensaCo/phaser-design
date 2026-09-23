@@ -73,7 +73,7 @@ class Problem:
         init = P.get('init_mask')
         # start at mid-stroke: θ = 0 sits on the phase-response clamp (u = 0) where the gradient vanishes
         g0 = torch.Generator().manual_seed(int(P.get('seed', 0)))
-        self.theta = torch.nn.Parameter(torch.tensor(np.fromfile(init).reshape(n, n)) if init else math.pi + 0.05 * torch.randn(n, n, generator=g0))
+        self.theta = torch.nn.Parameter(torch.tensor(np.fromfile(init).reshape(n, n)) if init else math.pi + 0.05 * torch.randn(n, n, generator=g0, device='cpu').to(torch.get_default_device()))
         self.logG = torch.nn.Parameter(torch.tensor(math.log(P['G0'] - 1)))
         # learnable static absorbing amplitude program (only for *_amp twins): logits → drive u ∈ (0, 0.999)
         self.z_amp = None
@@ -102,7 +102,7 @@ class Problem:
         for o in self.tw.ops:
             if o['op'] == 'gain':
                 o['G0'] = G0
-                o['saturation'] = {'kind': 'local', 'saturationIntensity': P['Ig']}
+                o['saturation'] = {'kind': 'diffusive', 'saturationIntensity': P['Ig'], 'diffusionLength': P['Ld']} if P.get('Ld') else {'kind': 'local', 'saturationIntensity': P['Ig']}
                 o['noise'] = {'kind': 'none'}
             if o['op'] == 'nonlinear':
                 o['amplitude'] = {'kind': 'saturable', 'strength': P['s'], 'saturationIntensity': P['Ia']}
@@ -216,11 +216,11 @@ class Problem:
 
     def save(self, tag, hist):
         base = os.path.join(OUT, tag)
-        np.asarray(torch.remainder(self.theta.detach(), 2 * math.pi).numpy(), dtype=np.float64).tofile(base + '_mask.f64')
+        np.asarray(torch.remainder(self.theta.detach(), 2 * math.pi).cpu().numpy(), dtype=np.float64).tofile(base + '_mask.f64')
         spec = dict(self.P)
         spec.update(tag=tag, mask_file=base + '_mask.f64', G0=float(1 + torch.exp(self.logG)), arch=TWIN_ARCH[self.P['twin']], T_train=self.T, history=hist)
         if self.z_amp is not None:
-            drive = (2 * math.pi * 0.999 * torch.sigmoid(self.z_amp)).detach().numpy().astype(np.float64)
+            drive = (2 * math.pi * 0.999 * torch.sigmoid(self.z_amp)).detach().cpu().numpy().astype(np.float64)
             drive.tofile(base + '_amp.f64')
             spec.update(amp_file=base + '_amp.f64', amp_dark=TWIN_ARCH[self.P['twin']]['amp_dark'], amp_clear_fraction=float((drive / (2 * math.pi) > 0.5).mean()))
         spec.pop('init_mask', None)
@@ -277,9 +277,12 @@ def task_gate(P):
     if arity == 1:
         cells['in0'] = [c - d, c, w]
     else:
-        cells['in0'] = [c - d, c - d // 2, w]
-        cells['in1'] = [c - d, c + d // 2, w]
+        dy = P.get('in_dy', d // 2)  # 2026-09-23: vertical input offset (default ±dist/2)
+        cells['in0'] = [c - d, c - dy, w]
+        cells['in1'] = [c - d, c + dy, w]
     cells['out'] = [c + d - (d // 2 if P.get('short', False) else 0), c, w]
+    if P.get('io_dx'):  # 2026-09-23: output io_dx px right of the input column (default layout puts it 2·dist away)
+        cells['out'] = [c - d + P['io_dx'], c, w]
     rails = [f'rail{i}' for i in range(P.get('rails', 0))]
     for i, r in enumerate(rails):
         cells[r] = [c + (i - (len(rails) - 1) / 2).__int__() * (w + 2), c + d, w] if P.get('rail_side', 'below') == 'below' else [c, c - d - w, w]
@@ -426,16 +429,16 @@ PATTERNS = {
 
 def task_assoc(P):
     """stored patterns (8×8 cells) as attractors: corrupted cue written at t=1 must relax to the stored pattern."""
-    side, pitch, w = 8, P['pitch'], P['w']
+    side, pitch, w = P.get('side', 8), P['pitch'], P['w']  # side ≠ 8: random patterns only (2026-09-23 corrected layout)
     cells = lattice_cells(side, side, pitch, w)
     names = list(cells)
     rng = np.random.default_rng(P.get('seed', 5))
     pats = {}
     for k in P['patterns']:
-        if PATTERNS.get(k):
+        if PATTERNS.get(k) and side == 8:
             pats[k] = np.array([[1 if ch == '#' else 0 for ch in row] for row in PATTERNS[k]]).ravel()
         else:
-            pats[k] = (rng.random(side * side) < 0.4).astype(int)
+            pats[k] = (rng.random(side * side) < P.get('density', 0.4)).astype(int)
     T, st = P['T'], P['settle']
     cases = []
     for k, p in pats.items():
@@ -523,6 +526,36 @@ def task_countdown(P):
 
 
 TASKS['countdown'] = task_countdown
+
+
+def task_chain(P):
+    """2026-09-23 composition test: buffer chain src → m1 → … → dst along x (step px apart), optional fan-out branch cells
+    (`fanout`: extra followers `f<k>` step px above/below src's first follower). Every follower must copy src and hold;
+    src is written at t=1 (or not)."""
+    w, step, hops = P['w'], P['step'], P.get('hops', 2)
+    c = 32 - w // 2
+    x0 = c - (hops * step) // 2
+    cells = {'src': [x0, c, w]}
+    names = []
+    for k in range(1, hops + 1):
+        nm = 'dst' if k == hops else f'm{k}'
+        cells[nm] = [x0 + k * step, c, w]
+        names.append(nm)
+    for k in range(P.get('fanout', 0)):
+        nm = f'f{k}'
+        cells[nm] = [x0, c + (step if k % 2 == 0 else -step) * (k // 2 + 1), w]
+        names.append(nm)
+    T = P['T']
+    cases = []
+    for sb in (0, 1):
+        for rep in range(P.get('reps', 1)):
+            inj = [dict(t=1, cell='src', amp=P['inj_amp'], phase=0.0)] if sb else []
+            tg = [dict(cell=k, value=sb, t_from=P['settle'], t_to=T) for k in ['src'] + names]
+            cases.append(dict(name=f'src{sb}_{rep}', init_on=[], inject=inj, targets=tg))
+    return cells, cases
+
+
+TASKS['chain'] = task_chain
 
 if __name__ == '__main__':
     task = sys.argv[1]

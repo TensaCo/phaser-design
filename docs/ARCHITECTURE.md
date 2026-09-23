@@ -130,8 +130,10 @@ Available kinds: `mirror`, `coupler`, `lens`, `microlens-array`, `aperture`, `lc
 **Nonlinearity and gain** are ordinary elements, so their location, strength and number of occurrences are all
 configurable:
 
-- `gain`: small-signal power gain, saturation `none | global | local`, noise `none | additive-gaussian`
-  (disabled by default).
+- `gain`: small-signal power gain, saturation `none | global | local | diffusive`, noise `none | additive-gaussian`
+  (disabled by default). `diffusive` saturates on the intensity smoothed by the steady-state carrier-diffusion response
+  `1/(1 + k²L_d²)` (FFT convolution), so a bright region depletes the gain of its neighbours within ~L_d (cross-gain
+  saturation); `L_d → 0` reduces to `local`.
 - `nonlinear`: local `E' = g(|E|²)·exp(iφ(|E|²))·E`, with a saturable amplitude and Kerr or saturable-Kerr phase.
 
 These are simple models; nothing here claims they are sufficient for arbitrary neural computation.

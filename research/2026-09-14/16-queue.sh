@@ -1,7 +1,7 @@
 #!/bin/bash
 # Experiment 16 associative-memory design + JS evaluation, gated on the Exp 7–10 queue.
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export TORCH_THREADS=3 OMP_NUM_THREADS=3 VECLIB_MAXIMUM_THREADS=3
 while ps -Ao command | grep -q "[0]8-queue.sh"; do sleep 60; done
 TAG=assoc_nl_5pat

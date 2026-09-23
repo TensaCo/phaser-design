@@ -25,6 +25,8 @@ export const TWINS: Record<string, () => PhysicsConfig> = {
   A64s_amp: () => slmRing({ n: 64, spp: 1, roof: true, inputFirst: true, maxStep: 10e-3, ...BIST, mask: { kind: 'random', seed: 9, depth: 0.3 }, ampMask: { dark: 0, program: { kind: 'random', seed: 5, depth: 1 } } }),
   A64sd5_amp: () => slmRing({ n: 64, spp: 1, roof: true, inputFirst: true, maxStep: 10e-3, defocus: 5e-3, ...BIST, mask: { kind: 'random', seed: 9, depth: 0.3 }, ampMask: { dark: 0, program: { kind: 'random', seed: 5, depth: 1 } } }),
   A64s_amp3: () => slmRing({ n: 64, spp: 1, roof: true, inputFirst: true, maxStep: 10e-3, ...BIST, mask: { kind: 'random', seed: 9, depth: 0.3 }, ampMask: { dark: 1e-3, program: { kind: 'random', seed: 5, depth: 1 } } }),
+  // cross-gain check: same ring with carrier-diffusion gain saturation (L = 2 px); only used to validate the twin's 'diffusive' law
+  A64s_amp_xg: () => slmRing({ n: 64, spp: 1, roof: true, inputFirst: true, maxStep: 10e-3, ...BIST, gain: { G0: 2.2, sat: { kind: 'diffusive', saturationIntensity: 1, diffusionLength: 40e-6 } }, mask: { kind: 'random', seed: 9, depth: 0.3 }, ampMask: { dark: 0, program: { kind: 'random', seed: 5, depth: 1 } } }),
   B64: () => linear4f({ n: 64, ...BIST, mask: { kind: 'random', seed: 9, depth: 0.3 } }),
   C64: () => lcdMla({ n: 64, ...BIST, mask: { kind: 'random', seed: 9, depth: 0.3 } }),
 }

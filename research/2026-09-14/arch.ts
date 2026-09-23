@@ -118,6 +118,8 @@ const realisticLcd = (px: PixelArray, program: MaskProgram): Omit<TransmissiveLc
 export interface LinearOptions extends ArchOptions {
   focal?: number // two relay lenses at f and 3f; mirrors at 0 and 4f. forward pass −I, round trip +I
   lensless?: boolean // plane-parallel LCD cavity of the same length (the preset has no lenses)
+  /** static absorbing amplitude LCD at the start mirror (the self-imaged plane of the phase LCD), passed once per round trip */
+  ampMask?: { dark: number; program?: MaskProgram }
 }
 
 /** in-coupler | LCD at the start mirror | f | L1 | 2f | L2 | f | end mirror. Every segment traversed twice. */
@@ -138,10 +140,18 @@ export function linear4f(o: LinearOptions = {}): PhysicsConfig {
       ...(o.lensless ? [] : [lens('L1'), lens('L2')]),
       { kind: 'mirror', id: 'end', reflectivity: { front: 0.97, back: 0.97 }, parity: 'none' },
       ...act.els,
+      ...(o.ampMask ? [{
+        kind: 'transmissive-lcd', id: 'amp', label: 'static absorbing amplitude mask',
+        pixels: pixels(Math.max(64, Math.ceil(n / spp)), pitch, 1),
+        modulation: { kind: 'amplitude', darkTransmission: o.ampMask.dark, levels: 256 },
+        clearTransmission: 1, surfaces: { front: { transmission: 1, reflection: 0 }, back: { transmission: 1, reflection: 0 } },
+        polarizerTransmission: 1, deadZoneTransmission: 0, switchingTime: 0.01, designWavelength: 650e-9,
+        program: o.ampMask.program ?? { kind: 'zero' },
+      } as OpticalElementSpec] : []),
     ],
     topology: {
       kind: 'linear-reciprocal', length: 4 * f, medium: AIR,
-      start: { elementIds: ['in', ...act.ids] }, end: { elementIds: ['end'] },
+      start: { elementIds: ['in', ...(o.ampMask ? ['amp'] : []), ...act.ids] }, end: { elementIds: ['end'] },
       items: [{ elementId: 'lcd', position: 0 }, ...lensIds.map((id, i) => ({ elementId: id, position: (1 + 2 * i) * f }))],
     },
     readouts: [],

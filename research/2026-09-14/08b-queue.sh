@@ -1,7 +1,7 @@
 #!/bin/bash
 # Remaining linear / sequencing items of the Exp 7–10 queue (phase-only nonlinear gates/latch superseded by amp-queue.sh).
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export TORCH_THREADS=2 OMP_NUM_THREADS=2 VECLIB_MAXIMUM_THREADS=2
 while ps -Ao args= | awk '$1 ~ /node/ && $0 ~ /08-eval.ts out\/08\/wire_lin_d8_spec2_sd5/ {f=1} END {exit !f}'; do sleep 60; done
 design() {

@@ -2,3 +2,6 @@
 # the readout results derived from them are kept in out/15/*.csv|json.
 2026-09-14/out/15/feat_*.f64
 __pycache__/
+.big/
+# Exp. 29 noisy feature matrices (≈150 MB): regenerated exactly by `2026-09-14/29-queue.sh`; results in out/29/*.json.
+2026-09-14/out/29/feat_*.f64

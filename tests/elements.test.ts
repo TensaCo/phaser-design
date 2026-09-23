@@ -85,6 +85,24 @@ describe('power vs amplitude', () => {
     expect(el.state().gain).toBeCloseTo(1.5, 12)
     expect(f.re[0] ** 2).toBeCloseTo(1.5, 12)
   })
+
+  it('diffusive saturation equals local saturation for uniform light and makes a bright spot deplete its neighbours', () => {
+    const gain = (L: number) => buildElement({ kind: 'gain', id: 'g', smallSignalGain: 3, saturation: { kind: 'diffusive', saturationIntensity: 1, diffusionLength: L }, noise: { kind: 'none' } }, env())
+    const local = buildElement({ kind: 'gain', id: 'g', smallSignalGain: 3, saturation: { kind: 'local', saturationIntensity: 1 }, noise: { kind: 'none' } }, env())
+    const u = uniform()
+    gain(40e-6).apply(u, 'front', NULL_CONTEXT)
+    expect(u.re[5] ** 2).toBeCloseTo(2, 12) // k = 0 response is 1: uniform I = 1 → g = 1 + 2/2
+    // weak probe at (16, 16), bright spot 3 px away at (19, 16): only the diffusive medium lets the spot saturate the probe's gain
+    const probe = () => { const f = createField(grid); f.re[16 * 32 + 16] = 0.01; f.re[16 * 32 + 19] = 10; return f }
+    const a = probe(), b = probe(), c = probe()
+    local.apply(a, 'front', NULL_CONTEXT)
+    gain(40e-6).apply(b, 'front', NULL_CONTEXT)
+    gain(0).apply(c, 'front', NULL_CONTEXT)
+    const gProbe = (f: Field) => (f.re[16 * 32 + 16] / 0.01) ** 2
+    expect(gProbe(a)).toBeCloseTo(1 + 2 / (1 + 1e-4), 10)
+    expect(gProbe(c)).toBeCloseTo(gProbe(a), 10) // L = 0 is local saturation
+    expect(gProbe(b)).toBeLessThan(0.9 * gProbe(a))
+  })
 })
 
 describe('pixel mapping and programs', () => {

@@ -1,5 +1,9 @@
 # PHASER capability research sprint — 2026-09-14
 
+> **2026-09-23 continuation:** the stopped runs were finished and the "next five experiments" run, including a new cross-gain
+> (inhibitory) gain model that yields a verified persistent NAND. **Read "Experiment 28 — updated synthesis" (end of file)
+> first**; it supersedes Experiment 20 where they differ.
+>
 > Sections appear in the order experiments completed. **Start with the closing synthesis at the end ("Experiment 20"):**
 > executive findings, capability envelope, surprises, architecture implications, next experiments, and the list of runs
 > stopped unfinished. Raw data: `out/<experiment>/`. Scripts: this directory (disposable, one per experiment). Nothing here
@@ -1192,3 +1196,433 @@ primitive that OR and wires need, and the Exp. 8 gate runs did not find it. It d
 inputs ON the sum keeps drifting up (0.83 at 10⁴) instead of being cancelled. Carry (AND) never turns on, and the rail dies.
 This fits the Exp. 8 conclusion that intensity-only elements allow monotone thresholds but not the cancellation XOR needs.
 Confidence: medium (one design, 250 iterations, loss still slowly decreasing at stop).
+
+---
+
+# Continuation — 2026-09-23: the stopped queue, the next five experiments, and cross-gain logic
+
+> Run on a new machine (DGX Spark / GB10) under a cap of ≤ 25 % of its CPU, GPU and memory: at most five single-thread CPU
+> processes, no GPU. A single torch twin on the GPU was 3× faster than on the CPU but showed ~75 % GPU utilisation on its
+> own. Everything below follows the 2026-09-14 protocol: designs go through the torch twin, and **every reported number comes
+> from the JS simulator**. **The updated synthesis is "Experiment 28" at the end.** Where it conflicts with Experiment 20, it
+> supersedes it.
+
+**Reproducibility and tooling.** The old scripts pointed at the previous machine's temporary directory. They now read
+`PHASER_BIG` (default `research/.big/`, git-ignored) and `PHASER_VENV` (default `~/.venvs/phaser`). Spec files with foreign
+absolute paths fall back to `out/08/<file>` (`eval-lib.ts localFile`). The twins were regenerated (`twin-dump.ts`), and
+`twin.py` validates at 1.6×10⁻¹⁴ vs JS, as before. Re-evaluating the existing `amp2_bool_halfadd` spec in JS to 10⁴ trips
+reproduced the 2026-09-14 log line for line. Queues are `finish-queue.sh`, `21b/c/d/e-queue.sh`, `22-queue.sh`,
+`22b-queue.sh`, `23-queue.sh`, `25-queue.sh`, `25c-queue.sh`, `26-queue.sh`, `27-queue.sh` and `27b-queue.sh`. One job is
+one CPU lane (`run-job.sh`), and `wait-slot.sh` caps concurrency at five processes. For about an hour the old-style lanes of
+`finish-queue.sh` did not use the limiter, so six processes (30 % of cores) sometimes ran.
+
+**Tooling bug found and fixed.** `08-eval.ts` ran its command-line block whenever it was *imported*, so `16-basin.ts`,
+`26-verify.ts` and `25-direction.ts` each launched a stray re-evaluation with their own arguments. This wasted compute and
+wrote junk `eval_*_n400*`, `*NaN*` and `*_3000` files, which were deleted. It never changed a reported number, because
+the importers compute their own results. The shared code now lives in `eval-lib.ts`.
+
+## Experiment 11 (completed) — persistent adders on the absorbing-mask architecture (corrected layout)
+
+Same method and layout as the 2026-09-14 half-adder rerun: `amp2_bool_*` specs, `A64s_amp`, G0 ≈ 3, s −0.8, I_a 0.2,
+3 px cells on a 6 px step, inputs latched, outputs required from trip 80 to 240, JS to 10⁴ trips, threshold 0.35.
+
+| circuit | cases correct and persistent | what the program actually does |
+|---|---|---|
+| half adder (2026-09-14) | 2 / 4 | weak threshold-1 copy i0 → sum, no cancellation |
+| **full adder** | 1 / 8 (000 only) | all three inputs latch (I 1.4–1.9 to 10⁴); both outputs dark in every case; rail dies |
+| **saturating step** (2-bit accumulator ±1) | 3 / 16 | outputs dark in every case; input i3 is *not* preserved (reads 0 when written, 0.38 when not) |
+| **parity4** | 8 / 16 (exactly the even-parity cases) | inputs latch; output always dark |
+
+**Result.** Direct whole-circuit optimisation on the local-gain architecture collapses to "outputs always OFF" for every
+multi-output function. That is the same failure as OR/NOT/XOR in Exp. 8. Confidence: high for this optimiser and
+architecture; see Exps. 25–27 for what changes with layout and cross-gain.
+
+## Experiments 11/14 (completed) — transient (read-once) arithmetic, phase-only nonlinear medium, corrected layout
+
+`bool2_*_transient`: phase-only static program on `A64s`, local gain G0 learned (2.4–2.5), absorber s −0.6 / I_a 0.05, no
+absorbing mask, 3 px cells on a 6 px step, input and output columns 18 px apart, one rail. Outputs are read in trips 30–60
+(20–40 ns after the write). The strict score counts a case as correct only when every output bit is correct at every trip
+from 30 to 60, in JS. The first attempt (`11t-queue.sh`, 2 px gaps) had a flat loss from iteration 0 and is void.
+
+| circuit | cases correct at every trip 30–60 | output bits | with gain noise 10⁻⁴ / trip (mean per-sample accuracy) |
+|---|---|---|---|
+| **half adder** | **4 / 4** | 8 / 8 | 1.000 |
+| full adder | 7 / 8 | 15 / 16 | 0.996 |
+| saturating step | 14 / 16 | 30 / 32 | 0.995 |
+| parity4 | 13 / 16 | 13 / 16 | 0.978 |
+| 2-bit adder | 12 / 16 | 44 / 48 | 0.983 |
+
+**Result.** Spatial compilation of small truth tables into one static program works as a **read-once transient
+computation**: the answer is present for a 30-trip window and then decays into a chaotic field (outputs at trip 100–300 are
+meaningless). One discrepancy looked worrying and is resolved. The last logged torch iteration for parity4 shows 50 %
+accuracy, but the saved design is the best-loss iteration (243, torch accuracy 0.98), and it agrees with JS. Confidence:
+medium-high for the window (JS, noise-checked). There is no persistence, and the answer's position in time is part of the
+program.
+
+## Experiment 12 fallback (completed) — countdown-and-halt transition graph: failed
+
+`amp_countdown4` (local gain) and `xg100_countdown4` (cross-gain, L_d = 100 µm, Exp. 21): a one-hot token written into c_n
+must step down every 20 trips and halt in c0. In both designs the written token decays in place without transferring. Local
+gain: c_n goes from 0.45–0.69 at trip 1 to ≤ 0.41 at trip 20, and every cell is dark by trip 40. Cross-gain: ≤ 0.14 by trip 10
+and dark by trip 20. The cross-gain optimiser started from a very large loss (68, the stationarity term) and settled at once
+into the dark state (loss 0.072, flat from iteration ≈ 30). **No static program moved a token even once**, which matches
+Exp. 10: nothing moves state from cell to cell.
+
+## Experiment 8 (completed) — persistent wire, OR with a rail, and the layout effect (Exp. 25)
+
+**Persistent wire, `amp_wire_d6`** (src → dst, cells 6 px apart, both required to hold): **4 / 4 cases correct to 10⁴
+trips.** Checked strictly at every trip (Exp. 26): dst = 0.968 when src is written (threshold 0.35, zero ripple), 0.000
+otherwise. It settles by trip ≈ 40. **This is the threshold-1 persistent copy that the 2026-09-14 gates never found.**
+
+**Directionality (`25-direction.ts`).** Writing the *destination* alone does not switch the source on: dst decays to 0 by
+trip 80. dst is a monostable follower held on by src, so **the wire is a one-way buffer**. Writing the OR output alone does
+not back-drive its inputs either. The AND output (2026-09-14 design) is self-latching instead: it holds a written 1 with no
+inputs.
+
+**OR with one rail (`amp_gate_OR_rail`, original layout): failed.** Output 0.01 in every case.
+
+**The layout effect.** In `task_gate` the output sits at c + dist and the inputs at c − dist, i.e. **2·dist = 12 px** from
+the inputs. The wire copies across 6 px. Exp. 25 re-ran the gates with the output 6 px right of the input column
+(`io_dx 6`, inputs ±3 px vertically, rail 6 px below the output).
+
+| design (local gain unless noted) | cases correct and persistent (JS, 10⁴) | steady state |
+|---|---|---|
+| OR, io 6 px | 2 / 4 by the scorer; output 4 / 4 | output correct in every case, but **inputs flood**: one ON input switches the other ON (01 and 10 end as 11) |
+| OR, io 6 px, inputs 10 px apart (`io6dy5`) | 1 / 4 | only 11 drives the output: back to threshold-2 |
+| NOT (rail), io 6 px | 0 / 2 | output always ON (1.3–1.7) |
+| NAND (rail), io 6 px | 1 / 4 | outputs 0.40–0.55 in every case |
+| XOR (rail), io 6 px | 0 / 4 | outputs ≈ 0.45–0.50 in every case |
+| **fan-out**: src drives three followers 6 px away | **4 / 4** (strictly verified) | followers 0.89 / 1.15 / 1.87 |
+| 2-hop buffer chain src → m1 → dst (6 px steps) | 2 / 4 | m1 flickers between 0.1 and 1.2; dst never switches |
+
+**Result.** The local-gain absorbing-mask medium has a **directional, fan-out-capable threshold-1 follower** (wire, fan-out)
+and **threshold-2 coincidence** (AND). With a single spacing parameter it cannot separate "one input switches the output"
+from "one input switches its neighbour input": OR either floods (6 px) or becomes AND (10 px). It has **no inversion** (NOT,
+NAND and XOR all fail at both layouts), and followers do not cascade (2-hop chain fails). This is monotone logic without
+inversion, so it is still not functionally complete.
+
+## Experiment 16 (completed) — associative memory, and Experiment 24 — Hopfield baselines
+
+**Queued design `amp_assoc_5pat` (8×8 cells, 5 px pitch): void, a setup error repeated from Exp. 11.** A 5 px pitch
+means 2 px gaps, which Exp. 2nl showed cannot hold bits, and an 8×8 lattice at the required 6 px pitch (45 px) is larger than
+the ring's flat field of view (≈ 20 px). In JS every case collapsed to 0–5 ON cells (Hamming 14–24 from the stored
+pattern), and the basin run was stopped.
+
+**Corrected layout `amp_assoc16_3pat`**: 4×4 cells on a 6 px pitch (inside the flat FOV), 3 random 40 %-ON patterns (pairwise
+Hamming distance 6–7), trained on cues with 1–2 flips. Basin study `16-basin.ts`: unseen random cues, 6 per level, 3000 trips.
+"Recovered" means Hamming distance ≤ 1 to the source pattern at the end.
+
+| flips in cue | 0 | 1 | 2 | 3 | 4 | 6 | 8 |
+|---|---|---|---|---|---|---|---|
+| optical, local gain (`amp_assoc16_3pat`) | 0.33 | 0.17 | 0.11 | 0.17 | 0.06 | 0 | 0 |
+| optical, cross-gain L_d 100 µm (`xg100_assoc16_3pat`) | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Hopfield, Hebbian, all-to-all | 1.00 | 0.96 | 0.89 | 0.82 | 0.67 | 0.35 | 0.05 |
+| Hopfield, projection rule, all-to-all | 1.00 | 1.00 | 1.00 | 0.93 | 0.77 | 0.31 | 0.03 |
+| Hopfield, Hebbian, radius 1 (nearest + diagonal) | 0.67 | 0.51 | 0.39 | 0.23 | 0.15 | 0.05 | 0.03 |
+| Hopfield, Hebbian, radius 2 | 1.00 | 0.95 | 0.89 | 0.77 | 0.60 | 0.33 | 0.08 |
+| ideal nearest-pattern decoder | 1.00 | 1.00 | 1.00 | 0.99 | 0.93 | 0.61 | 0.26 |
+
+(Hopfield rows: 50 cues per level per pattern, `24-hopfield.py`, `out/24/hopfield_amp_assoc16_3pat.json`. The 8×8
+baselines for the original patterns are in `out/24/hopfield_amp_assoc_5pat.json`.)
+
+**Result.** With local gain the optical design held only one of the three patterns as a fixed point (rand3: recovered 6/6
+from an exact cue, 3/6 at one flip). The others relaxed to spurious states. With cross-gain it held none. A radius-2 local
+Hopfield on the same lattice gets 89 % at two flips. **Associative memory was not achieved.** The optimiser cannot build a
+fixed point for several patterns at once in this medium: each written pattern moves the gain landscape the others rely on.
+
+## Experiment 21 — cross-gain (inhibitory) saturation: the decisive logic test
+
+**New element.** The simulator gain element has a new saturation kind, `diffusive`: `g = 1 + (G0 − 1)/(1 + Ĩ/I_sat)`,
+where `Ĩ` is the intensity convolved with the steady-state carrier-diffusion Green's function (FFT response
+`1/(1 + k²L_d²)`). A bright cell therefore depletes the gain of neighbours within ~L_d. This is lateral inhibition, the
+element Exp. 20 named as missing. `L_d → 0` recovers `local`. Code: `src/core/physics/elements/models.ts` (Gain),
+`types.ts`, a form entry, a unit test (`tests/elements.test.ts`: equals local for uniform light and at L_d = 0, and a bright
+spot 3 px away cuts a weak probe's gain by > 10 %), `docs/ARCHITECTURE.md`. The twin (`twin.py`) implements the same law and
+matches JS at 1.6×10⁻¹⁴ (`twin_A64s_amp_xg`). Designs select it with `"Ld"`.
+
+**21a — does persistent memory survive cross-gain?** Hand-built absorbing lattice (3 px cells / 3 px gaps, s −0.8,
+I_a 0.2, 3 seeds, 3000 trips, `out/02nl/amp_xg_Ld*.csv`):
+
+| L_d | G0 with BER 0 on all 3 seeds | ON level at G0 3 | λ_L at the reached state |
+|---|---|---|---|
+| 0 (2026-09-14) | 2.8–3.4 | 1.5–1.6 | −(0.4…3)×10⁻³ |
+| 10 µm | 3.0–3.4 | 2.1–2.2 | −(0.8…2.8)×10⁻³ |
+| 20 µm | 2.6–3.4 | 3.5–3.6 | −(0.5…3.2)×10⁻³ |
+| 40 µm | 2.6–3.0 | 7.1–7.4 | −(0.6…4.0)×10⁻³ |
+| 60 µm | 2.6–3.0 | 10.7–11.9 | −(0.6…4.3)×10⁻³ |
+| 100 µm | 2.6 only | (G0 2.6: 12–15) | −(0.6…4.7)×10⁻³ |
+
+Persistent bits survive carrier diffusion up to L_d = 100 µm (0.8 × the 120 µm pitch). The window moves to lower gain as
+L_d grows, because each cell's saturation is shared with the dark gaps around it.
+
+**21b — gates and latch at L_d = 20, 40, 60 and 100 µm** (Exp. 8/9 layouts, G0 starting inside each memory window). The
+first pass at 20 µm showed the scale: the NOT output was uninhibited (0.52 whether the input was ON or not), because
+diffusion falls off roughly as e^(−r/L_d) and the input sits 12 px (240 µm) away. The later passes use L_d comparable to the
+spacing. Scorecard (JS, 10⁴ trips; "persistent" = correct at every sampled trip from settling to 10⁴, inputs preserved):
+
+| L_d | NOT | NAND | AND | OR + rail | XOR | latch (8 cases) |
+|---|---|---|---|---|---|---|
+| 20 µm | 1 / 2 | — | — | — | — | 0 / 8 |
+| 40 µm | 1 / 2 (oscillates) | 1 / 4 | 3 / 4 | 3 / 4 | 2 / 4 | 2 / 8 |
+| 60 µm | 1 / 2 (oscillates) | 1 / 4 | **4 / 4** | 3 / 4 | 0 / 4 | 0 / 8 |
+| 60 µm, output 6 px away (io6) | **2 / 2** | 3 / 4 | — | — | 2 / 4 | — |
+| **100 µm** | **2 / 2** | **4 / 4** | **4 / 4** | 1 / 4 | 2 / 4 | 1 / 8 |
+
+**Relaxation oscillations (a new behaviour).** Several cross-gain designs did not settle. They entered **stable limit
+cycles**: the inhibited output ramps up slowly and then collapses, with a fixed period. Measured from threshold crossings of
+the JS traces (sampled every 25 trips, so periods below ~50 trips would alias):
+
+| design | case | output range | period (trips) | period (time) |
+|---|---|---|---|---|
+| NOT, L_d 40 µm | input ON | 0.08–1.31 | 1550 | 1.03 µs |
+| NOT, L_d 60 µm | input ON | 0.07–0.58 | ≈ 4100 | 2.7 µs |
+| latch, L_d 60 µm | R ON | 0.14–0.49 | 600–625 | 0.41 µs |
+| latch, L_d 40 µm | set → reset | 0.02–0.47 | ≈ 162 | 108 ns |
+
+Nothing in the element set has memory between trips, so the slow variable is the optical state itself. The field in the
+inhibited cell and its gaps builds up over hundreds of trips until the shared gain gives way. These are the first
+**autonomous nonlinear oscillations** of the sprint. The Exp. 10 designed sequencers produced none. Training the 60/80 µm NOT
+with a longer horizon (`21c`, T = 600, stationarity over trips 240–600) removed the oscillation by collapsing to "output
+always OFF" (1 / 2).
+
+**Latch: still no working SET/RESET.** In every cross-gain latch design (5 designs, L_d 20–100 µm, 2 seeds) the optimiser
+gave up Q's bistability. Q became a monostable cell whose level R controls: R ON dims Q from 0.51 to 0.15 at 60 µm, which is
+real inhibition. But S does not set it, and Q does not remember. Holding a bit and being overwritten by a control pulse were
+not achieved together.
+
+**Sequencers (`21d`): void.** Toggle and 4-cell ring (100-trip ticks, L_d 60 µm, G0 2.75) had a flat loss from iteration 0
+(the written token died within 20 trips). They were rerun as `21e` with G0 3.0 and a stronger write; results are at the end
+of this continuation.
+
+## Experiment 26 — strict every-trip verification of the persistent designs
+
+`26-verify.ts` checks every trip (not a sample) from trip 400 to the horizon. For each case and target cell the final value
+must hold at every trip. It reports the worst margin and the peak-to-peak ripple over the last 10 %. It also runs with
+additive gain noise 10⁻³ per trip and with a static 0.03 rad rms per-pixel SLM phase error.
+
+| design | noiseless 10⁴ | noiseless **10⁵** | gain noise 10⁻³ | 0.03 rad phase error | worst margins (noiseless) |
+|---|---|---|---|---|---|
+| **NAND, L_d 100 µm** | ✓ | **✓** (ripple ≤ 0.015) | ✓ | **✗** (case 01 output 0.08) | ON ≥ 0.72, OFF ≤ 0.071, inputs ≥ 21 |
+| **NOT, L_d 100 µm** | ✓ | **✓** (ripple 0) | ✓ | ✓ | ON 0.643, OFF 0.085 |
+| **NOT, L_d 60 µm, io6** | ✓ | **✓** (ripple 0) | ✓ | ✓ | ON 0.574, OFF 0.123 |
+| AND, L_d 100 µm | ✓ | — | — | — | ON 5.09, OFF ≤ 0.053 |
+| AND, L_d 60 µm | ✓ | — | — | — | ON 4.42, OFF ≤ 0.020 |
+| wire, local gain | ✓ | — | — | — | ON 0.968 |
+| fan-out ×3, local gain | ✓ | — | — | — | ON ≥ 0.889 |
+| **2-hop buffer chain, L_d 100 µm** | ✓ | — | ✓ | — | dst 11.35 |
+
+**Result: with cross-gain saturation the modelled medium has a persistent, input-preserving, noise-tolerant NAND**. It is
+functionally complete, holds to 10⁵ trips (67 µs), and is a genuine fixed point (zero ripple). It comes with persistent
+NOT, AND, a directional follower, fan-out, and a cascadable 2-hop chain. **This overturns the 2026-09-14 conclusion that
+the element set cannot produce inversion**: the missing element really was inhibition. The NAND is fragile to static phase
+error. At 0.03 rad rms, a level that the persistent memory tolerates (Exp. 23), one case fails.
+
+## Experiment 27 — whole circuits with cross-gain (L_d = 100 µm): not achieved
+
+| task | persistent cases | outcome |
+|---|---|---|
+| half adder (amp2 layout) | 2 / 4 | sum copies i0 only; carry dark |
+| full adder | 1 / 8 | carry output ≈ 0.5 (just ON) exactly when the third input is ON, i.e. a copy of c_in; sum dark |
+| XOR (io6 layout) | 1 / 4 | outputs 0.13–0.43, no clean separation |
+| latch (seed 1) | 2 / 8 | Q stuck at 0.34 in every case |
+| countdown | 0 / 4 | token extinct by trip 40 |
+| 2-hop buffer chain | **4 / 4** | verified (Exp. 26) |
+
+**Result.** Single gates and short chains compile, but no multi-gate function did. The likely limit is room: the ring's
+flat field of view holds about 20 × 20 px, i.e. 9–16 cells at the 6 px pitch bits need. A NAND with its rail occupies
+roughly 12 × 9 px, and a half adder needs ≥ 5 NAND-equivalents. The optimiser was asked to fit a circuit into less space than
+it needs, and joint optimisation of all gates at once (250 iterations) found nothing. Composing separately verified gates
+side by side, and a wider flat FOV, were not tested.
+
+## Experiment 22 — absorbing-mask memory on B-4f (next-experiment 3)
+
+`22-b4f-amp.ts`: B-4f linear LCD cavity (63.5 µm pixels, 2 samples/pixel, trip 2.67 ns) with gain, the saturable absorber
+and a static absorbing amplitude LCD at the start mirror (the self-imaged plane), zero phase program, flat FOV ±700 µm,
+3 seeds. Sweep: cells 1–4 px × gaps 1–4 px × G0 1.8–4 × two absorbers, then long runs and a 128² grid check.
+
+| cells / gap (pitch) | bits in FOV | density | holding operating points (BER 0, 3 seeds) | longest | λ_L |
+|---|---|---|---|---|---|
+| **3 px / 2 px (317.5 µm)** | 16 | **9.9 /mm²** | G0 3, s −0.8 / I_a 0.2; G0 2.2, s −0.6 / 0.05; G0 3.5, s −0.9 / 0.3 | **3×10⁴** trips (80 µs) | ±10⁻³ at 64²; **all negative at 128²** (−0.3…−0.9×10⁻³) |
+| 3 px / 4 px (445 µm) | 9 | 5.1 /mm² | G0 3–4 (s −0.8 / 0.2); G0 2.2–2.6 (s −0.6 / 0.05) | 3×10⁴ | ±10⁻³ |
+| 4 px / 2–4 px | 9–16 | 3.9–6.9 /mm² | G0 3–3.5 (s −0.8 / 0.2 or s −0.9 / 0.3) | 3000 | ±10⁻³ |
+| 1–2 px (any gap) | 16–121 | 7–62 /mm² | none (BER 0.13–0.64 at every G0) | — | — |
+
+**Result.** B-4f holds persistent bits, but 7× less densely than A (9.9 vs 69 /mm²). Its larger PSF (≈ 200 µm interaction
+radius vs ≈ 100 µm on A) needs 190 µm cells, and its trip is 4× slower. Its only advantage is room: the wider flat FOV holds
+16 bits vs 9. The 155 long-lived linear modes did not translate into denser nonlinear storage. The exponent sits closer to 0
+than on A (marginal contraction at 64², clearly negative at 128²), so the result is solid but less robust. Confidence: high
+for BER to 3×10⁴; medium for the stability margin.
+
+## Experiment 23 — non-idealities on the persistent lattice (next-experiment 4)
+
+Hand-built A lattice (3 px / 3 px, G0 3, s −0.8, I_a 0.2), 3 random 9-bit patterns per row, `23-robust.ts`,
+`out/23/robust_*.csv`.
+
+| non-ideality | values | BER at 10⁴ trips (3 seeds) | ON min / OFF max |
+|---|---|---|---|
+| none (baseline) | — | 0 / 0 / 0 | 1.33 / 0.006 |
+| lensR focal error | −0.5 %, −0.3 %, −0.1 %, +0.1 %, +0.3 %, +0.5 %, **+1 %** | **0 in every case** | ≥ 1.07 / ≤ 0.014 |
+| amplitude-LCD contrast (dark transmission) | 10⁻³, 10⁻², 3×10⁻² (33:1) | 0 in every case | ≥ 1.36 / ≤ 0.007 |
+| additive gain noise (relative, per trip) | 3×10⁻³, 10⁻², **3×10⁻²** | 0 in every case | ≥ 1.14 / ≤ 0.038 |
+| SLM phase flicker, fresh every 1000 or 100 trips | **0.03 rad rms** | 0 / 0 / 0 (both periods) | ≥ 1.16 / ≤ 0.009 |
+| SLM phase flicker, every 1000 trips | 0.1 rad rms | 0.11 / 0.22 / 0.44 (first error at 100–3100) | ON cells die |
+| SLM phase flicker, every 100 trips | 0.1 rad rms | 0.22 / 0.44 / 0.78 (first error at 100–600) | ON cells die |
+| SLM phase flicker | 0.3 rad rms | 0.33–0.78 (first error at 10–30) | all cells dark |
+| **very long, gain noise 10⁻³** | **10⁶ trips (0.67 ms)** | **0 / 0 / 0** | 1.27 / 0.007 |
+
+**Result.** Measured, not extrapolated: the persistent lattice held three random patterns for **10⁶ round trips (667 µs)**
+with zero errors under 10⁻³ gain noise. It tolerates ±1 % focal error (which cut *linear* dot lifetime by 40×, Exp. 1),
+33:1 LCD contrast and 3×10⁻² gain noise. **The limiting non-ideality is SLM phase stability:** it tolerates 0.03 rad rms
+but fails at 0.1 rad. The failure mode is extinction (ON cells lose gain as their phase profile is scrambled), not
+cross-talk. Real LCOS flicker is typically 0.01–0.1 rad at the drive frame rate, so the **phase-flicker spec decides whether
+the device holds bits**. Not modelled: finite gain bandwidth (the model is monochromatic), carrier dynamics between trips,
+thermal drift.
+
+## Experiment 21e — cross-gain sequencers, rerun: failed
+
+`xg60_g3_toggle_p100` and `xg60_g3_ring4_p100` (L_d 60 µm, G0 3.0, stronger write, 100-trip ticks). On the first iteration
+the field flooded every cell (loss 56 / 31). Within 10 iterations the optimiser escaped into the dark state and stayed there
+(loss flat at 0.18 / 0.09 for the remaining 240 iterations). In JS the written token (I ≈ 2.1) decays in place to 0 by trip 20;
+c1–c3 never rise above 10⁻³. This is the same two-sided failure as every sequencer since Exp. 10: the static program either
+floods or extinguishes, and no setting moves a token. The limit cycles of Exp. 21b remain an unused oscillation. Turning them
+into a sequencer would take a different task formulation (for example, starting from a verified oscillating design), which
+was not tried.
+
+## Experiment 28 — updated synthesis (supersedes Experiment 20 where they differ)
+
+### What changed since 2026-09-14
+
+1. **Universal persistent logic exists in the model, but only with an inhibitory (cross-gain) nonlinearity.** With gain
+   saturation shared over L_d ≈ 100 µm (0.8 × the cell pitch), one static phase program plus one static absorbing program
+   gives a **persistent, input-preserving NAND** (verified every trip to 10⁵ trips, and under 10⁻³ gain noise), plus
+   persistent NOT, AND, a directional follower, fan-out and a 2-hop chain. Experiment 20 said "PHASER as modelled is a
+   memory, not a CPU" and that "logic needs a phase-sensitive or inhibitory nonlinearity". The second half is now
+   confirmed: inhibition was the missing element, and it is sufficient for a complete gate set.
+2. **Still not a CPU.** No multi-gate circuit compiled (half/full adder, XOR, latch, countdown, all with and without
+   cross-gain), no designed program moved a token between cells, and no latch combined memory with an overwriting control
+   pulse. The binding limits now look like **space and design, not physics**: 9–16 cells fit in the flat FOV, and joint
+   whole-circuit optimisation did not find multi-gate solutions. The **latch** remains the key missing primitive for
+   machine state.
+3. **Persistent memory is measured to 10⁶ trips** (0.67 ms, zero errors, 3 patterns, gain noise 10⁻³). It is robust to focal
+   error (±1 %), LCD contrast (33:1) and gain noise (3×10⁻²), and **limited by SLM phase stability (≤ 0.03 rad rms)**.
+4. **Local-gain gates were partly a layout artefact.** A threshold-1 persistent follower exists at 6 px (the 2026-09-14 gates
+   put the output 12 px away). It is directional and fans out. With local gain the medium supports monotone logic (follower,
+   AND, a flooding OR) but never inversion.
+5. **Read-once arithmetic works transiently:** half adder 4/4, full adder 7/8, 2-bit adder 12/16 and more, correct at every
+   trip in a 30-trip window 20–40 ns after the write, with no absorbing plane and phase-only programs.
+6. **Cross-gain adds autonomous nonlinear oscillation** (limit cycles with periods 160–4100 trips). This could be a clock
+   source. Designed toggles and ring counters still failed with cross-gain (Exp. 21e: flood, then extinction). No static
+   program has moved a token between cells in any configuration.
+7. **B-4f stores persistently but 7× less densely** (9.9 bits/mm², 16 bits in FOV) than A. Its extra long-lived linear modes
+   did not help.
+8. **Associative memory was not achieved** on either gain model; a radius-2 local Hopfield network is far better on the same
+   lattice.
+
+### Capability envelope, updated rows (A ring, 650 nm, 20 µm pixels, trip 0.667 ns)
+
+| capability | best achieved | reliability | time | evidence |
+|---|---|---|---|---|
+| persistent storage | 69 bits/mm² (9 bits) | BER 0 to **10⁶ trips**, gain noise 10⁻³ | **≥ 667 µs measured** | direct (JS) |
+| persistent storage, B-4f | 9.9 bits/mm² (16 bits) | BER 0 to 3×10⁴ | ≥ 80 µs | direct |
+| **persistent NAND / NOT** (cross-gain L_d 100 µm) | 1 gate per ≈ 12 × 9 px | every trip to 10⁵; gain noise 10⁻³ OK; 0.03 rad phase error breaks NAND | settle ≈ 80 trips (53 ns) | direct, strict |
+| persistent AND | local gain or cross-gain | every trip to 10⁴ | settle 80–184 trips | direct |
+| persistent follower wire / fan-out ×3 / 2-hop chain | 6 px steps (chain needs cross-gain) | every trip to 10⁴ | settle ≈ 40–200 trips | direct, strict |
+| transient read-once arithmetic | half adder 4/4, full adder 7/8, 2-bit adder 12/16 | window of 30 trips, gain noise 10⁻⁴ OK | 20–40 ns after write | direct |
+| autonomous nonlinear oscillation | limit cycles, period 160–4100 trips | stable over 10⁴ trips | 0.1–2.7 µs period | direct |
+| latch with SET and RESET | **not achieved** (inhibition dims Q, but Q loses bistability) | — | — | direct |
+| multi-gate persistent circuits (adders, XOR) | **not achieved** | — | — | direct |
+| associative memory | **not achieved** (Hopfield r2: 89 % at 2 flips on the same lattice) | — | — | direct |
+
+### Physical plausibility of the cross-gain result
+
+The gates need L_d ≈ 60–100 µm at a 120 µm cell pitch. Carrier diffusion in semiconductor gain media is typically 1–10 µm
+(tens of µm at best), so **carrier diffusion alone will not provide this at the relay's resolution**. What the model needs is
+gain saturation shared over about one cell pitch. Candidate realisations (none modelled): the gain medium placed a short
+distance out of the image plane, so each cell's light saturates a disc about one pitch wide; a separate saturable
+cross-coupling layer; or a relay with a ~10× finer PSF, so that realistic L_d matches the pitch. This is now the least
+certain assumption behind the logic result. Before building anything, simulate it with an explicit physical realisation
+(for example an out-of-plane gain slab, which the simulator can already express as elements plus propagation).
+
+### Next experiments
+
+1. **Latch with cross-gain + follower:** design Q as a self-latching cell with an explicit inhibitory R and a follower-driven
+   S, with the long-horizon stationarity window, or compose it from two verified NANDs (cross-coupled).
+2. **Composition instead of joint design:** tile verified gates (NAND, NOT, follower) into a larger static program and test
+   whether they keep working side by side. This needs a wider flat FOV (a larger-aperture relay or a 128² grid at 2
+   samples/pixel).
+3. **A physical cross-gain realisation:** replace `diffusive` with the gain slab placed off the image plane and repeat the
+   NAND.
+4. **Phase-stability budget:** repeat Exp. 23's flicker test on the NAND and NOT (static error already breaks NAND at 0.03 rad).
+5. **Clock from the limit cycles:** start from a verified oscillating design (Exp. 21b) and add a follower driven by it, rather
+   than asking the optimiser to invent a sequencer from a dark or flooded start (Exp. 21e).
+
+## Experiment 29 — energy per input step: photon budget, fair digital baseline, scaling (2026-09-23)
+
+**Question.** What does one input step of the best reservoir (Apre_lin, K = 10, 6.7 ns/step) cost in joules, compared with a
+digital reservoir of *equal quality*? And what would 10²…10⁶× lower energy require?
+
+**Method** (`29-noise.ts`, `29-queue.sh`, `29-digital.py`, `29-decompose.py`, `29-energy.py`, `29-scaling.py`, `out/29/`).
+- Photon budget N_c (mean photons circulating), 10² … 10¹² plus noise-free. In the loop, every trip adds amplified spontaneous
+  emission, n_sp(G−1) = 0.69 photons per grid sample (n_sp 1.5, G = 1/0.684), as complex Gaussian noise. The detector
+  integrates the 5 % tap over the K trips at QE 0.8, with Poisson shot noise and 2 e⁻ read noise per bin. There are 256 bins.
+  Features are converted back to field units, then log10(x+1). This transform is fixed for every run; it scores NARMA10 0.115
+  noise-free, vs 0.19 with Exp. 15's log10(x+10⁻¹²).
+- Digital baseline: tuned ESNs of N = 64…1024 units (the 2048 run was stopped; 1024 already beats the optical reservoir on every metric). The grid covers ρ, input scale, leak, and tanh vs linear. Settings are
+  picked on the test split, which favours the digital baseline.
+- Energy: explicit device assumptions (low / nominal / high) in `29-energy.py: PARAMS`: wall-plug efficiency, DAC and
+  modulator, ADC figure of merit, receiver front end, readout MAC, static SLM hold, thermal stabilisation, and digital MAC.
+
+**Results.**
+
+1. **The Exp. 15 "beats the ESN" result was an untuned-baseline artefact.** A tuned ESN-128 (tanh) reaches NARMA10 0.070 and
+   XOR-d2 1.00. A linear ESN-64 has MC 36.5. A tuned ESN-1024 beats the optical reservoir on every metric (MC 37.1, NARMA10
+   0.017, XOR 1.00). The noise-free optical reservoir gets MC 35.1, NARMA10 0.115, XOR 0.994. **Its 4096 modes are worth about
+   128–1024 digital units, i.e. 4–32 modes per unit.**
+2. **Quality needs about 10¹⁰ circulating photons**, which is 2.4×10⁶ per mode, or 4×10⁹ detected per step. That is the lowest
+   budget within 10 % of noise-free on NARMA10 and MC. At 10⁸ the NARMA10 is 0.19 (the Exp. 15 level), at 10⁶ it is 0.31, and
+   the tasks fail at ≤ 10⁴.
+3. **Detector shot noise is the binding noise; ADC resolution is not.** Shot noise alone, applied post hoc, reproduces the
+   in-loop curve (e.g. 10⁹: NARMA 0.142 vs 0.143 in-loop), so ASE adds almost nothing. 8-bit quantisation with a per-bin full
+   scale costs nothing (NARMA 0.117). The signal is not buried in a DC background: the modulation depth is 0.19
+   (power-weighted). The photon cost comes from **memory depth**: the input from 30 steps back survives only as a small,
+   decayed component, so resolving it needs a high SNR.
+4. **Energy per input step at the operating point (N_c = 10¹⁰):**
+
+   | | low | nominal | high |
+   |---|---|---|---|
+   | gain pump (replaces 31.6 % loss/trip × 10 trips) | 19 nJ | **32 nJ** | 97 nJ |
+   | input light, ideal coupler (as simulated with the 2 % coupler: ×50) | 1.3 nJ | 2.2 nJ (110) | 6.5 nJ |
+   | static: SLM hold + thermal, × 6.7 ns | 0.33 nJ | 2.7 nJ | 13 nJ |
+   | detection: 256 × (receiver + 8-bit ADC) | 0.09 nJ | 0.9 nJ | 7.8 nJ |
+   | readout, DAC/modulator | < 0.02 nJ | 0.05 nJ | 0.3 nJ |
+   | **optical total** | **21 nJ** | **38 nJ** | **124 nJ** |
+   | digital ESN-128 (matches NARMA + XOR) | 0.8 nJ | 3.3 nJ | 33 nJ |
+   | digital ESN-1024 (beats all metrics) | 52 nJ | 210 nJ | 2.1 µJ |
+
+   Nominal circulating power is 3 nJ per 0.667 ns trip, about 4.6 W in a 1.3 mm window. **At this scale PHASER is no cheaper
+   than a digital reservoir of equal quality.** Against ESN-128 it costs about 10× more; against ESN-1024 about 5× less.
+   The pump dominates.
+5. **Scaling (modeled, `29-scaling.py`).** Optical cost grows linearly in modes, at 8.4 pJ per mode per step plus 3.8 pJ per
+   bin plus 2.7 nJ static. A dense ESN costs N² MACs.
+   - Break-even against a dense 8-bit ASIC ESN comes at 260–1600 equivalent units.
+   - 10× needs 1.8k–15k units, 100× needs 19k–155k, 1000× needs 0.18–1.4 M units (0.7–46 M modes).
+   - **10⁶× needs about 1.9×10⁸ equivalent units, i.e. ≥ 7.5×10⁸ optical modes. A 1080p SLM has 2×10⁶ pixels.** Even the
+     photon-only floor (η = 1, no electronics) needs 5×10⁷ units.
+   - Against a *sparse* ESN (10 nonzeros per row, cost linear in N), the optical reservoir never wins: at best it is 17× worse.
+
+**Interpretation.** Any energy advantage comes only from beating an O(N²) dense digital recurrence at large N, and it rests on an
+unverified assumption: that the 4–32 modes-per-unit equivalence holds as the optics scales. The levers, in order, are:
+- round-trip loss: pump ∝ (1−R), so R 0.684 → 0.98 is 16×;
+- memory depth: tasks that need a short memory need orders of magnitude fewer photons (10⁸ reaches NARMA10 0.19);
+- fewer trips per input;
+- a fabricated static phase/absorber plate instead of a powered SLM.
+
+The optical reservoir's real, demonstrated edge is **latency and input rate**: 6.7 ns per step with no memory traffic. It is not
+energy at this scale. The optical side was not tuned (input amplitude, gain, K, mask depth). Tuning it is the fair next step
+before quoting any ratio.
+
+**Theoretical note on persistent logic (not simulated).** The saturable-gain cells switch by saturating the medium. The switching
+energy is about F_sat × A_cell, where F_sat = hν/σ ≈ 10⁻⁴ J/cm² for a semiconductor gain medium. That gives ≈ 14 nJ per switch
+for a 120 µm cell, and a holding intensity F_sat/τ ≈ 10⁵ W/cm² at τ = 1 ns (≈ 14 W per cell). Slow media (τ ~ ms) cut the
+holding power, but switching then takes ~ms. The free-space cross-gain NAND is therefore not an energy path; CMOS gates switch in
+~10⁻¹⁶ J. Cells would need to shrink to µm scale, and even then they are ~10⁴× CMOS.

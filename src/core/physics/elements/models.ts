@@ -1,6 +1,7 @@
-import { addScaled, meanIntensity, multiplyComplex, sampleX, sampleY, scaleField, type Field, type GridSpec } from '../field/grid'
+import { addScaled, createField, meanIntensity, multiplyComplex, sampleX, sampleY, scaleField, type Field, type GridSpec } from '../field/grid'
 import { resolveMedium } from '../media/media'
 import { propagate, type PropagationKernel } from '../propagation/angularSpectrum'
+import { angularFrequency, fft2 } from '../field/fft'
 import { gaussian, mulberry32 } from '../../common/random'
 import type { ElementEnv, OpticalElement, RunContext } from './element'
 import { achievedPhase, buildPixelMap, driveLevel, evaluateProgram } from './pixels'
@@ -375,19 +376,44 @@ class Gain implements OpticalElement {
   readonly warnings: string[] = []
   private rand: () => number
   private lastGain: number
-  constructor(readonly spec: GainSpec) {
+  /** diffusive saturation: FFT-domain diffusion response 1/(1 + k²L²) and a scratch field for the smoothed intensity */
+  private readonly diffusion: { response: Float64Array; scratch: Field } | null = null
+  constructor(readonly spec: GainSpec, grid: GridSpec) {
     if (spec.smallSignalGain < 0) throw new Error(`${spec.id}: smallSignalGain must be ≥ 0`)
     this.rand = mulberry32(spec.noise.kind === 'additive-gaussian' ? spec.noise.seed : 0)
     this.lastGain = spec.smallSignalGain
+    if (spec.saturation.kind === 'diffusive') {
+      const L = spec.saturation.diffusionLength
+      if (!(L >= 0)) throw new Error(`${spec.id}: diffusionLength must be ≥ 0`)
+      const response = new Float64Array(grid.nx * grid.ny)
+      for (let j = 0; j < grid.ny; j++) {
+        const ky = angularFrequency(j, grid.ny, grid.dy)
+        for (let i = 0; i < grid.nx; i++) {
+          const kx = angularFrequency(i, grid.nx, grid.dx)
+          response[j * grid.nx + i] = 1 / (1 + (kx * kx + ky * ky) * L * L)
+        }
+      }
+      this.diffusion = { response, scratch: createField(grid) }
+    }
+  }
+  /** diffusion-smoothed intensity (periodic convolution; the absorbing boundary keeps the window edge dark) */
+  private smoothedIntensity(f: Field): Float64Array {
+    const { response, scratch } = this.diffusion!
+    for (let i = 0; i < f.re.length; i++) { scratch.re[i] = f.re[i] * f.re[i] + f.im[i] * f.im[i]; scratch.im[i] = 0 }
+    fft2(scratch)
+    for (let i = 0; i < response.length; i++) { scratch.re[i] *= response[i]; scratch.im[i] *= response[i] }
+    fft2(scratch, true)
+    return scratch.re
   }
   get id() { return this.spec.id }
   get linear() { return this.spec.saturation.kind === 'none' && this.spec.noise.kind === 'none' }
   apply(f: Field) {
     const { smallSignalGain: G0, saturation: sat, noise } = this.spec
-    if (sat.kind === 'local') {
+    if (sat.kind === 'local' || sat.kind === 'diffusive') {
+      const Is = sat.kind === 'diffusive' ? this.smoothedIntensity(f) : null
       let sum = 0
       for (let i = 0; i < f.re.length; i++) {
-        const I = f.re[i] * f.re[i] + f.im[i] * f.im[i]
+        const I = Is ? Math.max(0, Is[i]) : f.re[i] * f.re[i] + f.im[i] * f.im[i]
         const g = 1 + (G0 - 1) / (1 + I / sat.saturationIntensity)
         const a = Math.sqrt(Math.max(0, g))
         f.re[i] *= a
@@ -466,7 +492,7 @@ export function buildElement(spec: OpticalElementSpec, env: ElementEnv): Optical
     case 'transmissive-lcd': return new TransmissiveLcd(spec, env)
     case 'lcd-microlens': return new LcdMicrolens(spec, env)
     case 'phase-plate': return new PhasePlate(spec, env)
-    case 'gain': return new Gain(spec)
+    case 'gain': return new Gain(spec, env.grid)
     case 'nonlinear': return new Nonlinear(spec)
   }
 }

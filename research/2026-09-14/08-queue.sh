@@ -2,7 +2,7 @@
 # Serial queue for Experiments 7–10 designs: one torch design at a time, each followed by its JS re-evaluation.
 # Gated on the running memory design so the 8 GB machine is not oversubscribed.
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export TORCH_THREADS=2 OMP_NUM_THREADS=2 VECLIB_MAXIMUM_THREADS=2
 
 design() { # $1 task, $2 json (must contain "tag")

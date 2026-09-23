@@ -7,7 +7,7 @@ Outputs per operator (out/05/<name>_*.npz|csv) and a combined plot. Lifetimes:
 import json, sys, time, os
 import numpy as np
 
-BIG = '/private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/big/'
+BIG = os.environ.get('PHASER_BIG', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.big', ''))
 OUT = os.path.join(os.path.dirname(__file__), 'out', '05')
 os.makedirs(OUT, exist_ok=True)
 

@@ -2,7 +2,7 @@
 # Experiments 11 & 14: direct static spatial compilation of small truth tables (persistent and transient variants),
 # each re-evaluated in JS. Runs in parallel with 08-queue.sh (2 torch threads each).
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export TORCH_THREADS=2 OMP_NUM_THREADS=2 VECLIB_MAXIMUM_THREADS=2
 design() {
   local tag; tag=$(python3 -c "import json,sys;print(json.loads(sys.argv[1])['tag'])" "$2")

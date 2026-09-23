@@ -77,7 +77,7 @@ export function run(opName: string, K: number, steps: number, inputs: Float64Arr
   console.log(`${opName} K=${K} ${tag}: ${steps} steps in ${secs.toFixed(0)} s, max |E|² ${maxI.toFixed(3)}`)
 }
 
-if (process.argv[2]) {
+if (process.argv[2] && process.argv[1]?.includes('15-reservoir')) {
   const [opName, Ks, stepsS] = process.argv.slice(2)
   const steps = Number(stepsS ?? 3200)
   const r = mulberry32(2024)

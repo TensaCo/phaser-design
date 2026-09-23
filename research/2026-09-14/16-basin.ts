@@ -5,7 +5,7 @@
 // usage: npx vite-node 16-basin.ts <spec.json> <T>
 import { readFileSync } from 'node:fs'
 import { mulberry32 } from '../../src/core/common/random'
-import { buildSystem, runCase, type Spec } from './08-eval'
+import { buildSystem, runCase, type Spec } from './eval-lib'
 import { OUT, writeCsv, writeJson } from './util'
 
 const [specPath, Ts] = process.argv.slice(2)
@@ -13,7 +13,8 @@ const spec = JSON.parse(readFileSync(specPath, 'utf8')) as Spec & { stored: Reco
 const T = Number(Ts ?? 3000)
 const names = Object.keys(spec.cells)
 const thr = 0.5 * (spec.I_hi + spec.I_lo)
-const levels = [0, 2, 4, 6, 8, 12, 16, 24, 32]
+// corruption levels scale with the lattice (64 cells: the original levels; 16 cells: 0…8)
+const levels = names.length >= 64 ? [0, 2, 4, 6, 8, 12, 16, 24, 32] : [0, 1, 2, 3, 4, 6, 8]
 const reps = 6
 const r = mulberry32(2718)
 const rows: Record<string, number | string>[] = []

@@ -4,6 +4,7 @@
 // Local saturable gain + saturable absorber. 3 random patterns per point; BER / false activation / on-off levels at log
 // checkpoints; perturbation growth (Benettin) around the reached state when the pattern survives.
 // usage: npx vite-node 02-nl-amp.ts <cellPx,...> <gapPx,...> <G0,...> <s:Ia,...> <dark> <T> <tag>
+// env: NOISE (additive gain noise), SEEDS, LD (carrier-diffusion length in m → 'diffusive' cross-gain saturation, 2026-09-23)
 import { AssetStore } from '../../src/core/physics/assets'
 import type { RunContext } from '../../src/core/physics/elements/element'
 import { cloneField, createField, type Field } from '../../src/core/physics/field/grid'
@@ -36,7 +37,7 @@ function build(cellPx: number, gapPx: number, G0: number, s: number, Ia: number,
   const L = lattice(cellPx, cellPx + gapPx)
   const base = slmRing({
     n: 64, spp: 1, roof: true, inputFirst: true, maxStep: 10e-3,
-    gain: { G0, sat: { kind: 'local', saturationIntensity: 1 }, noise: Number(process.env.NOISE ?? 0) > 0 ? { kind: 'additive-gaussian', meanIntensity: Number(process.env.NOISE), seed: 17 } : undefined },
+    gain: { G0, sat: process.env.LD ? { kind: 'diffusive', saturationIntensity: 1, diffusionLength: Number(process.env.LD) } : { kind: 'local', saturationIntensity: 1 }, noise: Number(process.env.NOISE ?? 0) > 0 ? { kind: 'additive-gaussian', meanIntensity: Number(process.env.NOISE), seed: 17 } : undefined },
     nl: { amplitude: { kind: 'saturable', strength: s, saturationIntensity: Ia }, phase: { kind: 'none' } },
   })
   // drive u ≈ 1 (clear) on cell pixels, u = 0 (dark) elsewhere; amplitude-mode LCD maps T = dark + (clear − dark)·u
@@ -78,7 +79,7 @@ function run(cellPx: number, gapPx: number, G0: number, s: number, Ia: number, d
     const ber = I.reduce((a, v, k) => a + ((v > thr ? 1 : 0) !== bits[k] ? 1 : 0), 0) / I.length
     let E = 0
     for (let i = 0; i < f.re.length; i++) E += f.re[i] ** 2 + f.im[i] ** 2
-    rows.push({ noise: Number(process.env.NOISE ?? 0), cellPx, gapPx, pitch_um: (cellPx + gapPx) * 20, cells: L.idx.length, states_per_mm2: 1 / ((cellPx + gapPx) * 0.02) ** 2, G0, s, Ia, dark, seed, t,
+    rows.push({ noise: Number(process.env.NOISE ?? 0), Ld: Number(process.env.LD ?? 0), cellPx, gapPx, pitch_um: (cellPx + gapPx) * 20, cells: L.idx.length, states_per_mm2: 1 / ((cellPx + gapPx) * 0.02) ** 2, G0, s, Ia, dark, seed, t,
       ber, on_min: Math.min(...on), on_mean: on.reduce((a, b) => a + b, 0) / on.length, off_max: Math.max(0, ...off), false_activation: off.filter((v) => v > thr).length / Math.max(1, off.length), energy: E })
   }
   let lyap = NaN, residual = NaN
@@ -109,7 +110,7 @@ function run(cellPx: number, gapPx: number, G0: number, s: number, Ia: number, d
     lyap = acc / cnt
     const I = new Float64Array(f.re.length)
     for (let i = 0; i < I.length; i++) I[i] = f.re[i] ** 2 + f.im[i] ** 2
-    writeF64(`${OUT}02nl/amp_state_c${cellPx}g${gapPx}_G${G0}_s${s}_Ia${Ia}_d${dark}_seed${seed}.f64`, I)
+    writeF64(`${OUT}02nl/amp_state_c${cellPx}g${gapPx}${process.env.LD ? `_Ld${process.env.LD}` : ''}_G${G0}_s${s}_Ia${Ia}_d${dark}_seed${seed}.f64`, I)
   }
   for (const row of rows) { row.lyapunov_at_end = lyap; row.fixed_point_residual = residual }
   return rows

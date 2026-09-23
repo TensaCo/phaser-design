@@ -6,7 +6,7 @@ import { createField, sampleX, sampleY, type Field } from '../../src/core/physic
 import type { CompiledSystem } from '../../src/core/physics/system'
 
 export const OUT = new URL('./out/', import.meta.url).pathname
-export const BIG = '/private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/big/'
+export const BIG = process.env.PHASER_BIG ?? new URL('../.big/', import.meta.url).pathname
 
 export function ensure(path: string) { mkdirSync(dirname(path), { recursive: true }); return path }
 

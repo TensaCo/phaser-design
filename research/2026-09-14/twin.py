@@ -6,13 +6,16 @@ import json, math, os, sys
 import numpy as np
 import torch
 
-BIG = '/private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/big/'
+BIG = os.environ.get('PHASER_BIG', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '.big', ''))
 torch.set_default_dtype(torch.float64)
+DEV = os.environ.get('PHASER_DEVICE', 'cpu')  # 'cuda' runs the twin on the GPU (same float64 maths)
+if DEV != 'cpu':
+    torch.set_default_device(DEV)
 
 
 def _c(path, n):
     a = np.fromfile(path, dtype=np.complex128)
-    return torch.from_numpy(a.reshape(n, n).copy())
+    return torch.from_numpy(a.reshape(n, n).copy()).to(DEV)
 
 
 class Twin:
@@ -35,15 +38,15 @@ class Twin:
                 o['T'] = _c(d + op['t'], n)
             elif op['op'] == 'pixelamp':
                 m = np.fromfile(d + op['map'], dtype=np.float64).astype(np.int64).reshape(n, n)
-                o['map'] = torch.from_numpy(np.maximum(m, 0))
-                o['active'] = torch.from_numpy(m >= 0)
-                o['inactive_amp'] = torch.from_numpy(np.where(m == -2, op['deadAmp'], op['outsideAmp']).astype(np.float64))
+                o['map'] = torch.from_numpy(np.maximum(m, 0)).to(DEV)
+                o['active'] = torch.from_numpy(m >= 0).to(DEV)
+                o['inactive_amp'] = torch.from_numpy(np.where(m == -2, op['deadAmp'], op['outsideAmp']).astype(np.float64)).to(DEV)
             elif op['op'] == 'pixelphase':
                 m = np.fromfile(d + op['map'], dtype=np.float64).astype(np.int64).reshape(n, n)
-                o['map'] = torch.from_numpy(np.maximum(m, 0))
+                o['map'] = torch.from_numpy(np.maximum(m, 0)).to(DEV)
                 amp = np.where(m >= 0, op['amp'], np.where(m == -2, op['deadAmp'], op['outsideAmp']))
-                o['ampmap'] = torch.from_numpy(amp.astype(np.float64)) * op['scale']
-                o['active'] = torch.from_numpy(m >= 0)
+                o['ampmap'] = torch.from_numpy(amp.astype(np.float64)).to(DEV) * op['scale']
+                o['active'] = torch.from_numpy(m >= 0).to(DEV)
             self.ops.append(o)
         self.devices = sorted({o['device'] for o in self.ops if o['op'] in ('pixelphase', 'pixelamp')})
         self.res = {o['device']: (o['resY'], o['resX']) for o in self.ops if o['op'] in ('pixelphase', 'pixelamp')}
@@ -115,6 +118,9 @@ class Twin:
                 I = E.real ** 2 + E.imag ** 2
                 if sat['kind'] == 'local':
                     g = 1 + (o['G0'] - 1) / (1 + I / sat['saturationIntensity'])
+                elif sat['kind'] == 'diffusive':
+                    Is = torch.fft.ifft2(torch.fft.fft2(I) * self.diffusion_response(sat['diffusionLength'])).real.clamp_min(0)
+                    g = 1 + (o['G0'] - 1) / (1 + Is / sat['saturationIntensity'])
                 elif sat['kind'] == 'global':
                     g = 1 + (o['G0'] - 1) / (1 + I.mean(dim=(-2, -1), keepdim=True) / sat['saturationIntensity'])
                 else:
@@ -123,6 +129,13 @@ class Twin:
                 if noise is not None:
                     E = E + noise
         return E
+
+    def diffusion_response(self, L):
+        """steady-state carrier-diffusion transfer function 1/(1 + k²L²) on the FFT grid (as models.ts Gain, 'diffusive')."""
+        if not hasattr(self, '_diff') or self._diff[0] != L:
+            k = 2 * math.pi * torch.fft.fftfreq(self.n, self.dx)
+            self._diff = (L, 1 / (1 + (k[None, :] ** 2 + k[:, None] ** 2) * L * L))
+        return self._diff[1]
 
     def set_active(self, gain=None, nl=None):
         """override gain/nonlinear parameters (dicts shaped like the JSON specs)."""

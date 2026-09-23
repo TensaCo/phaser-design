@@ -3,7 +3,7 @@
 # the first attempt (11t-queue.sh: 2 px gaps, outputs 37 px from inputs) had a flat loss from iteration 0 (field extinct before
 # the read window). Now 3 px cells on a 6 px step, input/output columns 18 px apart, rail between them. Gated on amp-queue2.sh.
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export TORCH_THREADS=2 OMP_NUM_THREADS=2 VECLIB_MAXIMUM_THREADS=2
 sleep 180
 while ps -Ao args= | awk '$1 ~ /bash$/ && $2 ~ /amp-queue2\.sh$/ {f=1} END {exit !f}'; do sleep 60; done

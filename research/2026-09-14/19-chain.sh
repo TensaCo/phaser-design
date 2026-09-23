@@ -1,7 +1,7 @@
 #!/bin/bash
 # Experiment 19 analysis chain: coupling + flat-FOV packing at 450/532 nm (650 nm already done), gated on running numpy jobs.
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export OMP_NUM_THREADS=2 VECLIB_MAXIMUM_THREADS=2
 until [ -f out/02/packing_A_img_fov200.json ]; do sleep 60; done
 for op in A_img_450 A_img_532; do

@@ -2,7 +2,7 @@
 # Experiment 12 fallback: a looping program compiled directly into a static spatial transition graph (countdown + halt),
 # gated on the Exp 11/14 queue. Each design is re-evaluated in JS to 1e4 trips (the halt state must persist).
 cd "$(dirname "$0")"
-source /private/tmp/claude-504/-Users-vibestartup-Code-phaser-design/0e63674b-7461-4a57-ace5-b5d3facc5ac4/scratchpad/venv/bin/activate
+source "${PHASER_VENV:-$HOME/.venvs/phaser}/bin/activate"
 export TORCH_THREADS=2 OMP_NUM_THREADS=2 VECLIB_MAXIMUM_THREADS=2
 while ps -Ao args= | awk '$1 ~ /bash$/ && $2 ~ /11-queue\.sh$/ {f=1} END {exit !f}'; do sleep 60; done
 design() {
