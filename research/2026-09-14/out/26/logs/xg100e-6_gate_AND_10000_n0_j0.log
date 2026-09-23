@@ -1,0 +1,11 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 26-verify.ts out/08/xg100e-6_gate_AND_spec.json 10000 400 0 0
+xg100e-6_gate_AND AND00: acc(train window) 0.000 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_AND AND01: acc(train window) 0.333 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_AND AND10: acc(train window) 0.333 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_AND AND11: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 91.09
+xg100e-6_gate_AND AND00: OK (checked every trip 400–10000) out=0 maxOFF 0.000 ripple 0.000 | in0=0 maxOFF 0.000 ripple 0.000 | in1=0 maxOFF 0.000 ripple 0.000
+xg100e-6_gate_AND AND01: OK (checked every trip 400–10000) out=0 maxOFF 0.053 ripple 0.000 | in0=0 maxOFF 0.046 ripple 0.000 | in1=1 minON 24.403 ripple 0.000
+xg100e-6_gate_AND AND10: OK (checked every trip 400–10000) out=0 maxOFF 0.005 ripple 0.000 | in0=1 minON 13.707 ripple 0.000 | in1=0 maxOFF 0.062 ripple 0.000
+xg100e-6_gate_AND AND11: OK (checked every trip 400–10000) out=1 minON 5.091 ripple 1.370 | in0=1 minON 5.077 ripple 2.615 | in1=1 minON 24.002 ripple 0.322
+xg100e-6_gate_AND: ALL CASES HOLD to 10000 trips (noise 0, jitter 0) threshold 0.35

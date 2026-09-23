@@ -1,0 +1,31 @@
+amp_gate_OR_rail: 4 cells, 4 cases, T=200, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 2.6904e-01 task 8.988e-02 bg 0.000e+00 acc 0.750 G0 3.010 [3s]
+it 10 loss 1.1844e-01 task 8.986e-02 bg 0.000e+00 acc 0.750 G0 3.054 [29s]
+it 20 loss 9.6999e-02 task 8.978e-02 bg 0.000e+00 acc 0.750 G0 3.058 [55s]
+it 30 loss 9.1675e-02 task 8.969e-02 bg 0.000e+00 acc 0.750 G0 3.080 [81s]
+it 40 loss 9.0002e-02 task 8.930e-02 bg 0.000e+00 acc 0.750 G0 3.088 [107s]
+it 50 loss 8.9066e-02 task 8.891e-02 bg 0.000e+00 acc 0.750 G0 3.093 [133s]
+it 60 loss 8.6740e-02 task 8.660e-02 bg 0.000e+00 acc 0.750 G0 3.098 [159s]
+it 70 loss 6.0521e-02 task 4.639e-02 bg 0.000e+00 acc 0.847 G0 3.123 [186s]
+it 80 loss 4.1641e-01 task 8.912e-02 bg 0.000e+00 acc 0.750 G0 3.074 [213s]
+it 90 loss 2.1300e-01 task 8.939e-02 bg 0.000e+00 acc 0.750 G0 3.056 [239s]
+it 100 loss 9.4991e-02 task 8.988e-02 bg 0.000e+00 acc 0.750 G0 3.003 [265s]
+it 110 loss 9.1422e-02 task 8.992e-02 bg 0.000e+00 acc 0.750 G0 2.978 [292s]
+it 120 loss 9.0064e-02 task 8.991e-02 bg 0.000e+00 acc 0.750 G0 2.968 [318s]
+it 130 loss 8.9930e-02 task 8.992e-02 bg 0.000e+00 acc 0.750 G0 2.965 [345s]
+it 140 loss 8.9954e-02 task 8.991e-02 bg 0.000e+00 acc 0.750 G0 2.964 [372s]
+it 150 loss 8.9931e-02 task 8.991e-02 bg 0.000e+00 acc 0.750 G0 2.963 [399s]
+it 160 loss 8.9910e-02 task 8.990e-02 bg 0.000e+00 acc 0.750 G0 2.963 [425s]
+it 170 loss 8.9901e-02 task 8.990e-02 bg 0.000e+00 acc 0.750 G0 2.963 [451s]
+it 180 loss 8.9896e-02 task 8.990e-02 bg 0.000e+00 acc 0.750 G0 2.963 [478s]
+it 190 loss 8.9891e-02 task 8.989e-02 bg 0.000e+00 acc 0.750 G0 2.963 [503s]
+it 200 loss 8.9886e-02 task 8.989e-02 bg 0.000e+00 acc 0.750 G0 2.963 [528s]
+it 210 loss 8.9881e-02 task 8.988e-02 bg 0.000e+00 acc 0.750 G0 2.963 [552s]
+it 220 loss 8.9876e-02 task 8.988e-02 bg 0.000e+00 acc 0.750 G0 2.963 [577s]
+it 230 loss 8.9871e-02 task 8.987e-02 bg 0.000e+00 acc 0.750 G0 2.963 [602s]
+it 240 loss 8.9865e-02 task 8.986e-02 bg 0.000e+00 acc 0.750 G0 2.963 [627s]
+it 249 loss 8.9860e-02 task 8.986e-02 bg 0.000e+00 acc 0.750 G0 2.963 [652s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/amp_gate_OR_rail

@@ -1,0 +1,46 @@
+{
+ "tag": "xg100e-6_gate_NOT",
+ "horizon": 10000,
+ "noiseRel": 0.001,
+ "jitter": 0,
+ "thr": 0.35,
+ "allOk": true,
+ "rows": [
+  {
+   "case": "NOT0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": 0.5132802607506115,
+    "in0": null
+   },
+   "maxOff": {
+    "out": 0,
+    "in0": 0.021800032496628888
+   },
+   "ripple": {
+    "out": 0.22995148558505896,
+    "in0": 0.011424784961753677
+   }
+  },
+  {
+   "case": "NOT1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": null,
+    "in0": 23.711882737376033
+   },
+   "maxOff": {
+    "out": 0.13090955580962085,
+    "in0": 0
+   },
+   "ripple": {
+    "out": 0.056570608457832114,
+    "in0": 0.6751014173739556
+   }
+  }
+ ]
+}

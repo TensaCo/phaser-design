@@ -1,0 +1,31 @@
+amp_assoc_5pat: 64 cells, 20 cases, T=200, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 3.0384e-01 task 1.377e-01 bg 0.000e+00 acc 0.717 G0 2.990 [14s]
+it 10 loss 1.3312e-01 task 1.107e-01 bg 0.000e+00 acc 0.701 G0 2.932 [139s]
+it 20 loss 1.2165e-01 task 1.131e-01 bg 0.000e+00 acc 0.704 G0 2.961 [467s]
+it 30 loss 1.1456e-01 task 1.125e-01 bg 0.000e+00 acc 0.698 G0 2.974 [796s]
+it 40 loss 1.2004e-01 task 1.140e-01 bg 0.000e+00 acc 0.691 G0 2.987 [989s]
+it 50 loss 1.1728e-01 task 1.139e-01 bg 0.000e+00 acc 0.693 G0 2.993 [1112s]
+it 60 loss 1.1724e-01 task 1.137e-01 bg 0.000e+00 acc 0.692 G0 2.995 [1255s]
+it 70 loss 1.1717e-01 task 1.132e-01 bg 0.000e+00 acc 0.692 G0 2.996 [1384s]
+it 80 loss 1.1667e-01 task 1.137e-01 bg 0.000e+00 acc 0.692 G0 2.997 [1514s]
+it 90 loss 1.1740e-01 task 1.134e-01 bg 0.000e+00 acc 0.692 G0 2.997 [1641s]
+it 100 loss 1.1629e-01 task 1.140e-01 bg 0.000e+00 acc 0.692 G0 2.997 [1769s]
+it 110 loss 1.1651e-01 task 1.138e-01 bg 0.000e+00 acc 0.689 G0 2.997 [1892s]
+it 120 loss 1.1573e-01 task 1.137e-01 bg 0.000e+00 acc 0.689 G0 2.997 [2013s]
+it 130 loss 1.1899e-01 task 1.139e-01 bg 0.000e+00 acc 0.689 G0 2.997 [2132s]
+it 140 loss 1.1582e-01 task 1.145e-01 bg 0.000e+00 acc 0.689 G0 2.997 [2252s]
+it 150 loss 1.1524e-01 task 1.141e-01 bg 0.000e+00 acc 0.689 G0 2.997 [2375s]
+it 160 loss 1.1749e-01 task 1.143e-01 bg 0.000e+00 acc 0.687 G0 2.997 [2505s]
+it 170 loss 1.1486e-01 task 1.133e-01 bg 0.000e+00 acc 0.690 G0 2.997 [2637s]
+it 180 loss 1.1335e-01 task 1.128e-01 bg 0.000e+00 acc 0.690 G0 2.997 [2770s]
+it 190 loss 1.1635e-01 task 1.156e-01 bg 0.000e+00 acc 0.682 G0 2.993 [2893s]
+it 200 loss 1.1609e-01 task 1.156e-01 bg 0.000e+00 acc 0.682 G0 2.986 [3015s]
+it 210 loss 1.2108e-01 task 1.208e-01 bg 0.000e+00 acc 0.667 G0 2.971 [3138s]
+it 220 loss 1.2185e-01 task 1.216e-01 bg 0.000e+00 acc 0.664 G0 2.934 [3259s]
+it 230 loss 1.2159e-01 task 1.215e-01 bg 0.000e+00 acc 0.664 G0 2.911 [3382s]
+it 240 loss 1.2148e-01 task 1.214e-01 bg 0.000e+00 acc 0.664 G0 2.904 [3505s]
+it 249 loss 1.2142e-01 task 1.214e-01 bg 0.000e+00 acc 0.664 G0 2.901 [3614s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/amp_assoc_5pat

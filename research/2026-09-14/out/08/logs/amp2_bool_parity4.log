@@ -1,0 +1,31 @@
+amp2_bool_parity4: 6 cells, 16 cases, T=240, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 2.5902e-01 task 1.079e-01 bg 0.000e+00 acc 0.700 G0 3.010 [11s]
+it 10 loss 1.0380e-01 task 7.189e-02 bg 0.000e+00 acc 0.800 G0 3.078 [226s]
+it 20 loss 3.9491e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.103 [475s]
+it 30 loss 3.8503e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.112 [786s]
+it 40 loss 4.2656e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.121 [922s]
+it 50 loss 3.6681e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.127 [1031s]
+it 60 loss 3.6572e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.130 [1159s]
+it 70 loss 3.6203e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.130 [1275s]
+it 80 loss 3.6181e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.130 [1391s]
+it 90 loss 3.6033e-02 task 3.599e-02 bg 0.000e+00 acc 0.900 G0 3.131 [1506s]
+it 100 loss 3.6012e-02 task 3.598e-02 bg 0.000e+00 acc 0.900 G0 3.131 [1620s]
+it 110 loss 3.5993e-02 task 3.598e-02 bg 0.000e+00 acc 0.900 G0 3.131 [1733s]
+it 120 loss 3.5989e-02 task 3.598e-02 bg 0.000e+00 acc 0.900 G0 3.131 [1846s]
+it 130 loss 3.5984e-02 task 3.598e-02 bg 0.000e+00 acc 0.900 G0 3.131 [1958s]
+it 140 loss 3.5979e-02 task 3.597e-02 bg 0.000e+00 acc 0.900 G0 3.131 [2069s]
+it 150 loss 3.5974e-02 task 3.597e-02 bg 0.000e+00 acc 0.900 G0 3.131 [2180s]
+it 160 loss 3.5966e-02 task 3.596e-02 bg 0.000e+00 acc 0.900 G0 3.131 [2293s]
+it 170 loss 3.5956e-02 task 3.595e-02 bg 0.000e+00 acc 0.900 G0 3.131 [2409s]
+it 180 loss 3.5938e-02 task 3.593e-02 bg 0.000e+00 acc 0.900 G0 3.132 [2525s]
+it 190 loss 3.5906e-02 task 3.590e-02 bg 0.000e+00 acc 0.900 G0 3.132 [2644s]
+it 200 loss 3.5826e-02 task 3.581e-02 bg 0.000e+00 acc 0.900 G0 3.133 [2760s]
+it 210 loss 3.5678e-02 task 3.567e-02 bg 0.000e+00 acc 0.900 G0 3.134 [2874s]
+it 220 loss 3.5451e-02 task 3.544e-02 bg 0.000e+00 acc 0.900 G0 3.136 [2992s]
+it 230 loss 4.2429e-02 task 3.590e-02 bg 0.000e+00 acc 0.900 G0 3.145 [3117s]
+it 240 loss 3.7367e-02 task 3.592e-02 bg 0.000e+00 acc 0.900 G0 3.144 [3239s]
+it 249 loss 3.7214e-02 task 3.595e-02 bg 0.000e+00 acc 0.900 G0 3.142 [3345s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/amp2_bool_parity4

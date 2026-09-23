@@ -1,0 +1,106 @@
+{
+ "tag": "fanout2_s6",
+ "horizon": 10000,
+ "noiseRel": 0,
+ "jitter": 0,
+ "thr": 0.35,
+ "allOk": true,
+ "rows": [
+  {
+   "case": "src0_0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": null,
+    "dst": null,
+    "f0": null,
+    "f1": null
+   },
+   "maxOff": {
+    "src": 0,
+    "dst": 0,
+    "f0": 0,
+    "f1": 0
+   },
+   "ripple": {
+    "src": 0,
+    "dst": 0,
+    "f0": 0,
+    "f1": 0
+   }
+  },
+  {
+   "case": "src0_1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": null,
+    "dst": null,
+    "f0": null,
+    "f1": null
+   },
+   "maxOff": {
+    "src": 0,
+    "dst": 0,
+    "f0": 0,
+    "f1": 0
+   },
+   "ripple": {
+    "src": 0,
+    "dst": 0,
+    "f0": 0,
+    "f1": 0
+   }
+  },
+  {
+   "case": "src1_0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": 2.64541008487554,
+    "dst": 0.8885177019919541,
+    "f0": 1.150475279296338,
+    "f1": 1.8726122650340957
+   },
+   "maxOff": {
+    "src": 0,
+    "dst": 0,
+    "f0": 0,
+    "f1": 0
+   },
+   "ripple": {
+    "src": 7.993605777301127e-15,
+    "dst": 3.3306690738754696e-15,
+    "f0": 3.3306690738754696e-15,
+    "f1": 5.10702591327572e-15
+   }
+  },
+  {
+   "case": "src1_1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": 2.64541008487554,
+    "dst": 0.8885177019919541,
+    "f0": 1.150475279296338,
+    "f1": 1.8726122650340957
+   },
+   "maxOff": {
+    "src": 0,
+    "dst": 0,
+    "f0": 0,
+    "f1": 0
+   },
+   "ripple": {
+    "src": 7.993605777301127e-15,
+    "dst": 3.3306690738754696e-15,
+    "f0": 3.3306690738754696e-15,
+    "f1": 5.10702591327572e-15
+   }
+  }
+ ]
+}

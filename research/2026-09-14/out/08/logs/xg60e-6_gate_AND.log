@@ -1,0 +1,31 @@
+xg60e-6_gate_AND: 3 cells, 4 cases, T=200, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 1.6127e-01 task 2.992e-02 bg 0.000e+00 acc 0.917 G0 2.809 [3s]
+it 10 loss 4.9632e-02 task 2.988e-02 bg 0.000e+00 acc 0.917 G0 2.848 [29s]
+it 20 loss 3.5870e-02 task 2.976e-02 bg 0.000e+00 acc 0.917 G0 2.843 [55s]
+it 30 loss 3.0512e-02 task 2.911e-02 bg 0.000e+00 acc 0.917 G0 2.876 [82s]
+it 40 loss 2.7875e-02 task 2.766e-02 bg 0.000e+00 acc 0.917 G0 2.971 [109s]
+it 50 loss 1.7338e-02 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.050 [135s]
+it 60 loss 1.2195e-02 task 3.592e-03 bg 0.000e+00 acc 0.981 G0 3.029 [162s]
+it 70 loss 1.5112e-02 task 1.424e-02 bg 0.000e+00 acc 0.939 G0 3.027 [188s]
+it 80 loss 2.8816e-02 task 2.686e-02 bg 0.000e+00 acc 0.917 G0 2.992 [215s]
+it 90 loss 2.9363e-02 task 2.870e-02 bg 0.000e+00 acc 0.917 G0 2.960 [240s]
+it 100 loss 2.8589e-02 task 2.815e-02 bg 0.000e+00 acc 0.917 G0 2.949 [265s]
+it 110 loss 2.8043e-02 task 2.780e-02 bg 0.000e+00 acc 0.917 G0 2.945 [291s]
+it 120 loss 2.7822e-02 task 2.772e-02 bg 0.000e+00 acc 0.917 G0 2.944 [316s]
+it 130 loss 2.7558e-02 task 2.751e-02 bg 0.000e+00 acc 0.917 G0 2.944 [341s]
+it 140 loss 2.6667e-02 task 2.661e-02 bg 0.000e+00 acc 0.917 G0 2.945 [366s]
+it 150 loss 2.5311e-02 task 2.520e-02 bg 0.000e+00 acc 0.917 G0 2.946 [391s]
+it 160 loss 2.6945e-02 task 2.689e-02 bg 0.000e+00 acc 0.917 G0 2.947 [416s]
+it 170 loss 2.3772e-02 task 2.369e-02 bg 0.000e+00 acc 0.917 G0 2.949 [441s]
+it 180 loss 2.5885e-02 task 2.573e-02 bg 0.000e+00 acc 0.917 G0 2.952 [468s]
+it 190 loss 1.9866e-01 task 8.948e-02 bg 0.000e+00 acc 0.750 G0 2.902 [495s]
+it 200 loss 8.9975e-02 task 8.958e-02 bg 0.000e+00 acc 0.750 G0 2.882 [522s]
+it 210 loss 9.5280e-02 task 8.945e-02 bg 0.000e+00 acc 0.750 G0 2.875 [548s]
+it 220 loss 9.0252e-02 task 8.935e-02 bg 0.000e+00 acc 0.750 G0 2.872 [575s]
+it 230 loss 8.9509e-02 task 8.931e-02 bg 0.000e+00 acc 0.750 G0 2.871 [602s]
+it 240 loss 8.9551e-02 task 8.928e-02 bg 0.000e+00 acc 0.750 G0 2.871 [628s]
+it 249 loss 8.9256e-02 task 8.926e-02 bg 0.000e+00 acc 0.750 G0 2.871 [652s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/xg60e-6_gate_AND

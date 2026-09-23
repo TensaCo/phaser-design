@@ -1,0 +1,4 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/io6_gate_NOT_spec.json 10000
+io6_gate_NOT NOT0: acc(train window) 0.992 firstFail 155 extended-survival 10000/10000 margin 0.99
+io6_gate_NOT NOT1: acc(train window) 0.500 firstFail 80 extended-survival 201/10000 margin 0.29

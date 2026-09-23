@@ -1,0 +1,31 @@
+xg100_bool_halfadd: 5 cells, 4 cases, T=240, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 2.1798e-01 task 6.741e-02 bg 0.000e+00 acc 0.812 G0 2.608 [3s]
+it 10 loss 9.0239e-02 task 6.736e-02 bg 0.000e+00 acc 0.812 G0 2.654 [33s]
+it 20 loss 7.3571e-02 task 6.737e-02 bg 0.000e+00 acc 0.812 G0 2.659 [64s]
+it 30 loss 6.8648e-02 task 6.729e-02 bg 0.000e+00 acc 0.812 G0 2.663 [95s]
+it 40 loss 6.7559e-02 task 6.712e-02 bg 0.000e+00 acc 0.812 G0 2.711 [126s]
+it 50 loss 6.7039e-02 task 6.698e-02 bg 0.000e+00 acc 0.812 G0 2.792 [180s]
+it 60 loss 6.6180e-02 task 6.616e-02 bg 0.000e+00 acc 0.812 G0 2.921 [215s]
+it 70 loss 1.5651e-01 task 6.579e-02 bg 0.000e+00 acc 0.812 G0 2.952 [250s]
+it 80 loss 1.3732e-01 task 6.713e-02 bg 0.000e+00 acc 0.812 G0 2.907 [285s]
+it 90 loss 1.2165e-01 task 1.102e-01 bg 0.000e+00 acc 0.688 G0 2.890 [320s]
+it 100 loss 1.0893e-01 task 1.088e-01 bg 0.000e+00 acc 0.688 G0 2.885 [354s]
+it 110 loss 1.1410e-01 task 9.875e-02 bg 0.000e+00 acc 0.688 G0 2.859 [389s]
+it 120 loss 2.4712e-01 task 1.106e-01 bg 0.000e+00 acc 0.688 G0 2.814 [423s]
+it 130 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.797 [457s]
+it 140 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.791 [491s]
+it 150 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.789 [524s]
+it 160 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.789 [559s]
+it 170 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [592s]
+it 180 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [626s]
+it 190 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [660s]
+it 200 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [694s]
+it 210 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [727s]
+it 220 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [761s]
+it 230 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [797s]
+it 240 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [831s]
+it 249 loss 1.5750e-01 task 1.575e-01 bg 0.000e+00 acc 0.562 G0 2.788 [862s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/xg100_bool_halfadd

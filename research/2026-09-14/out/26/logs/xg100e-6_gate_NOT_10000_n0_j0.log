@@ -1,0 +1,7 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 26-verify.ts out/08/xg100e-6_gate_NOT_spec.json 10000 400 0 0
+xg100e-6_gate_NOT NOT0: acc(train window) 0.500 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_NOT NOT1: acc(train window) 0.500 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_NOT NOT0: OK (checked every trip 400–10000) out=1 minON 0.643 ripple 0.000 | in0=0 maxOFF 0.015 ripple 0.000
+xg100e-6_gate_NOT NOT1: OK (checked every trip 400–10000) out=0 maxOFF 0.085 ripple 0.000 | in0=1 minON 24.134 ripple 0.000
+xg100e-6_gate_NOT: ALL CASES HOLD to 10000 trips (noise 0, jitter 0) threshold 0.35

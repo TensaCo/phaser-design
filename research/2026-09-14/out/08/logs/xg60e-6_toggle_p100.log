@@ -1,0 +1,31 @@
+xg60e-6_toggle_p100: 2 cells, 1 cases, T=400, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 3.9708e+01 task 3.971e+01 bg 0.000e+00 acc 0.500 G0 2.791 [2s]
+it 10 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.728 [27s]
+it 20 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.706 [52s]
+it 30 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.698 [76s]
+it 40 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.695 [101s]
+it 50 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [126s]
+it 60 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [151s]
+it 70 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [176s]
+it 80 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [201s]
+it 90 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [226s]
+it 100 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [252s]
+it 110 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [277s]
+it 120 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [303s]
+it 130 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [328s]
+it 140 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [354s]
+it 150 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [379s]
+it 160 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [407s]
+it 170 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [433s]
+it 180 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [458s]
+it 190 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [484s]
+it 200 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [509s]
+it 210 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [534s]
+it 220 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [559s]
+it 230 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [584s]
+it 240 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [609s]
+it 249 loss 1.8000e-01 task 1.800e-01 bg 0.000e+00 acc 0.500 G0 2.693 [633s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/xg60e-6_toggle_p100

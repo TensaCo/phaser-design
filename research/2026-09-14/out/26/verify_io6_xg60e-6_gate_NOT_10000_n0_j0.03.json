@@ -1,0 +1,46 @@
+{
+ "tag": "io6_xg60e-6_gate_NOT",
+ "horizon": 10000,
+ "noiseRel": 0,
+ "jitter": 0.03,
+ "thr": 0.35,
+ "allOk": true,
+ "rows": [
+  {
+   "case": "NOT0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": 0.5786358037624852,
+    "in0": null
+   },
+   "maxOff": {
+    "out": 0,
+    "in0": 0.002394721162986264
+   },
+   "ripple": {
+    "out": 6.772360450213455e-15,
+    "in0": 5.811323644522304e-17
+   }
+  },
+  {
+   "case": "NOT1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": null,
+    "in0": 13.38720214695002
+   },
+   "maxOff": {
+    "out": 0.11416134646529069,
+    "in0": 0
+   },
+   "ripple": {
+    "out": 1.9984014443252818e-15,
+    "in0": 2.4868995751603507e-14
+   }
+  }
+ ]
+}

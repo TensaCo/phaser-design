@@ -1,0 +1,12 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 23-robust.ts 1000000 long1e6_noise1e-3
+  seed 1 t 100000 ber 0.000 on 1.52 off 0.0065 [356s]
+  seed 1 t 300000 ber 0.000 on 1.50 off 0.0056 [1125s]
+  seed 1 t 1000000 ber 0.000 on 1.55 off 0.0071 [3810s]
+  seed 2 t 100000 ber 0.000 on 1.32 off 0.0046 [680s]
+  seed 2 t 300000 ber 0.000 on 1.36 off 0.0058 [1427s]
+  seed 2 t 1000000 ber 0.000 on 1.27 off 0.0053 [4035s]
+  seed 3 t 100000 ber 0.000 on 1.37 off 0.0051 [374s]
+  seed 3 t 300000 ber 0.000 on 1.39 off 0.0063 [1128s]
+  seed 3 t 1000000 ber 0.000 on 1.39 off 0.0053 [3731s]
+long1e6_noise1e-3: focal 0 dark 0 noise 0.001 flicker 0/1000 Ld 0 G0 3 → BER@1000000 0.000/0.000/0.000 first error -1/-1/-1 on_min 1.55/1.27/1.39 off_max 0.0071/0.0053/0.0053

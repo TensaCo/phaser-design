@@ -1,0 +1,31 @@
+amp2_bool_satstep2: 7 cells, 16 cases, T=240, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 2.7104e-01 task 1.199e-01 bg 0.000e+00 acc 0.667 G0 3.010 [13s]
+it 10 loss 1.1978e-01 task 8.992e-02 bg 0.000e+00 acc 0.750 G0 3.074 [119s]
+it 20 loss 9.4763e-02 task 8.990e-02 bg 0.000e+00 acc 0.750 G0 3.108 [352s]
+it 30 loss 9.2036e-02 task 8.990e-02 bg 0.000e+00 acc 0.750 G0 3.133 [629s]
+it 40 loss 9.1409e-02 task 8.986e-02 bg 0.000e+00 acc 0.750 G0 3.143 [920s]
+it 50 loss 9.0285e-02 task 8.982e-02 bg 0.000e+00 acc 0.750 G0 3.147 [1038s]
+it 60 loss 8.9857e-02 task 8.979e-02 bg 0.000e+00 acc 0.750 G0 3.149 [1150s]
+it 70 loss 8.9750e-02 task 8.973e-02 bg 0.000e+00 acc 0.750 G0 3.151 [1279s]
+it 80 loss 8.9639e-02 task 8.960e-02 bg 0.000e+00 acc 0.750 G0 3.153 [1389s]
+it 90 loss 8.9347e-02 task 8.934e-02 bg 0.000e+00 acc 0.750 G0 3.157 [1500s]
+it 100 loss 9.0432e-02 task 9.018e-02 bg 0.000e+00 acc 0.749 G0 3.159 [1608s]
+it 110 loss 8.9675e-02 task 8.934e-02 bg 0.000e+00 acc 0.750 G0 3.124 [1716s]
+it 120 loss 8.9536e-02 task 8.924e-02 bg 0.000e+00 acc 0.750 G0 3.116 [1824s]
+it 130 loss 8.9247e-02 task 8.920e-02 bg 0.000e+00 acc 0.750 G0 3.117 [1933s]
+it 140 loss 8.8789e-02 task 8.877e-02 bg 0.000e+00 acc 0.750 G0 3.124 [2042s]
+it 150 loss 8.8605e-02 task 8.682e-02 bg 0.000e+00 acc 0.750 G0 3.140 [2150s]
+it 160 loss 1.0695e-01 task 9.539e-02 bg 0.000e+00 acc 0.750 G0 3.186 [2257s]
+it 170 loss 8.2588e-02 task 8.070e-02 bg 0.000e+00 acc 0.750 G0 3.229 [2364s]
+it 180 loss 8.0686e-02 task 8.055e-02 bg 0.000e+00 acc 0.750 G0 3.258 [2470s]
+it 190 loss 8.0741e-02 task 8.039e-02 bg 0.000e+00 acc 0.750 G0 3.271 [2577s]
+it 200 loss 8.0251e-02 task 8.009e-02 bg 0.000e+00 acc 0.753 G0 3.277 [2685s]
+it 210 loss 8.0309e-02 task 8.016e-02 bg 0.000e+00 acc 0.750 G0 3.281 [2795s]
+it 220 loss 8.0084e-02 task 8.004e-02 bg 0.000e+00 acc 0.748 G0 3.280 [2905s]
+it 230 loss 7.9921e-02 task 7.983e-02 bg 0.000e+00 acc 0.749 G0 3.282 [3021s]
+it 240 loss 7.9590e-02 task 7.955e-02 bg 0.000e+00 acc 0.747 G0 3.285 [3140s]
+it 249 loss 7.9622e-02 task 7.957e-02 bg 0.000e+00 acc 0.751 G0 3.289 [3255s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/amp2_bool_satstep2

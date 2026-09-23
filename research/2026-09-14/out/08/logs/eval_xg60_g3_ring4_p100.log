@@ -1,0 +1,3 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/xg60_g3_ring4_p100_spec.json 10000
+xg60_g3_ring4_p100 start0: acc(train window) 0.750 firstFail 21 extended-survival 525/10000 margin 0.00

@@ -1,0 +1,31 @@
+xg60_g3_ring4_p100: 4 cells, 1 cases, T=500, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 3.0775e+01 task 3.078e+01 bg 0.000e+00 acc 0.700 G0 2.990 [3s]
+it 10 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.922 [34s]
+it 20 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.899 [66s]
+it 30 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.890 [98s]
+it 40 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.886 [130s]
+it 50 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.885 [162s]
+it 60 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.885 [194s]
+it 70 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [227s]
+it 80 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [260s]
+it 90 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [292s]
+it 100 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [324s]
+it 110 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [356s]
+it 120 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [388s]
+it 130 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [420s]
+it 140 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [453s]
+it 150 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [485s]
+it 160 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [517s]
+it 170 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [549s]
+it 180 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [580s]
+it 190 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [611s]
+it 200 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [643s]
+it 210 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [674s]
+it 220 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [705s]
+it 230 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [736s]
+it 240 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [767s]
+it 249 loss 9.0000e-02 task 9.000e-02 bg 0.000e+00 acc 0.750 G0 2.884 [795s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/xg60_g3_ring4_p100

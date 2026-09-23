@@ -1,0 +1,7 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 26-verify.ts out/08/io6_xg60e-6_gate_NOT_spec.json 10000 400 1e-3 0
+io6_xg60e-6_gate_NOT NOT0: acc(train window) 0.500 firstFail 80 extended-survival 201/10000 margin 0.00
+io6_xg60e-6_gate_NOT NOT1: acc(train window) 0.500 firstFail 80 extended-survival 201/10000 margin 0.00
+io6_xg60e-6_gate_NOT NOT0: OK (checked every trip 400–10000) out=1 minON 0.474 ripple 0.175 | in0=0 maxOFF 0.007 ripple 0.004
+io6_xg60e-6_gate_NOT NOT1: OK (checked every trip 400–10000) out=0 maxOFF 0.165 ripple 0.063 | in0=1 minON 13.617 ripple 0.513
+io6_xg60e-6_gate_NOT: ALL CASES HOLD to 10000 trips (noise 0.001, jitter 0) threshold 0.35

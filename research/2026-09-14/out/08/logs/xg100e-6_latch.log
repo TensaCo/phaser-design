@@ -1,0 +1,31 @@
+xg100e-6_latch: 4 cells, 8 cases, T=240, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 3.5812e+01 task 3.559e+01 bg 0.000e+00 acc 0.720 G0 2.592 [6s]
+it 10 loss 2.0290e-01 task 1.717e-01 bg 0.000e+00 acc 0.500 G0 2.535 [65s]
+it 20 loss 2.1900e-01 task 1.723e-01 bg 0.000e+00 acc 0.500 G0 2.515 [150s]
+it 30 loss 2.2759e-01 task 1.716e-01 bg 0.000e+00 acc 0.500 G0 2.507 [208s]
+it 40 loss 2.2818e-01 task 1.706e-01 bg 0.000e+00 acc 0.500 G0 2.504 [268s]
+it 50 loss 2.2200e-01 task 1.696e-01 bg 0.000e+00 acc 0.500 G0 2.503 [327s]
+it 60 loss 2.1467e-01 task 1.683e-01 bg 0.000e+00 acc 0.500 G0 2.502 [386s]
+it 70 loss 2.0804e-01 task 1.664e-01 bg 0.000e+00 acc 0.500 G0 2.502 [443s]
+it 80 loss 2.0100e-01 task 1.640e-01 bg 0.000e+00 acc 0.500 G0 2.501 [503s]
+it 90 loss 1.9357e-01 task 1.609e-01 bg 0.000e+00 acc 0.500 G0 2.501 [564s]
+it 100 loss 1.8558e-01 task 1.571e-01 bg 0.000e+00 acc 0.500 G0 2.501 [624s]
+it 110 loss 1.7740e-01 task 1.533e-01 bg 0.000e+00 acc 0.500 G0 2.501 [684s]
+it 120 loss 1.6923e-01 task 1.490e-01 bg 0.000e+00 acc 0.500 G0 2.501 [759s]
+it 130 loss 1.6078e-01 task 1.440e-01 bg 0.000e+00 acc 0.500 G0 2.501 [821s]
+it 140 loss 1.5165e-01 task 1.376e-01 bg 0.000e+00 acc 0.500 G0 2.501 [880s]
+it 150 loss 1.4148e-01 task 1.298e-01 bg 0.000e+00 acc 0.500 G0 2.501 [940s]
+it 160 loss 1.3105e-01 task 1.216e-01 bg 0.000e+00 acc 0.500 G0 2.502 [1000s]
+it 170 loss 1.2292e-01 task 1.133e-01 bg 0.000e+00 acc 0.499 G0 2.502 [1062s]
+it 180 loss 1.1753e-01 task 1.118e-01 bg 0.000e+00 acc 0.474 G0 2.503 [1122s]
+it 190 loss 1.1052e-01 task 1.008e-01 bg 0.000e+00 acc 0.493 G0 2.504 [1181s]
+it 200 loss 9.8539e-02 task 8.887e-02 bg 0.000e+00 acc 0.500 G0 2.505 [1241s]
+it 210 loss 7.7778e-02 task 6.805e-02 bg 0.000e+00 acc 0.500 G0 2.506 [1300s]
+it 220 loss 6.1161e-02 task 5.326e-02 bg 0.000e+00 acc 0.522 G0 2.507 [1359s]
+it 230 loss 5.2561e-02 task 4.636e-02 bg 1.890e-01 acc 0.755 G0 2.508 [1419s]
+it 240 loss 4.9136e-02 task 4.505e-02 bg 0.000e+00 acc 0.753 G0 2.509 [1480s]
+it 249 loss 4.7186e-02 task 4.504e-02 bg 0.000e+00 acc 0.752 G0 2.509 [1535s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/xg100e-6_latch

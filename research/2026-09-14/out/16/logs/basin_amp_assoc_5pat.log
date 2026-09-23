@@ -1,0 +1,67 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 16-basin.ts out/08/amp_assoc_5pat_spec.json 3000
+amp_assoc_5pat circle_flip4_0: acc(train window) 0.688 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat circle_flip4_1: acc(train window) 0.688 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat circle_flip8_0: acc(train window) 0.688 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat circle_flip8_1: acc(train window) 0.672 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat cross_flip4_0: acc(train window) 0.781 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat cross_flip4_1: acc(train window) 0.766 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat cross_flip8_0: acc(train window) 0.781 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat cross_flip8_1: acc(train window) 0.781 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat smile_flip4_0: acc(train window) 0.625 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat smile_flip4_1: acc(train window) 0.625 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat smile_flip8_0: acc(train window) 0.625 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat smile_flip8_1: acc(train window) 0.609 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand1_flip4_0: acc(train window) 0.688 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand1_flip4_1: acc(train window) 0.688 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand1_flip8_0: acc(train window) 0.672 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand1_flip8_1: acc(train window) 0.656 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand2_flip4_0: acc(train window) 0.688 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand2_flip4_1: acc(train window) 0.703 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand2_flip8_0: acc(train window) 0.672 firstFail 100 extended-survival 201/3000 margin 0.00
+amp_assoc_5pat rand2_flip8_1: acc(train window) 0.703 firstFail 100 extended-survival 201/3000 margin 0.00
+circle k=0: recovered 0/6 other 0 spurious 6 [61s]
+circle k=2: recovered 0/6 other 0 spurious 6 [123s]
+circle k=4: recovered 0/6 other 0 spurious 6 [186s]
+circle k=6: recovered 0/6 other 0 spurious 6 [247s]
+circle k=8: recovered 0/6 other 0 spurious 6 [309s]
+circle k=12: recovered 0/6 other 0 spurious 6 [371s]
+circle k=16: recovered 0/6 other 0 spurious 6 [434s]
+circle k=24: recovered 0/6 other 0 spurious 6 [496s]
+circle k=32: recovered 0/6 other 0 spurious 6 [557s]
+cross k=0: recovered 0/6 other 0 spurious 6 [618s]
+cross k=2: recovered 0/6 other 0 spurious 6 [679s]
+cross k=4: recovered 0/6 other 0 spurious 6 [739s]
+cross k=6: recovered 0/6 other 0 spurious 6 [801s]
+cross k=8: recovered 0/6 other 0 spurious 6 [863s]
+cross k=12: recovered 0/6 other 0 spurious 6 [925s]
+cross k=16: recovered 0/6 other 0 spurious 6 [994s]
+cross k=24: recovered 0/6 other 0 spurious 6 [1062s]
+cross k=32: recovered 0/6 other 0 spurious 6 [1124s]
+smile k=0: recovered 0/6 other 0 spurious 6 [1186s]
+smile k=2: recovered 0/6 other 0 spurious 6 [1249s]
+smile k=4: recovered 0/6 other 0 spurious 6 [1311s]
+smile k=6: recovered 0/6 other 0 spurious 6 [1375s]
+smile k=8: recovered 0/6 other 0 spurious 6 [1462s]
+smile k=12: recovered 0/6 other 0 spurious 6 [1524s]
+smile k=16: recovered 0/6 other 0 spurious 6 [1584s]
+smile k=24: recovered 0/6 other 0 spurious 6 [1647s]
+smile k=32: recovered 0/6 other 0 spurious 6 [1708s]
+rand1 k=0: recovered 0/6 other 0 spurious 6 [1769s]
+rand1 k=2: recovered 0/6 other 0 spurious 6 [1831s]
+rand1 k=4: recovered 0/6 other 0 spurious 6 [1893s]
+rand1 k=6: recovered 0/6 other 0 spurious 6 [1960s]
+rand1 k=8: recovered 0/6 other 0 spurious 6 [2023s]
+rand1 k=12: recovered 0/6 other 0 spurious 6 [2095s]
+rand1 k=16: recovered 0/6 other 0 spurious 6 [2158s]
+rand1 k=24: recovered 0/6 other 0 spurious 6 [2219s]
+rand1 k=32: recovered 0/6 other 0 spurious 6 [2280s]
+rand2 k=0: recovered 0/6 other 0 spurious 6 [2343s]
+rand2 k=2: recovered 0/6 other 0 spurious 6 [2407s]
+rand2 k=4: recovered 0/6 other 0 spurious 6 [2470s]
+rand2 k=6: recovered 0/6 other 0 spurious 6 [2532s]
+rand2 k=8: recovered 0/6 other 0 spurious 6 [2594s]
+rand2 k=12: recovered 0/6 other 0 spurious 6 [2655s]
+rand2 k=16: recovered 0/6 other 0 spurious 6 [2717s]
+rand2 k=24: recovered 0/6 other 0 spurious 6 [2779s]
+rand2 k=32: recovered 0/6 other 0 spurious 6 [2842s]

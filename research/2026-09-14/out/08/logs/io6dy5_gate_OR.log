@@ -1,0 +1,31 @@
+io6dy5_gate_OR: 3 cells, 4 cases, T=200, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 1.9198e-01 task 8.980e-02 bg 0.000e+00 acc 0.750 G0 3.010 [2s]
+it 10 loss 1.0169e-01 task 8.968e-02 bg 0.000e+00 acc 0.750 G0 3.054 [28s]
+it 20 loss 9.4072e-02 task 8.945e-02 bg 0.000e+00 acc 0.750 G0 3.077 [54s]
+it 30 loss 9.0550e-02 task 8.889e-02 bg 0.000e+00 acc 0.750 G0 3.160 [80s]
+it 40 loss 8.9527e-02 task 8.826e-02 bg 0.000e+00 acc 0.750 G0 3.251 [106s]
+it 50 loss 9.0268e-02 task 8.971e-02 bg 0.000e+00 acc 0.750 G0 3.212 [132s]
+it 60 loss 9.0805e-02 task 8.982e-02 bg 0.000e+00 acc 0.750 G0 3.198 [158s]
+it 70 loss 9.0203e-02 task 8.988e-02 bg 0.000e+00 acc 0.750 G0 3.193 [185s]
+it 80 loss 8.9963e-02 task 8.981e-02 bg 0.000e+00 acc 0.750 G0 3.192 [211s]
+it 90 loss 8.9874e-02 task 8.981e-02 bg 0.000e+00 acc 0.750 G0 3.191 [238s]
+it 100 loss 8.9836e-02 task 8.983e-02 bg 0.000e+00 acc 0.750 G0 3.191 [265s]
+it 110 loss 8.9814e-02 task 8.981e-02 bg 0.000e+00 acc 0.750 G0 3.191 [291s]
+it 120 loss 8.9802e-02 task 8.979e-02 bg 0.000e+00 acc 0.750 G0 3.191 [317s]
+it 130 loss 8.9788e-02 task 8.978e-02 bg 0.000e+00 acc 0.750 G0 3.191 [343s]
+it 140 loss 8.9773e-02 task 8.977e-02 bg 0.000e+00 acc 0.750 G0 3.192 [369s]
+it 150 loss 8.9757e-02 task 8.975e-02 bg 0.000e+00 acc 0.750 G0 3.192 [395s]
+it 160 loss 8.9740e-02 task 8.974e-02 bg 0.000e+00 acc 0.750 G0 3.192 [421s]
+it 170 loss 8.9721e-02 task 8.972e-02 bg 0.000e+00 acc 0.750 G0 3.192 [447s]
+it 180 loss 8.9700e-02 task 8.969e-02 bg 0.000e+00 acc 0.750 G0 3.193 [473s]
+it 190 loss 8.9677e-02 task 8.967e-02 bg 0.000e+00 acc 0.750 G0 3.193 [499s]
+it 200 loss 8.9648e-02 task 8.963e-02 bg 0.000e+00 acc 0.750 G0 3.193 [525s]
+it 210 loss 8.9613e-02 task 8.957e-02 bg 0.000e+00 acc 0.750 G0 3.193 [551s]
+it 220 loss 8.9567e-02 task 8.950e-02 bg 0.000e+00 acc 0.750 G0 3.194 [577s]
+it 230 loss 8.9511e-02 task 8.943e-02 bg 0.000e+00 acc 0.750 G0 3.194 [603s]
+it 240 loss 8.9442e-02 task 8.935e-02 bg 0.000e+00 acc 0.750 G0 3.195 [629s]
+it 249 loss 8.9369e-02 task 8.927e-02 bg 0.000e+00 acc 0.750 G0 3.196 [653s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/io6dy5_gate_OR

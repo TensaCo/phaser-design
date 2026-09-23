@@ -1,0 +1,10 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/amp2_bool_fulladd_spec.json 10000
+amp2_bool_fulladd fulladd000: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 350000000000.00
+amp2_bool_fulladd fulladd001: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_fulladd fulladd010: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_fulladd fulladd011: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_fulladd fulladd100: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_fulladd fulladd101: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_fulladd fulladd110: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_fulladd fulladd111: acc(train window) 0.600 firstFail 80 extended-survival 241/10000 margin 0.00

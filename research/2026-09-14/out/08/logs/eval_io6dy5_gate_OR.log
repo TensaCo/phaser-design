@@ -1,0 +1,6 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/io6dy5_gate_OR_spec.json 10000
+io6dy5_gate_OR OR00: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 350000000000.00
+io6dy5_gate_OR OR01: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.02
+io6dy5_gate_OR OR10: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.01
+io6dy5_gate_OR OR11: acc(train window) 0.893 firstFail 80 extended-survival 10000/10000 margin 0.13

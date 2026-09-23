@@ -1,0 +1,31 @@
+chain2_s6: 3 cells, 4 cases, T=200, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 2.2352e-01 task 1.194e-01 bg 0.000e+00 acc 0.667 G0 3.010 [3s]
+it 10 loss 1.3698e-01 task 1.189e-01 bg 0.000e+00 acc 0.667 G0 3.083 [29s]
+it 20 loss 1.1989e-01 task 1.149e-01 bg 0.000e+00 acc 0.667 G0 3.167 [55s]
+it 30 loss 6.0385e-02 task 5.843e-02 bg 0.000e+00 acc 0.833 G0 3.184 [81s]
+it 40 loss 5.7917e-02 task 5.744e-02 bg 0.000e+00 acc 0.833 G0 3.189 [107s]
+it 50 loss 5.3738e-02 task 5.356e-02 bg 0.000e+00 acc 0.833 G0 3.205 [133s]
+it 60 loss 3.8559e-03 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.295 [160s]
+it 70 loss 5.4865e-03 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.383 [186s]
+it 80 loss 1.2583e-03 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.433 [213s]
+it 90 loss 1.5885e-01 task 1.080e-01 bg 0.000e+00 acc 0.667 G0 3.523 [239s]
+it 100 loss 2.5129e-01 task 1.163e-01 bg 0.000e+00 acc 0.667 G0 3.601 [265s]
+it 110 loss 1.9072e-01 task 1.154e-01 bg 0.000e+00 acc 0.667 G0 3.658 [292s]
+it 120 loss 1.1927e-01 task 1.093e-01 bg 0.000e+00 acc 0.667 G0 3.708 [318s]
+it 130 loss 2.2027e-01 task 1.185e-01 bg 0.000e+00 acc 0.667 G0 3.670 [344s]
+it 140 loss 2.5130e-01 task 1.192e-01 bg 0.000e+00 acc 0.667 G0 3.644 [370s]
+it 150 loss 2.2636e-01 task 1.192e-01 bg 0.000e+00 acc 0.667 G0 3.649 [396s]
+it 160 loss 1.7508e-01 task 1.191e-01 bg 0.000e+00 acc 0.667 G0 3.651 [423s]
+it 170 loss 1.4356e-01 task 1.196e-01 bg 0.000e+00 acc 0.667 G0 3.651 [449s]
+it 180 loss 1.3429e-01 task 1.215e-01 bg 0.000e+00 acc 0.645 G0 3.651 [476s]
+it 190 loss 1.3249e-01 task 1.220e-01 bg 0.000e+00 acc 0.640 G0 3.652 [502s]
+it 200 loss 1.3105e-01 task 1.204e-01 bg 0.000e+00 acc 0.667 G0 3.653 [528s]
+it 210 loss 1.2819e-01 task 1.198e-01 bg 0.000e+00 acc 0.667 G0 3.655 [554s]
+it 220 loss 1.2660e-01 task 1.187e-01 bg 0.000e+00 acc 0.667 G0 3.656 [580s]
+it 230 loss 1.2541e-01 task 1.186e-01 bg 0.000e+00 acc 0.667 G0 3.658 [606s]
+it 240 loss 1.2487e-01 task 1.184e-01 bg 0.000e+00 acc 0.667 G0 3.659 [632s]
+it 249 loss 1.2435e-01 task 1.182e-01 bg 0.000e+00 acc 0.667 G0 3.660 [656s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/chain2_s6

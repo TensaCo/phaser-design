@@ -1,0 +1,3 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 29-noise.ts 1e8 bits
+29/feat_Nc1e8_bits: 31 s; detected/step 3.97e+7; injected photons/step 1.61e+9

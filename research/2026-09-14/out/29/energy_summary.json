@@ -1,0 +1,268 @@
+{
+ "params": {
+  "wallplug": [
+   0.5,
+   0.3,
+   0.1,
+   "",
+   "electrical\u2192optical efficiency of source and gain pump (laser diodes 30\u201360 %; lower for SOA/VCSEL gain)"
+  ],
+  "dac_mod_J": [
+   1e-13,
+   1e-12,
+   1e-11,
+   "J/sample",
+   "DAC + modulator per analog input sample"
+  ],
+  "adc_fom_J": [
+   1e-15,
+   1e-14,
+   1e-13,
+   "J/conv-step",
+   "ADC Walden figure of merit; 8 bit \u21d2 \u00d7256 per conversion"
+  ],
+  "rx_J": [
+   1e-13,
+   1e-12,
+   5e-12,
+   "J/sample",
+   "photodiode + TIA front end per detector bin per readout"
+  ],
+  "readout_mac_J": [
+   5e-14,
+   2e-13,
+   1e-12,
+   "J/MAC",
+   "digital linear readout MAC incl. local SRAM (8-bit ASIC \u2248 0.05\u20130.2; CPU/GPU \u2248 1+)"
+  ],
+  "slm_static_W": [
+   0.0,
+   0.1,
+   1.0,
+   "W",
+   "holding a static phase + absorbing program (0 = fabricated phase/absorber plates)"
+  ],
+  "thermal_W": [
+   0.05,
+   0.3,
+   1.0,
+   "W",
+   "temperature/phase stabilisation (Exp. 23: \u2264 0.03 rad rms phase needed)"
+  ],
+  "digital_mac_J": [
+   5e-14,
+   2e-13,
+   2e-12,
+   "J/MAC",
+   "digital reservoir MAC: 8-bit ASIC (0.05\u20130.2) \u2026 GPU batch-1 effective (\u2248 2)"
+  ]
+ },
+ "h_nu_J": 3.05607054945989e-19,
+ "clean": {
+  "memory_capacity": 35.055790020868514,
+  "narma10_nmse": 0.11544444279874613,
+  "xor_d2": 0.994
+ },
+ "sweep": [
+  {
+   "Nc": 100,
+   "memory_capacity": 0.08228749248935327,
+   "narma10_nmse": 1.1081442718826413,
+   "xor_d2": 0.484,
+   "detected_per_step": 1578.2421603391495,
+   "injected_photons_per_step": 1058.336765925317
+  },
+  {
+   "Nc": 1000,
+   "memory_capacity": 0.04831048916424071,
+   "narma10_nmse": 1.1199247622224329,
+   "xor_d2": 0.486,
+   "detected_per_step": 1875.3744894367462,
+   "injected_photons_per_step": 10583.36765925317
+  },
+  {
+   "Nc": 10000,
+   "memory_capacity": 0.9230961198995474,
+   "narma10_nmse": 0.9157872261585602,
+   "xor_d2": 0.533,
+   "detected_per_step": 5116.615695411875,
+   "injected_photons_per_step": 105833.6765925317
+  },
+  {
+   "Nc": 100000,
+   "memory_capacity": 6.753976705138727,
+   "narma10_nmse": 0.513295151809811,
+   "xor_d2": 0.631,
+   "detected_per_step": 41493.51887255351,
+   "injected_photons_per_step": 1058336.7659253168
+  },
+  {
+   "Nc": 1000000,
+   "memory_capacity": 15.198184763636142,
+   "narma10_nmse": 0.30974769362208815,
+   "xor_d2": 0.746,
+   "detected_per_step": 405229.0658125819,
+   "injected_photons_per_step": 10583367.659253169
+  },
+  {
+   "Nc": 10000000,
+   "memory_capacity": 21.823905187111087,
+   "narma10_nmse": 0.25031369045179613,
+   "xor_d2": 0.824,
+   "detected_per_step": 4041197.183409454,
+   "injected_photons_per_step": 105833676.5925317
+  },
+  {
+   "Nc": 100000000,
+   "memory_capacity": 27.341481244851312,
+   "narma10_nmse": 0.18977520254652833,
+   "xor_d2": 0.904,
+   "detected_per_step": 40400271.22177729,
+   "injected_photons_per_step": 1058336765.9253169
+  },
+  {
+   "Nc": 1000000000,
+   "memory_capacity": 31.263489034556077,
+   "narma10_nmse": 0.14324161510090946,
+   "xor_d2": 0.961,
+   "detected_per_step": 403998225.7877614,
+   "injected_photons_per_step": 10583367659.25317
+  },
+  {
+   "Nc": 10000000000,
+   "memory_capacity": 33.74468717818208,
+   "narma10_nmse": 0.12693016792717177,
+   "xor_d2": 0.989,
+   "detected_per_step": 4039978208.6370525,
+   "injected_photons_per_step": 105833676592.53171
+  },
+  {
+   "Nc": 100000000000,
+   "memory_capacity": 34.8172340351962,
+   "narma10_nmse": 0.11889010156355222,
+   "xor_d2": 0.992,
+   "detected_per_step": 40399738745.35485,
+   "injected_photons_per_step": 1058336765925.317
+  },
+  {
+   "Nc": 1000000000000,
+   "memory_capacity": 35.021694257751086,
+   "narma10_nmse": 0.11640783943453867,
+   "xor_d2": 0.994,
+   "detected_per_step": 403997271209.0614,
+   "injected_photons_per_step": 10583367659253.168
+  }
+ ],
+ "operating_point": {
+  "Nc": 10000000000,
+  "memory_capacity": 33.74468717818208,
+  "narma10_nmse": 0.12693016792717177,
+  "xor_d2": 0.989
+ },
+ "digital_best_by_N": {
+  "64": {
+   "memory_capacity": 36.532924533903035,
+   "narma10_nmse": 0.14579035477942195,
+   "xor_d2": 0.51,
+   "N": 64,
+   "rho": 0.9,
+   "ins": 0.5,
+   "leak": 1.0,
+   "act": "linear"
+  },
+  "128": {
+   "memory_capacity": 21.152193022036414,
+   "narma10_nmse": 0.07005871088752792,
+   "xor_d2": 1.0,
+   "N": 128,
+   "rho": 0.99,
+   "ins": 0.1,
+   "leak": 1.0,
+   "act": "tanh"
+  },
+  "256": {
+   "memory_capacity": 23.836650330735367,
+   "narma10_nmse": 0.05357444491338188,
+   "xor_d2": 1.0,
+   "N": 256,
+   "rho": 0.9,
+   "ins": 0.1,
+   "leak": 1.0,
+   "act": "tanh"
+  },
+  "512": {
+   "memory_capacity": 31.031715549839326,
+   "narma10_nmse": 0.021281477094631594,
+   "xor_d2": 1.0,
+   "N": 512,
+   "rho": 0.99,
+   "ins": 0.1,
+   "leak": 1.0,
+   "act": "tanh"
+  }
+ },
+ "digital_min_N_matching_all": null,
+ "digital_min_N_matching_narma_xor": 128,
+ "energy_per_step": {
+  "low": {
+   "optical_components": {
+    "pump": 1.9314365872586503e-08,
+    "source_as_simulated": 6.468703643509974e-08,
+    "source_ideal_coupler": 1.2937407287019947e-09,
+    "input_dac_mod": 1e-13,
+    "detection": 9.1136e-11,
+    "readout": 1.28e-11,
+    "static": 3.336587888323488e-10,
+    "step_time_s": 6.673175776646975e-09
+   },
+   "optical_total_ideal_coupler": 2.1045801390120845e-08,
+   "optical_total_as_simulated": 8.44390970965186e-08,
+   "digital": {
+    "64": 2.08256e-10,
+    "128": 8.25856e-10,
+    "256": 3.289856e-09,
+    "512": 1.3133056e-08
+   }
+  },
+  "nominal": {
+   "optical_components": {
+    "pump": 3.219060978764417e-08,
+    "source_as_simulated": 1.078117273918329e-07,
+    "source_ideal_coupler": 2.156234547836658e-09,
+    "input_dac_mod": 1e-12,
+    "detection": 9.1136e-10,
+    "readout": 5.12e-11,
+    "static": 2.6692703106587904e-09,
+    "step_time_s": 6.673175776646975e-09
+   },
+   "optical_total_ideal_coupler": 3.797967464613962e-08,
+   "optical_total_as_simulated": 1.4363516749013585e-07,
+   "digital": {
+    "64": 8.345600000000001e-10,
+    "128": 3.30496e-09,
+    "256": 1.316096e-08,
+    "512": 5.253376e-08
+   }
+  },
+  "high": {
+   "optical_components": {
+    "pump": 9.657182936293251e-08,
+    "source_as_simulated": 3.234351821754987e-07,
+    "source_ideal_coupler": 6.468703643509973e-09,
+    "input_dac_mod": 1e-11,
+    "detection": 7.8336e-09,
+    "readout": 2.56e-10,
+    "static": 1.334635155329395e-08,
+    "step_time_s": 6.673175776646975e-09
+   },
+   "optical_total_ideal_coupler": 1.2448648455973642e-07,
+   "optical_total_as_simulated": 4.4145296309172517e-07,
+   "digital": {
+    "64": 8.3456e-09,
+    "128": 3.30496e-08,
+    "256": 1.316096e-07,
+    "512": 5.253376e-07
+   }
+  }
+ }
+}

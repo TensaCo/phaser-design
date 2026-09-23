@@ -1,0 +1,11 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 26-verify.ts out/08/amp_wire_d6_spec.json 10000 400 0 0
+amp_wire_d6 src0_0: acc(train window) 0.000 firstFail 80 extended-survival 201/10000 margin 0.00
+amp_wire_d6 src0_1: acc(train window) 0.000 firstFail 80 extended-survival 201/10000 margin 0.00
+amp_wire_d6 src1_0: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 69.75
+amp_wire_d6 src1_1: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 58.60
+amp_wire_d6 src0_0: OK (checked every trip 400–10000) dst=0 maxOFF 0.000 ripple 0.000 | src=0 maxOFF 0.000 ripple 0.000
+amp_wire_d6 src0_1: OK (checked every trip 400–10000) dst=0 maxOFF 0.000 ripple 0.000 | src=0 maxOFF 0.000 ripple 0.000
+amp_wire_d6 src1_0: OK (checked every trip 400–10000) dst=1 minON 0.968 ripple 0.000 | src=1 minON 2.781 ripple 0.000
+amp_wire_d6 src1_1: OK (checked every trip 400–10000) dst=1 minON 0.968 ripple 0.000 | src=1 minON 2.781 ripple 0.000
+amp_wire_d6: ALL CASES HOLD to 10000 trips (noise 0, jitter 0) threshold 0.35

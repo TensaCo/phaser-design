@@ -1,0 +1,18 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/amp2_bool_parity4_spec.json 10000
+amp2_bool_parity4 parity40000: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 350000000000.00
+amp2_bool_parity4 parity40001: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_parity4 parity40010: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_parity4 parity40011: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 3.79
+amp2_bool_parity4 parity40100: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_parity4 parity40101: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 4.04
+amp2_bool_parity4 parity40110: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 4.52
+amp2_bool_parity4 parity40111: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_parity4 parity41000: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_parity4 parity41001: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 3.65
+amp2_bool_parity4 parity41010: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 4.85
+amp2_bool_parity4 parity41011: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_parity4 parity41100: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 4.66
+amp2_bool_parity4 parity41101: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.05
+amp2_bool_parity4 parity41110: acc(train window) 0.800 firstFail 80 extended-survival 241/10000 margin 0.00
+amp2_bool_parity4 parity41111: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 3.67

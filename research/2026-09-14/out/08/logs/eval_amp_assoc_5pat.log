@@ -1,0 +1,22 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/amp_assoc_5pat_spec.json 10000
+amp_assoc_5pat circle_flip4_0: acc(train window) 0.688 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat circle_flip4_1: acc(train window) 0.688 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat circle_flip8_0: acc(train window) 0.688 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat circle_flip8_1: acc(train window) 0.672 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat cross_flip4_0: acc(train window) 0.781 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat cross_flip4_1: acc(train window) 0.766 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat cross_flip8_0: acc(train window) 0.781 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat cross_flip8_1: acc(train window) 0.781 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat smile_flip4_0: acc(train window) 0.625 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat smile_flip4_1: acc(train window) 0.625 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat smile_flip8_0: acc(train window) 0.625 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat smile_flip8_1: acc(train window) 0.609 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand1_flip4_0: acc(train window) 0.688 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand1_flip4_1: acc(train window) 0.688 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand1_flip8_0: acc(train window) 0.672 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand1_flip8_1: acc(train window) 0.656 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand2_flip4_0: acc(train window) 0.688 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand2_flip4_1: acc(train window) 0.703 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand2_flip8_0: acc(train window) 0.672 firstFail 100 extended-survival 201/10000 margin 0.00
+amp_assoc_5pat rand2_flip8_1: acc(train window) 0.703 firstFail 100 extended-survival 201/10000 margin 0.00

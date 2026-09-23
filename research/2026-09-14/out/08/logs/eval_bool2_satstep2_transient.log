@@ -1,0 +1,18 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/bool2_satstep2_transient_spec.json 10000
+bool2_satstep2_transient satstep20000: acc(train window) 1.000 firstFail null extended-survival 98/10000 margin 11.45
+bool2_satstep2_transient satstep20001: acc(train window) 1.000 firstFail null extended-survival 71/10000 margin 1.35
+bool2_satstep2_transient satstep20010: acc(train window) 0.968 firstFail 30 extended-survival 71/10000 margin 0.76
+bool2_satstep2_transient satstep20011: acc(train window) 1.000 firstFail null extended-survival 125/10000 margin 1.51
+bool2_satstep2_transient satstep20100: acc(train window) 1.000 firstFail null extended-survival 78/10000 margin 8.28
+bool2_satstep2_transient satstep20101: acc(train window) 1.000 firstFail null extended-survival 72/10000 margin 1.17
+bool2_satstep2_transient satstep20110: acc(train window) 1.000 firstFail null extended-survival 71/10000 margin 2.59
+bool2_satstep2_transient satstep20111: acc(train window) 1.000 firstFail null extended-survival 71/10000 margin 1.26
+bool2_satstep2_transient satstep21000: acc(train window) 1.000 firstFail null extended-survival 72/10000 margin 1.09
+bool2_satstep2_transient satstep21001: acc(train window) 1.000 firstFail null extended-survival 100/10000 margin 1.29
+bool2_satstep2_transient satstep21010: acc(train window) 0.968 firstFail 30 extended-survival 68/10000 margin 0.97
+bool2_satstep2_transient satstep21011: acc(train window) 1.000 firstFail null extended-survival 104/10000 margin 1.76
+bool2_satstep2_transient satstep21100: acc(train window) 1.000 firstFail null extended-survival 83/10000 margin 2.07
+bool2_satstep2_transient satstep21101: acc(train window) 1.000 firstFail null extended-survival 72/10000 margin 1.73
+bool2_satstep2_transient satstep21110: acc(train window) 1.000 firstFail null extended-survival 70/10000 margin 1.59
+bool2_satstep2_transient satstep21111: acc(train window) 1.000 firstFail null extended-survival 113/10000 margin 1.54

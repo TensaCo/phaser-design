@@ -1,6 +1,31 @@
 amp_wire_d6: 2 cells, 4 cases, T=200, twin A64s_amp
-/Users/vibestartup/Code/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
-Consider using tensor.detach() first. (Triggered internally at /Users/runner/work/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:821.)
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
   hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
-it 0 loss 1.8315e-01 task 8.926e-02 bg 0.000e+00 acc 0.750 G0 3.010 [4s]
-it 10 loss 1.0414e-01 task 8.814e-02 bg 0.000e+00 acc 0.750 G0 3.112 [41s]
+it 0 loss 1.8315e-01 task 8.926e-02 bg 0.000e+00 acc 0.750 G0 3.010 [2s]
+it 10 loss 1.0414e-01 task 8.814e-02 bg 0.000e+00 acc 0.750 G0 3.112 [28s]
+it 20 loss 5.4706e-03 task 3.551e-05 bg 0.000e+00 acc 1.000 G0 3.174 [54s]
+it 30 loss 1.3767e-03 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.163 [80s]
+it 40 loss 1.6657e-03 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.168 [106s]
+it 50 loss 1.1036e-03 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.173 [131s]
+it 60 loss 1.3840e-04 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.174 [157s]
+it 70 loss 1.0668e-07 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [183s]
+it 80 loss 1.6028e-05 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [209s]
+it 90 loss 1.4524e-05 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [236s]
+it 100 loss 6.8842e-06 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [262s]
+it 110 loss 2.4622e-06 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [289s]
+it 120 loss 7.7182e-07 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [315s]
+it 130 loss 2.3491e-07 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [342s]
+it 140 loss 7.6868e-08 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [369s]
+it 150 loss 3.0386e-08 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [396s]
+it 160 loss 1.5929e-08 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [422s]
+it 170 loss 1.1006e-08 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [449s]
+it 180 loss 9.1164e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [475s]
+it 190 loss 8.2694e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [502s]
+it 200 loss 7.8974e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [530s]
+it 210 loss 7.7785e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [558s]
+it 220 loss 7.6533e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [585s]
+it 230 loss 7.6190e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [612s]
+it 240 loss 7.5548e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [639s]
+it 249 loss 7.5527e-09 task 0.000e+00 bg 0.000e+00 acc 1.000 G0 3.175 [664s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/amp_wire_d6

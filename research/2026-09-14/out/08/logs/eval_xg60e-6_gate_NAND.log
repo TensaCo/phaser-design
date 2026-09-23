@@ -1,0 +1,6 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/xg60e-6_gate_NAND_spec.json 10000
+xg60e-6_gate_NAND NAND00: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.07
+xg60e-6_gate_NAND NAND01: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.03
+xg60e-6_gate_NAND NAND10: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.06
+xg60e-6_gate_NAND NAND11: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 14.28

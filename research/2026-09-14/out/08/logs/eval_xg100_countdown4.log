@@ -1,0 +1,6 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/xg100_countdown4_spec.json 10000
+xg100_countdown4 n1: acc(train window) 0.800 firstFail 7 extended-survival 161/10000 margin 0.00
+xg100_countdown4 n2: acc(train window) 0.801 firstFail 8 extended-survival 161/10000 margin 0.00
+xg100_countdown4 n3: acc(train window) 0.800 firstFail 7 extended-survival 161/10000 margin 0.00
+xg100_countdown4 n4: acc(train window) 0.800 firstFail 7 extended-survival 161/10000 margin 0.00

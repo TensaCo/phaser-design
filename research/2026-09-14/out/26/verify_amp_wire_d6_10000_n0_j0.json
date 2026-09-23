@@ -1,0 +1,82 @@
+{
+ "tag": "amp_wire_d6",
+ "horizon": 10000,
+ "noiseRel": 0,
+ "jitter": 0,
+ "thr": 0.35,
+ "allOk": true,
+ "rows": [
+  {
+   "case": "src0_0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "dst": null,
+    "src": null
+   },
+   "maxOff": {
+    "dst": 0,
+    "src": 0
+   },
+   "ripple": {
+    "dst": 0,
+    "src": 0
+   }
+  },
+  {
+   "case": "src0_1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "dst": null,
+    "src": null
+   },
+   "maxOff": {
+    "dst": 0,
+    "src": 0
+   },
+   "ripple": {
+    "dst": 0,
+    "src": 0
+   }
+  },
+  {
+   "case": "src1_0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "dst": 0.9676543027542035,
+    "src": 2.780646351519701
+   },
+   "maxOff": {
+    "dst": 0,
+    "src": 0
+   },
+   "ripple": {
+    "dst": 2.7755575615628914e-15,
+    "src": 4.884981308350689e-15
+   }
+  },
+  {
+   "case": "src1_1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "dst": 0.9676543027542035,
+    "src": 2.780646351519701
+   },
+   "maxOff": {
+    "dst": 0,
+    "src": 0
+   },
+   "ripple": {
+    "dst": 2.7755575615628914e-15,
+    "src": 4.884981308350689e-15
+   }
+  }
+ ]
+}

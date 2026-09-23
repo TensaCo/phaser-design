@@ -1,0 +1,94 @@
+{
+ "tag": "xg100e-6_gate_AND",
+ "horizon": 10000,
+ "noiseRel": 0,
+ "jitter": 0,
+ "thr": 0.35,
+ "allOk": true,
+ "rows": [
+  {
+   "case": "AND00",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": null,
+    "in0": null,
+    "in1": null
+   },
+   "maxOff": {
+    "out": 0,
+    "in0": 0,
+    "in1": 0
+   },
+   "ripple": {
+    "out": 0,
+    "in0": 0,
+    "in1": 0
+   }
+  },
+  {
+   "case": "AND01",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": null,
+    "in0": null,
+    "in1": 24.402975721010577
+   },
+   "maxOff": {
+    "out": 0.05295241518323796,
+    "in0": 0.04581681469065556,
+    "in1": 0
+   },
+   "ripple": {
+    "out": 1.27675647831893e-15,
+    "in0": 7.28583859910259e-16,
+    "in1": 3.907985046680551e-14
+   }
+  },
+  {
+   "case": "AND10",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": null,
+    "in0": 13.707028306425453,
+    "in1": null
+   },
+   "maxOff": {
+    "out": 0.0050591460667655,
+    "in0": 0,
+    "in1": 0.062495925301196284
+   },
+   "ripple": {
+    "out": 9.020562075079397e-17,
+    "in0": 2.3092638912203256e-14,
+    "in1": 9.020562075079397e-16
+   }
+  },
+  {
+   "case": "AND11",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "out": 5.09088901397863,
+    "in0": 5.076909261191625,
+    "in1": 24.0018733667794
+   },
+   "maxOff": {
+    "out": 0,
+    "in0": 0,
+    "in1": 0
+   },
+   "ripple": {
+    "out": 1.3696494018773056,
+    "in0": 2.61536117280603,
+    "in1": 0.3215752742229121
+   }
+  }
+ ]
+}

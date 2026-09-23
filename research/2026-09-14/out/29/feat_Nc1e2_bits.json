@@ -1,0 +1,18 @@
+{
+ "Nc": 100,
+ "tag": "bits",
+ "K": 10,
+ "steps": 3200,
+ "meanP_fieldUnits": 75.01072378703603,
+ "photonsPerFieldUnit": 1.33314271548574,
+ "nAsePerModePerTrip": 0.6929824561403506,
+ "modes": 4096,
+ "tap": 0.05,
+ "qe": 0.8,
+ "readNoise": 2,
+ "meanDetectedPerStep": 1575.1132685845337,
+ "injectedFieldUnitsPerStep": 1207.7510543866383,
+ "injectedPhotonsPerStep": 1610.1045202757687,
+ "t_rt": 6.673175776646975e-10,
+ "secs": 30.661310202000003
+}

@@ -1,0 +1,31 @@
+bool2_halfadd_transient: 5 cells, 4 cases, T=60, twin A64s
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 9.4561e-02 task 9.373e-02 bg 1.661e-02 acc 0.625 G0 2.194 [1s]
+it 10 loss 9.2453e-02 task 9.245e-02 bg 0.000e+00 acc 0.625 G0 2.157 [8s]
+it 20 loss 4.0640e-02 task 4.061e-02 bg 6.916e-04 acc 0.726 G0 2.186 [15s]
+it 30 loss 2.0397e-02 task 2.039e-02 bg 1.641e-04 acc 0.879 G0 2.228 [23s]
+it 40 loss 7.5729e-03 task 7.568e-03 bg 9.191e-05 acc 0.960 G0 2.261 [30s]
+it 50 loss 4.4555e-03 task 4.446e-03 bg 1.880e-04 acc 0.988 G0 2.289 [37s]
+it 60 loss 1.7670e-02 task 1.762e-02 bg 1.100e-03 acc 0.871 G0 2.305 [44s]
+it 70 loss 5.9760e-03 task 5.908e-03 bg 1.357e-03 acc 0.992 G0 2.316 [52s]
+it 80 loss 2.2400e-03 task 2.240e-03 bg 1.027e-06 acc 0.996 G0 2.329 [59s]
+it 90 loss 1.0795e-03 task 1.078e-03 bg 2.375e-05 acc 1.000 G0 2.341 [66s]
+it 100 loss 6.7139e-04 task 6.714e-04 bg 0.000e+00 acc 1.000 G0 2.350 [73s]
+it 110 loss 4.3630e-04 task 4.363e-04 bg 0.000e+00 acc 1.000 G0 2.357 [80s]
+it 120 loss 3.1558e-04 task 3.155e-04 bg 8.465e-07 acc 1.000 G0 2.362 [87s]
+it 130 loss 2.2858e-04 task 2.286e-04 bg 0.000e+00 acc 1.000 G0 2.366 [94s]
+it 140 loss 1.8861e-04 task 1.886e-04 bg 0.000e+00 acc 1.000 G0 2.369 [101s]
+it 150 loss 1.3046e-04 task 1.291e-04 bg 2.653e-05 acc 1.000 G0 2.372 [108s]
+it 160 loss 1.1377e-04 task 1.138e-04 bg 3.374e-07 acc 1.000 G0 2.375 [114s]
+it 170 loss 8.6364e-05 task 8.568e-05 bg 1.360e-05 acc 1.000 G0 2.377 [121s]
+it 180 loss 7.2634e-05 task 7.263e-05 bg 0.000e+00 acc 1.000 G0 2.379 [128s]
+it 190 loss 6.1013e-05 task 6.101e-05 bg 0.000e+00 acc 1.000 G0 2.381 [135s]
+it 200 loss 5.0376e-05 task 5.038e-05 bg 0.000e+00 acc 1.000 G0 2.383 [142s]
+it 210 loss 4.2120e-05 task 4.212e-05 bg 0.000e+00 acc 1.000 G0 2.384 [149s]
+it 220 loss 3.7643e-05 task 3.760e-05 bg 8.427e-07 acc 1.000 G0 2.386 [156s]
+it 230 loss 3.2701e-05 task 3.270e-05 bg 3.639e-08 acc 1.000 G0 2.387 [163s]
+it 240 loss 1.9425e-05 task 1.942e-05 bg 1.947e-07 acc 1.000 G0 2.389 [170s]
+it 249 loss 2.3125e-05 task 2.312e-05 bg 1.867e-07 acc 1.000 G0 2.389 [177s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/bool2_halfadd_transient

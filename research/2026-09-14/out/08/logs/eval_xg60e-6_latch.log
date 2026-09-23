@@ -1,0 +1,10 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/xg60e-6_latch_spec.json 10000
+xg60e-6_latch hold0: acc(train window) 0.093 firstFail 45 extended-survival 241/10000 margin 0.68
+xg60e-6_latch hold1: acc(train window) 0.907 firstFail 25 extended-survival 10000/10000 margin 0.52
+xg60e-6_latch set_from0: acc(train window) 0.921 firstFail 45 extended-survival 10000/10000 margin 0.82
+xg60e-6_latch set_from1: acc(train window) 0.907 firstFail 25 extended-survival 10000/10000 margin 0.52
+xg60e-6_latch reset_from1: acc(train window) 0.895 firstFail 25 extended-survival 291/10000 margin 0.52
+xg60e-6_latch reset_from0: acc(train window) 0.894 firstFail 45 extended-survival 314/10000 margin 0.82
+xg60e-6_latch set_then_reset: acc(train window) 1.000 firstFail null extended-survival 374/10000 margin 1.38
+xg60e-6_latch reset_then_set: acc(train window) 0.420 firstFail 165 extended-survival 241/10000 margin 0.48

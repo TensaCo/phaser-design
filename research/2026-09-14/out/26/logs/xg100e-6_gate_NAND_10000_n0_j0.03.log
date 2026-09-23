@@ -1,0 +1,11 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 26-verify.ts out/08/xg100e-6_gate_NAND_spec.json 10000 400 0 0.03
+xg100e-6_gate_NAND NAND00: acc(train window) 0.333 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_NAND NAND01: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_NAND NAND10: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_NAND NAND11: acc(train window) 0.667 firstFail 80 extended-survival 201/10000 margin 0.00
+xg100e-6_gate_NAND NAND00: OK (checked every trip 400–10000) out=1 minON 1.820 ripple 0.000 | in0=0 maxOFF 0.002 ripple 0.000 | in1=0 maxOFF 0.017 ripple 0.000
+xg100e-6_gate_NAND NAND01: VIOLATION at 400 (checked every trip 400–10000) out=1 minON 0.083 ripple 0.000 | in0=0 maxOFF 0.027 ripple 0.000 | in1=1 minON 26.818 ripple 0.000
+xg100e-6_gate_NAND NAND10: OK (checked every trip 400–10000) out=1 minON 1.245 ripple 0.052 | in0=1 minON 25.447 ripple 1.029 | in1=0 maxOFF 0.020 ripple 0.007
+xg100e-6_gate_NAND NAND11: OK (checked every trip 400–10000) out=0 maxOFF 0.001 ripple 0.000 | in0=1 minON 22.431 ripple 0.712 | in1=1 minON 22.837 ripple 0.869
+xg100e-6_gate_NAND: FAILED to 10000 trips (noise 0, jitter 0.03) threshold 0.35

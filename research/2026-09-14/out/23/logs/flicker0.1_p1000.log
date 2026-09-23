@@ -1,0 +1,3 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 23-robust.ts 10000 flicker0.1_p1000
+flicker0.1_p1000: focal 0 dark 0 noise 0 flicker 0.1/1000 Ld 0 G0 3 → BER@10000 0.111/0.222/0.444 first error 3100/2200/100 on_min 0.00/0.00/0.00 off_max 0.0056/0.0064/0.0067

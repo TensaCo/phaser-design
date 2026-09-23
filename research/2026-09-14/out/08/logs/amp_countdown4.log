@@ -1,0 +1,31 @@
+amp_countdown4: 5 cells, 4 cases, T=160, twin A64s_amp
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 5.5371e-01 task 4.965e-01 bg 0.000e+00 acc 0.678 G0 2.990 [2s]
+it 10 loss 2.4780e-01 task 2.281e-01 bg 0.000e+00 acc 0.760 G0 3.011 [22s]
+it 20 loss 2.1307e-01 task 1.950e-01 bg 0.000e+00 acc 0.761 G0 3.020 [43s]
+it 30 loss 1.6980e-01 task 1.525e-01 bg 0.000e+00 acc 0.761 G0 3.020 [64s]
+it 40 loss 1.3249e-01 task 1.159e-01 bg 0.000e+00 acc 0.761 G0 3.018 [86s]
+it 50 loss 1.4510e-01 task 7.760e-02 bg 0.000e+00 acc 0.770 G0 3.020 [106s]
+it 60 loss 2.4190e-01 task 2.253e-01 bg 0.000e+00 acc 0.761 G0 3.047 [127s]
+it 70 loss 2.4414e-01 task 2.283e-01 bg 0.000e+00 acc 0.761 G0 3.053 [147s]
+it 80 loss 2.2464e-01 task 2.096e-01 bg 0.000e+00 acc 0.761 G0 3.052 [167s]
+it 90 loss 2.0304e-01 task 1.888e-01 bg 0.000e+00 acc 0.761 G0 3.048 [186s]
+it 100 loss 1.8080e-01 task 1.674e-01 bg 0.000e+00 acc 0.761 G0 3.043 [207s]
+it 110 loss 1.5804e-01 task 1.456e-01 bg 0.000e+00 acc 0.761 G0 3.038 [229s]
+it 120 loss 1.3517e-01 task 1.239e-01 bg 0.000e+00 acc 0.761 G0 3.033 [250s]
+it 130 loss 1.1253e-01 task 1.025e-01 bg 0.000e+00 acc 0.761 G0 3.028 [271s]
+it 140 loss 2.1481e-01 task 7.444e-02 bg 0.000e+00 acc 0.780 G0 3.024 [291s]
+it 150 loss 6.8769e-02 task 6.877e-02 bg 0.000e+00 acc 0.808 G0 3.017 [312s]
+it 160 loss 6.9050e-02 task 6.905e-02 bg 0.000e+00 acc 0.807 G0 3.015 [331s]
+it 170 loss 6.9155e-02 task 6.916e-02 bg 0.000e+00 acc 0.806 G0 3.014 [351s]
+it 180 loss 6.9140e-02 task 6.914e-02 bg 0.000e+00 acc 0.806 G0 3.014 [370s]
+it 190 loss 6.9119e-02 task 6.912e-02 bg 0.000e+00 acc 0.806 G0 3.014 [390s]
+it 200 loss 6.9088e-02 task 6.909e-02 bg 0.000e+00 acc 0.806 G0 3.014 [410s]
+it 210 loss 6.9008e-02 task 6.901e-02 bg 0.000e+00 acc 0.807 G0 3.015 [430s]
+it 220 loss 6.8957e-02 task 6.896e-02 bg 0.000e+00 acc 0.807 G0 3.015 [451s]
+it 230 loss 6.8898e-02 task 6.890e-02 bg 0.000e+00 acc 0.807 G0 3.015 [471s]
+it 240 loss 6.8817e-02 task 6.882e-02 bg 0.000e+00 acc 0.807 G0 3.015 [491s]
+it 249 loss 6.8730e-02 task 6.873e-02 bg 0.000e+00 acc 0.807 G0 3.015 [509s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/amp_countdown4

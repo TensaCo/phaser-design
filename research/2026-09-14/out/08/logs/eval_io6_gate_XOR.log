@@ -1,0 +1,6 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/io6_gate_XOR_spec.json 10000
+io6_gate_XOR XOR00: acc(train window) 0.741 firstFail 86 extended-survival 201/10000 margin 0.73
+io6_gate_XOR XOR01: acc(train window) 0.981 firstFail 95 extended-survival 245/10000 margin 0.91
+io6_gate_XOR XOR10: acc(train window) 0.934 firstFail 122 extended-survival 240/10000 margin 0.72
+io6_gate_XOR XOR11: acc(train window) 0.716 firstFail 81 extended-survival 201/10000 margin 0.59

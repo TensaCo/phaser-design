@@ -1,0 +1,12 @@
+Terminated
+done amp2_bool_fulladd
+done amp_wire_d6
+done amp2_bool_satstep2
+done bool2_parity4_transient
+Terminated
+done amp_assoc_5pat
+done amp_gate_OR_rail
+done amp_countdown4
+done bool2_fulladd_transient
+done bool2_add2_transient
+finish-queue done

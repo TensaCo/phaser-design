@@ -1,0 +1,94 @@
+{
+ "tag": "xg100_chain2_s6",
+ "horizon": 10000,
+ "noiseRel": 0,
+ "jitter": 0,
+ "thr": 0.35,
+ "allOk": true,
+ "rows": [
+  {
+   "case": "src0_0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": null,
+    "m1": null,
+    "dst": null
+   },
+   "maxOff": {
+    "src": 0,
+    "m1": 0,
+    "dst": 0
+   },
+   "ripple": {
+    "src": 0,
+    "m1": 0,
+    "dst": 0
+   }
+  },
+  {
+   "case": "src0_1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": null,
+    "m1": null,
+    "dst": null
+   },
+   "maxOff": {
+    "src": 0,
+    "m1": 0,
+    "dst": 0
+   },
+   "ripple": {
+    "src": 0,
+    "m1": 0,
+    "dst": 0
+   }
+  },
+  {
+   "case": "src1_0",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": 12.842122550810826,
+    "m1": 10.587934044526696,
+    "dst": 11.353119278781918
+   },
+   "maxOff": {
+    "src": 0,
+    "m1": 0,
+    "dst": 0
+   },
+   "ripple": {
+    "src": 3.197442310920451e-14,
+    "m1": 2.6645352591003757e-14,
+    "dst": 3.197442310920451e-14
+   }
+  },
+  {
+   "case": "src1_1",
+   "ok": true,
+   "firstViolation": null,
+   "start": 400,
+   "minOn": {
+    "src": 12.842122550810826,
+    "m1": 10.587934044526696,
+    "dst": 11.353119278781918
+   },
+   "maxOff": {
+    "src": 0,
+    "m1": 0,
+    "dst": 0
+   },
+   "ripple": {
+    "src": 3.197442310920451e-14,
+    "m1": 2.6645352591003757e-14,
+    "dst": 3.197442310920451e-14
+   }
+  }
+ ]
+}

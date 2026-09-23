@@ -1,0 +1,10 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/bool2_fulladd_transient_spec.json 10000
+bool2_fulladd_transient fulladd000: acc(train window) 1.000 firstFail null extended-survival 90/10000 margin 1.61
+bool2_fulladd_transient fulladd001: acc(train window) 1.000 firstFail null extended-survival 65/10000 margin 1.16
+bool2_fulladd_transient fulladd010: acc(train window) 1.000 firstFail null extended-survival 66/10000 margin 1.15
+bool2_fulladd_transient fulladd011: acc(train window) 1.000 firstFail null extended-survival 81/10000 margin 1.24
+bool2_fulladd_transient fulladd100: acc(train window) 0.984 firstFail 30 extended-survival 66/10000 margin 0.95
+bool2_fulladd_transient fulladd101: acc(train window) 1.000 firstFail null extended-survival 69/10000 margin 1.27
+bool2_fulladd_transient fulladd110: acc(train window) 1.000 firstFail null extended-survival 75/10000 margin 1.30
+bool2_fulladd_transient fulladd111: acc(train window) 1.000 firstFail null extended-survival 73/10000 margin 1.32

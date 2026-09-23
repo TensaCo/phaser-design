@@ -1,0 +1,4 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 22-b4f-amp.ts 3 2,4 3 -0.8:0.2 3000 grid128 128
+B4f amp n 128 cell 3 gap 2 (16 cells, 9.92/mm²) G0 3 s -0.8 Ia 0.2: BER@3000 0.000/0.000/0.000 onMean 1.25/1.25/1.37 offMax 0.004/0.003/0.007 λL -2.9e-4/-6.2e-4/-9.2e-4 [54s]
+B4f amp n 128 cell 3 gap 4 (9 cells, 5.06/mm²) G0 3 s -0.8 Ia 0.2: BER@3000 0.000/0.000/0.000 onMean 1.14/1.04/1.08 offMax 0.001/0.001/0.002 λL -9.4e-4/-3.6e-4/-5.6e-4 [51s]

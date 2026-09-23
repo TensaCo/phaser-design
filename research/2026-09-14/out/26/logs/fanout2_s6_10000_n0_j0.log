@@ -1,0 +1,11 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 26-verify.ts out/08/fanout2_s6_spec.json 10000 400 0 0
+fanout2_s6 src0_0: acc(train window) 0.000 firstFail 80 extended-survival 201/10000 margin 0.00
+fanout2_s6 src0_1: acc(train window) 0.000 firstFail 80 extended-survival 201/10000 margin 0.00
+fanout2_s6 src1_0: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 73.76
+fanout2_s6 src1_1: acc(train window) 1.000 firstFail null extended-survival 10000/10000 margin 53.67
+fanout2_s6 src0_0: OK (checked every trip 400–10000) src=0 maxOFF 0.000 ripple 0.000 | dst=0 maxOFF 0.000 ripple 0.000 | f0=0 maxOFF 0.000 ripple 0.000 | f1=0 maxOFF 0.000 ripple 0.000
+fanout2_s6 src0_1: OK (checked every trip 400–10000) src=0 maxOFF 0.000 ripple 0.000 | dst=0 maxOFF 0.000 ripple 0.000 | f0=0 maxOFF 0.000 ripple 0.000 | f1=0 maxOFF 0.000 ripple 0.000
+fanout2_s6 src1_0: OK (checked every trip 400–10000) src=1 minON 2.645 ripple 0.000 | dst=1 minON 0.889 ripple 0.000 | f0=1 minON 1.150 ripple 0.000 | f1=1 minON 1.873 ripple 0.000
+fanout2_s6 src1_1: OK (checked every trip 400–10000) src=1 minON 2.645 ripple 0.000 | dst=1 minON 0.889 ripple 0.000 | f0=1 minON 1.150 ripple 0.000 | f1=1 minON 1.873 ripple 0.000
+fanout2_s6: ALL CASES HOLD to 10000 trips (noise 0, jitter 0) threshold 0.35

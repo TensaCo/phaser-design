@@ -1,0 +1,31 @@
+bool2_add2_transient: 8 cells, 16 cases, T=60, twin A64s
+/home/brandonin/Documents/phaser-design/research/2026-09-14/08-design.py:206: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  hist.append(dict(it=it, loss=L.item(), task=lt, bg=lb, acc=acc, G0=float(1 + torch.exp(self.logG))))
+it 0 loss 1.1540e-01 task 1.146e-01 bg 1.678e-02 acc 0.542 G0 2.194 [3s]
+it 10 loss 1.1402e-01 task 1.140e-01 bg 6.832e-05 acc 0.542 G0 2.154 [31s]
+it 20 loss 8.7242e-02 task 8.721e-02 bg 6.747e-04 acc 0.567 G0 2.180 [60s]
+it 30 loss 5.1497e-02 task 5.147e-02 bg 5.618e-04 acc 0.630 G0 2.233 [88s]
+it 40 loss 3.5141e-02 task 3.498e-02 bg 3.138e-03 acc 0.704 G0 2.292 [116s]
+it 50 loss 2.7346e-02 task 2.726e-02 bg 1.760e-03 acc 0.770 G0 2.332 [143s]
+it 60 loss 1.9435e-02 task 1.940e-02 bg 7.459e-04 acc 0.862 G0 2.366 [169s]
+it 70 loss 2.2055e-02 task 2.167e-02 bg 7.780e-03 acc 0.860 G0 2.397 [196s]
+it 80 loss 1.7799e-02 task 1.740e-02 bg 7.900e-03 acc 0.853 G0 2.415 [223s]
+it 90 loss 1.4844e-02 task 1.428e-02 bg 1.125e-02 acc 0.882 G0 2.430 [250s]
+it 100 loss 9.2944e-03 task 9.178e-03 bg 2.324e-03 acc 0.933 G0 2.447 [278s]
+it 110 loss 7.7570e-03 task 7.673e-03 bg 1.690e-03 acc 0.964 G0 2.469 [305s]
+it 120 loss 7.5425e-03 task 7.373e-03 bg 3.392e-03 acc 0.958 G0 2.486 [333s]
+it 130 loss 1.4294e-02 task 1.338e-02 bg 1.825e-02 acc 0.897 G0 2.494 [360s]
+it 140 loss 7.7662e-03 task 7.711e-03 bg 1.105e-03 acc 0.952 G0 2.503 [387s]
+it 150 loss 8.7927e-03 task 7.757e-03 bg 2.071e-02 acc 0.955 G0 2.518 [413s]
+it 160 loss 1.0547e-02 task 1.031e-02 bg 4.694e-03 acc 0.930 G0 2.527 [439s]
+it 170 loss 9.2395e-03 task 9.141e-03 bg 1.970e-03 acc 0.935 G0 2.536 [464s]
+it 180 loss 5.6537e-03 task 5.423e-03 bg 4.619e-03 acc 0.972 G0 2.548 [489s]
+it 190 loss 3.4214e-03 task 3.384e-03 bg 7.451e-04 acc 0.982 G0 2.560 [515s]
+it 200 loss 2.6795e-03 task 2.608e-03 bg 1.428e-03 acc 0.987 G0 2.573 [540s]
+it 210 loss 2.6521e-03 task 2.623e-03 bg 5.788e-04 acc 0.985 G0 2.582 [566s]
+it 220 loss 1.5922e-02 task 1.540e-02 bg 1.052e-02 acc 0.869 G0 2.571 [591s]
+it 230 loss 7.0744e-03 task 6.909e-03 bg 3.301e-03 acc 0.949 G0 2.582 [616s]
+it 240 loss 4.3698e-03 task 4.339e-03 bg 6.087e-04 acc 0.976 G0 2.590 [641s]
+it 249 loss 2.4614e-02 task 2.304e-02 bg 3.154e-02 acc 0.868 G0 2.591 [664s]
+saved /home/brandonin/Documents/phaser-design/research/2026-09-14/out/08/bool2_add2_transient

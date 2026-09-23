@@ -1,0 +1,18 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/bool2_add2_transient_spec.json 10000
+bool2_add2_transient add20000: acc(train window) 1.000 firstFail null extended-survival 86/10000 margin 2.41
+bool2_add2_transient add20001: acc(train window) 1.000 firstFail null extended-survival 66/10000 margin 1.19
+bool2_add2_transient add20010: acc(train window) 1.000 firstFail null extended-survival 73/10000 margin 1.25
+bool2_add2_transient add20011: acc(train window) 1.000 firstFail null extended-survival 89/10000 margin 1.14
+bool2_add2_transient add20100: acc(train window) 0.989 firstFail 30 extended-survival 63/10000 margin 0.95
+bool2_add2_transient add20101: acc(train window) 1.000 firstFail null extended-survival 63/10000 margin 1.16
+bool2_add2_transient add20110: acc(train window) 0.978 firstFail 30 extended-survival 63/10000 margin 0.84
+bool2_add2_transient add20111: acc(train window) 1.000 firstFail null extended-survival 69/10000 margin 1.46
+bool2_add2_transient add21000: acc(train window) 1.000 firstFail null extended-survival 66/10000 margin 1.30
+bool2_add2_transient add21001: acc(train window) 1.000 firstFail null extended-survival 65/10000 margin 1.21
+bool2_add2_transient add21010: acc(train window) 0.935 firstFail 30 extended-survival 65/10000 margin 0.60
+bool2_add2_transient add21011: acc(train window) 1.000 firstFail null extended-survival 77/10000 margin 1.32
+bool2_add2_transient add21100: acc(train window) 1.000 firstFail null extended-survival 64/10000 margin 1.03
+bool2_add2_transient add21101: acc(train window) 1.000 firstFail null extended-survival 66/10000 margin 1.25
+bool2_add2_transient add21110: acc(train window) 1.000 firstFail null extended-survival 66/10000 margin 1.07
+bool2_add2_transient add21111: acc(train window) 0.914 firstFail 30 extended-survival 71/10000 margin 0.66

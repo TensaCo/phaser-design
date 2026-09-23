@@ -1,0 +1,7 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 02-nl-amp.ts 3 3 2.6,3,3.4,4,5 -0.8:0.2 0 3000 xg_Ld100e-6
+amp cell 3 gap 3 G0 2.6 s -0.8 Ia 0.2 dark 0: BER@3000 0.000/0.000/0.000 onMean 15.16/14.10/11.95 offMax 0.074/0.045/0.051 λL -4.7e-3/-7.2e-4/-6.2e-4 resid 2.0e+0/2.0e+0/2.0e+0 [38s]
+amp cell 3 gap 3 G0 3 s -0.8 Ia 0.2 dark 0: BER@3000 0.222/0.333/0.000 onMean 18.67/17.76/17.55 offMax 22.108/20.040/0.137 λL NaN/NaN/-6.4e-4 resid NaN/NaN/2.0e+0 [35s]
+amp cell 3 gap 3 G0 3.4 s -0.8 Ia 0.2 dark 0: BER@3000 0.556/0.556/0.111 onMean 22.54/20.63/22.15 offMax 22.845/22.394/19.794 λL NaN/NaN/NaN resid NaN/NaN/NaN [32s]
+amp cell 3 gap 3 G0 4 s -0.8 Ia 0.2 dark 0: BER@3000 0.667/0.556/0.222 onMean 28.40/28.05/28.20 offMax 28.764/30.533/26.928 λL NaN/NaN/NaN resid NaN/NaN/NaN [33s]
+amp cell 3 gap 3 G0 5 s -0.8 Ia 0.2 dark 0: BER@3000 0.667/0.556/0.222 onMean 40.71/40.37/40.51 offMax 41.699/44.054/39.259 λL NaN/NaN/NaN resid NaN/NaN/NaN [32s]

@@ -1,0 +1,6 @@
+npm notice run phaser-design@0.1.0 npx
+npm notice run 'vite-node' 08-eval.ts out/08/amp_countdown4_spec.json 10000
+amp_countdown4 n1: acc(train window) 0.813 firstFail 17 extended-survival 161/10000 margin 0.00
+amp_countdown4 n2: acc(train window) 0.800 firstFail 7 extended-survival 161/10000 margin 0.00
+amp_countdown4 n3: acc(train window) 0.800 firstFail 7 extended-survival 161/10000 margin 0.00
+amp_countdown4 n4: acc(train window) 0.821 firstFail 27 extended-survival 161/10000 margin 0.00
