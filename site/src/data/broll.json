@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "slug": "cooling-towers-river",
+    "subject": "cooling towers venting steam beside a river (drone)",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution": ""
+  },
+  {
+    "slug": "substation-crew",
+    "subject": "line crew in hard hats working on high-voltage substation equipment (drone)",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution": ""
+  },
+  {
+    "slug": "transmission-lines",
+    "subject": "high-voltage transmission corridor and pylons through forest (drone)",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution": ""
+  },
+  {
+    "slug": "senate-hearing",
+    "subject": "US Senate Energy and Natural Resources Committee hearing: Sen. Murkowski questioning, gesturing",
+    "license": "Public domain (US federal government work, PD-USGov-Congress)",
+    "attribution": ""
+  },
+  {
+    "slug": "smokestack-steam",
+    "subject": "power plant stacks, backlit exhaust plume rolling",
+    "license": "Mixkit Stock Video Free License (https://mixkit.co/license/#videoFree)",
+    "attribution": ""
+  },
+  {
+    "slug": "datacenter-supermuc",
+    "subject": "people walking a supercomputer/data-center aisle, hand on rack, LRZ SuperMUC",
+    "license": "CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)",
+    "attribution": "\"SuperMUC: First Commercial Hot-Water Cooled Supercomputer to Consume 40% Less Energy\" by IBM Research, CC BY 3.0, via Wikimedia Commons (excerpt, re-encoded)"
+  },
+  {
+    "slug": "cooling-towers",
+    "subject": "steam billowing from nuclear power plant cooling towers (drone)",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution": ""
+  },
+  {
+    "slug": "substation-yard",
+    "subject": "electrical substation gantries, breakers and transformers",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution": ""
+  },
+  {
+    "slug": "plant-steam-towers",
+    "subject": "industrial plant stacks venting white exhaust against sky",
+    "license": "Mixkit Stock Video Free License (https://mixkit.co/license/#videoFree)",
+    "attribution": ""
+  }
+]

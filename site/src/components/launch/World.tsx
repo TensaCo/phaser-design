@@ -4,13 +4,10 @@ import CLIPS from '@/data/broll.json'
 import s from './World.module.css'
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
-const STILLS = ['grid', 'nuclear', 'lines', 'substation', 'transformer', 'stacks', 'turbine', 'datacenter']
 const HOLD = 6500
 
-/** real b-roll (see src/data/broll.json and public/video/broll/credits.json); stills until clips exist */
-const REEL: { slug: string; video: boolean }[] = (CLIPS as { slug: string }[]).length
-  ? (CLIPS as { slug: string }[]).map((c) => ({ slug: c.slug, video: true }))
-  : STILLS.map((slug) => ({ slug, video: false }))
+/** real b-roll; licences and credits in src/data/broll.json and public/video/broll/credits.json */
+const REEL = CLIPS as { slug: string }[]
 
 export function World() {
   const [i, setI] = useState(0)
@@ -34,14 +31,11 @@ export function World() {
           {REEL.map((c, n) => {
             const cls = n === i ? s.live : n === (i + REEL.length - 1) % REEL.length ? s.prev : ''
             const near = n === i || n === (i + 1) % REEL.length || n === (i + REEL.length - 1) % REEL.length
-            return c.video ? (
-              <video key={c.slug} ref={(el) => { vids.current[n] = el }} className={cls} muted playsInline loop preload={near ? 'auto' : 'none'}
-                poster={`${BASE}/video/broll/${c.slug}.jpg`}>
-                {near && <source src={`${BASE}/video/broll/${c.slug}.webm`} type="video/webm" />}
-                {near && <source src={`${BASE}/video/broll/${c.slug}.mp4`} type="video/mp4" />}
-              </video>
-            ) : (
-              <img key={c.slug} className={cls} src={`${BASE}/img/broll/${c.slug}.jpg`} alt="" loading={n < 2 ? 'eager' : 'lazy'} />
+            return (
+              // src is set only for the current and neighbouring clips; setting it later starts the load
+              <video key={c.slug} ref={(el) => { vids.current[n] = el }} className={cls} muted playsInline loop autoPlay={n === 0}
+                preload={near ? 'auto' : 'none'} poster={`${BASE}/video/broll/${c.slug}.jpg`}
+                src={near ? `${BASE}/video/broll/${c.slug}.mp4` : undefined} />
             )
           })}
         </div>

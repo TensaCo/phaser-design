@@ -1,4 +1,5 @@
 import { Carriers } from './Carriers'
+import CLIPS from '@/data/broll.json'
 import s from './Close.module.css'
 
 const REPO = 'https://github.com/JacobFV/phaser-design'
@@ -46,6 +47,7 @@ export function Receipts() {
     <><b>128 weeks.</b> Wood Mackenzie (Aug 2025): power-transformer lead times of about 128 weeks in Q2 2025.</>,
     <><b>5 years+.</b> Lawrence Berkeley National Laboratory, <em>Queued Up</em> (2026 edition): the median time from grid-interconnection request to operation is over 5 years.</>,
     <><b>$400 B+.</b> IEA, <em>Energy and AI</em> (Apr 2025) and its 16 Apr 2026 update: the five largest tech companies spent over $400 B in 2025.</>,
+    <><b>Footage.</b> Real b-roll from Pexels (Pexels License), Mixkit (free licence) and the US Senate Committee on Energy and Natural Resources (public domain). {(CLIPS as { attribution: string }[]).filter((c) => c.attribution).map((c) => c.attribution).join(' ')}</>,
     <><b>The machine.</b> The hero is a live 3-D wave simulation (FDTD) of a pinhole-fed cavity with seven phase-plate modulators, slowed about 2.7 billion times.</>,
   ]
 
