@@ -1,16 +1,4 @@
 .sec { position: relative; color: var(--fg); padding: clamp(120px, 14vw, 220px) 0 clamp(96px, 12vw, 180px); }
-.beam { position: absolute; top: clamp(40px, 5vw, 80px); left: var(--gutter); right: var(--gutter); height: 28px; }
-.m { position: absolute; left: 0; top: 0; width: 2px; height: 28px; background: var(--graphite); }
-.mr { left: auto; right: 0; }
-.pulse { position: absolute; top: 13px; left: 4px; width: 22%; height: 2px; background: linear-gradient(to right, transparent, var(--red) 70%, #ffd9cc); box-shadow: 0 0 12px rgba(255, 42, 18, 0.7); animation: bounce 2.4s linear infinite; }
-@keyframes bounce {
-  0% { transform: translateX(0) scaleX(1); }
-  49.99% { transform: translateX(calc(78vw - 2 * var(--gutter))) scaleX(1); }
-  50% { transform: translateX(calc(78vw - 2 * var(--gutter))) scaleX(-1); }
-  100% { transform: translateX(0) scaleX(-1); }
-}
-@media (min-width: 1480px) { @keyframes bounce { 0% { transform: translateX(0) scaleX(1); } 49.99% { transform: translateX(calc(78vw - 2 * var(--gutter))) scaleX(1); } 50% { transform: translateX(calc(78vw - 2 * var(--gutter))) scaleX(-1); } 100% { transform: translateX(0) scaleX(-1); } } }
-@media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
 .h { margin: 0; font-variation-settings: 'wdth' 68; font-weight: 700; font-size: clamp(44px, 7.4vw, 124px); line-height: 0.95; letter-spacing: -0.03em; }
 .h span { display: block; }
 .dim { color: var(--graphite-2); }

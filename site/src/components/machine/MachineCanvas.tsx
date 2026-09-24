@@ -2,7 +2,21 @@
 import { useEffect, useRef } from 'react'
 import type { Machine } from './engine'
 
-export default function MachineCanvas({ frameX, cutaway = true, className }: { frameX?: number; cutaway?: boolean; className?: string }) {
+export interface MachineCanvasProps {
+  frameX?: number
+  frameY?: number
+  distance?: number
+  cutaway?: boolean
+  className?: string
+  /** called every drawn frame with the live machine (e.g. to place annotation leaders) */
+  onFrame?: (m: Machine) => void
+  /** expose as window.__machine (the hero plate reads it) */
+  global?: boolean
+}
+
+export default function MachineCanvas({ frameX, frameY, distance, cutaway = true, className, onFrame, global = false }: MachineCanvasProps) {
+  const cb = useRef(onFrame)
+  cb.current = onFrame
   const ref = useRef<HTMLCanvasElement>(null)
   useEffect(() => {
     const canvas = ref.current
@@ -19,7 +33,7 @@ export default function MachineCanvas({ frameX, cutaway = true, className }: { f
       const box = canvas.getBoundingClientRect()
       const dpr = Math.min(window.devicePixelRatio || 1, 1.75)
       try {
-        m = new Machine({ canvas, width: box.width, height: box.height, dpr, frameX, cutaway })
+        m = new Machine({ canvas, width: box.width, height: box.height, dpr, frameX, frameY, distance, cutaway })
       } catch {
         // no WebGL2 / float render targets: show the poster frame instead
         canvas.parentElement?.setAttribute('data-fallback', '')
@@ -31,12 +45,12 @@ export default function MachineCanvas({ frameX, cutaway = true, className }: { f
         for (let i = 0; i < 90; i++) m.frame(1 / 60)
         return
       }
-      ;(window as unknown as { __machine: Machine }).__machine = m
+      if (global) (window as unknown as { __machine: Machine }).__machine = m
       const loop = (now: number) => {
         raf = requestAnimationFrame(loop)
         const dt = (now - last) / 1000
         last = now
-        if (visible && m) m.frame(dt)
+        if (visible && m) { m.frame(dt); cb.current?.(m) }
       }
       raf = requestAnimationFrame(loop)
     })
@@ -56,6 +70,6 @@ export default function MachineCanvas({ frameX, cutaway = true, className }: { f
       window.removeEventListener('pointermove', onMove)
       m?.dispose()
     }
-  }, [frameX, cutaway])
+  }, [frameX, frameY, distance, cutaway, global])
   return <canvas ref={ref} className={className} style={{ width: '100%', height: '100%', display: 'block' }} />
 }

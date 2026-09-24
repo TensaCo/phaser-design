@@ -319,6 +319,10 @@ export interface MachineOptions {
   dpr: number
   /** horizontal placement of the stack in the frame: −1 left … 1 right */
   frameX?: number
+  /** vertical placement: fraction of the height to raise the stack by */
+  frameY?: number
+  /** camera distance override (smaller = larger stack) */
+  distance?: number
   cutaway?: boolean
 }
 
@@ -482,6 +486,21 @@ export class Machine {
 
   setPointer(x: number, y: number) { this.pointer.set(x, y) }
 
+  /** css-pixel positions of named parts, for annotation leaders drawn over the canvas */
+  anchors() {
+    const P = (x: number, y: number, z: number) => {
+      const v = this.rig.localToWorld(new THREE.Vector3(x, y, z)).project(this.camera)
+      return { x: (v.x * 0.5 + 0.5) * this.opts.width, y: (-v.y * 0.5 + 0.5) * this.opts.height }
+    }
+    const zMid = (WORLD.zBot + WORLD.zTop) / 2
+    return {
+      beam: P(0, zMid + 0.9, 0),
+      slm: P(-1.02, WORLD.slmZ[4], 0),
+      pinhole: P(0, WORLD.zBot - 0.02, 0),
+      slmRight: P(1.02, WORLD.slmZ[2], 0),
+    }
+  }
+
   resize(width: number, height: number, dpr: number) {
     this.opts = { ...this.opts, width, height, dpr }
     this.renderer.setPixelRatio(dpr)
@@ -548,9 +567,9 @@ export class Machine {
     const aspect = vw / vh
     // desktop: stack right of centre, filling ~88 % of the height; portrait: centred, raised above the copy
     const wide = aspect > 1.05
-    const dist = wide ? 19.5 : 18.5 / Math.min(1, aspect * 1.25)
+    const dist = this.opts.distance ?? (wide ? 19.5 : 18.5 / Math.min(1, aspect * 1.25))
     const fx = this.opts.frameX ?? (wide ? 0.2 : 0)
-    const fy = wide ? 0 : 0.17
+    const fy = this.opts.frameY ?? (wide ? 0 : 0.17)
     const target = new THREE.Vector3(0, -0.15, 0)
     this.camera.position.set(Math.sin(az) * Math.cos(el) * dist, Math.sin(el) * dist, Math.cos(az) * Math.cos(el) * dist)
     this.camera.lookAt(target)

@@ -26,7 +26,7 @@ export function Hero() {
 
   return (
     <header className={s.hero}>
-      <div className={s.canvas} aria-hidden="true" style={{ ['--poster' as string]: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/og.jpg)` }}><MachineCanvas /></div>
+      <div className={s.canvas} aria-hidden="true" style={{ ['--poster' as string]: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/og.jpg)` }}><MachineCanvas global /></div>
       <div className={s.top}>
         <span className={s.mark}>PHASER</span>
         <nav className={s.nav} aria-label="Sections">
