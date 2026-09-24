@@ -3,22 +3,8 @@
 .h span { display: block; }
 .red { color: var(--red); }
 
-/* unit chart: a GPU step as squares of PHASER-steps */
-.units { margin: clamp(48px, 6vw, 88px) 0 0; display: grid; grid-template-columns: 1fr auto; gap: 16px clamp(32px, 5vw, 80px); align-items: start; }
-.unitHead { display: flex; justify-content: space-between; gap: 24px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--graphite); padding-bottom: 10px; margin-bottom: 14px; border-bottom: 1px solid var(--rule); }
-.unitHead span:last-child { color: var(--fg); }
-.units { --cell: clamp(6px, 0.78vw, 11px); }
-.squares { display: grid; grid-template-columns: repeat(auto-fill, var(--cell)); gap: 3px; }
-.squares i { display: block; aspect-ratio: 1; background: var(--fg); opacity: 0; transform: scale(0.4); transition: opacity 0.3s var(--d), transform 0.3s var(--d); }
-.squares.on i { opacity: 0.82; transform: none; }
-.light { min-width: 150px; }
-.one i { display: block; width: var(--cell); aspect-ratio: 1; background: var(--red); box-shadow: 0 0 14px rgba(255, 42, 18, 0.8); }
-.light .unitHead span:first-child { color: var(--red); }
-.cap { grid-column: 1 / -1; font-family: var(--f-mono); font-size: 11.5px; color: var(--graphite); }
-@media (prefers-reduced-motion: reduce) { .squares i { transition: none; opacity: 0.82; transform: none; } }
-
 /* anatomy: the three metrics annotated against a live miniature of the machine */
-.anatomy { position: relative; display: grid; grid-template-columns: 1fr minmax(260px, 420px) 1fr; gap: 24px; margin-top: clamp(96px, 12vw, 180px); align-items: center; }
+.anatomy { position: relative; display: grid; grid-template-columns: 1fr minmax(260px, 420px) 1fr; gap: 24px; margin-top: clamp(48px, 6vw, 96px); align-items: center; }
 .mini { height: clamp(520px, 62vw, 760px); -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 60%, transparent 100%); }
 .col { display: flex; flex-direction: column; gap: clamp(80px, 12vw, 180px); }
 .colR { justify-content: space-between; align-self: stretch; padding: 4% 0; gap: 64px; }
@@ -36,9 +22,6 @@
 .leaders circle { fill: var(--ink); stroke: var(--fg); stroke-width: 1.25; }
 
 @media (max-width: 900px) {
-  .units { grid-template-columns: 1fr; }
-  .units { --cell: 7px; }
-  .squares { gap: 2px; }
   .anatomy { grid-template-columns: 1fr; }
   .mini { order: -1; height: 70svh; }
   .col { gap: 40px; }
@@ -48,3 +31,10 @@
   .program p { text-align: left; }
   .leaders { display: none; }
 }
+
+.close { display: grid; grid-template-columns: 1fr auto; gap: 32px 64px; align-items: end; margin-top: clamp(80px, 10vw, 150px); padding-top: 32px; border-top: 1px solid var(--rule); }
+.body { margin: 0; font-size: 19px; line-height: 1.5; max-width: 44ch; color: var(--graphite); }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.cta a { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--rule); padding: 14px 18px; color: var(--fg); transition: border-color .2s, color .2s; }
+.cta a:hover { border-color: var(--red); color: var(--red); }
+@media (max-width: 820px) { .close { grid-template-columns: 1fr; } }

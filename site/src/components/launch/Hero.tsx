@@ -30,9 +30,9 @@ export function Hero() {
       <div className={s.top}>
         <span className={s.mark}>PHASER</span>
         <nav className={s.nav} aria-label="Sections">
-          <a href="#economics">01 Economics</a>
-          <a href="#world">02 The world</a>
-          <a href="#light">03 Light</a>
+          <a href="#light">01 The light</a>
+          <a href="#machine">02 The machine</a>
+          <a href="#world">03 The world</a>
         </nav>
       </div>
       <div className={s.claim}>
@@ -48,7 +48,7 @@ export function Hero() {
         <div><span>Passes</span><span ref={steps}>0000</span></div>
         <div><span>Playback</span><span>{slow ? `${slow}× slower` : '—'}</span></div>
       </div>
-      <a className={s.scroll} href="#economics"><span className="label">Why it matters</span><i /></a>
+      <a className={s.scroll} href="#light"><span className="label">Why it matters</span><i /></a>
     </header>
   )
 }

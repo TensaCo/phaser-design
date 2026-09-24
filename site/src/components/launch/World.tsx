@@ -41,7 +41,7 @@ export function World() {
         </div>
         <div className={`wrap ${s.over}`}>
           <div>
-            <p className="eyebrow">02 / The world</p>
+            <p className="eyebrow">03 / The world</p>
             <h2 id="world-h" className={s.h}>AI is running out of electricity.</h2>
           </div>
           <div className={s.friction}>

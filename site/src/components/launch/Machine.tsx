@@ -1,34 +1,18 @@
 'use client'
 import dynamic from 'next/dynamic'
-import { useEffect, useRef, useState } from 'react'
-import X from '@/data/exp29.json'
+import { useRef } from 'react'
 import type { Machine } from '../machine/engine'
 import { Denoise, type DenoiseHandle } from './Denoise'
-import s from './Economics.module.css'
+import s from './Machine.module.css'
 
 const MachineCanvas = dynamic(() => import('../machine/MachineCanvas'), { ssr: false, loading: () => null })
 
-// Experiment 29 scaling model (research/2026-09-14/out/29): one step of a dense layer inside one 1080p modulator,
-// at the pessimistic 32 optical modes per neuron.
-const N = X.N as number[]
-const I = N.findIndex((n) => n >= 135000)
-const GPU_J = (X.series.digital_dense_gpu as number[])[I]
-const LIGHT_J = (X.series.optical_modeled_32 as number[])[I]
-const SQUARES = Math.round(GPU_J / LIGHT_J)
-const COLS = 70 // only paces the reveal
+const REPO = 'https://github.com/JacobFV/phaser-design'
 
 type Pt = { x: number; y: number }
 type Lead = 'time' | 'io' | 'rate'
 
-export function Economics() {
-  const grid = useRef<HTMLDivElement>(null)
-  const [shown, setShown] = useState(false)
-  useEffect(() => {
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setShown(true); io.disconnect() } }, { threshold: 0.35 })
-    if (grid.current) io.observe(grid.current)
-    return () => io.disconnect()
-  }, [])
-
+export function MachineSection() {
   const stage = useRef<HTMLDivElement>(null)
   const denoise = useRef<DenoiseHandle>(null)
   const from = useRef<Record<Lead, HTMLElement | null>>({ time: null, io: null, rate: null })
@@ -76,27 +60,13 @@ export function Economics() {
   }
 
   return (
-    <section className={s.sec} id="economics" aria-labelledby="econ-h">
+    <section className={s.sec} id="machine" aria-labelledby="machine-h">
       <div className="wrap">
-        <p className="eyebrow">01 / The economics</p>
-        <h2 id="econ-h" className={s.h}>
-          <span>A GPU burns a thousand of these.</span>
-          <span className={s.red}>Light burns one.</span>
+        <p className="eyebrow">02 / The machine</p>
+        <h2 id="machine-h" className={s.h}>
+          <span>Two mirrors. Seven panes of glass.</span>
+          <span className={s.red}>The light does the math.</span>
         </h2>
-
-        <figure className={s.units} ref={grid}>
-          <div className={s.gpu}>
-            <div className={s.unitHead}><span>GPU</span><span>{(GPU_J * 1e3).toFixed(1)} mJ</span></div>
-            <div className={`${s.squares} ${shown ? s.on : ''}`} role="img" aria-label={`${SQUARES} squares of energy for one GPU step`}>
-              {Array.from({ length: SQUARES }, (_, i) => <i key={i} style={{ ['--d' as string]: `${Math.floor(i / COLS) * 30}ms` }} />)}
-            </div>
-          </div>
-          <div className={s.light}>
-            <div className={s.unitHead}><span>PHASER</span><span>{(LIGHT_J * 1e3).toFixed(3)} mJ</span></div>
-            <div className={s.one} role="img" aria-label="one square of energy for one PHASER step"><i /></div>
-          </div>
-          <figcaption className={s.cap}>One step of a 135,000-neuron layer. Each square is what PHASER spends on the whole step. Modeled.</figcaption>
-        </figure>
 
         <div className={s.anatomy} ref={stage}>
           <div className={s.col}>
@@ -130,6 +100,17 @@ export function Economics() {
               </g>
             ))}
           </svg>
+        </div>
+
+        <div className={s.close}>
+          <p className={s.body}>
+            Pushing charge through a wire costs energy every time. Light passing through glass doesn’t: it interferes with itself on the
+            way through, and that interference is the arithmetic. PHASER only pays to keep the light going.
+          </p>
+          <div className={s.cta}>
+            <a href={`${REPO}/blob/main/research/2026-09-14/REPORT.md`}>Read the research <span>↗</span></a>
+            <a href={`${REPO}/tree/main/research/2026-09-14/out/29`}>See the energy model <span>↗</span></a>
+          </div>
         </div>
       </div>
     </section>

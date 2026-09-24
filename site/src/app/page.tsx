@@ -1,15 +1,16 @@
 import { Hero } from '@/components/launch/Hero'
-import { Economics } from '@/components/launch/Economics'
+import { Light } from '@/components/launch/Light'
+import { MachineSection } from '@/components/launch/Machine'
 import { World } from '@/components/launch/World'
-import { Close, Footer } from '@/components/launch/Close'
+import { Footer } from '@/components/launch/Close'
 
 export default function Page() {
   return (
     <main>
       <Hero />
-      <Economics />
+      <Light />
+      <MachineSection />
       <World />
-      <Close />
       <Footer />
     </main>
   )
