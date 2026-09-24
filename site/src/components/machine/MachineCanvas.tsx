@@ -1,0 +1,61 @@
+'use client'
+import { useEffect, useRef } from 'react'
+import type { Machine } from './engine'
+
+export default function MachineCanvas({ frameX, cutaway = true, className }: { frameX?: number; cutaway?: boolean; className?: string }) {
+  const ref = useRef<HTMLCanvasElement>(null)
+  useEffect(() => {
+    const canvas = ref.current
+    if (!canvas) return
+    let m: Machine | null = null
+    let raf = 0
+    let alive = true
+    let last = performance.now()
+    let visible = true
+    const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting })
+    io.observe(canvas)
+    import('./engine').then(({ Machine }) => {
+      if (!alive) return
+      const box = canvas.getBoundingClientRect()
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.75)
+      try {
+        m = new Machine({ canvas, width: box.width, height: box.height, dpr, frameX, cutaway })
+      } catch {
+        // no WebGL2 / float render targets: show the poster frame instead
+        canvas.parentElement?.setAttribute('data-fallback', '')
+        canvas.style.display = 'none'
+        return
+      }
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // one still frame, mid-flight
+        for (let i = 0; i < 90; i++) m.frame(1 / 60)
+        return
+      }
+      ;(window as unknown as { __machine: Machine }).__machine = m
+      const loop = (now: number) => {
+        raf = requestAnimationFrame(loop)
+        const dt = (now - last) / 1000
+        last = now
+        if (visible && m) m.frame(dt)
+      }
+      raf = requestAnimationFrame(loop)
+    })
+    const onResize = () => {
+      if (!m) return
+      const box = canvas.getBoundingClientRect()
+      m.resize(box.width, box.height, Math.min(window.devicePixelRatio || 1, 2))
+    }
+    const onMove = (e: PointerEvent) => m?.setPointer((e.clientX / window.innerWidth) * 2 - 1, (e.clientY / window.innerHeight) * 2 - 1)
+    window.addEventListener('resize', onResize)
+    window.addEventListener('pointermove', onMove)
+    return () => {
+      alive = false
+      cancelAnimationFrame(raf)
+      io.disconnect()
+      window.removeEventListener('resize', onResize)
+      window.removeEventListener('pointermove', onMove)
+      m?.dispose()
+    }
+  }, [frameX, cutaway])
+  return <canvas ref={ref} className={className} style={{ width: '100%', height: '100%', display: 'block' }} />
+}
