@@ -57,7 +57,7 @@ export function Economics() {
     <section className={s.sec} id="economics" aria-labelledby="econ-h">
       <div className="wrap">
         <div className={s.head}>
-          <p className={`label ${s.eyebrow}`}>01 · The economics</p>
+          <p className="eyebrow">01 / The economics</p>
           <h2 id="econ-h" className={s.h}>
             <span>Make the model 10× bigger.</span>
             <span>A GPU pays 100× the energy.</span>
@@ -81,7 +81,7 @@ export function Economics() {
             onPointerMove={onMove} onPointerLeave={() => setHover(null)}>
             <defs>
               <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(10,9,8,.09)" strokeWidth="1" />
+                <line x1="0" y1="0" x2="0" y2="6" stroke="rgba(233,229,220,.06)" strokeWidth="1" />
               </pattern>
             </defs>
             {/* one 1080p modulator */}

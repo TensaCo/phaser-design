@@ -29,7 +29,11 @@ export function Hero() {
       <div className={s.canvas} aria-hidden="true" style={{ ['--poster' as string]: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/og.jpg)` }}><MachineCanvas /></div>
       <div className={s.top}>
         <span className={s.mark}>PHASER</span>
-        <span className="label">Optical compute</span>
+        <nav className={s.nav} aria-label="Sections">
+          <a href="#economics">01 Economics</a>
+          <a href="#world">02 The world</a>
+          <a href="#light">03 Light</a>
+        </nav>
       </div>
       <div className={s.claim}>
         <h1>

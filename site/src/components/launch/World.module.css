@@ -1,10 +1,8 @@
-.sec { background: var(--ink); color: var(--fg); padding-bottom: clamp(96px, 12vw, 200px); }
-.photo { position: relative; height: max(100svh, 640px); overflow: hidden; }
-.img { position: absolute !important; inset: 0; }
-.shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 9, 8, 0.55), rgba(10, 9, 8, 0) 32%, rgba(10, 9, 8, 0) 70%, var(--ink)); pointer-events: none; }
-.over { position: relative; z-index: 1; padding-top: clamp(80px, 12vh, 140px); }
-.eyebrow { color: var(--graphite); margin: 0 0 22px; text-align: right; }
-.h { margin: 0 0 0 auto; max-width: 11em; text-align: right; font-variation-settings: 'wdth' 70; font-weight: 700; font-size: clamp(40px, 6.2vw, 100px); line-height: 0.92; letter-spacing: -0.03em; }
+.sec { color: var(--fg); padding: clamp(120px, 14vw, 220px) 0 clamp(96px, 12vw, 200px); }
+.plate { margin: clamp(48px, 6vw, 88px) 0 0; }
+.img { aspect-ratio: 16 / 9; overflow: hidden; }
+.plate figcaption { display: flex; gap: 24px; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); margin-top: 12px; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite); }
+.h { margin: 0; max-width: 11em; font-variation-settings: 'wdth' 70; font-weight: 700; font-size: clamp(40px, 6.2vw, 100px); line-height: 0.92; letter-spacing: -0.03em; }
 .h span { display: block; }
 .h span + span { color: var(--graphite); }
 .scale { display: flex; align-items: flex-end; gap: clamp(16px, 3vw, 48px); margin-top: clamp(40px, 6vw, 80px); border-bottom: 1px solid var(--rule); padding-bottom: 18px; }
@@ -23,8 +21,7 @@
 .turn { margin: clamp(96px, 12vw, 180px) 0 0; font-variation-settings: 'wdth' 80; font-weight: 600; font-size: clamp(28px, 3.6vw, 58px); line-height: 1.08; letter-spacing: -0.02em; max-width: 22em; color: var(--graphite); }
 .turn span { display: block; color: var(--fg); margin-top: 0.3em; }
 @media (max-width: 820px) {
-  .eyebrow, .h { text-align: left; margin-left: 0; }
-  .photo { height: 88svh; }
+  .img { aspect-ratio: 4 / 5; }
   .scale { gap: 12px; }
   .v { font-size: calc(var(--v) * 26vw); }
   .friction { grid-template-columns: 1fr; }

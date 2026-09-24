@@ -4,9 +4,10 @@ const REPO = 'https://github.com/JacobFV/phaser-design'
 
 export function Close() {
   return (
-    <section className={s.sec} aria-labelledby="close-h">
+    <section className={s.sec} id="light" aria-labelledby="close-h">
       <div className={s.beam} aria-hidden="true"><i className={s.m} /><i className={s.pulse} /><i className={`${s.m} ${s.mr}`} /></div>
       <div className="wrap">
+        <p className="eyebrow">03 / Light</p>
         <h2 id="close-h" className={s.h}>
           <span>Intelligence runs on electrons.</span>
           <span className={s.dim}>Every one of them is paid for in heat.</span>

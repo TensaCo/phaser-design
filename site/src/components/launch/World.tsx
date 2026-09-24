@@ -12,20 +12,18 @@ const TWH = [
 
 export function World() {
   return (
-    <section className={s.sec} aria-labelledby="world-h">
-      <div className={s.photo}>
-        <LivingPhoto src={`${BASE}/img/grid-night.jpg`} alt="A transmission tower and power-station cooling towers at night; the only colour is the red aviation lights." className={s.img} />
-        <div className={s.shade} />
-        <div className={`wrap ${s.over}`}>
-          <p className={`label ${s.eyebrow}`}>02 · The world</p>
-          <h2 id="world-h" className={s.h}>
-            <span>AI isn’t running out of chips.</span>
-            <span>It’s running out of electricity.</span>
-          </h2>
-        </div>
-      </div>
-
+    <section className={s.sec} id="world" aria-labelledby="world-h">
       <div className="wrap">
+        <p className="eyebrow">02 / The world</p>
+        <h2 id="world-h" className={s.h}>
+          <span>AI isn’t running out of chips.</span>
+          <span>It’s running out of electricity.</span>
+        </h2>
+        <figure className={s.plate}>
+          <LivingPhoto src={`${BASE}/img/grid-night.jpg`} alt="A transmission tower and power-station cooling towers at night; the only colour is the red aviation lights." className={s.img} />
+          <figcaption><span>Fig. 2</span><span>The grid at night. Its only red light is a warning.</span></figcaption>
+        </figure>
+
         <div className={s.scale} role="img" aria-label="Data-centre electricity use: 269 TWh in 2020, 415 in 2024, 945 projected for 2030 and 1,193 for 2035.">
           {TWH.map((d) => (
             <div key={d.y} className={s.col} style={{ ['--v' as string]: d.v / 1193 }}>

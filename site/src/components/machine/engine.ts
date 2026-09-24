@@ -307,7 +307,7 @@ void main() {
   q.x *= uRes.x / uRes.y;
   c *= 1.0 - 0.55 * smoothstep(0.35, 1.05, length(q));
   float g = fract(sin(dot(vUv * uRes + fract(uTime) * 91.7, vec2(12.9898, 78.233))) * 43758.5453) - 0.5;
-  c += g * 0.014;
+  c += g * 0.0;
   gl_FragColor = vec4(c, 1.0);
 }`
 
@@ -353,7 +353,7 @@ export class Machine {
     const r = new THREE.WebGLRenderer({ canvas: opts.canvas, antialias: true, powerPreference: 'high-performance' })
     r.setPixelRatio(opts.dpr)
     r.setSize(opts.width, opts.height, false)
-    r.setClearColor(0x070606, 1)
+    r.setClearColor(0x0a0908, 1)
     this.renderer = r
     if (!r.capabilities.isWebGL2 || !r.extensions.has('EXT_color_buffer_float')) {
       r.dispose()
@@ -375,7 +375,7 @@ export class Machine {
     r.setClearColor(0x000000, 0)
     for (const t of this.rt) { r.setRenderTarget(t); r.clear() }
     r.setRenderTarget(null)
-    r.setClearColor(0x070606, 1)
+    r.setClearColor(0x0a0908, 1)
 
     // ---- scene ----
     this.camera = new THREE.PerspectiveCamera(22, opts.width / opts.height, 0.1, 100)
