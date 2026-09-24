@@ -2,7 +2,7 @@
 .hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 22vh; background: linear-gradient(to bottom, rgba(10, 9, 8, 0), var(--ink)); pointer-events: none; z-index: 1; }
 .canvas { position: absolute; inset: 0; background: var(--ink) center / cover no-repeat; }
 .canvas[data-fallback] { background-image: var(--poster); }
-.top { position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: linear-gradient(to bottom, rgba(10, 9, 8, 0.85), rgba(10, 9, 8, 0)); display: flex; justify-content: space-between; align-items: baseline; padding: 22px var(--gutter); color: var(--graphite); z-index: 2; }
+.top { position: fixed; top: 0; left: 0; right: 0; background: linear-gradient(to bottom, rgba(10, 9, 8, 0.85), rgba(10, 9, 8, 0)); display: flex; justify-content: space-between; align-items: baseline; padding: 22px var(--gutter); color: var(--graphite); z-index: 60; }
 .mark { font-family: var(--f-display); font-variation-settings: 'wdth' 125; font-weight: 700; letter-spacing: 0.32em; font-size: 13px; color: var(--fg); }
 .claim { position: absolute; left: var(--gutter); bottom: clamp(56px, 11vh, 120px); z-index: 2; max-width: 52vw; pointer-events: none; }
 .claim h1 { margin: 0; font-weight: 400; }

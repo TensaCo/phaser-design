@@ -1,0 +1,5 @@
+.pair { display: flex; align-items: center; gap: 14px; }
+.disc { display: flex; flex-direction: column; gap: 10px; }
+.disc canvas { width: clamp(96px, 9vw, 140px); height: auto; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 1px var(--rule), 0 0 40px rgba(255, 42, 18, 0.18); }
+.lbl { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--graphite); max-width: 16ch; line-height: 1.4; }
+.arrow { color: var(--graphite); font-size: 20px; margin-bottom: 28px; }

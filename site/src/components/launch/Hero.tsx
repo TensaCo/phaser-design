@@ -38,7 +38,7 @@ export function Hero() {
       <div className={s.claim}>
         <h1>
           <span className={`num ${s.big}`}>1,000×</span>
-          <span className={s.line}>less energy per step than a GPU.<sup className="fn"><a href="#r1">1</a></sup></span>
+          <span className={s.line}>less energy per step than a GPU.</span>
         </h1>
         <p className={s.sub}>Every bounce of light is a computation.</p>
         <p className={s.note}>Modeled at one megapixel of optics · not yet built</p>

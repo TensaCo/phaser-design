@@ -6,7 +6,6 @@ export interface MachineCanvasProps {
   frameX?: number
   frameY?: number
   distance?: number
-  cutaway?: boolean
   className?: string
   /** called every drawn frame with the live machine (e.g. to place annotation leaders) */
   onFrame?: (m: Machine) => void
@@ -14,7 +13,7 @@ export interface MachineCanvasProps {
   global?: boolean
 }
 
-export default function MachineCanvas({ frameX, frameY, distance, cutaway = true, className, onFrame, global = false }: MachineCanvasProps) {
+export default function MachineCanvas({ frameX, frameY, distance, className, onFrame, global = false }: MachineCanvasProps) {
   const cb = useRef(onFrame)
   cb.current = onFrame
   const ref = useRef<HTMLCanvasElement>(null)
@@ -33,7 +32,7 @@ export default function MachineCanvas({ frameX, frameY, distance, cutaway = true
       const box = canvas.getBoundingClientRect()
       const dpr = Math.min(window.devicePixelRatio || 1, 1.75)
       try {
-        m = new Machine({ canvas, width: box.width, height: box.height, dpr, frameX, frameY, distance, cutaway })
+        m = new Machine({ canvas, width: box.width, height: box.height, dpr, frameX, frameY, distance })
       } catch {
         // no WebGL2 / float render targets: show the poster frame instead
         canvas.parentElement?.setAttribute('data-fallback', '')
@@ -70,6 +69,6 @@ export default function MachineCanvas({ frameX, frameY, distance, cutaway = true
       window.removeEventListener('pointermove', onMove)
       m?.dispose()
     }
-  }, [frameX, frameY, distance, cutaway, global])
+  }, [frameX, frameY, distance, global])
   return <canvas ref={ref} className={className} style={{ width: '100%', height: '100%', display: 'block' }} />
 }
