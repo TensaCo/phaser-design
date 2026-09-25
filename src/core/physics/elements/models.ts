@@ -7,7 +7,7 @@ import type { ElementEnv, OpticalElement, RunContext } from './element'
 import { achievedPhase, buildPixelMap, driveLevel, evaluateProgram } from './pixels'
 import type {
   ApertureSpec, CouplerSpec, GainSpec, IncidentSide, IntensityResponse, LcdMicrolensSpec, LcosSlmSpec, MaskProgram,
-  MicrolensArraySpec, MirrorSpec, NonlinearSpec, OpticalElementSpec, PhasePlateSpec, PixelArray, ThinLensSpec, TransmissiveLcdSpec,
+  MicrolensArraySpec, MirrorSpec, NonlinearSpec, OpticalElementSpec, PhasePlateSpec, PixelArray, SlabSpec, ThinLensSpec, TransmissiveLcdSpec,
 } from './types'
 
 const checkFraction = (id: string, name: string, v: number) => {
@@ -370,6 +370,30 @@ class Aperture implements OpticalElement {
   resetState() {}
 }
 
+// ── thick window / substrate ─────────────────────────────────────────────────────────────────
+
+class Slab implements OpticalElement {
+  readonly linear = true
+  readonly warnings: string[] = []
+  private readonly bulk: number
+  private readonly ng: number
+  constructor(readonly spec: SlabSpec, env: ElementEnv) {
+    if (!(spec.thickness >= 0)) throw new Error(`${spec.id}: thickness must be ≥ 0`)
+    checkFraction(spec.id, 'surfaceReflectance.front', spec.surfaceReflectance.front)
+    checkFraction(spec.id, 'surfaceReflectance.back', spec.surfaceReflectance.back)
+    const m = resolveMedium(spec.medium, env.wavelength)
+    this.bulk = Math.exp(-m.alpha * spec.thickness)
+    this.ng = m.ng
+  }
+  get id() { return this.spec.id }
+  get internalPath() { return { length: this.spec.thickness, groupIndex: this.ng } }
+  /** a pass crosses both faces, whichever side it enters from */
+  powerTransmission() { return (1 - this.spec.surfaceReflectance.front) * (1 - this.spec.surfaceReflectance.back) * this.bulk }
+  apply(f: Field) { scaleField(f, Math.sqrt(this.powerTransmission())) }
+  state() { return {} }
+  resetState() {}
+}
+
 // ── gain and nonlinearity ────────────────────────────────────────────────────────────────────
 
 class Gain implements OpticalElement {
@@ -494,5 +518,6 @@ export function buildElement(spec: OpticalElementSpec, env: ElementEnv): Optical
     case 'phase-plate': return new PhasePlate(spec, env)
     case 'gain': return new Gain(spec, env.grid)
     case 'nonlinear': return new Nonlinear(spec)
+    case 'slab': return new Slab(spec, env)
   }
 }

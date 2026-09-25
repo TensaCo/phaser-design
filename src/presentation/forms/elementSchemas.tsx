@@ -186,6 +186,15 @@ export const ELEMENT_KINDS: ElementKindInfo[] = [
     fields: [pixelsGroup(['pixels']), { kind: 'directional', path: ['transmission'], label: 'transmission' }, { kind: 'number', path: ['designWavelength'], label: 'design wavelength', unit: U.nm }, programField(['program'], 'phase profile')],
   },
   {
+    kind: 'slab', label: 'Glass slab / window', description: 'Thick transmissive part: bulk absorption, residual surface reflectance and group delay.',
+    template: (id) => ({ kind: 'slab', id, thickness: 3e-3, medium: { kind: 'custom', label: 'N-BK7', refractiveIndex: 1.515, groupIndex: 1.534, attenuationPerM: 0.1 }, surfaceReflectance: { front: 0.0025, back: 0.0025 } }),
+    fields: [
+      { kind: 'number', path: ['thickness'], label: 'thickness $t$', unit: U.mm, min: 0 },
+      mediumField(['medium'], 'material'),
+      { kind: 'directional', path: ['surfaceReflectance'], label: 'residual surface reflectance' },
+    ],
+  },
+  {
     kind: 'gain', label: 'Gain medium', description: 'Signal gain with optional saturation and additive noise.',
     template: (id) => ({ kind: 'gain', id, smallSignalGain: 1.5, saturation: { kind: 'global', saturationIntensity: 0.5 }, noise: { kind: 'none' } }),
     fields: [

@@ -36,6 +36,7 @@ export function summary(e: OpticalElementSpec): string {
     case 'phase-plate': return `static ${e.program.kind} · $${e.pixels.resolution.x}^2$ px`
     case 'gain': return `$G_0$ ${e.smallSignalGain} · saturation ${e.saturation.kind}${e.noise.kind !== 'none' ? ' · noise' : ''}`
     case 'nonlinear': return `amplitude ${e.amplitude.kind} · phase ${e.phase.kind}`
+    case 'slab': return `${mm(e.thickness)} ${e.medium.kind === 'custom' ? e.medium.label ?? 'glass' : e.medium.kind} · $R_s$ ${pct(e.surfaceReflectance.front)}`
   }
 }
 

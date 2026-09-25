@@ -89,3 +89,16 @@ describe('timing from the physical route', () => {
     expect(t.opticalPathLength).toBeCloseTo(2 * 0.05 * 1.45, 12)
   })
 })
+
+describe('slab timing', () => {
+  it('a glass slab adds t·n_g per traversal to the round-trip time', () => {
+    const glass = { kind: 'slab' as const, id: 'g', thickness: 5e-3, medium: { kind: 'custom' as const, refractiveIndex: 1.5, groupIndex: 1.53, attenuationPerM: 0 }, surfaceReflectance: { front: 0, back: 0 } }
+    const els = [mirror('m0'), mirror('m1'), lcd({ id: 'a' }), glass]
+    const t0 = system(els, linearStack({ elementIds: ['a'], spacing: 0.01, medium: vacuum, start: ['m0'], end: ['m1'] })).timing().roundTripTime
+    // as a stack item: traversed forward and back; in the end assembly: once per reflection
+    const tItem = system(els, { ...linearStack({ elementIds: ['a'], spacing: 0.01, medium: vacuum, start: ['m0'], end: ['m1'] }), items: [{ elementId: 'a', position: 0.01 }, { elementId: 'g', position: 0.015 }] }).timing().roundTripTime
+    const tEnd = system(els, linearStack({ elementIds: ['a'], spacing: 0.01, medium: vacuum, start: ['m0'], end: ['g', 'm1'] })).timing().roundTripTime
+    expect(tItem - t0).toBeCloseTo((2 * 5e-3 * 1.53) / SPEED_OF_LIGHT, 18)
+    expect(tEnd - t0).toBeCloseTo((5e-3 * 1.53) / SPEED_OF_LIGHT, 18)
+  })
+})

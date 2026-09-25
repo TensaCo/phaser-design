@@ -115,7 +115,11 @@ interface OpticalElement {
 ```
 
 Available kinds: `mirror`, `coupler`, `lens`, `microlens-array`, `aperture`, `lcos-slm`, `transmissive-lcd`,
-`lcd-microlens`, `phase-plate`, `gain`, `nonlinear`. Readout chains reuse the same element models.
+`lcd-microlens`, `phase-plate`, `gain`, `nonlinear`, `slab`. Readout chains reuse the same element models.
+
+**Thick glass (`slab`).** A window, lens body, SLM cover glass, LC-cell substrate or gain-crystal host: per pass it applies the
+bulk absorption `e^{−αt}` of its medium and the residual reflectance of both faces (lost, like LCD surface reflections), and
+its group path `t·n_g` is counted in the route timing. Diffraction inside it is not propagated (thin-element approximation).
 
 **Programmable devices.**
 
@@ -145,6 +149,7 @@ Every route step names the incident face. Any property that can differ between f
 - LCD entrance surfaces (transmission and reflection per face)
 - mirror and coupler reflectivities
 - lens, MLA and phase-plate transmission
+- slab surface reflectance (a pass crosses both faces, so a slab's loss is the same from either side)
 
 Other face-dependent behaviour:
 

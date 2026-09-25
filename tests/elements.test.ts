@@ -138,3 +138,28 @@ describe('pixel mapping and programs', () => {
     expect(a.im.every((v) => v === 0)).toBe(true)
   })
 })
+
+describe('thick glass slab', () => {
+  const slab = (over: Partial<Extract<OpticalElementSpec, { kind: 'slab' }>> = {}): OpticalElementSpec => ({
+    kind: 'slab', id: 's', thickness: 10e-3, medium: { kind: 'custom', refractiveIndex: 1.5, groupIndex: 1.52, attenuationPerM: 0.2 },
+    surfaceReflectance: { front: 0.005, back: 0.001 }, ...over,
+  })
+  it('a pass loses bulk absorption e^(−αt) and both faces, from either side', () => {
+    const el = buildElement(slab(), env())
+    const expected = Math.exp(-0.2 * 10e-3) * (1 - 0.005) * (1 - 0.001)
+    for (const side of ['front', 'back'] as const) {
+      const f = uniform(), p0 = fieldPower(f)
+      el.apply(f, side, NULL_CONTEXT)
+      expect(fieldPower(f) / p0).toBeCloseTo(expected, 12)
+      expect(el.powerTransmission(side)).toBeCloseTo(expected, 12)
+    }
+  })
+  it('is uniform (no phase or shape change) and adds its group path to the timing', () => {
+    const el = buildElement(slab({ surfaceReflectance: { front: 0, back: 0 }, medium: { kind: 'custom', refractiveIndex: 1.5, groupIndex: 1.52, attenuationPerM: 0 } }), env())
+    const f = uniform(); f.im.fill(0.5)
+    el.apply(f, 'front', NULL_CONTEXT)
+    expect(f.re[7]).toBeCloseTo(1, 14)
+    expect(f.im[7]).toBeCloseTo(0.5, 14)
+    expect(el.internalPath).toEqual({ length: 10e-3, groupIndex: 1.52 })
+  })
+})

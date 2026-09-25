@@ -194,6 +194,19 @@ export interface NonlinearSpec extends Base {
   phase: IntensityResponse
 }
 
+/**
+ * Thick transmissive part (window, lens body, SLM cover glass, LC-cell substrate, gain-crystal host): per pass, the bulk
+ * absorption e^{−α·t} of its medium and the residual power reflectance of the two faces it crosses (lost from the route,
+ * like LCD surface reflections), plus its group delay t·n_g in the route timing. Diffraction inside the slab is not
+ * propagated (thin-element approximation); route propagation lengths are the gaps between elements.
+ */
+export interface SlabSpec extends Base {
+  kind: 'slab'
+  thickness: number // m
+  medium: MediumSpec // n, n_g and power attenuation α (1/m) of the material
+  surfaceReflectance: Directional<number> // residual power reflectance of the front / back face (e.g. AR coating 0.1–0.5 %)
+}
+
 export type OpticalElementSpec =
   | MirrorSpec
   | CouplerSpec
@@ -206,6 +219,7 @@ export type OpticalElementSpec =
   | PhasePlateSpec
   | GainSpec
   | NonlinearSpec
+  | SlabSpec
 
 export type ElementKind = OpticalElementSpec['kind']
 
