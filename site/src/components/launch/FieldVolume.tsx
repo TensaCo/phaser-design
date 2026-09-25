@@ -5,7 +5,7 @@
  *
  * Photon: a stream of Gaussian light packets in vacuum, E ∝ exp(−(x−ct)²/2σ² − ρ²/w²) · e^{i(kx−ωt)}. They move rigidly
  * at c and keep their norm: nothing in free space takes energy from them.
- * Electrons: Bloch wave packets (envelope × e^{ik·r} × a lattice-periodic factor) in a diamond-cubic crystal. Each flies to
+ * Electrons (dozens at once): Bloch wave packets (envelope × e^{ik·r} × a lattice-periodic factor) in a diamond-cubic crystal. Each flies to
  * an atom and is absorbed; the atom heats up (red) and rings out a spherical wavelet, then emits a new electron toward the
  * next atom.
  */
@@ -37,6 +37,7 @@ bool box(vec3 ro, vec3 rd, out float t0, out float t1) {
 
 const PHOTON = COMMON + `
 uniform float uX0;
+void prepare(vec3 ro, vec3 rd) {}
 vec4 sampleField(vec3 p) {
   // a continuous stream of identical light packets, evenly spaced, all moving at c
   float sx = 0.34, w = 0.42, k = 22.0, span = 5.6, gap = 1.4;
@@ -58,10 +59,27 @@ vec4 sampleField(vec3 p) {
 }
 `
 
+const NE = 32, NEV = 32
 const ELECTRON = COMMON + `
-uniform vec4 uE[4];           // electrons: xyz = centre, w = 1 when in flight
-uniform vec3 uEk[4];          // their wave vectors
-uniform vec4 uEv[10];         // absorption events: xyz = atom, w = time (−1 = none)
+uniform vec4 uE[${NE}];          // electrons: xyz = centre, w = 1 when in flight
+uniform vec3 uEk[${NE}];         // their wave vectors
+uniform vec4 uEv[${NEV}];        // absorption events: xyz = atom, w = time (−1 = none)
+// per-pixel culling: only the electrons and events this ray passes near are evaluated along it
+int ce[16]; int nce = 0;
+int cv[16]; int ncv = 0;
+void prepare(vec3 ro, vec3 rd) {
+  for (int i = 0; i < ${NE}; i++) {
+    if (uE[i].w < 0.5 || nce >= 16) continue;
+    vec3 q = uE[i].xyz - ro;
+    if (length(q - rd * dot(q, rd)) < 0.5) { ce[nce] = i; nce++; }
+  }
+  for (int i = 0; i < ${NEV}; i++) {
+    if (uEv[i].w < 0.0 || ncv >= 16) continue;
+    float age = uT - uEv[i].w;
+    vec3 q = uEv[i].xyz - ro;
+    if (length(q - rd * dot(q, rd)) < 1.2 * age + 0.35) { cv[ncv] = i; ncv++; }
+  }
+}
 const float A = 0.5;           // lattice constant
 float lattice(vec3 p) {
   // diamond cubic density: distance to the nearest of the 8 basis atoms in the unit cell
@@ -80,10 +98,11 @@ vec4 sampleField(vec3 p) {
   float u = lattice(p);
   vec3 col = vec3(0.0);
   float dens = 0.0;
-  for (int i = 0; i < 4; i++) {
-    if (uE[i].w < 0.5) continue;
+  for (int n = 0; n < 16; n++) {
+    if (n >= nce) break;
+    int i = ce[n];
     vec3 r = p - uE[i].xyz;
-    float env = exp(-dot(r, r) / (2.0 * 0.15 * 0.15));
+    float env = exp(-dot(r, r) / (2.0 * 0.12 * 0.12));
     if (env < 1e-3) continue;
     // Bloch packet: envelope × plane wave × (smooth + lattice-periodic part), drawn through Re ψ
     float ph = dot(uEk[i], r) - uT * 14.0;
@@ -93,8 +112,9 @@ vec4 sampleField(vec3 p) {
     dens += d;
   }
   float heat = 0.0;
-  for (int i = 0; i < 10; i++) {
-    if (uEv[i].w < 0.0) continue;
+  for (int n = 0; n < 16; n++) {
+    if (n >= ncv) break;
+    int i = cv[n];
     float age = uT - uEv[i].w;
     vec3 q = p - uEv[i].xyz;
     float dd = length(q);
@@ -122,8 +142,9 @@ void main() {
   float t0, t1;
   vec3 bg = vec3(0.039, 0.035, 0.031);
   if (!box(ro, rd, t0, t1)) { o = vec4(bg, 1.0); return; }
+  prepare(ro, rd);
   t0 = max(t0, 0.0);
-  const int N = 220;
+  const int N = 180;
   float dt = (t1 - t0) / float(N);
   float j = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453);
   vec3 acc = vec3(0.0);
@@ -186,7 +207,7 @@ export function FieldVolume({ kind, onEvent }: { kind: Kind; onEvent?: (n: numbe
     }
     type E = { p: V3; to: V3; dir: V3; state: 'fly' | 'hot'; timer: number }
     const spawn = (): E => { const p: V3 = [-1.95, (rnd() - 0.5) * 1.2, (rnd() - 0.5) * 1.2]; const to = pick(p); return { p, to, dir: norm([to[0] - p[0], to[1] - p[1], to[2] - p[2]]), state: 'fly', timer: 0 } }
-    const el: E[] = Array.from({ length: 4 }, spawn)
+    const el: E[] = Array.from({ length: NE }, spawn)
     const events: [number, number, number, number][] = []
     let hits = 0
     const stepE = (d: number, now: number) => {
@@ -201,7 +222,7 @@ export function FieldVolume({ kind, onEvent }: { kind: Kind; onEvent?: (n: numbe
             e.state = 'hot'
             e.timer = 0.3 + rnd() * 0.25
             events.push([e.to[0], e.to[1], e.to[2], now])
-            if (events.length > 10) events.shift()
+            if (events.length > NEV) events.shift()
             hits++
           } else e.p = [e.p[0] + (dx / dist) * v, e.p[1] + (dy / dist) * v, e.p[2] + (dz / dist) * v]
         } else {
@@ -216,7 +237,7 @@ export function FieldVolume({ kind, onEvent }: { kind: Kind; onEvent?: (n: numbe
       }
     }
     // start in equilibrium: stagger the electrons across the crystal and let them run for a few seconds
-    el.forEach((e, n) => { e.p = [-1.8 + n * 0.9, e.p[1], e.p[2]]; e.to = pick(e.p); e.dir = norm([e.to[0] - e.p[0], e.to[1] - e.p[1], e.to[2] - e.p[2]]) })
+    el.forEach((e, n) => { e.p = [-1.85 + ((n * 0.61) % 1) * 3.2, e.p[1], e.p[2]]; e.to = pick(e.p); e.dir = norm([e.to[0] - e.p[0], e.to[1] - e.p[1], e.to[2] - e.p[2]]) })
     let tPre = 0
     for (let i = 0; i < 240; i++) { tPre += 1 / 60; stepE(1 / 60, tPre) }
 
@@ -254,11 +275,11 @@ export function FieldVolume({ kind, onEvent }: { kind: Kind; onEvent?: (n: numbe
       } else {
         stepE(d, t)
         cb.current?.(hits)
-        const E = new Float32Array(16), K = new Float32Array(12)
+        const E = new Float32Array(NE * 4), K = new Float32Array(NE * 3)
         el.forEach((e, n) => { E.set([e.p[0], e.p[1], e.p[2], e.state === 'fly' ? 1 : 0], n * 4); K.set([e.dir[0] * 24, e.dir[1] * 24, e.dir[2] * 24], n * 3) })
         gl.uniform4fv(U('uE'), E)
         gl.uniform3fv(U('uEk'), K)
-        const ev = new Float32Array(40).fill(-1)
+        const ev = new Float32Array(NEV * 4).fill(-1)
         events.forEach((e, i) => ev.set(e, i * 4))
         gl.uniform4fv(U('uEv'), ev)
       }
