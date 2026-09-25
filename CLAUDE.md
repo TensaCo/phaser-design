@@ -1,12 +1,17 @@
 # CLAUDE.md
 
+PHASER research: the optical-cavity simulator (`src/`, `docs/ARCHITECTURE.md`, `tests/`, `examples/`) and the dated
+research sprints under `research/`.
+
 ## Git workflow
 
 - Work and commit directly on `main`. Don't create feature branches or PRs unless asked.
-- Pushing `main` with changes under `site/` deploys the launch page to GitHub Pages (`.github/workflows/pages.yml`).
+- The repository is `TensaCo/phaser-design`.
 
-## Launch site (`site/`)
+## The website lives elsewhere
 
-- Next.js static export. Run it with `npm run dev` in `site/`, then open http://localhost:3217/phaser-design/.
-- Art direction and claim rules live in `site/VISUAL_BIBLE.md`. Energy claims are *modeled*: always pair them with that
-  caveat and a receipt, and never quote 1e6×.
+- The PHASER site (https://phaser.tensaco.ai) is `apps/phaser` in the `TensaCo/tensaco.ai` repository, next to the TensaCo
+  parent site (https://tensaco.ai). It moved out of this repo's `site/` on 2026-09-24; its history before that is here.
+- `jacobfv.github.io/phaser-design` is a redirect-only GitHub Pages stub (repo `JacobFV/phaser-design`) pointing at
+  https://phaser.tensaco.ai.
+- Energy claims on the site are *modeled* (Exp. 29): always pair them with that caveat, and never quote 1e6×.
