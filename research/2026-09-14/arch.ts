@@ -47,6 +47,10 @@ export interface RingOptions extends ArchOptions {
   ampMask?: { dark: number; program?: MaskProgram } // static absorbing amplitude LCD directly after the SLM (cells clear, gaps dark)
   inputFirst?: boolean // put the input coupler immediately before the SLM (injection in the SLM/image plane; scalar, so the circulating dynamics are unchanged)
   compact?: boolean // merge segments separated only by uniform scalar elements (validated equal to the full route)
+  lensAperture?: number // relay lens clear aperture (default 1.2 mm); scaled with the grid in Exp. 31
+  /** Exp. 33 loss budget: override component losses and insert extra thin elements (e.g. glass slabs) after a route element */
+  losses?: { slmR?: number; slmDead?: number; lensT?: number; foldR?: number; inR?: number; outR?: number }
+  extra?: { spec: OpticalElementSpec; after: string }[]
 }
 
 /**
@@ -59,18 +63,21 @@ export function slmRing(o: RingOptions = {}): PhysicsConfig {
   const spp = o.spp ?? 2
   const n = o.n ?? 64
   const f = o.focal ?? 50e-3
-  const lens = (id: string, err = 0): OpticalElementSpec => ({ kind: 'lens', id, focalLength: f * (1 + err), apertureDiameter: 1.2e-3, transmission: { front: 0.995, back: 0.995 } })
+  const L = o.losses ?? {}
+  const lT = L.lensT ?? 0.995
+  const lens = (id: string, err = 0): OpticalElementSpec => ({ kind: 'lens', id, focalLength: f * (1 + err), apertureDiameter: o.lensAperture ?? 1.2e-3, transmission: { front: lT, back: lT } })
   const act = activeElements(o)
   const elements: OpticalElementSpec[] = [
-    { kind: 'coupler', id: 'in', retained: { front: 0.98, back: 0.98 }, inputPort: 'in' },
+    { kind: 'coupler', id: 'in', retained: { front: L.inR ?? 0.98, back: L.inR ?? 0.98 }, inputPort: 'in' },
     {
-      kind: 'lcos-slm', id: 'slm', pixels: pixels(64 * spp >= n ? 64 : Math.ceil(n / spp), pitch, 0.93), reflectivity: 0.75, deadZoneReflectivity: 0.2,
+      kind: 'lcos-slm', id: 'slm', pixels: pixels(64 * spp >= n ? 64 : Math.ceil(n / spp), pitch, 0.93), reflectivity: L.slmR ?? 0.75, deadZoneReflectivity: L.slmDead ?? 0.2,
       phaseRange: 2 * Math.PI, phaseLevels: 256, phaseResponse: { kind: 'gamma', gamma: 1.05 }, switchingTime: 0.005, designWavelength: 633e-9,
       program: o.mask ?? { kind: 'zero' },
     },
-    { kind: 'mirror', id: 'fold', reflectivity: { front: 0.995, back: 0.995 }, parity: o.roof ? 'flip-x' : 'none' },
-    { kind: 'mirror', id: 'roof', reflectivity: { front: 0.995, back: 0.995 }, parity: o.roof ? 'flip-y' : 'none' },
-    { kind: 'coupler', id: 'out', retained: { front: 0.95, back: 0.95 }, outputTap: 'readout' },
+    { kind: 'mirror', id: 'fold', reflectivity: { front: L.foldR ?? 0.995, back: L.foldR ?? 0.995 }, parity: o.roof ? 'flip-x' : 'none' },
+    { kind: 'mirror', id: 'roof', reflectivity: { front: L.foldR ?? 0.995, back: L.foldR ?? 0.995 }, parity: o.roof ? 'flip-y' : 'none' },
+    { kind: 'coupler', id: 'out', retained: { front: L.outR ?? 0.95, back: L.outR ?? 0.95 }, outputTap: 'readout' },
+    ...(o.extra ?? []).map((x) => x.spec),
     lens('lensR', o.focalErrorR ?? 0), lens('lensL'),
     ...act.els,
     ...(o.ampMask ? [{
@@ -91,6 +98,7 @@ export function slmRing(o: RingOptions = {}): PhysicsConfig {
       ? [E('in'), E('slm'), ...act.ids.map(E), P(40e-3), E('lensR'), E('fold'), E('roof'), E('out'), P(100e-3), E('lensL'), P(60e-3 + (o.defocus ?? 0))]
       : [E('slm'), ...act.ids.map(E), P(40e-3), E('lensR'), E('fold'), E('roof'), E('out'), P(100e-3), E('lensL'), E('in'), P(60e-3 + (o.defocus ?? 0))]
   if (o.ampMask) route0.splice(route0.findIndex((r) => r.kind === 'element' && r.elementId === 'slm') + 1, 0, E('amp'))
+  for (const x of o.extra ?? []) route0.splice(route0.findIndex((r) => r.kind === 'element' && r.elementId === x.after) + 1, 0, E(x.spec.id))
   const route = o.maxStep
     ? route0.flatMap((it) => (it.kind === 'propagate' ? Array.from({ length: Math.ceil(it.length / o.maxStep! - 1e-9) }, (_, _i, k = Math.ceil(it.length / o.maxStep! - 1e-9)) => ({ ...it, length: it.length / k })) : [it]))
     : route0
@@ -197,6 +205,70 @@ export function lcdMla(o: MlaOptions = {}): PhysicsConfig {
       kind: 'linear-reciprocal', length: d1 + d2, medium: LOW_AIR,
       start: { elementIds: ['in', ...act.ids] }, end: { elementIds: ['end'] },
       items: [{ elementId: 'stack', position: d1 }],
+    },
+    readouts: [],
+  }
+}
+
+// ── S. linear stack (2026-09-25, Exp. 30+) ────────────────────────────────────────────────────────
+/**
+ * The website's back-and-forth linear stack: input/output coupler (with the gain at the start reflector) | P transmissive
+ * phase-only LC planes, `spacing` apart | curved end mirror (thin lens on a flat mirror). Half-symmetric stable
+ * resonator: non-degenerate (distinct Gouy phases), which is what the reservoir needs (Exp. 15: self-imaging hurts memory).
+ * The end reflector's curvature is a thin lens applied once per reflection (assemblies apply each element once), i.e. a
+ * concave mirror of radius R = 2·f_end (its transmission defaults to 1: the loss is in endR). With L = 25 mm and
+ * f_end = 60 mm, g = 1 − L/R = 0.79 and the round-trip Gouy phase is 2·acos(√g) ≈ 54° (not a low-order rational of 360°).
+ * Losses are explicit parameters (Exp. 33 budgets); `glass` inserts a slab per plane (substrates, both passes).
+ */
+export interface StackOptions extends ArchOptions {
+  planes?: number // number of programmable planes (default 4)
+  spacing?: number // m between planes (default 5 mm)
+  pitch?: number // m (default 20 µm, same window as the ring at 64²)
+  fEnd?: number // end-mirror focal length R/2 (default 60 mm)
+  masks?: MaskProgram[] // per plane (default random, seed 3 + k, depth 0.1)
+  loss?: { inR?: number; tap?: number; endR?: number; lcdT?: number; lcdSurf?: number; lensT?: number }
+  glass?: (plane: number) => OpticalElementSpec | null // slab after each plane (id must be unique)
+  gainGlass?: OpticalElementSpec // host slab of the gain medium at the start reflector
+  /** 'lcd' (default): programmable transmissive LC planes; 'plate': fabricated static phase plates (DOE) with power
+   *  transmission plateT per pass (the program is fixed at fabrication) */
+  planeKind?: 'lcd' | 'plate'
+  plateT?: number
+}
+
+export function stackCavity(o: StackOptions = {}): PhysicsConfig {
+  const P = o.planes ?? 4, d = o.spacing ?? 5e-3, pitch = o.pitch ?? 20e-6, spp = o.spp ?? 1, n = o.n ?? 64
+  const L = o.loss ?? {}
+  const act = activeElements(o)
+  const surf = L.lcdSurf ?? 0.0025
+  const planes: OpticalElementSpec[] = Array.from({ length: P }, (_, k) => (o.planeKind === 'plate' ? {
+    kind: 'phase-plate', id: `p${k}`, pixels: pixels(Math.max(64, Math.ceil(n / spp)), pitch, 1),
+    transmission: { front: o.plateT ?? 0.998, back: o.plateT ?? 0.998 }, designWavelength: 650e-9,
+    program: o.masks?.[k] ?? o.mask ?? { kind: 'random', seed: 3 + k, depth: 0.1 },
+  } : {
+    kind: 'transmissive-lcd', id: `p${k}`,
+    pixels: pixels(Math.max(64, Math.ceil(n / spp)), pitch, 0.9),
+    modulation: { kind: 'phase', phaseRange: 2 * Math.PI, levels: 256, response: { kind: 'linear' } },
+    clearTransmission: L.lcdT ?? 0.97,
+    surfaces: { front: { transmission: 1 - surf, reflection: surf }, back: { transmission: 1 - surf, reflection: surf } },
+    polarizerTransmission: 1, deadZoneTransmission: 0.5, switchingTime: 0.01, designWavelength: 650e-9,
+    program: o.masks?.[k] ?? o.mask ?? { kind: 'random', seed: 3 + k, depth: 0.1 },
+  }) as OpticalElementSpec)
+  const glass = Array.from({ length: P }, (_, k) => o.glass?.(k) ?? null).filter((x): x is OpticalElementSpec => !!x)
+  const lT = L.lensT ?? 1
+  return {
+    field: { grid: { nx: n, ny: n, dx: pitch / spp, dy: pitch / spp }, wavelength: o.wavelength ?? 650e-9, boundary: { kind: 'absorbing', widthFraction: o.boundary ?? 0.08 } },
+    elements: [
+      { kind: 'coupler', id: 'in', retained: { front: L.inR ?? 0.95, back: L.inR ?? 0.95 }, inputPort: 'in', outputTap: 'readout' },
+      ...planes, ...glass,
+      { kind: 'lens', id: 'Lend', focalLength: o.fEnd ?? 60e-3, apertureDiameter: n * pitch / spp, transmission: { front: lT, back: lT } },
+      { kind: 'mirror', id: 'end', reflectivity: { front: L.endR ?? 0.995, back: L.endR ?? 0.995 }, parity: 'none' },
+      ...act.els,
+      ...(o.gainGlass ? [o.gainGlass] : []),
+    ],
+    topology: {
+      kind: 'linear-reciprocal', length: (P + 1) * d, medium: AIR,
+      start: { elementIds: ['in', ...act.ids, ...(o.gainGlass ? [o.gainGlass.id] : [])] }, end: { elementIds: ['Lend', 'end'] },
+      items: planes.flatMap((p, k) => [{ elementId: p.id, position: (k + 1) * d }, ...glass.filter((g) => g.id === `g${k}`).map((g) => ({ elementId: g.id, position: (k + 1) * d + 1e-6 }))]),
     },
     readouts: [],
   }

@@ -1,0 +1,2147 @@
+{
+ "components": {
+  "bk7_alpha": [
+   0.21,
+   "SCHOTT N-BK7 datasheet: τi = 0.998 per 10 mm at 620–700 nm ⇒ α ≈ 0.2 /m (power)"
+  ],
+  "fs_alpha": [
+   0.01,
+   "fused silica (Corning 7980): transmittance ≈ 100 % in the visible; 0.01 /m is an upper-bound est."
+  ],
+  "host_alpha": [
+   0.3,
+   "gain-crystal host passive loss 0.3 %/cm (est.; Pr:YLF passive loss not found in a datasheet)"
+  ],
+  "ar_vcoat": [
+   0.0025,
+   "Thorlabs V-coat R < 0.25 % at the design wavelength"
+  ],
+  "ar_broad": [
+   0.005,
+   "Thorlabs A-coat R_avg < 0.5 % (350–700 nm)"
+  ],
+  "ar_ibs": [
+   0.001,
+   "ion-beam-sputtered V-coat R ≈ 0.1 % (vendor claims; est.)"
+  ],
+  "lcos_al": [
+   0.79,
+   "Hamamatsu X15213-01 light utilisation 79 % at 633 nm (Holoeye PLUTO-2 VIS-014: 65 %; Meadowlark Al: 76–91 %)"
+  ],
+  "lcos_diel": [
+   0.95,
+   "dielectric-mirror LCOS: Holoeye PLUTO-2 VIS-130 94 %; Meadowlark dielectric 92–98 % zeroth order"
+  ],
+  "plate_refl": [
+   0.99,
+   "fabricated reflective phase plate (etched fused silica, HR back coating ≥ 99.5 %, AR front 0.1 %; est.)"
+  ],
+  "mirror_diel": [
+   0.995,
+   "dielectric laser-line mirror > 99.5 % (EKSMA); 99.9 % for IBS mirrors (est.)"
+  ],
+  "mirror_ibs": [
+   0.999,
+   "IBS dielectric mirror 99.9 % (est.)"
+  ],
+  "lc_ff_today": [
+   0.55,
+   "Holoeye LC 2012 transmissive panel fill factor 55 % (black matrix absorbs the rest)"
+  ],
+  "lc_ff_best": [
+   0.85,
+   "high-aperture transmissive LC panel fill factor 0.85 (est.)"
+  ],
+  "ito_pass": [
+   0.98,
+   "two ITO electrodes, ≈ 1 % absorption each per pass (est.; ITO films 89–92 % T incl. reflection)"
+  ],
+  "lc_internal": [
+   0.005,
+   "residual reflection at the internal glass/ITO/LC interfaces per pass (est.)"
+  ]
+ },
+ "results": [
+  {
+   "name": "ring: as modelled (Exp. 15/29)",
+   "note": "arch.ts defaults: SLM 0.75, lenses 0.995, mirrors 0.995, in 2 %, tap 5 %; no explicit glass",
+   "retention": 0.6716377449794836,
+   "loss": 0.3283622550205164,
+   "elementProduct": 0.6841154137881034,
+   "transmissionByCategory": {
+    "input coupler": 0.98,
+    "modulator": 0.75,
+    "air": 0.9995996796154616,
+    "glass surfaces": 0.990025,
+    "mirrors": 0.990025,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.9817608716933769
+   },
+   "lossShare": {
+    "input coupler": 0.050755960546897884,
+    "modulator": 0.722753623557678,
+    "air": 0.0010059401145642226,
+    "glass surfaces": 0.025186364484413654,
+    "mirrors": 0.025186364484413654,
+    "output tap": 0.12886591808402204,
+    "aperture/diffraction (simulated)": 0.04624582872801071
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 6.5672451004103225,
+   "t_rt": 6.673175776646975e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.98
+    },
+    {
+     "index": 1,
+     "label": "slm (front)",
+     "transmission": 0.75
+    },
+    {
+     "index": 2,
+     "label": "propagate 40.00 mm",
+     "transmission": 0.9999199230994993
+    },
+    {
+     "index": 3,
+     "label": "lensR (front)",
+     "transmission": 0.6869775390625
+    },
+    {
+     "index": 4,
+     "label": "fold (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 5,
+     "label": "roof (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 6,
+     "label": "out (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 7,
+     "label": "propagate 100.00 mm",
+     "transmission": 0.9997998197716689
+    },
+    {
+     "index": 8,
+     "label": "lensL (front)",
+     "transmission": 0.6869775390625
+    },
+    {
+     "index": 9,
+     "label": "propagate 60.00 mm",
+     "transmission": 0.9998798870538972
+    }
+   ]
+  },
+  {
+   "name": "ring: today (Al LCOS, V-coat glass)",
+   "note": "LCOS 79 % (incl. its cover glass), N-BK7 lenses 4 mm + gain host 5 mm with V-coat AR, dielectric folds 99.5 %",
+   "retention": 0.7016994415961593,
+   "loss": 0.29830055840384073,
+   "elementProduct": 0.7147355958338552,
+   "transmissionByCategory": {
+    "input coupler": 0.98,
+    "modulator": 0.7899999999999708,
+    "glass bulk": 0.9968250508446861,
+    "glass surfaces": 0.9850934380853522,
+    "air": 0.9995996796154616,
+    "mirrors": 0.990025,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.9817608716934167
+   },
+   "lossShare": {
+    "input coupler": 0.0570295014849763,
+    "modulator": 0.6654121627513939,
+    "glass bulk": 0.008976708510990555,
+    "glass surfaces": 0.0423959817605683,
+    "air": 0.0011302763781670525,
+    "mirrors": 0.028299450848493713,
+    "output tap": 0.1447940101526605,
+    "aperture/diffraction (simulated)": 0.051961908112749165
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 5.966011168076809,
+   "t_rt": 7.327695244244788e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.98
+    },
+    {
+     "index": 1,
+     "label": "slm (front)",
+     "transmission": 0.7899999999999708
+    },
+    {
+     "index": 2,
+     "label": "gGain (front)",
+     "transmission": 0.9935148594475501
+    },
+    {
+     "index": 3,
+     "label": "propagate 40.00 mm",
+     "transmission": 0.9999199230994993
+    },
+    {
+     "index": 4,
+     "label": "lensR (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 5,
+     "label": "gL1 (front)",
+     "transmission": 0.994170795689935
+    },
+    {
+     "index": 6,
+     "label": "fold (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 7,
+     "label": "roof (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 8,
+     "label": "out (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 9,
+     "label": "propagate 100.00 mm",
+     "transmission": 0.9997998197716689
+    },
+    {
+     "index": 10,
+     "label": "lensL (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 11,
+     "label": "gL2 (front)",
+     "transmission": 0.994170795689935
+    },
+    {
+     "index": 12,
+     "label": "propagate 60.00 mm",
+     "transmission": 0.9998798870538972
+    }
+   ]
+  },
+  {
+   "name": "ring: today, broadband AR 0.5 %",
+   "note": "as above with A-coat 0.5 %/surface",
+   "retention": 0.6912134642567346,
+   "loss": 0.3087865357432654,
+   "elementProduct": 0.7040548102762323,
+   "transmissionByCategory": {
+    "input coupler": 0.98,
+    "modulator": 0.7899999999999708,
+    "glass bulk": 0.9968250508446861,
+    "glass surfaces": 0.9703725093562658,
+    "air": 0.9995996796154616,
+    "mirrors": 0.990025,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.9817608716934134
+   },
+   "lossShare": {
+    "input coupler": 0.054704433374129974,
+    "modulator": 0.6382835966602083,
+    "glass bulk": 0.008610731987335246,
+    "glass surfaces": 0.08143708342990062,
+    "air": 0.0010841954990625526,
+    "mirrors": 0.027145694476633626,
+    "output tap": 0.13889082098071592,
+    "aperture/diffraction (simulated)": 0.04984344359201365
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 6.175730714865303,
+   "t_rt": 7.327695244244788e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.98
+    },
+    {
+     "index": 1,
+     "label": "slm (front)",
+     "transmission": 0.7899999999999708
+    },
+    {
+     "index": 2,
+     "label": "gGain (front)",
+     "transmission": 0.9885410757214448
+    },
+    {
+     "index": 3,
+     "label": "propagate 40.00 mm",
+     "transmission": 0.9999199230994993
+    },
+    {
+     "index": 4,
+     "label": "lensR (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 5,
+     "label": "gL1 (front)",
+     "transmission": 0.989193728183042
+    },
+    {
+     "index": 6,
+     "label": "fold (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 7,
+     "label": "roof (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 8,
+     "label": "out (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 9,
+     "label": "propagate 100.00 mm",
+     "transmission": 0.9997998197716689
+    },
+    {
+     "index": 10,
+     "label": "lensL (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 11,
+     "label": "gL2 (front)",
+     "transmission": 0.989193728183042
+    },
+    {
+     "index": 12,
+     "label": "propagate 60.00 mm",
+     "transmission": 0.9998798870538972
+    }
+   ]
+  },
+  {
+   "name": "ring: dielectric LCOS + IBS AR",
+   "note": "LCOS 95 %, AR 0.1 %, mirrors 99.9 %, input coupler 1 %",
+   "retention": 0.8670758333686852,
+   "loss": 0.1329241666313148,
+   "elementProduct": 0.8831843459732268,
+   "transmissionByCategory": {
+    "input coupler": 0.99,
+    "modulator": 0.9499999999999307,
+    "glass bulk": 0.9968250508446861,
+    "glass surfaces": 0.9940149800149942,
+    "air": 0.9995996796154616,
+    "mirrors": 0.998001,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.9817608716934506
+   },
+   "lossShare": {
+    "input coupler": 0.07046496262471683,
+    "modulator": 0.35962779001691464,
+    "glass bulk": 0.022295631152319834,
+    "glass surfaces": 0.042088276236509736,
+    "air": 0.0028072901327851844,
+    "mirrors": 0.01402942541217024,
+    "output tap": 0.3596277900164033,
+    "aperture/diffraction (simulated)": 0.12905883440817892
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 2.6584833326262935,
+   "t_rt": 7.327695244244788e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.99
+    },
+    {
+     "index": 1,
+     "label": "slm (front)",
+     "transmission": 0.9499999999999307
+    },
+    {
+     "index": 2,
+     "label": "gGain (front)",
+     "transmission": 0.9965051206899599
+    },
+    {
+     "index": 3,
+     "label": "propagate 40.00 mm",
+     "transmission": 0.9999199230994993
+    },
+    {
+     "index": 4,
+     "label": "lensR (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 5,
+     "label": "gL1 (front)",
+     "transmission": 0.997163031156187
+    },
+    {
+     "index": 6,
+     "label": "fold (front)",
+     "transmission": 0.999
+    },
+    {
+     "index": 7,
+     "label": "roof (front)",
+     "transmission": 0.999
+    },
+    {
+     "index": 8,
+     "label": "out (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 9,
+     "label": "propagate 100.00 mm",
+     "transmission": 0.9997998197716689
+    },
+    {
+     "index": 10,
+     "label": "lensL (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 11,
+     "label": "gL2 (front)",
+     "transmission": 0.997163031156187
+    },
+    {
+     "index": 12,
+     "label": "propagate 60.00 mm",
+     "transmission": 0.9998798870538972
+    }
+   ]
+  },
+  {
+   "name": "ring: static reflective plate + IBS",
+   "note": "fabricated reflective phase plate 99 % instead of the powered SLM",
+   "retention": 0.903584289510523,
+   "loss": 0.09641571048947695,
+   "elementProduct": 0.9203710552773333,
+   "transmissionByCategory": {
+    "input coupler": 0.99,
+    "modulator": 0.9899999999998962,
+    "glass bulk": 0.9968250508446861,
+    "glass surfaces": 0.9940149800149942,
+    "air": 0.9995996796154616,
+    "mirrors": 0.998001,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.9817608716934803
+   },
+   "lossShare": {
+    "input coupler": 0.09912954096949475,
+    "modulator": 0.09912954097052896,
+    "glass bulk": 0.03136531404303025,
+    "glass surfaces": 0.05920944747736281,
+    "air": 0.0039492731119901816,
+    "mirrors": 0.01973648249245473,
+    "output tap": 0.5059214738261301,
+    "aperture/diffraction (simulated)": 0.18155892710900642
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 1.9283142097895372,
+   "t_rt": 7.327695244244788e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.99
+    },
+    {
+     "index": 1,
+     "label": "slm (front)",
+     "transmission": 0.9899999999998962
+    },
+    {
+     "index": 2,
+     "label": "gGain (front)",
+     "transmission": 0.9965051206899599
+    },
+    {
+     "index": 3,
+     "label": "propagate 40.00 mm",
+     "transmission": 0.9999199230994993
+    },
+    {
+     "index": 4,
+     "label": "lensR (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 5,
+     "label": "gL1 (front)",
+     "transmission": 0.997163031156187
+    },
+    {
+     "index": 6,
+     "label": "fold (front)",
+     "transmission": 0.999
+    },
+    {
+     "index": 7,
+     "label": "roof (front)",
+     "transmission": 0.999
+    },
+    {
+     "index": 8,
+     "label": "out (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 9,
+     "label": "propagate 100.00 mm",
+     "transmission": 0.9997998197716689
+    },
+    {
+     "index": 10,
+     "label": "lensL (front)",
+     "transmission": 0.6904296875
+    },
+    {
+     "index": 11,
+     "label": "gL2 (front)",
+     "transmission": 0.997163031156187
+    },
+    {
+     "index": 12,
+     "label": "propagate 60.00 mm",
+     "transmission": 0.9998798870538972
+    }
+   ]
+  },
+  {
+   "name": "stack: as modelled (Exp. 30)",
+   "note": "arch.ts stackCavity defaults: LC 0.97 + 0.25 % surface per pass, end 0.995, coupler 5 %",
+   "retention": 0.6165884266989545,
+   "loss": 0.38341157330104547,
+   "elementProduct": 0.726073058289229,
+   "transmissionByCategory": {
+    "air": 0.9998999048763171,
+    "modulator": 0.7682049636996349,
+    "glass surfaces": 1,
+    "mirrors": 0.995,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.8492098965244052
+   },
+   "lossShare": {
+    "air": 0.00020700941395510177,
+    "modulator": 0.5453350735556765,
+    "glass surfaces": 0,
+    "mirrors": 0.010366053557397333,
+    "output tap": 0.10607573073190531,
+    "aperture/diffraction (simulated)": 0.33801613274106634
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 7.668231466020902,
+   "t_rt": 1.6682939441617437e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 1,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 2,
+     "label": "p0 (front)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 3,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 4,
+     "label": "p1 (front)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 5,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 6,
+     "label": "p2 (front)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 7,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 8,
+     "label": "p3 (front)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 9,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 10,
+     "label": "Lend (front)",
+     "transmission": 0.7880859375
+    },
+    {
+     "index": 11,
+     "label": "end (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 12,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 13,
+     "label": "p3 (back)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 14,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 15,
+     "label": "p2 (back)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 16,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 17,
+     "label": "p1 (back)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 18,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 19,
+     "label": "p0 (back)",
+     "transmission": 0.9675749999999155
+    },
+    {
+     "index": 20,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    }
+   ]
+  },
+  {
+   "name": "stack: LC panels today (FF 0.55)",
+   "note": "transmissive LC panels: fill factor 0.55 (black matrix), 2 ITO, internal reflections, 2 × 0.7 mm substrates with V-coat, passed twice",
+   "retention": 0.005183768502550499,
+   "loss": 0.9948162314974495,
+   "elementProduct": 0.006119722418869529,
+   "transmissionByCategory": {
+    "glass bulk": 0.9946622964357879,
+    "glass surfaces": 0.951169875253167,
+    "air": 0.9998999048763175,
+    "modulator": 0.006843759942552183,
+    "mirrors": 0.995,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.8470594167093081
+   },
+   "lossShare": {
+    "glass bulk": 0.0010170606649162652,
+    "glass surfaces": 0.00951358476835483,
+    "air": 0.00001902240440395694,
+    "modulator": 0.9472076764686622,
+    "mirrors": 0.0009525521524616815,
+    "output tap": 0.009747457416956614,
+    "aperture/diffraction (simulated)": 0.03154264612424442
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 19.89632462994897,
+   "t_rt": 2.7317229647810696e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 1,
+     "label": "gGain (front)",
+     "transmission": 0.9870717759430854
+    },
+    {
+     "index": 2,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 3,
+     "label": "p0 (front)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 4,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 5,
+     "label": "g0 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 6,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 7,
+     "label": "p1 (front)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 8,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 9,
+     "label": "g1 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 10,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 11,
+     "label": "p2 (front)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 12,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 13,
+     "label": "g2 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 14,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 15,
+     "label": "p3 (front)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 16,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 17,
+     "label": "g3 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 18,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 19,
+     "label": "Lend (front)",
+     "transmission": 0.7880859375
+    },
+    {
+     "index": 20,
+     "label": "end (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 21,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 22,
+     "label": "g3 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 23,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 24,
+     "label": "p3 (back)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 25,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 26,
+     "label": "g2 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 27,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 28,
+     "label": "p2 (back)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 29,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 30,
+     "label": "g1 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 31,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 32,
+     "label": "p1 (back)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 33,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 34,
+     "label": "g0 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 35,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 36,
+     "label": "p0 (back)",
+     "transmission": 0.5363050000000046
+    },
+    {
+     "index": 37,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    }
+   ]
+  },
+  {
+   "name": "stack: LC panels, FF 0.85 (est.)",
+   "note": "as above, fill factor 0.85",
+   "retention": 0.16869238883593585,
+   "loss": 0.8313076111640642,
+   "elementProduct": 0.19915059735875193,
+   "transmissionByCategory": {
+    "glass bulk": 0.9946622964357879,
+    "glass surfaces": 0.951169875253167,
+    "air": 0.9998999048763175,
+    "modulator": 0.22271253293069063,
+    "mirrors": 0.995,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.8470594167089123
+   },
+   "lossShare": {
+    "glass bulk": 0.0030072848998546975,
+    "glass surfaces": 0.0281301409092609,
+    "air": 0.00005624619208693806,
+    "modulator": 0.8439015853617993,
+    "mirrors": 0.0028165435978766778,
+    "output tap": 0.028821664737573617,
+    "aperture/diffraction (simulated)": 0.09326653430154751
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 16.626152223281267,
+   "t_rt": 2.7317229647810696e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 1,
+     "label": "gGain (front)",
+     "transmission": 0.9870717759430854
+    },
+    {
+     "index": 2,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 3,
+     "label": "p0 (front)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 4,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 5,
+     "label": "g0 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 6,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 7,
+     "label": "p1 (front)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 8,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 9,
+     "label": "g1 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 10,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 11,
+     "label": "p2 (front)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 12,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 13,
+     "label": "g2 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 14,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 15,
+     "label": "p3 (front)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 16,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 17,
+     "label": "g3 (front)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 18,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 19,
+     "label": "Lend (front)",
+     "transmission": 0.7880859375
+    },
+    {
+     "index": 20,
+     "label": "end (front)",
+     "transmission": 0.995
+    },
+    {
+     "index": 21,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 22,
+     "label": "g3 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 23,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 24,
+     "label": "p3 (back)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 25,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 26,
+     "label": "g2 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 27,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 28,
+     "label": "p2 (back)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 29,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 30,
+     "label": "g1 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 31,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 32,
+     "label": "p1 (back)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 33,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 34,
+     "label": "g0 (back)",
+     "transmission": 0.9947137611604664
+    },
+    {
+     "index": 35,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 36,
+     "label": "p0 (back)",
+     "transmission": 0.8288350000000556
+    },
+    {
+     "index": 37,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    }
+   ]
+  },
+  {
+   "name": "stack: fabricated plates (IBS AR)",
+   "note": "static etched fused-silica phase plates 1 mm, AR 0.1 %, IBS end mirror 99.9 %",
+   "retention": 0.7877449023644898,
+   "loss": 0.2122550976355102,
+   "elementProduct": 0.9272946584424759,
+   "transmissionByCategory": {
+    "glass bulk": 0.9969247383340619,
+    "glass surfaces": 0.9801888648295353,
+    "air": 0.9998999048763175,
+    "modulator": 1,
+    "mirrors": 0.999,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.8495087243224501
+   },
+   "lossShare": {
+    "glass bulk": 0.012909663358581385,
+    "glass surfaces": 0.08387092530331827,
+    "air": 0.00041956461885350434,
+    "modulator": 0,
+    "mirrors": 0.004193546265166042,
+    "output tap": 0.21499323477138624,
+    "aperture/diffraction (simulated)": 0.6836130656826939
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 4.2451019527102005,
+   "t_rt": 2.5509045400560545e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 1,
+     "label": "gGain (front)",
+     "transmission": 0.9930224555613116
+    },
+    {
+     "index": 2,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 3,
+     "label": "p0 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 4,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 5,
+     "label": "g0 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 6,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 7,
+     "label": "p1 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 8,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 9,
+     "label": "g1 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 10,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 11,
+     "label": "p2 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 12,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 13,
+     "label": "g2 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 14,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 15,
+     "label": "p3 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 16,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 17,
+     "label": "g3 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 18,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 19,
+     "label": "Lend (front)",
+     "transmission": 0.7880859375
+    },
+    {
+     "index": 20,
+     "label": "end (front)",
+     "transmission": 0.999
+    },
+    {
+     "index": 21,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 22,
+     "label": "g3 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 23,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 24,
+     "label": "p3 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 25,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 26,
+     "label": "g2 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 27,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 28,
+     "label": "p2 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 29,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 30,
+     "label": "g1 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 31,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 32,
+     "label": "p1 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 33,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 34,
+     "label": "g0 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 35,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 36,
+     "label": "p0 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 37,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    }
+   ]
+  },
+  {
+   "name": "stack: plates + dielectric LCOS end",
+   "note": "as above with one programmable dielectric LCOS (95 %) as the end mirror",
+   "retention": 0.7491067640102783,
+   "loss": 0.2508932359897217,
+   "elementProduct": 0.88181173725761,
+   "transmissionByCategory": {
+    "glass bulk": 0.9969247383340619,
+    "glass surfaces": 0.9801888648295353,
+    "air": 0.9998999048763175,
+    "modulator": 1,
+    "mirrors": 0.95,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.849508724322453
+   },
+   "lossShare": {
+    "glass bulk": 0.010662096696199497,
+    "glass surfaces": 0.06926903442368079,
+    "air": 0.00034651860488263934,
+    "modulator": 0,
+    "mirrors": 0.1775630079956735,
+    "output tap": 0.1775630079956735,
+    "aperture/diffraction (simulated)": 0.5645963342838906
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 5.017864719794429,
+   "t_rt": 2.5509045400560545e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 1,
+     "label": "gGain (front)",
+     "transmission": 0.9930224555613116
+    },
+    {
+     "index": 2,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 3,
+     "label": "p0 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 4,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 5,
+     "label": "g0 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 6,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 7,
+     "label": "p1 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 8,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 9,
+     "label": "g1 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 10,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 11,
+     "label": "p2 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 12,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 13,
+     "label": "g2 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 14,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 15,
+     "label": "p3 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 16,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 17,
+     "label": "g3 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 18,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 19,
+     "label": "Lend (front)",
+     "transmission": 0.7880859375
+    },
+    {
+     "index": 20,
+     "label": "end (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 21,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 22,
+     "label": "g3 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 23,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 24,
+     "label": "p3 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 25,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 26,
+     "label": "g2 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 27,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 28,
+     "label": "p2 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 29,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 30,
+     "label": "g1 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 31,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 32,
+     "label": "p1 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 33,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 34,
+     "label": "g0 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 35,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 36,
+     "label": "p0 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 37,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    }
+   ]
+  },
+  {
+   "name": "stack: plates, 2× window (128²)",
+   "note": "as \"fabricated plates\" on a 2.56 mm window: how much of the aperture/diffraction loss is the finite simulated window",
+   "retention": 0.8841743822305708,
+   "loss": 0.11582561776942923,
+   "elementProduct": 0.9272946584424759,
+   "transmissionByCategory": {
+    "glass bulk": 0.9969247383340619,
+    "glass surfaces": 0.9801888648295353,
+    "air": 0.9998999048763175,
+    "modulator": 1,
+    "mirrors": 0.999,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.95349884115117
+   },
+   "lossShare": {
+    "glass bulk": 0.025020111370238334,
+    "glass surfaces": 0.16254954397544868,
+    "air": 0.0008131547042819117,
+    "modulator": 0,
+    "mirrors": 0.008127477198772683,
+    "output tap": 0.41667660328665485,
+    "aperture/diffraction (simulated)": 0.3868131094646014
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 2.3165123553885825,
+   "t_rt": 2.5509045400560545e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 1,
+     "label": "gGain (front)",
+     "transmission": 0.9930224555613116
+    },
+    {
+     "index": 2,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 3,
+     "label": "p0 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 4,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 5,
+     "label": "g0 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 6,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 7,
+     "label": "p1 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 8,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 9,
+     "label": "g1 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 10,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 11,
+     "label": "p2 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 12,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 13,
+     "label": "g2 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 14,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 15,
+     "label": "p3 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 16,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 17,
+     "label": "g3 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 18,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 19,
+     "label": "Lend (front)",
+     "transmission": 0.786865234375
+    },
+    {
+     "index": 20,
+     "label": "end (front)",
+     "transmission": 0.999
+    },
+    {
+     "index": 21,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 22,
+     "label": "g3 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 23,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 24,
+     "label": "p3 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 25,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 26,
+     "label": "g2 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 27,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 28,
+     "label": "p2 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 29,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 30,
+     "label": "g1 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 31,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 32,
+     "label": "p1 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 33,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 34,
+     "label": "g0 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 35,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 36,
+     "label": "p0 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 37,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    }
+   ]
+  },
+  {
+   "name": "stack: 8 fabricated plates",
+   "note": "8 plates",
+   "retention": 0.623483291721676,
+   "loss": 0.37651670827832395,
+   "elementProduct": 0.9124226292617394,
+   "transmissionByCategory": {
+    "glass bulk": 0.9968449875450692,
+    "glass surfaces": 0.9646229185299485,
+    "air": 0.9998198359911242,
+    "modulator": 1,
+    "mirrors": 0.999,
+    "output tap": 0.95,
+    "aperture/diffraction (simulated)": 0.6833273000102481
+   },
+   "lossShare": {
+    "glass bulk": 0.006688774735401996,
+    "glass surfaces": 0.0762393571978588,
+    "air": 0.0003813876707409015,
+    "modulator": 0,
+    "mirrors": 0.0021177599221628104,
+    "output tap": 0.10857256063131906,
+    "aperture/diffraction (simulated)": 0.8060001598425148
+   },
+   "tap": 0.050000000000000044,
+   "pumpOverhead": 7.530334165566472,
+   "t_rt": 4.277811071338476e-10,
+   "budget": [
+    {
+     "index": 0,
+     "label": "in (front)",
+     "transmission": 0.95
+    },
+    {
+     "index": 1,
+     "label": "gGain (front)",
+     "transmission": 0.9930224555613116
+    },
+    {
+     "index": 2,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    },
+    {
+     "index": 3,
+     "label": "p0 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 4,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 5,
+     "label": "g0 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 6,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 7,
+     "label": "p1 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 8,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 9,
+     "label": "g1 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 10,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 11,
+     "label": "p2 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 12,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 13,
+     "label": "g2 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 14,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 15,
+     "label": "p3 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 16,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 17,
+     "label": "g3 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 18,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 19,
+     "label": "p4 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 20,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 21,
+     "label": "g4 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 22,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 23,
+     "label": "p5 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 24,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 25,
+     "label": "g5 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 26,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 27,
+     "label": "p6 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 28,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 29,
+     "label": "g6 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 30,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 31,
+     "label": "p7 (front)",
+     "transmission": 1
+    },
+    {
+     "index": 32,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 33,
+     "label": "g7 (front)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 34,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 35,
+     "label": "Lend (front)",
+     "transmission": 0.7880859375
+    },
+    {
+     "index": 36,
+     "label": "end (front)",
+     "transmission": 0.999
+    },
+    {
+     "index": 37,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 38,
+     "label": "g7 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 39,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 40,
+     "label": "p7 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 41,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 42,
+     "label": "g6 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 43,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 44,
+     "label": "p6 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 45,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 46,
+     "label": "g5 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 47,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 48,
+     "label": "p5 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 49,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 50,
+     "label": "g4 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 51,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 52,
+     "label": "p4 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 53,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 54,
+     "label": "g3 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 55,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 56,
+     "label": "p3 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 57,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 58,
+     "label": "g2 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 59,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 60,
+     "label": "p2 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 61,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 62,
+     "label": "g1 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 63,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 64,
+     "label": "p1 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 65,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899920387293
+    },
+    {
+     "index": 66,
+     "label": "g0 (back)",
+     "transmission": 0.9979910200398999
+    },
+    {
+     "index": 67,
+     "label": "propagate 0.00 mm",
+     "transmission": 0.9999999979979973
+    },
+    {
+     "index": 68,
+     "label": "p0 (back)",
+     "transmission": 1
+    },
+    {
+     "index": 69,
+     "label": "propagate 5.00 mm",
+     "transmission": 0.9999899900367466
+    }
+   ]
+  }
+ ]
+}

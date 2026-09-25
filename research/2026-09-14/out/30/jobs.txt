@@ -1,0 +1,36 @@
+{"tag": "base", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
+{"tag": "K1", "arch": "ring", "K": 1, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
+{"tag": "K2", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
+{"tag": "K3", "arch": "ring", "K": 3, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
+{"tag": "K5", "arch": "ring", "K": 5, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
+{"tag": "K20", "arch": "ring", "K": 20, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
+{"tag": "K40", "arch": "ring", "K": 40, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
+{"tag": "amp1", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "inputAmp": 1}
+{"tag": "amp2", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "inputAmp": 2}
+{"tag": "amp20", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "inputAmp": 20}
+{"tag": "amp60", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "inputAmp": 60}
+{"tag": "G1.52", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.52, "Is": 0.05}}
+{"tag": "G2.0", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 2.0, "Is": 0.05}}
+{"tag": "G3.0", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 3.0, "Is": 0.05}}
+{"tag": "rho0.9", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "rho", "rho": 0.9}}
+{"tag": "rho0.95", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "rho", "rho": 0.95}}
+{"tag": "rho0.98", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "rho", "rho": 0.98}}
+{"tag": "rho0.99", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "rho", "rho": 0.99}}
+{"tag": "rho0.995", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "rho", "rho": 0.995}}
+{"tag": "rho0.9_K1", "arch": "ring", "K": 1, "steps": 3200, "gain": {"kind": "rho", "rho": 0.9}}
+{"tag": "rho0.9_K3", "arch": "ring", "K": 3, "steps": 3200, "gain": {"kind": "rho", "rho": 0.9}}
+{"tag": "rho0.98_K1", "arch": "ring", "K": 1, "steps": 3200, "gain": {"kind": "rho", "rho": 0.98}}
+{"tag": "rho0.98_K3", "arch": "ring", "K": 3, "steps": 3200, "gain": {"kind": "rho", "rho": 0.98}}
+{"tag": "depth0", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "maskDepth": 0}
+{"tag": "depth0.03", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "maskDepth": 0.03}
+{"tag": "depth0.3", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "maskDepth": 0.3}
+{"tag": "depth1.0", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "maskDepth": 1.0}
+{"tag": "f38", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "focal": 0.038}
+{"tag": "f42", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "focal": 0.042}
+{"tag": "f45", "arch": "ring", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "focal": 0.045}
+{"tag": "stack4", "arch": "stack", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.8, "Is": 0.05}}
+{"tag": "stack4_rho0.98", "arch": "stack", "K": 10, "steps": 3200, "gain": {"kind": "rho", "rho": 0.98}}
+{"tag": "stack4_K3", "arch": "stack", "K": 3, "steps": 3200, "gain": {"kind": "global", "G0": 1.8, "Is": 0.05}}
+{"tag": "stack8", "arch": "stack", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.8, "Is": 0.05}, "stack": {"planes": 8}}
+{"tag": "stack4_d0.3", "arch": "stack", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.8, "Is": 0.05}, "maskDepth": 0.3}
+{"tag": "stack4_f40", "arch": "stack", "K": 10, "steps": 3200, "gain": {"kind": "global", "G0": 1.8, "Is": 0.05}, "stack": {"fEnd": 0.04}}
