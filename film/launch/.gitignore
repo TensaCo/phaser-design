@@ -1,0 +1,7 @@
+gen/
+out/
+harness/dist/
+assets/stock/*.mp4
+assets/ref/png/
+src/ffmpeg
+__pycache__/

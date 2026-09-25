@@ -1,0 +1,103 @@
+[
+  {
+    "slug": "cooling-towers",
+    "title": "Aerial Footage of Power Plant Releasing Steam",
+    "subject": "steam billowing from nuclear power plant cooling towers (drone)",
+    "source_page": "https://www.pexels.com/video/aerial-footage-of-power-plant-releasing-steam-6534501/",
+    "file_url": "https://videos.pexels.com/video-files/6534501/6534501-uhd_2560_1440_24fps.mp4",
+    "author": "K (Pexels user)",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution_required": false,
+    "segment": "5.0s-12.0s"
+  },
+  {
+    "slug": "cooling-towers-river",
+    "title": "High Angle View of Steam Rising From Power Plant",
+    "subject": "cooling towers venting steam beside a river (drone)",
+    "source_page": "https://www.pexels.com/video/high-angle-view-of-steam-rising-from-power-plant-10020440/",
+    "file_url": "https://videos.pexels.com/video-files/10020440/10020440-uhd_2560_1440_30fps.mp4",
+    "author": "Tom Fisk",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution_required": false,
+    "segment": "12.0s-19.0s"
+  },
+  {
+    "slug": "substation-crew",
+    "title": "Electricians Working at Substation",
+    "subject": "line crew in hard hats working on high-voltage substation equipment (drone)",
+    "source_page": "https://www.pexels.com/video/electricians-working-at-substation-10151854/",
+    "file_url": "https://videos.pexels.com/video-files/10151854/10151854-hd_1920_1080_24fps.mp4",
+    "author": "Videas Cl",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution_required": false,
+    "segment": "3.0s-10.0s"
+  },
+  {
+    "slug": "substation-yard",
+    "title": "A large electrical substation with several power lines",
+    "subject": "electrical substation gantries, breakers and transformers",
+    "source_page": "https://www.pexels.com/video/a-large-electrical-substation-with-several-power-lines-27844418/",
+    "file_url": "https://videos.pexels.com/video-files/27844418/12240415_2560_1440_60fps.mp4",
+    "author": "Videas Cl",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution_required": false,
+    "segment": "1.0s-8.0s"
+  },
+  {
+    "slug": "transmission-lines",
+    "title": "Drone footage of transmission towers in between a dense forest",
+    "subject": "high-voltage transmission corridor and pylons through forest (drone)",
+    "source_page": "https://www.pexels.com/video/drone-footage-of-transmission-towers-in-between-a-dense-forest-10579236/",
+    "file_url": "https://videos.pexels.com/video-files/10579236/10579236-uhd_2560_1440_24fps.mp4",
+    "author": "Traveling on the Go",
+    "license": "Pexels License (free for commercial use, no attribution required)",
+    "attribution_required": false,
+    "segment": "8.0s-15.0s"
+  },
+  {
+    "slug": "datacenter-supermuc",
+    "title": "SuperMUC: First Commercial Hot-Water Cooled Supercomputer to Consume 40% Less Energy",
+    "subject": "people walking a supercomputer/data-center aisle, hand on rack, LRZ SuperMUC",
+    "source_page": "https://commons.wikimedia.org/wiki/File:SuperMUC-_First_Commercial_Hot-Water_Cooled_Supercomputer_to_Consume_40%25_Less_Energy.webm",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/SuperMUC-_First_Commercial_Hot-Water_Cooled_Supercomputer_to_Consume_40%25_Less_Energy.webm",
+    "author": "IBM Research",
+    "license": "CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)",
+    "attribution_required": true,
+    "attribution": "\"SuperMUC: First Commercial Hot-Water Cooled Supercomputer to Consume 40% Less Energy\" by IBM Research, CC BY 3.0, via Wikimedia Commons (excerpt, re-encoded)",
+    "segment": "72.3s-77.6s"
+  },
+  {
+    "slug": "senate-hearing",
+    "title": "Secretary of Energy Nominee Chris Wright Testifies at Confirmation Hearing - January 15, 2025",
+    "subject": "US Senate Energy and Natural Resources Committee hearing: Sen. Murkowski questioning, gesturing",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Secretary_of_Energy_Nominee_Chris_Wright_Testifies_at_Confirmation_Hearing_-_January_15,_2025.webm",
+    "file_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Secretary_of_Energy_Nominee_Chris_Wright_Testifies_at_Confirmation_Hearing_-_January_15%2C_2025.webm",
+    "author": "U.S. Senate (Committee on Energy and Natural Resources webcast, senate.gov ISVP)",
+    "license": "Public domain (US federal government work, PD-USGov-Congress)",
+    "attribution_required": false,
+    "segment": "~7225s-7232s (2:00:25)",
+    "notes": "original source https://www.senate.gov/isvp/?comm=energy&filename=energy011525; not C-SPAN"
+  },
+  {
+    "slug": "smokestack-steam",
+    "title": "Smoke from power plant",
+    "subject": "power plant stacks, backlit exhaust plume rolling",
+    "source_page": "https://mixkit.co/free-stock-video/smoke-from-power-plant-4362/",
+    "file_url": "https://assets.mixkit.co/videos/4362/4362-1080.mp4",
+    "author": "Mixkit",
+    "license": "Mixkit Stock Video Free License (https://mixkit.co/license/#videoFree)",
+    "attribution_required": false,
+    "segment": "8.0s-15.0s"
+  },
+  {
+    "slug": "plant-steam-towers",
+    "title": "Towers and steam outlets of an industrial plant",
+    "subject": "industrial plant stacks venting white exhaust against sky",
+    "source_page": "https://mixkit.co/free-stock-video/towers-and-steam-outlets-of-an-industrial-plant-4380/",
+    "file_url": "https://assets.mixkit.co/videos/4380/4380-1080.mp4",
+    "author": "Mixkit",
+    "license": "Mixkit Stock Video Free License (https://mixkit.co/license/#videoFree)",
+    "attribution_required": false,
+    "segment": "5.0s-12.0s"
+  }
+]
