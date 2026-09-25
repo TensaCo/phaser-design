@@ -1,0 +1,31 @@
+{
+ "cfg": {
+  "tag": "M32_t100ps",
+  "dir": "32",
+  "arch": "ring",
+  "K": 10,
+  "steps": 3200,
+  "M": 32,
+  "saveSlots": 4,
+  "gain": {
+   "kind": "slot",
+   "G0": 1.6,
+   "Is": 0.05,
+   "tau": 1e-10
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 4,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 10,
+ "M": 32,
+ "meanP_fieldUnits": 73.31481482096363,
+ "meanGain": 1.4807740801389984,
+ "passiveRetention": 0.6659213172217459,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 521.0998322419999
+}

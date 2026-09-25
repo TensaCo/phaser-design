@@ -1,5 +1,9 @@
 # PHASER capability research sprint — 2026-09-14
 
+> **2026-09-25 continuation (Exps. 30–35):** fair optical tuning, time-slot multiplexing, glass-loss budget, linear stack,
+> scaling test, revised energy and the website claims table. It is at the end of the file and supersedes Exp. 29's energy
+> comparison.
+>
 > **2026-09-23 continuation:** the stopped runs were finished and the "next five experiments" run, including a new cross-gain
 > (inhibitory) gain model that yields a verified persistent NAND. **Read "Experiment 28 — updated synthesis" (end of file)
 > first**; it supersedes Experiment 20 where they differ.
@@ -1626,3 +1630,368 @@ energy is about F_sat × A_cell, where F_sat = hν/σ ≈ 10⁻⁴ J/cm² for a 
 for a 120 µm cell, and a holding intensity F_sat/τ ≈ 10⁵ W/cm² at τ = 1 ns (≈ 14 W per cell). Slow media (τ ~ ms) cut the
 holding power, but switching then takes ~ms. The free-space cross-gain NAND is therefore not an energy path; CMOS gates switch in
 ~10⁻¹⁶ J. Cells would need to shrink to µm scale, and even then they are ~10⁴× CMOS.
+
+# Continuation — 2026-09-25: honest grounds for optimism (Experiments 30–35)
+
+> Goal: bring the website's claims in line with the research. First tune the optical side fairly and re-examine Exp. 29
+> (energy per input step). Then test wavefront (time-slot) multiplexing, the glass-loss budget, the linear-stack cavity,
+> and whether the modes-per-unit equivalence survives scaling. The last section, "What the website can say", is the claims
+> table.
+>
+> - New shared code: core `slab` element (thick glass: bulk absorption, residual surface reflectance and group delay; tests
+>   in `tests/elements.test.ts` and `tests/topology.test.ts`); `arch.ts: stackCavity` (the linear stack) plus ring loss
+>   overrides.
+> - Scripts:
+>   - `30-run.ts`: generic runner. Saves NOISE-FREE K-trip detector features. Shot noise is applied post hoc, which
+>     Exp. 29d validated.
+>   - `30-lib.py`: readout, tasks, digital ESN.
+>   - Analysis: `30-analyse.py`, `30-digital.py`, `31-digital.py`, `31-scaling.py`, `32-analyse.py`, `32-bandwidth.py`,
+>     `33-loss.ts`, `34-energy.py`.
+> - Queues: `30-queue.sh`, `31-queue.sh`, `32-queue.sh`.
+> - Sources for every device number: `research/notes/energy-per-multiply.md`.
+
+**Readout protocol (Exps. 30–34).**
+- Features are |E|² summed over the K trips of each step, in 16×16 bins unless stated.
+- For each task, the feature transform (log10(x+1), linear, √, or log(x/x̄+c)) and the ridge λ ∈ 10⁻⁶…10⁴ are chosen on a
+  validation split (the last 20 % of training). This is a fair readout-tuning step; the test split is never used for
+  choices.
+- Photon budgets are given as D = detected photoelectrons per input step: Poisson noise plus 2 e⁻ read noise per bin.
+- D_req is the smallest D, on a half-decade grid, that meets a target:
+  - **bundle29** = the Exp. 29 operating point: NARMA10 ≤ 0.127, MC ≥ 33.7, XOR d2 ≥ 0.989.
+  - **short** = a short-memory bundle: NARMA5 ≤ 0.07, MC5 ≥ 4.35, XOR d0 ≥ 0.99.
+- The runner reproduces Exp. 29 exactly: noise-free MC 35.06, NARMA10 0.1154, XOR 0.994.
+- **Digital baselines pick hyper-parameters on the test split**, which favours them.
+- Caveat: D_req carries a factor-√10 grid resolution. The best configurations were also *selected* by their test outcome
+  among about 60, so their D_req is optimistic by an unknown factor. The K2 result was replicated with a second mask seed
+  (`K2_seed7`: the same 3.2×10⁷).
+
+## Experiment 30 — fair tuning of the optical reservoir (ring and linear stack)
+
+**Question.** Exp. 29 ran the optical reservoir untuned. With a fair one-factor-at-a-time search, how many detected
+photons per step does bundle29 need?
+
+**Method.** Starting from Apre_lin (K = 10, global gain G0 1.6, input amplitude 6, mask depth 0.1, f = 40 mm), 60 runs
+varied:
+- K: 1…40;
+- input amplitude: 1…60;
+- G0: 1.52…3, with lasing clamped by the global gain;
+- a fixed sub-threshold linear gain: loop spectral radius ρ = 0.9…0.995;
+- mask depth: 0…1, and a second seed;
+- relay focal length: 38–45 mm;
+- detector bins: 4², 8², 16², 32².
+
+A second round tuned jointly around K = 2. The **linear stack** (`stackCavity`) was run as either 4 programmable LC planes
+or 4 (8) fabricated static phase plates (T = 0.998 per pass). Its geometry: coupler with the gain | planes 5 mm apart |
+curved end mirror, R = 120 mm, Gouy phase ≈ 54°/trip. `out/30/analysis_b{4,8,16,32}.json`.
+
+**Results (selection; full table in `out/30/analysis_b16.json`).**
+
+| run | arch | K | step time | MC | NARMA10 | XOR d2 | NARMA5 | D_req bundle29 | D_req short |
+|---|---|---|---|---|---|---|---|---|---|
+| base = Exp. 29 point | ring | 10 | 6.7 ns | 35.2 | 0.117 | 0.995 | 0.064 | 1×10¹⁰ (in-loop, Exp. 29: 4×10⁹) | 1×10¹⁰ |
+| K1 | ring | 1 | 0.67 ns | 33.5 | 0.203 | 0.983 | 0.084 | — | — |
+| **K2** | ring | 2 | 1.33 ns | 44.1 | 0.065 | 1.000 | 0.024 | **3.2×10⁷** | 1×10⁸ |
+| K2_seed7 (other mask) | ring | 2 | 1.33 ns | 47.4 | 0.061 | 1.000 | 0.020 | 3.2×10⁷ | 3.2×10⁷ |
+| K3 / K5 / K20 | ring | 3/5/20 | | 43.0 / 34.7 / 27.3 | 0.101 / 0.148 / 0.156 | | | 3.2×10⁸ / — / — | |
+| amp 1 / 2 / 20 / 60 | ring | 10 | | 15 / 23 / 16 / 5 | 0.29 / 0.24 / 0.27 / 0.66 | | | — | — |
+| G0 1.52 (just above threshold) | ring | 10 | | 31.4 | 0.071 | 1.000 | 0.015 | — (MC) | 1×10⁷ |
+| ρ = 0.98 (linear, below threshold) | ring | 10 | | 32.8 | **0.016** | 1.000 | 0.000 | — (MC) | 1×10⁶ |
+| ρ = 0.98, K3 | ring | 3 | | 44.4 | 0.030 | 0.998 | 0.011 | 1×10⁸ | 3.2×10⁶ |
+| depth 0.3, K2 | ring | 2 | | 31.3 | 0.051 | 1.000 | 0.004 | — (MC) | **3.2×10⁵** |
+| depth 0 / 0.03 / 1.0 | ring | 10 | | 33 / 17 / 2.6 | 0.14 / 0.61 / 0.70 | | | — | — |
+| f = 45 mm | ring | 10 | | 37.4 | 0.055 | 1.000 | 0.015 | 1×10¹⁰ | 1×10⁷ |
+| stack, 4 LC planes, K2 | stack | 2 | 0.33 ns | 31.9 | 0.098 | 1.000 | 0.018 | — (MC) | **1×10⁵** |
+| stack, 8 LC planes, K10 | stack | 10 | | 5.0 | 0.672 | 0.980 | 0.326 | — | — |
+| **stack, 4 plates, K1, G0 1.35** | stack | 1 | **0.17 ns** | 42.5 | 0.071 | 1.000 | 0.029 | **1×10⁶** | 3.2×10⁵ |
+| stack, 4 plates, K2, G0 1.35 / 1.4 / ρ 0.98 | stack | 2 | 0.33 ns | 35.8 / 37.3 / 40.8 | 0.088 / 0.100 / 0.055 | 1.000 | | 1×10⁷ / 3.2×10⁶ / 3.2×10⁶ | 1×10⁵ … 1×10⁶ |
+
+Detector bins, noise-free (ring K2): 4² → NARMA10 0.40, 8² → 0.19, 16² → 0.065, 32² → 0.024 (D_req 1×10⁷).
+
+**Interpretation.**
+- **Fewer trips per input is the dominant lever.** K = 2 is better than K = 10 on every metric (MC 44 vs 35, NARMA10 0.065
+  vs 0.117), 5× faster (1.33 ns/step), and needs **~300× fewer detected photons** for the same quality (3.2×10⁷ vs 10¹⁰).
+  K = 1 is worse on the ring. The optimum is non-monotonic because K sets both the per-step decay of the memory modes and
+  how the input is phased against the relay's Gouy-phase spread.
+- **Operate just above threshold.** A weakly lasing dominant mode acts as a local oscillator: the square-law detector then
+  sees the input-driven field linearly, and shot noise scales favourably. Sub-threshold linear loops (ρ-mode) give the best
+  noise-free NARMA (0.016) but need 10–1000× more photons, because intensity detection is then purely quadratic. Strong
+  saturation (G0 ≥ 2) or a strong input (amp ≥ 20) destroys memory.
+- **The linear stack is a good reservoir.** With 4 fabricated plates it meets bundle29 at **D = 10⁶ at K = 1**, one
+  0.17–0.26 ns trip per input step. That is 4000× fewer photons than Exp. 29, at 25–40× the input rate. Programmable LC
+  planes also work on short-memory tasks (D_short 10⁵), but their loss is prohibitive (Exp. 33). Adding planes did not
+  help: 8 LC planes lose too much, and 8 plates were not better than 4.
+- Detector bins trade quality against electronics: 16² is the useful minimum on these tasks, and 32² improves quality
+  further.
+
+## Experiment 31 — does the modes-per-unit equivalence hold at larger grids? (the key scaling assumption)
+
+**Question.** Every scaling claim (Exp. 29: "4–32 modes per ESN unit") assumed that the equivalence holds as the optics
+grows. It had never been measured.
+
+**Method.**
+- Apre_lin (K = 10) at 64², 128² and 256² modes: SLM, window and relay aperture scaled together (1.2 → 2.4 → 4.8 mm), so
+  the Fresnel number scales with the modes; input pattern density held fixed. Each run is 16,000 steps (`31-queue.sh`).
+- Tasks that do not saturate at a few hundred units: linear information-processing capacity (delays 0–299), quadratic
+  capacity (Legendre P2 and all products of delays 0–19), NARMA10, NARMA20, XOR d2.
+- Readout at 16 modes per detector bin (256 / 1024 / 4096 features) and, separately, at a fixed 256 features.
+- Digital baseline: tuned ESNs N = 64…4096 (`31-digital.py`, best per metric, chosen on test). N_eq comes from log
+  interpolation. `out/31/scaling.json`.
+
+**Results.**
+
+| modes (features) | capacity lin + quad | NARMA10 | NARMA20 | N_eq: lin cap / quad cap / NARMA10 / NARMA20 | modes per unit |
+|---|---|---|---|---|---|
+| 4,096 (256) | 45 + 71 = 116 | 0.095 | 0.180 | 64 / 122 / 89 / 64 | 34–64 |
+| 16,384 (1,024) | 134 + 126 = 260 | 0.046 | 0.056 | 489 / 279 / 231 / 659 | 25–71 |
+| **65,536 (4,096)** | 212 + 205 = 417 | **0.008** | **0.005** | 1504 / 1688 / 1559 / > 4096 | **16–44** |
+| 16,384 with only 256 features | 123 | 0.121 | 0.159 | 196 / 71 / 68 / 64 | 83–256 |
+| 65,536 with only 256 features | 149 | 0.060 | 0.080 | 224 / 101 / 139 / 460 | 140–650 |
+
+Tuned ESN reference:
+
+| ESN units N | NARMA10 | total capacity |
+|---|---|---|
+| 1,024 | 0.012 | 239 |
+| 4,096 | 0.005 | 258 |
+
+The ESN's capacity saturates on this target set (its capacity also sits in higher orders), so capacity-based N_eq above
+~2000 is a lower bound.
+
+**Interpretation.**
+- **The equivalence holds, and does not degrade, up to 65,536 modes:** about 16–64 modes per tuned ESN unit, with N_eq
+  growing roughly in proportion to the modes (64² → 256² is 16× the modes and 17–25× the N_eq). This is the first
+  measurement behind the scaling claims.
+- It is worse than Exp. 29's 4–32 modes per unit, because the digital side is now tuned more fairly: a linear ESN carries
+  memory much better.
+- It holds **only if the detector resolution grows with the modes.** With a fixed 256-bin detector the equivalence
+  collapses (140–650 modes per unit at 65k modes). So detection electronics scale linearly with the system.
+- Untested: beyond 65k modes, and with thick-lens aberrations (the relay lenses are ideal thin lenses).
+
+## Experiment 32 — wavefront (time-slot) multiplexing
+
+**Question.** The founder's idea is to put M short pulses in flight per round trip, each an independent input stream
+sharing the same static optical program. How large can M be, what couples the slots, and what does it cost?
+
+**Method (simulated).** `30-run.ts` with M fields sharing one compiled route. The gain is shared by all slots through a
+carrier model: the saturating load is the mean intensity low-pass filtered with recovery time τ across the time-ordered
+slot passages (slot spacing t_rt/M). With τ → 0 and M = 1 this reduces to the core global gain; it reproduces base to
+within 0.02 NMSE.
+
+Also tested:
+- injected in-cavity coherent leakage ε_cav per trip from the preceding slot (pulse tails);
+- post hoc detector crosstalk (`32-analyse.py`): incoherent inter-symbol interference F_m + ε_d F_{m−1}, and coherent tail
+  overlap |E_m + aE_{m−1}|² (from the stored cross term).
+
+The slow-gain case (Pr:YLF, τ ≈ 50 µs ≫ the run) was first simulated literally. A run far shorter than τ never reaches
+steady state (relaxation transient), so those runs were discarded. With τ ≫ M·t_rt the gain is constant on the slot time
+scale, so the slots are exactly independent copies in the model; fixed-gain (ρ) runs represent that case.
+
+**Estimated (not simulated), `32-bandwidth.py`:**
+- pulse width and slot overlap;
+- dispersion from the glass actually in each route (φ₂ ≈ 860–1180 fs² per trip);
+- gain narrowing: 1/Δν_N² = 1/Δν₀² + N·lnG/Δν_g²;
+- detector bandwidth for 1 % ISI, from a single-pole response.
+
+**Results — per-slot task quality (noise-free unless D given).**
+
+| run | M | slot | NARMA10 (slots 0–3) | MC | XOR d2 | D_req bundle29 (slot 0) |
+|---|---|---|---|---|---|---|
+| ring K10, τ = 1 ns, M = 1 | 1 | 667 ps | 0.134 | 35.0 | 0.992 | — |
+| ring K10, τ = 1 ns | 8 / 32 / 80 | 83 / 21 / 8 ps | 0.13–0.19 / 0.09–0.14 / 0.07–0.12 | 35–39 | ≥ 0.997 | 10¹⁰ / 10⁹ / 3.2×10⁹ |
+| ring K10, τ = 100 ps | 32 | 21 ps | 0.23–0.26 (degraded) | 31–34 | 0.99 | — |
+| **ring K2 (tuned), τ = 1 ns** | 1 / 13 / 32 / **80** | 667 / 51 / 21 / 8 ps | 0.068 / 0.055–0.068 / 0.041–0.059 / **0.039–0.051** | 44–46 | 1.000 | 3.2×10⁷–10⁸ at every M |
+| ring K2, τ = 100 ps | 32 | 21 ps | 0.069–0.095 | 42–45 | 1.000 | 10⁸ |
+| stack, 4 plates, K2, τ = 1 ns | 1 / 16 | 167 / 10 ps | 0.13 / 0.046–0.059 | 36–38 | 1.000 | — / 3.2×10⁶ |
+| ρ 0.98 (constant gain), ε_cav 10⁻³ / 10⁻² / 3×10⁻² | 32 | 21 ps | 0.019–0.024 / 0.28–0.33 / **diverges** | 30 / 10.5 / — | | |
+| detector ISI ε_d (ring K10 M32 τ 1 ns, slot 1) | 0.01 / 0.1 / 0.3 | | 0.089 / 0.096 / 0.17 | | | |
+| coherent tail overlap a | 0.03 / 0.1 / 0.3 | | 0.089 / 0.097 / 0.18 | | | |
+
+**Estimated limits (ring 0.73 ns with glass; stack 0.26 ns).**
+
+| M (ring) | slot | pulse (⅓ slot) | Δλ | dispersion over 400 trips | semiconductor-gain narrowing | Pr:YLF (0.19 nm line) narrowing, 100/400 trips | detector bandwidth for 1 % ISI |
+|---|---|---|---|---|---|---|---|
+| 13 | 56 ps | 19 ps | 0.03 nm | ×1.000 | none | 27 / 43 ps (too wide) | 13 GHz |
+| 32 | 23 ps | 7.6 ps | 0.08 nm | ×1.000 | none | 21 / 40 ps (too wide) | 32 GHz |
+| 80 | 9 ps | 3.1 ps | 0.20 nm | ×1.005 | 3.1 ps | 20 / 39 ps (too wide) | 80 GHz |
+| 128 | 5.7 ps | 1.9 ps | 0.33 nm | ×1.03 | 2.0 ps | — | 128 GHz |
+
+In the stack (0.26 ns), M = 32 needs 92 GHz, and dispersion reaches ×1.15 at M = 64.
+
+**Interpretation.**
+- **Multiplexing works in the model, up to M = 80, with no per-slot loss of quality, provided the gain recovers in about
+  1 ns** (semiconductor gain) or is slow (constant). The shared gain averages over the slots, so every slot sees the same
+  clamped gain. Per-slot NARMA10 even improves slightly (0.068 → 0.04–0.05), and the photon budget per stream is unchanged.
+- A gain that recovers **within a few slots (100 ps) couples the slots** (cross-gain modulation). This is mild at K = 2,
+  but it degrades K = 10 by 2×.
+- **In-cavity coupling between slots must be ≤ 10⁻³ per trip.** At 10⁻² the memory is destroyed; at 3×10⁻² the loop gain
+  exceeds 1 and diverges.
+- **Detector crosstalk is forgiving:** ISI or tail overlap up to ≈ 3–10 % costs almost nothing.
+- **Physical limits:**
+  - Glass dispersion is negligible up to M ≈ 80 in the ring.
+  - A narrow-line solid-state gain (Pr:YLF) gain-narrows pulses to 20–40 ps, so M ≲ 8–12 in the ring and ≲ 3 in the stack.
+  - A broadband semiconductor gain (AlGaInP, ~10 nm) allows M ≥ 80.
+  - **The binding limit is the detector:** 256 parallel channels of ≈ M × 1 GHz each (ring). That is 13 GHz at M = 13 and
+    80 GHz at M = 80.
+- **Throughput (modeled).** Ring, K = 2: 7.5×10⁸ steps/s per slot, so **8.9×10⁹ at M = 13 and 5.5×10¹⁰ at M = 80**.
+  Stack with plates, K = 1: 3.9×10⁹ per slot, so 10¹⁰ at M ≈ 3.
+- **What amortises:** static SLM hold and thermal power (÷M), and the laser/SLM hardware. **What does not:** photons per
+  step, one ADC conversion per bin per step, and ADC energy per conversion, which rises above ~1 GS/s. Multiplexing buys
+  throughput, not energy per step (Exp. 34).
+
+## Experiment 33 — per-trip loss budget including glass (ring and linear stack)
+
+**Question.** How much of the per-trip loss is glass (bulk absorption and coating residuals), and how much is SLM,
+coupler, mirror and aperture? What retention is realistic?
+
+**Method.** `33-loss.ts`. Every transmissive part is a core `slab` element: e^{−αt}, both faces' residual reflectance, and
+t·n_g added to the trip time.
+
+Component values (sources in the script and the notes file):
+
+| component | value used | source |
+|---|---|---|
+| N-BK7 | α ≈ 0.21 /m | SCHOTT: τi = 0.998 per 10 mm at 620–700 nm |
+| fused silica | α ≤ 0.01 /m | est. |
+| gain-crystal host | 0.3 %/cm | est. |
+| AR coating | 0.25 % (V-coat), 0.5 % (broadband), 0.1 % (IBS) per surface | |
+| LCOS, aluminium | 79 % | Hamamatsu X15213-01; Holoeye PLUTO-2 65 %; Meadowlark 76–91 % |
+| LCOS, dielectric mirror | 95 % | PLUTO-2 VIS-130 94 %; Meadowlark 92–98 % |
+| fabricated reflective phase plate | 99 % | est. |
+| dielectric mirrors | 99.5 % (99.9 % IBS) | |
+| transmissive LC panel fill factor | 0.55 | Holoeye LC 2012; 0.85 est. |
+| ITO | ≈ 1 % per layer per pass | est. |
+
+Retention is the simulated passive dominant-mode power iteration. Glass is passed per trip as follows: ring, 2 lenses of
+4 mm, 1 gain host of 5 mm and the SLM cover (included in the SLM figure); stack, every plane twice and the gain host
+twice.
+
+**Results (loss per round trip, as a fraction of the power; aperture/diffraction = simulated retention ÷ element product).**
+
+| configuration | retention | glass bulk | glass surfaces | SLM / planes | mirrors | in-coupler | tap | aperture / diffraction | t_rt |
+|---|---|---|---|---|---|---|---|---|---|
+| ring, as modelled (Exp. 15/29) | 0.672 | — | 1.0 % (lens 0.995) | 25 % | 1.0 % | 2 % | 5 % | 1.8 % | 0.667 ns |
+| ring, today: Al LCOS + V-coat glass | 0.702 | 0.32 % | 1.5 % | 21 % | 1.0 % | 2 % | 5 % | 1.8 % | 0.733 ns |
+| ring, today, broadband AR 0.5 % | 0.691 | 0.32 % | 3.0 % | 21 % | 1.0 % | 2 % | 5 % | 1.8 % | 0.733 ns |
+| ring, dielectric LCOS + IBS AR | 0.867 | 0.32 % | 0.6 % | 5 % | 0.2 % | 1 % | 5 % | 1.8 % | 0.733 ns |
+| ring, fabricated reflective plate + IBS | **0.904** | 0.32 % | 0.6 % | 1 % | 0.2 % | 1 % | 5 % | 1.8 % | 0.733 ns |
+| stack, 4 LC panels today (FF 0.55) | **0.005** | 0.5 % | 4.9 % | **99.3 %** | 0.5 % | (coupler = tap) | 5 % | 15 % | 0.273 ns |
+| stack, 4 LC panels, FF 0.85 (est.) | 0.169 | 0.5 % | 4.9 % | 78 % | 0.5 % | | 5 % | 15 % | 0.273 ns |
+| stack, 4 fabricated plates, IBS AR | 0.788 | 0.3 % | 2.0 % | 0 | 0.1 % | | 5 % | 15 % (1.28 mm window) | 0.255 ns |
+| same on a 2.56 mm window (128²) | **0.884** | 0.3 % | 2.0 % | 0 | 0.1 % | | 5 % | 4.7 % | 0.255 ns |
+| stack, plates + dielectric LCOS end mirror | 0.749 | 0.3 % | 2.0 % | 5 % (end) | | | 5 % | 15 % | 0.255 ns |
+
+**Interpretation.**
+- **Glass is a small part of the loss.** Bulk absorption is 0.3 % per trip (N-BK7, α ≈ 0.2 /m). Coating residuals are
+  0.6–3 %. Together glass is **5–9 % of the round-trip loss in the ring** (1.8–3.3 percentage points) and 10–20 % in the
+  plate stack. Coatings, not bulk, dominate the glass term: use IBS V-coats (≤ 0.1 %/surface) on every face.
+- **The SLM dominates the ring** (64–72 % of the loss with an aluminium LCOS). A dielectric LCOS cuts the round-trip loss
+  from 30 % to 13 %, and a fabricated plate to 10 %.
+- **A linear stack of today's transmissive LC panels is not viable:** fill factor, polarisation, ITO and 2× passes leave
+  0.5 % per round trip. The linear stack only works with **fabricated static phase plates** (88 % retention on a realistic
+  window), optionally with **one** programmable dielectric LCOS as the end mirror. Its remaining loss is aperture and
+  scattering, part of which is the finite simulated window.
+- Exp. 29's "R 0.684 → 0.98 ⇒ 16×" overstated the loss lever. The pump energy per detected photon scales as L/T (total
+  loss over tap), not 1 − R alone. With the tap raised from 5 % to 30 %, low-loss optics bring L/T from 6.6 to ≈ 1.15:
+  **≈ 6×, not 16×.**
+
+## Experiment 34 — energy per input step, revisited
+
+**Question.** With Exps. 30–33 folded in, what is the best honest energy per input step, how fast, and against which
+digital baseline?
+
+**Method.** `34-energy.py`, all numbers **modeled**:
+
+    E_pump = D·hν·(L/T)/(QE·η)      (independent of K at fixed D)
+
+plus source, DAC/modulator, detection = bins × (receiver + ADC at the per-bin rate M/(K·t_rt)), readout MACs, and static
+power × K·t_rt/M.
+
+Device ranges (low / nominal / high, sourced in the notes file):
+- η 0.45 / 0.27 / 0.1;
+- ADC 0.3–33 pJ per sample, rate-dependent (Murmann survey);
+- receiver 0.1 / 1 / 5 pJ;
+- SLM hold 0 / 0.1 / 1 W (0 for plates);
+- thermal 0.05 / 0.3 / 1 W.
+
+Digital baselines (`30-digital.py`, same streams and splits, tuned on test):
+- single ESNs (N = 8…1024);
+- two-reservoir ESNs (linear + tanh, concatenated);
+- NG-RC (delay taps + quadratic monomials).
+
+**Results (bundle29 quality unless stated; nominal with the low–high range).**
+
+| scenario | D_req | J / input step | pump | detection | static | steps/s | power |
+|---|---|---|---|---|---|---|---|
+| Exp. 29 point (ring K10, as modelled) | 4×10⁹ | **44 nJ** (25–130) | 38 nJ | 0.9 nJ | 2.7 nJ | 1.5×10⁸ | 6.6 W |
+| tuned ring (K2) | 3.2×10⁷ | **1.9 nJ** (0.40–10) | 0.30 | 0.92 | 0.53 | 7.5×10⁸ | 1.4 W |
+| + dielectric LCOS, tap 30 % | 3.2×10⁷ | 1.6 nJ | 0.05 | 0.92 | 0.59 | 6.8×10⁸ | 1.1 W |
+| + fabricated plate, tap 30 % | 3.2×10⁷ | **1.5 nJ** (0.22–8.3) | 0.05 | 0.92 | 0.44 | 6.8×10⁸ | 1.0 W |
+| + 13 time slots | 3.2×10⁷ | 1.7 nJ (0.64–10) | 0.05 | 1.5 | 0.03 | **8.9×10⁹** | 15 W |
+| + 80 time slots | 3.2×10⁷ | 2.9 nJ (1.5–10) | 0.05 | 2.8 | 0.005 | 5.5×10¹⁰ | 160 W |
+| stack, 4 plates, K1, tap 30 % | 10⁶ | 1.7 nJ (0.62–10) | 0.002 | 1.5 | 0.08 | 3.9×10⁹ | 6.5 W |
+| short task: ring K2 depth 0.3, 8×8 bins, plate, 13 slots | 10⁷ | **0.46 nJ** (0.17–2.7) | 0.016 | 0.38 | 0.03 | 8.9×10⁹ | 4 W |
+
+| digital baseline (same quality) | MACs/step | J/step at 0.05 / 0.2 / 1 pJ per MAC |
+|---|---|---|
+| bundle29: NG-RC, 40 taps + products of the first 12 | 196 | 0.01 / **0.04** / 0.2 nJ |
+| bundle29: two ESNs, 64 linear + 64 tanh | 8,320 | 0.4 / **1.7** / 8.3 nJ |
+| bundle29: one tanh ESN (N = 1024 needed for all three metrics) | 1.05 M | 52 / 210 / 1050 nJ |
+| short: NG-RC (10 taps, 8 products) | 82 | 0.004 / 0.016 / 0.08 nJ |
+| short: two ESNs, 32 + 64 | 5,216 | 0.26 / 1.0 / 5.2 nJ |
+
+**Scaling (modeled from the 64² operating point and the Exp. 31 equivalence).** Assumptions: photons per mode fixed,
+bins = modes/16, and a dense 8-bit ASIC ESN of N_eq = modes/r at 0.2 pJ/MAC, with r = 16–64 modes per unit.
+
+| modes | optical J/step | ratio vs dense ESN |
+|---|---|---|
+| 4,096 | 1.5 nJ | 0.6–9× |
+| 65,536 | 17 nJ | 12–200× |
+| 10⁶ | 0.26 µJ | **200–3,300×** |
+
+- The 1,000× point is at ≈ 0.3–5×10⁶ modes.
+- Per equivalent dense MAC this is 22–350 fJ at 4,096 modes and 0.06–1 fJ at 10⁶ modes.
+- 10⁶× would need ≳ 10⁸–10⁹ modes. It is not a result.
+
+**Interpretation.**
+- **Tuning changed the picture.** The honest energy per input step fell from 44 nJ to **1.5–1.9 nJ** (nominal; 0.2–0.4 nJ
+  in the low case), a **~25–30× improvement**, while the step rate rose 5×. Photons are no longer the cost: the pump is
+  0.002–0.3 nJ. **Detection electronics (256 bins × receiver + ADC ≈ 0.9 nJ) and static power dominate.** The next levers
+  are electronic: fewer or cheaper conversions (8×8 bins on short tasks: 0.46 nJ), optical pre-summing, and slower, cheaper
+  ADCs.
+- **Against fair digital baselines at this size (4,096 modes), PHASER does not win on energy:**
+  - parity with a two-ESN digital reservoir (1.7 nJ);
+  - about **40× worse than NG-RC** (0.04 nJ), the cheapest digital algorithm for these benchmark tasks;
+  - Exp. 29's "5× better than ESN-1024" compared against a baseline no one would build.
+- **Where PHASER wins (modeled):**
+  - input rate: 0.75–3.9 G steps/s per stream; 10¹⁰ steps/s with 3–13 time slots;
+  - latency: 0.17–1.3 ns per step;
+  - energy only **at large scale against a dense recurrent network:** ≳ 10× beyond ~5×10³ modes (r = 16) to ~6×10⁴
+    (r = 64), and 200–3,300× at 10⁶ modes.
+
+  The large-scale case assumes three things:
+  1. The equivalence, measured to 65k modes, continues.
+  2. The task really needs a dense high-dimensional recurrence; NG-RC or sparse networks would otherwise remove the
+     advantage.
+  3. Detector channels scale as modes/16, i.e. ~6×10⁴ ADC channels at 10⁶ modes.
+
+## Experiment 35 — what the headline claims would honestly need
+
+| claim | what it needs | status |
+|---|---|---|
+| **10 B steps/s** | 13 time slots in the ring (K2, 51 ps slots) or 3 in the plate stack (K1); gain recovery ≳ 1 ns or slow; 256 detector channels at ≥ 10–13 GHz with 10 GS/s ADCs (~15 W) | **modeled** (Exp. 32 simulation + estimates); no pulsed hardware or temporal model |
+| **~1,000× less energy per step** | ≥ 0.3–5×10⁶ optical modes; the equivalence (16–64 modes per unit) holding beyond the 65k measured; a dense-recurrence workload; 10⁴–10⁵ detector channels | **modeled extrapolation**, conditional; at today's simulated size it is parity or worse |
+| **2.0 pJ per multiply in silicon** | chip-level: 0.7–2 pJ/MAC (H100 INT8 0.71, TPU v4 1.24, H100 BF16 ≈ 2); 8-bit arithmetic alone is 0.02–0.23 pJ | 2.0 pJ is at the high end; say "≈1 pJ (0.7–2)" |
+| **0.002 pJ per multiply in PHASER** | per *equivalent dense* MAC at 10⁶ modes: 0.06–1 fJ (0.00006–0.001 pJ); at 4,096 modes 22–350 fJ | reachable only in the large-scale extrapolation; must say "equivalent" and "modeled" |
+| "light loses nothing on the way" | — | **false**: 10–30 % per round trip in realistic builds (Exp. 33), of which glass is 2–3 points |
+| 1e6× | ≳ 10⁸–10⁹ modes | never quote |
+
+## What the website can say
+
+| current site claim | research-supported replacement | caveat wording (required) |
+|---|---|---|
+| "10 B steps per second" | "Up to **10 billion input steps per second** with 13 time-multiplexed light pulses sharing one optical program (**modeled**); **0.75–4 billion per stream** without multiplexing." | "Modeled in simulation (Exp. 32); requires ~13 GHz detection on every readout channel. No hardware has been built." |
+| "~1,000× less energy per step, modeled at one megapixel" | "**Modeled at a million optical modes: ~200–3,000× less energy per step** than an equally capable dense recurrent network on an 8-bit chip." | "Extrapolated from simulations up to 65,000 modes, assuming the measured 16–64 modes-per-neuron equivalence continues. At today's simulated size PHASER is at parity with small digital networks, and simple digital algorithms remain cheaper on standard benchmarks." |
+| "2.0 pJ per multiply in silicon vs 0.002 pJ per multiply in PHASER (modeled)" | "Today's AI chips: **~1 pJ per multiply-accumulate** (0.7–2 pJ at chip level). PHASER: **~0.06–1 fJ per equivalent multiply**, modeled at 10⁶ modes." | "'Equivalent multiply' = PHASER's energy per step divided by the multiply-accumulates of the dense recurrent network it matches. Modeled, not measured." |
+| "light … loses nothing on the way" | "Light loses 10–30 % per round trip to mirrors, modulators and glass. The gain medium replaces it every trip, so the state keeps circulating." | none needed (factual) |
+| (new, optional) | "Tuning the optics cut the modeled energy per input step **~25×** (44 nJ → 1.5–1.9 nJ) while running 5× faster." | "Modeled; tuned against fairly tuned digital baselines (Exps. 30–34)." |
+| any "1,000,000×" | — | never quote |

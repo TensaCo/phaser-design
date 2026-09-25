@@ -9,7 +9,7 @@
 //  - features: |E|² of the circulating field summed over the K trips of each input step, binned by saveBin, float32.
 //    For slots ≥ 1 also the cross term Re(E_m·E*_{m−1}) (for coherent detector crosstalk, post hoc).
 // usage: npx vite-node 30-run.ts '<json config>'   (see Cfg)
-import { writeFileSync, existsSync } from 'node:fs'
+import { writeFileSync, existsSync, readFileSync } from 'node:fs'
 import { AssetStore } from '../../src/core/physics/assets'
 import type { RunContext } from '../../src/core/physics/elements/element'
 import type { OpticalElementSpec } from '../../src/core/physics/elements/types'
@@ -24,7 +24,9 @@ interface Cfg {
   arch: 'ring' | 'stack'
   n?: number; focal?: number; lensAperture?: number; maskDepth?: number; maskSeed?: number
   ring?: Partial<RingOptions>; stack?: Partial<StackOptions>
-  K: number; steps: number; inputAmp?: number; streams?: ('uniform' | 'bits')[]
+  K: number; steps: number; inputAmp?: number; streams?: ('uniform' | 'bits' | 'ext')[]
+  /** optional (not used in Exps. 30–34): d-channel input from a float64 file (steps × d, relative to out/); channel i has its own static pattern (seed 101 + i) */
+  ext?: { file: string; d: number }
   gain: { kind: 'global'; G0: number; Is: number } | { kind: 'rho'; rho: number } | { kind: 'slot'; G0: number; Is: number; tau: number }
   M?: number; saveSlots?: number; epsCav?: number; saveBin?: number
   patternCount?: number; patternCorr?: number
@@ -88,12 +90,14 @@ function streams(slot: number) {
 
 const bin = c.saveBin ?? Math.max(1, n / 64), B = n / bin
 const P = pattern(101) // one static input pattern shared by all slots (same optical program)
+const EXT = c.ext ? new Float64Array(new Uint8Array(readFileSync(`${OUT}${c.ext.file}`)).buffer) : null
+const PX = c.ext ? Array.from({ length: c.ext.d }, (_, i) => (i === 0 ? P : pattern(101 + i))) : []
 const t0 = performance.now()
 const meta: Record<string, unknown> = { cfg: c, lam2_passive: lam2, G_rho: Grho, t_rt: sys.timing().roundTripTime, modes: n * n, B, saveSlots }
 for (const stream of c.streams ?? ['uniform', 'bits']) {
   const name = `${dir}${c.tag}_${stream}`
   if (existsSync(`${name}.json`)) { console.log('exists', name); continue }
-  const U = Array.from({ length: M }, (_, m) => streams(m)[stream])
+  const U = Array.from({ length: M }, (_, m) => (stream === 'ext' ? new Float64Array(steps) : streams(m)[stream]))
   const F = Array.from({ length: M }, () => createField(g))
   const prev = createField(g)
   const inj = createField(g)
@@ -109,7 +113,11 @@ for (const stream of c.streams ?? ['uniform', 'bits']) {
     for (let k = 0; k < K; k++) {
       for (let m = 0; m < M; m++) {
         const f = F[m]
-        if (k === 0) { const a = inputAmp * U[m][s]; for (let i = 0; i < f.re.length; i++) { inj.re[i] = a * P.re[i]; inj.im[i] = a * P.im[i] }; pending = true; if (m === 0) injSum += a * a * power(P) }
+        if (k === 0 && EXT) { // d-channel input: Σ_i x_i(t)·P_i
+          inj.re.fill(0); inj.im.fill(0)
+          for (let ch = 0; ch < c.ext!.d; ch++) { const a = inputAmp * EXT[s * c.ext!.d + ch], Q = PX[ch]; for (let i = 0; i < f.re.length; i++) { inj.re[i] += a * Q.re[i]; inj.im[i] += a * Q.im[i] } }
+          pending = true; if (m === 0) injSum += power(inj)
+        } else if (k === 0) { const a = inputAmp * U[m][s]; for (let i = 0; i < f.re.length; i++) { inj.re[i] = a * P.re[i]; inj.im[i] = a * P.im[i] }; pending = true; if (m === 0) injSum += a * a * power(P) }
         const p0 = power(f)
         sys.roundTrip(f, ctx)
         if (c.gain.kind === 'slot') {

@@ -5,3 +5,6 @@ __pycache__/
 .big/
 # Exp. 29 noisy feature matrices (≈150 MB): regenerated exactly by `2026-09-14/29-queue.sh`; results in out/29/*.json.
 2026-09-14/out/29/feat_*.f64
+# Exps. 30–32 noise-free feature matrices (≈17 GB): regenerated exactly by 30-/31-/32-queue.sh; results in out/3x/*.json.
+2026-09-14/out/3[0-2]/*.f32
+2026-09-14/out/3[0-2]/logs/

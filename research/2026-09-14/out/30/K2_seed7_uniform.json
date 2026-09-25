@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "tag": "K2_seed7",
+  "arch": "ring",
+  "K": 2,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  },
+  "maskSeed": 7
+ },
+ "lam2_passive": 0.671326188069396,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 2,
+ "M": 1,
+ "meanP_fieldUnits": 121.0887660673367,
+ "meanGain": 1.4148873006979032,
+ "passiveRetention": 0.6602766875122796,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 3.9772877269999998
+}

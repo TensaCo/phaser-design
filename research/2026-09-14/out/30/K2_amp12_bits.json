@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "tag": "K2_amp12",
+  "arch": "ring",
+  "K": 2,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  },
+  "inputAmp": 12
+ },
+ "lam2_passive": 0.6716339176200744,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "bits",
+ "steps": 3200,
+ "K": 2,
+ "M": 1,
+ "meanP_fieldUnits": 250.08190013419696,
+ "meanGain": 1.3136382942858065,
+ "passiveRetention": 0.651662437086963,
+ "injectedFieldUnitsPerStep": 4459.604279642002,
+ "secs": 7.703926623
+}

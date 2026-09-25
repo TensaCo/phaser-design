@@ -1,0 +1,27 @@
+{
+ "cfg": {
+  "tag": "rho0.98_K3",
+  "arch": "ring",
+  "K": 3,
+  "steps": 3200,
+  "gain": {
+   "kind": "rho",
+   "rho": 0.98
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "G_rho": 1.4299456516477966,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "bits",
+ "steps": 3200,
+ "K": 3,
+ "M": 1,
+ "meanP_fieldUnits": 105.56747497684565,
+ "meanGain": 1.4299456516475613,
+ "passiveRetention": 0.6562807651132018,
+ "injectedFieldUnitsPerStep": 1114.9010699105006,
+ "secs": 10.64031265
+}

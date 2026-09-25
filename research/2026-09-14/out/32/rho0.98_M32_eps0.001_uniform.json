@@ -1,0 +1,31 @@
+{
+ "cfg": {
+  "tag": "rho0.98_M32_eps0.001",
+  "dir": "32",
+  "arch": "ring",
+  "K": 10,
+  "steps": 3200,
+  "M": 32,
+  "saveSlots": 4,
+  "gain": {
+   "kind": "rho",
+   "rho": 0.98
+  },
+  "epsCav": 0.001
+ },
+ "lam2_passive": 0.6716339176200744,
+ "G_rho": 1.4299456516477966,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 4,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 10,
+ "M": 32,
+ "meanP_fieldUnits": 21.60754015549987,
+ "meanGain": 1.4299456516477556,
+ "passiveRetention": 0.6624796046733163,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 529.245597176
+}

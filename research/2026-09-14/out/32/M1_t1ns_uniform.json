@@ -1,0 +1,31 @@
+{
+ "cfg": {
+  "tag": "M1_t1ns",
+  "dir": "32",
+  "arch": "ring",
+  "K": 10,
+  "steps": 3200,
+  "M": 1,
+  "saveSlots": 1,
+  "gain": {
+   "kind": "slot",
+   "G0": 1.6,
+   "Is": 0.05,
+   "tau": 1e-9
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 10,
+ "M": 1,
+ "meanP_fieldUnits": 73.79806742036115,
+ "meanGain": 1.4828459339977138,
+ "passiveRetention": 0.666125623119531,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 17.644452275
+}

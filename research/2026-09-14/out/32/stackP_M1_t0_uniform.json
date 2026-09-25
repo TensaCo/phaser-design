@@ -1,0 +1,35 @@
+{
+ "cfg": {
+  "tag": "stackP_M1_t0",
+  "dir": "32",
+  "arch": "stack",
+  "K": 2,
+  "steps": 3200,
+  "M": 1,
+  "saveSlots": 1,
+  "gain": {
+   "kind": "slot",
+   "G0": 1.35,
+   "Is": 0.05,
+   "tau": 1e-15
+  },
+  "stack": {
+   "planeKind": "plate",
+   "plateT": 0.998
+  }
+ },
+ "lam2_passive": 0.7942670577910664,
+ "t_rt": 1.6682939441617437e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 2,
+ "M": 1,
+ "meanP_fieldUnits": 206.0859352828767,
+ "meanGain": 1.1913062369390475,
+ "passiveRetention": 0.7797727657429541,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 11.272194275
+}

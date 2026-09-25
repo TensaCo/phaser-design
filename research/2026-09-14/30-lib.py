@@ -35,7 +35,8 @@ def shot(F, D, rng, read_noise=2.0):
     """Poisson noise at D detected photoelectrons per step on average; returned in field units"""
     if D is None or not np.isfinite(D): return F
     s = D / F.sum(1).mean()
-    N = rng.poisson(np.maximum(F, 0) * s) + read_noise * rng.normal(size=F.shape)
+    lam = np.maximum(F, 0) * s
+    N = np.where(lam < 1e7, rng.poisson(np.minimum(lam, 1e7)), lam + np.sqrt(lam) * rng.normal(size=F.shape)) + read_noise * rng.normal(size=F.shape)
     return np.maximum(N, 0) / s
 
 

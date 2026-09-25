@@ -1,0 +1,27 @@
+{
+ "cfg": {
+  "tag": "K40",
+  "arch": "ring",
+  "K": 40,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 40,
+ "M": 1,
+ "meanP_fieldUnits": 63.498481220469635,
+ "meanGain": 1.488638790594736,
+ "passiveRetention": 0.6696747100600041,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 66.56987472800002
+}

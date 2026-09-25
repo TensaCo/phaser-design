@@ -1,0 +1,31 @@
+{
+ "cfg": {
+  "tag": "M8_t1ns",
+  "dir": "32",
+  "arch": "ring",
+  "K": 10,
+  "steps": 3200,
+  "M": 8,
+  "saveSlots": 4,
+  "gain": {
+   "kind": "slot",
+   "G0": 1.6,
+   "Is": 0.05,
+   "tau": 1e-9
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 4,
+ "stream": "bits",
+ "steps": 3200,
+ "K": 10,
+ "M": 8,
+ "meanP_fieldUnits": 83.2931542157308,
+ "meanGain": 1.4716883359925725,
+ "passiveRetention": 0.6653675280146727,
+ "injectedFieldUnitsPerStep": 1114.9010699105006,
+ "secs": 264.23893087799996
+}

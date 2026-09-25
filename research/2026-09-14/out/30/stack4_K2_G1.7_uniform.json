@@ -1,0 +1,27 @@
+{
+ "cfg": {
+  "tag": "stack4_K2_G1.7",
+  "arch": "stack",
+  "K": 2,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.7,
+   "Is": 0.05
+  }
+ },
+ "lam2_passive": 0.616452114821375,
+ "t_rt": 1.6682939441617437e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 2,
+ "M": 1,
+ "meanP_fieldUnits": 112.85367195251263,
+ "meanGain": 1.4539872006590195,
+ "passiveRetention": 0.6122056481904372,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 11.417121586
+}

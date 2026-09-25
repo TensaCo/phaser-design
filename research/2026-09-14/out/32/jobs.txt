@@ -1,13 +1,12 @@
 {"tag": "M1_t0", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-15}}
-{"tag": "M1_t50us", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 5e-05}}
 {"tag": "M1_t1ns", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
-{"tag": "M8_t50us", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 8, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 5e-05}}
+{"tag": "M1_t100ps", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-10}}
 {"tag": "M8_t1ns", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 8, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
-{"tag": "M32_t50us", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 5e-05}}
 {"tag": "M32_t1ns", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
-{"tag": "M80_t50us", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 80, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 5e-05}}
 {"tag": "M80_t1ns", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 80, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
 {"tag": "M32_t100ps", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-10}}
-{"tag": "M32_t50us_eps0.001", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 5e-05}, "epsCav": 0.001}
-{"tag": "M32_t50us_eps0.01", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 5e-05}, "epsCav": 0.01}
-{"tag": "M32_t50us_eps0.03", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 5e-05}, "epsCav": 0.03}
+{"tag": "sub_M1_t1ns", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.45, "Is": 0.05, "tau": 1e-09}}
+{"tag": "sub_M32_t1ns", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.45, "Is": 0.05, "tau": 1e-09}}
+{"tag": "rho0.98_M32_eps0.001", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "rho", "rho": 0.98}, "epsCav": 0.001}
+{"tag": "rho0.98_M32_eps0.01", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "rho", "rho": 0.98}, "epsCav": 0.01}
+{"tag": "rho0.98_M32_eps0.03", "dir": "32", "arch": "ring", "K": 10, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "rho", "rho": 0.98}, "epsCav": 0.03}

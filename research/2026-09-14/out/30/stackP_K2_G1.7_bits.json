@@ -1,0 +1,31 @@
+{
+ "cfg": {
+  "tag": "stackP_K2_G1.7",
+  "arch": "stack",
+  "K": 2,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.7,
+   "Is": 0.05
+  },
+  "stack": {
+   "planeKind": "plate",
+   "plateT": 0.998
+  }
+ },
+ "lam2_passive": 0.7942670577910664,
+ "t_rt": 1.6682939441617437e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "bits",
+ "steps": 3200,
+ "K": 2,
+ "M": 1,
+ "meanP_fieldUnits": 483.83772923404,
+ "meanGain": 1.213717480961011,
+ "passiveRetention": 0.7821127122389305,
+ "injectedFieldUnitsPerStep": 1114.9010699105006,
+ "secs": 22.690091736
+}

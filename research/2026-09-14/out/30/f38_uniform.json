@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "tag": "f38",
+  "arch": "ring",
+  "K": 10,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  },
+  "focal": 0.038
+ },
+ "lam2_passive": 0.6704657574183002,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 10,
+ "M": 1,
+ "meanP_fieldUnits": 62.64725823898433,
+ "meanGain": 1.4897581957399373,
+ "passiveRetention": 0.6661559305556065,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 17.03590258
+}

@@ -1,0 +1,17 @@
+{"tag": "K2_amp3", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "inputAmp": 3}
+{"tag": "K2_amp12", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "inputAmp": 12}
+{"tag": "K2_G1.52", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.52, "Is": 0.05}}
+{"tag": "K2_G1.55", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.55, "Is": 0.05}}
+{"tag": "K3_G1.52", "arch": "ring", "K": 3, "steps": 3200, "gain": {"kind": "global", "G0": 1.52, "Is": 0.05}}
+{"tag": "K2_rho0.98", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "rho", "rho": 0.98}}
+{"tag": "K2_rho0.995", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "rho", "rho": 0.995}}
+{"tag": "K2_depth0.03", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "maskDepth": 0.03}
+{"tag": "K2_depth0.3", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "maskDepth": 0.3}
+{"tag": "K2_f38", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "focal": 0.038}
+{"tag": "K2_f45", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "focal": 0.045}
+{"tag": "K2_seed7", "arch": "ring", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}, "maskSeed": 7}
+{"tag": "stack4_K2", "arch": "stack", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.8, "Is": 0.05}}
+{"tag": "stackP_K2", "arch": "stack", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.8, "Is": 0.05}, "stack": {"planeKind": "plate", "plateT": 0.998}}
+{"tag": "stackP_K2_G1.7", "arch": "stack", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.7, "Is": 0.05}, "stack": {"planeKind": "plate", "plateT": 0.998}}
+{"tag": "stackP_K2_G1.35", "arch": "stack", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.35, "Is": 0.05}, "stack": {"planeKind": "plate", "plateT": 0.998}}
+{"tag": "stack4_K2_G1.7", "arch": "stack", "K": 2, "steps": 3200, "gain": {"kind": "global", "G0": 1.7, "Is": 0.05}}

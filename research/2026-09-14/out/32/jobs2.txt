@@ -1,0 +1,10 @@
+{"tag": "K2_M1_t1ns", "dir": "32", "arch": "ring", "K": 2, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
+{"tag": "K2_M13_t1ns", "dir": "32", "arch": "ring", "K": 2, "steps": 3200, "M": 13, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
+{"tag": "K2_M32_t1ns", "dir": "32", "arch": "ring", "K": 2, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
+{"tag": "K2_M80_t1ns", "dir": "32", "arch": "ring", "K": 2, "steps": 3200, "M": 80, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-09}}
+{"tag": "K2_M1_t100ps", "dir": "32", "arch": "ring", "K": 2, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-10}}
+{"tag": "K2_M32_t100ps", "dir": "32", "arch": "ring", "K": 2, "steps": 3200, "M": 32, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-10}}
+{"tag": "K2_M1_t0", "dir": "32", "arch": "ring", "K": 2, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.6, "Is": 0.05, "tau": 1e-15}}
+{"tag": "stackP_M1_t1ns", "dir": "32", "arch": "stack", "K": 2, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.35, "Is": 0.05, "tau": 1e-09}, "stack": {"planeKind": "plate", "plateT": 0.998}}
+{"tag": "stackP_M16_t1ns", "dir": "32", "arch": "stack", "K": 2, "steps": 3200, "M": 16, "saveSlots": 4, "gain": {"kind": "slot", "G0": 1.35, "Is": 0.05, "tau": 1e-09}, "stack": {"planeKind": "plate", "plateT": 0.998}}
+{"tag": "stackP_M1_t0", "dir": "32", "arch": "stack", "K": 2, "steps": 3200, "M": 1, "saveSlots": 1, "gain": {"kind": "slot", "G0": 1.35, "Is": 0.05, "tau": 1e-15}, "stack": {"planeKind": "plate", "plateT": 0.998}}

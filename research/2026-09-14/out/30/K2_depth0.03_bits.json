@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "tag": "K2_depth0.03",
+  "arch": "ring",
+  "K": 2,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  },
+  "maskDepth": 0.03
+ },
+ "lam2_passive": 0.6828473966913736,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "bits",
+ "steps": 3200,
+ "K": 2,
+ "M": 1,
+ "meanP_fieldUnits": 113.93573507002989,
+ "meanGain": 1.424246011217673,
+ "passiveRetention": 0.6701437792031085,
+ "injectedFieldUnitsPerStep": 1114.9010699105006,
+ "secs": 7.651863266
+}

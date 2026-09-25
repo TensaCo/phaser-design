@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "tag": "depth0.3",
+  "arch": "ring",
+  "K": 10,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  },
+  "maskDepth": 0.3
+ },
+ "lam2_passive": 0.5794260753547299,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 10,
+ "M": 1,
+ "meanP_fieldUnits": 7.923090092121314,
+ "meanGain": 1.5827947989086655,
+ "passiveRetention": 0.5442326530165781,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 17.27210146
+}

@@ -1,0 +1,27 @@
+{
+ "cfg": {
+  "tag": "rho0.995",
+  "arch": "ring",
+  "K": 10,
+  "steps": 3200,
+  "gain": {
+   "kind": "rho",
+   "rho": 0.995
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "G_rho": 1.4740545020539464,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 10,
+ "M": 1,
+ "meanP_fieldUnits": 54.790947802169704,
+ "meanGain": 1.4740545020540565,
+ "passiveRetention": 0.6652787080480148,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 16.626983154
+}

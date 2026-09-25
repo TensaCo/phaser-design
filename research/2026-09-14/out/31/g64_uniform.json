@@ -1,0 +1,30 @@
+{
+ "cfg": {
+  "tag": "g64",
+  "dir": "31",
+  "arch": "ring",
+  "n": 64,
+  "lensAperture": 0.0012,
+  "K": 10,
+  "steps": 16000,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 16000,
+ "K": 10,
+ "M": 1,
+ "meanP_fieldUnits": 68.04756264078324,
+ "meanGain": 1.481925368045345,
+ "passiveRetention": 0.6658760018482135,
+ "injectedFieldUnitsPerStep": 740.3016358180861,
+ "secs": 79.24610225100001
+}

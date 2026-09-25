@@ -1,0 +1,28 @@
+{
+ "cfg": {
+  "tag": "K2_f45",
+  "arch": "ring",
+  "K": 2,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  },
+  "focal": 0.045
+ },
+ "lam2_passive": 0.6706817261057885,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 2,
+ "M": 1,
+ "meanP_fieldUnits": 119.14011872344774,
+ "meanGain": 1.4173062723807854,
+ "passiveRetention": 0.6557661405229722,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 3.983660218
+}

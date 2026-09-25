@@ -1,0 +1,27 @@
+{
+ "cfg": {
+  "tag": "K5",
+  "arch": "ring",
+  "K": 5,
+  "steps": 3200,
+  "gain": {
+   "kind": "global",
+   "G0": 1.6,
+   "Is": 0.05
+  }
+ },
+ "lam2_passive": 0.6716339176200744,
+ "t_rt": 6.673175776646975e-10,
+ "modes": 4096,
+ "B": 64,
+ "saveSlots": 1,
+ "stream": "uniform",
+ "steps": 3200,
+ "K": 5,
+ "M": 1,
+ "meanP_fieldUnits": 70.49440537734506,
+ "meanGain": 1.4783488938178833,
+ "passiveRetention": 0.6647372323212317,
+ "injectedFieldUnitsPerStep": 720.5758865173171,
+ "secs": 9.678681306
+}

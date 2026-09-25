@@ -1,0 +1,6 @@
+{"tag": "stackP_K2_G1.3", "arch": "stack", "K": 2, "steps": 3200, "stack": {"planeKind": "plate", "plateT": 0.998}, "gain": {"kind": "global", "G0": 1.3, "Is": 0.05}}
+{"tag": "stackP_K2_G1.4", "arch": "stack", "K": 2, "steps": 3200, "stack": {"planeKind": "plate", "plateT": 0.998}, "gain": {"kind": "global", "G0": 1.4, "Is": 0.05}}
+{"tag": "stackP_K3_G1.35", "arch": "stack", "K": 3, "steps": 3200, "stack": {"planeKind": "plate", "plateT": 0.998}, "gain": {"kind": "global", "G0": 1.35, "Is": 0.05}}
+{"tag": "stackP_K1_G1.35", "arch": "stack", "K": 1, "steps": 3200, "stack": {"planeKind": "plate", "plateT": 0.998}, "gain": {"kind": "global", "G0": 1.35, "Is": 0.05}}
+{"tag": "stackP_K2_rho0.98", "arch": "stack", "K": 2, "steps": 3200, "stack": {"planeKind": "plate", "plateT": 0.998}, "gain": {"kind": "rho", "rho": 0.98}}
+{"tag": "stackP8_K2_G1.6", "arch": "stack", "K": 2, "steps": 3200, "stack": {"planeKind": "plate", "plateT": 0.998, "planes": 8}, "gain": {"kind": "global", "G0": 1.6, "Is": 0.05}}
