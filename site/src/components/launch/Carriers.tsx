@@ -19,7 +19,7 @@ export function Carriers() {
         <div className={s.vol}><FieldVolume kind="electron" onEvent={(n) => { if (hits.current) hits.current.textContent = String(n).padStart(4, '0') }} /></div>
         <figcaption>
           <span className={s.big}>{GPU_PJ.toFixed(1)}<small>pJ</small></span>
-          <span className={s.what}>per multiply in silicon, all of it heat. The electron scatters, stalls, and turns again: <b ref={hits}>0000</b></span>
+          <span className={s.what}>per multiply in silicon, all of it heat. Every hop an electron makes ends in a hot atom: <b ref={hits}>0000</b></span>
         </figcaption>
       </figure>
       <figure>

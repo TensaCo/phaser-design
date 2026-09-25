@@ -19,3 +19,7 @@
 .foot a:hover { color: var(--fg); }
 .receipts { min-height: 100svh; padding-top: 120px; }
 .receipts ol { font-size: 12.5px; }
+.claim { display: flex; align-items: flex-end; gap: clamp(20px, 3vw, 48px); flex-wrap: wrap; margin-top: clamp(48px, 6vw, 96px); }
+.claim :global(.num) { font-size: clamp(110px, 17vw, 300px); color: var(--fg); margin-left: -0.04em; }
+.claim p { margin: 0 0 0.6em; display: flex; flex-direction: column; gap: 14px; font-size: clamp(22px, 2.4vw, 40px); font-variation-settings: 'wdth' 85; font-weight: 500; line-height: 1.05; letter-spacing: -0.015em; max-width: 12em; }
+.note { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite-2); font-weight: 400; line-height: 1.5; }

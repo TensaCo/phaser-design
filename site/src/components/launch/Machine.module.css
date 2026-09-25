@@ -2,6 +2,7 @@
 .h { margin: 0; font-variation-settings: 'wdth' 70; font-weight: 700; font-size: clamp(40px, 6.4vw, 104px); line-height: 0.92; letter-spacing: -0.03em; }
 .h span { display: block; }
 .red { color: var(--red); }
+.lede { margin: 24px 0 0; font-size: clamp(19px, 1.6vw, 24px); line-height: 1.45; color: var(--graphite); max-width: 36ch; }
 
 /* anatomy: the three metrics annotated against a live miniature of the machine */
 .anatomy { position: relative; display: grid; grid-template-columns: 1fr minmax(260px, 420px) 1fr; gap: 24px; margin-top: clamp(48px, 6vw, 96px); align-items: center; }
@@ -32,7 +33,7 @@
   .leaders { display: none; }
 }
 
-.close { display: grid; grid-template-columns: 1fr auto; gap: 32px 64px; align-items: end; margin-top: clamp(80px, 10vw, 150px); padding-top: 32px; border-top: 1px solid var(--rule); }
+.close { display: grid; grid-template-columns: 1fr auto; gap: 32px 64px; align-items: end; margin-top: clamp(80px, 10vw, 150px); }
 .body { margin: 0; font-size: 19px; line-height: 1.5; max-width: 44ch; color: var(--graphite); }
 .cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .cta a { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--rule); padding: 14px 18px; color: var(--fg); transition: border-color .2s, color .2s; }

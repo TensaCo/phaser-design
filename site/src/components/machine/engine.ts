@@ -492,6 +492,8 @@ export class Machine {
     this.composer.addPass(this.grade)
     this.composer.addPass(new OutputPass())
     this.layout()
+    // pre-warm: run two round trips before the first frame so the cavity is already full of wavefronts
+    this.step(2 * ROUND_TRIP_STEPS)
   }
 
   setPointer(x: number, y: number) { this.pointer.set(x, y) }

@@ -3,11 +3,11 @@
  * Volumetric renderings of a photon and an electron as complex fields, ray-marched through a fine voxel grid.
  * Brightness is the density |ψ|² (for light, |E|²); colour is the phase arg ψ, mapped blue ↔ orange.
  *
- * Photon: a Gaussian wave packet of light in vacuum, E ∝ exp(−(x−ct)²/2σ² − ρ²/w²) · e^{i(kx−ωt)}. It moves rigidly at c
- * and keeps its norm: nothing in free space takes energy from it.
- * Electron: a Bloch wave packet, envelope × e^{ik·r} × a lattice-periodic factor on a diamond-cubic crystal. It drifts,
- * scatters (stalls, spreads, emits a spherical scattered wavelet) and leaves on a new heading; each event deposits heat
- * (red) into the lattice around the site.
+ * Photon: a stream of Gaussian light packets in vacuum, E ∝ exp(−(x−ct)²/2σ² − ρ²/w²) · e^{i(kx−ωt)}. They move rigidly
+ * at c and keep their norm: nothing in free space takes energy from them.
+ * Electrons: Bloch wave packets (envelope × e^{ik·r} × a lattice-periodic factor) in a diamond-cubic crystal. Each flies to
+ * an atom and is absorbed; the atom heats up (red) and rings out a spherical wavelet, then emits a new electron toward the
+ * next atom.
  */
 import { useEffect, useRef } from 'react'
 
@@ -38,22 +38,30 @@ bool box(vec3 ro, vec3 rd, out float t0, out float t1) {
 const PHOTON = COMMON + `
 uniform float uX0;
 vec4 sampleField(vec3 p) {
-  float sx = 0.55, w = 0.5, k = 22.0;
-  float dx = p.x - uX0;
-  float env = exp(-dx * dx / (2.0 * sx * sx) - dot(p.yz, p.yz) / (w * w));
-  float ph = k * dx; // the phase rides with the packet: in vacuum phase and group velocity are both c
-  float re = env * cos(ph);
-  // raw field: energy density of the real field, E·E, as thin crest sheets; colour = sign of E
-  float c2 = cos(ph) * cos(ph);
-  float dens = env * env * (c2 * c2 * 1.8 + 0.04);
-  return vec4(phaseColor(ph) * dens, dens);
+  // a continuous stream of identical light packets, evenly spaced, all moving at c
+  float sx = 0.34, w = 0.42, k = 22.0, span = 5.6, gap = 1.4;
+  float rho = exp(-dot(p.yz, p.yz) / (w * w));
+  vec3 col = vec3(0.0);
+  float dens = 0.0;
+  for (int n = 0; n < 4; n++) {
+    float x0 = mod(uX0 + float(n) * gap + span * 0.5, span) - span * 0.5;
+    float dx = p.x - x0;
+    float env = exp(-dx * dx / (2.0 * sx * sx)) * rho;
+    float ph = k * dx; // the phase rides with the packet: in vacuum phase and group velocity are both c
+    float c2 = cos(ph) * cos(ph);
+    // raw field: energy density of the real field E·E as thin crest sheets; colour = sign of E
+    float d = env * env * (c2 * c2 * 1.8 + 0.04);
+    col += phaseColor(ph) * d;
+    dens += d;
+  }
+  return vec4(col, dens);
 }
 `
 
 const ELECTRON = COMMON + `
-uniform vec3 uC, uK;          // packet centre and wave vector
-uniform float uSig;           // envelope width (grows while scattering)
-uniform vec4 uEv[6];          // scattering events: xyz = site, w = birth time (−1 = none)
+uniform vec4 uE[4];           // electrons: xyz = centre, w = 1 when in flight
+uniform vec3 uEk[4];          // their wave vectors
+uniform vec4 uEv[10];         // absorption events: xyz = atom, w = time (−1 = none)
 const float A = 0.5;           // lattice constant
 float lattice(vec3 p) {
   // diamond cubic density: distance to the nearest of the 8 basis atoms in the unit cell
@@ -70,34 +78,40 @@ float lattice(vec3 p) {
 }
 vec4 sampleField(vec3 p) {
   float u = lattice(p);
-  vec3 r = p - uC;
-  float env = exp(-dot(r, r) / (2.0 * uSig * uSig));
-  // Bloch packet: envelope × plane wave × (smooth + lattice-periodic part)
-  float amp = env * (0.8 + 0.5 * u);
-  float ph = dot(uK, r) - uT * 9.0;
-  vec2 psi = amp * vec2(cos(ph), sin(ph));
+  vec3 col = vec3(0.0);
+  float dens = 0.0;
+  for (int i = 0; i < 4; i++) {
+    if (uE[i].w < 0.5) continue;
+    vec3 r = p - uE[i].xyz;
+    float env = exp(-dot(r, r) / (2.0 * 0.15 * 0.15));
+    if (env < 1e-3) continue;
+    // Bloch packet: envelope × plane wave × (smooth + lattice-periodic part), drawn through Re ψ
+    float ph = dot(uEk[i], r) - uT * 14.0;
+    float cc = cos(ph) * cos(ph);
+    float d = env * env * (0.8 + 0.5 * u) * (0.08 + 1.7 * cc * cc);
+    col += phaseColor(ph) * d;
+    dens += d;
+  }
   float heat = 0.0;
-  for (int i = 0; i < 6; i++) {
+  for (int i = 0; i < 10; i++) {
     if (uEv[i].w < 0.0) continue;
     float age = uT - uEv[i].w;
     vec3 q = p - uEv[i].xyz;
-    float d = length(q);
-    // outgoing spherical scattered wavelet
-    float shell = exp(-pow(d - 0.9 * age, 2.0) / (2.0 * 0.05 * 0.05)) * exp(-age * 1.6) / (1.0 + 5.0 * d);
-    float phs = 22.0 * d - uT * 9.0;
-    psi += 1.4 * shell * vec2(cos(phs), sin(phs));
-    // heat left in the lattice around the site
-    heat += (0.25 + u) * exp(-d * d / 0.02) * exp(-age * 0.5);
+    float dd = length(q);
+    // the absorbing atom rings out a spherical wavelet ...
+    float shell = exp(-pow(dd - 1.2 * age, 2.0) / (2.0 * 0.04 * 0.04)) * exp(-age * 3.0) / (1.0 + 6.0 * dd);
+    float phs = 26.0 * dd - uT * 14.0;
+    float cs = cos(phs) * cos(phs);
+    float ds = shell * shell * 1.6 * (0.1 + 1.6 * cs * cs);
+    col += phaseColor(phs) * ds;
+    dens += ds;
+    // ... and heats up
+    heat += (0.3 + u) * exp(-dd * dd / 0.012) * exp(-age * 0.9);
   }
-  float ph2 = atan(psi.y, psi.x);
-  // probability cloud |ψ|², drawn through its real part so the phase fronts show as sheets
-  float cc = cos(ph2) * cos(ph2);
-  float dens = dot(psi, psi) * (0.08 + 1.7 * cc * cc);
-  vec3 col = phaseColor(ph2);
   // the crystal itself: faint grey density at the atom sites; heat turns it red
   float lat = u * 0.3;
-  vec3 c = col * dens + vec3(0.62, 0.6, 0.57) * lat + vec3(1.0, 0.14, 0.06) * heat * 2.0;
-  return vec4(c, dens + lat + heat * 2.0);
+  col += vec3(0.62, 0.6, 0.57) * lat + vec3(1.0, 0.14, 0.06) * heat * 2.4;
+  return vec4(col, dens + lat + heat * 2.4);
 }
 `
 
@@ -154,13 +168,59 @@ export function FieldVolume({ kind, onEvent }: { kind: Kind; onEvent?: (n: numbe
     const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0)
     const U = (n: string) => gl.getUniformLocation(pr, n)
 
-    // electron walk state
+    // electrons hop atom to atom: fly to a target atom, get absorbed (the atom heats up), and a moment later a new
+    // electron leaves that atom for the next target
     let seed = 11
     const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647)
-    const W = { c: [-1.7, 0, 0] as V3, dir: [1, 0, 0] as V3, seg: 0, free: 0.5, stall: 0, sig: 0.34, events: [] as [number, number, number, number][], hits: 0 }
-    const newDir = (): V3 => norm([0.8 + rnd() * 0.7, (rnd() - 0.5) * 1.8, (rnd() - 0.5) * 1.8])
+    const LA = 0.5
+    const BASIS: V3[] = [[0, 0, 0], [0.5, 0.5, 0], [0.5, 0, 0.5], [0, 0.5, 0.5], [0.25, 0.25, 0.25], [0.75, 0.75, 0.25], [0.75, 0.25, 0.75], [0.25, 0.75, 0.75]]
+    const atoms: V3[] = []
+    for (let i = -4; i <= 4; i++) for (let j = -2; j <= 2; j++) for (let k = -2; k <= 2; k++) for (const b of BASIS) {
+      const q: V3 = [(i + b[0]) * LA, (j + b[1]) * LA, (k + b[2]) * LA]
+      if (Math.abs(q[0]) < 1.85 && Math.abs(q[1]) < 0.8 && Math.abs(q[2]) < 0.8) atoms.push(q)
+    }
+    const pick = (from: V3): V3 => {
+      // next target: an atom ahead (the applied field pushes +x), a short hop away
+      const c = atoms.filter((q) => q[0] - from[0] > 0.15 && q[0] - from[0] < 0.9 && Math.hypot(q[1] - from[1], q[2] - from[2]) < 0.7)
+      return c.length ? c[Math.floor(rnd() * c.length)] : atoms[Math.floor(rnd() * atoms.length)]
+    }
+    type E = { p: V3; to: V3; dir: V3; state: 'fly' | 'hot'; timer: number }
+    const spawn = (): E => { const p: V3 = [-1.95, (rnd() - 0.5) * 1.2, (rnd() - 0.5) * 1.2]; const to = pick(p); return { p, to, dir: norm([to[0] - p[0], to[1] - p[1], to[2] - p[2]]), state: 'fly', timer: 0 } }
+    const el: E[] = Array.from({ length: 4 }, spawn)
+    const events: [number, number, number, number][] = []
+    let hits = 0
+    const stepE = (d: number, now: number) => {
+      for (let n = 0; n < el.length; n++) {
+        const e = el[n]
+        if (e.state === 'fly') {
+          const v = 2.4 * d
+          const dx = e.to[0] - e.p[0], dy = e.to[1] - e.p[1], dz = e.to[2] - e.p[2]
+          const dist = Math.hypot(dx, dy, dz)
+          if (dist <= v) {
+            e.p = [...e.to] as V3
+            e.state = 'hot'
+            e.timer = 0.3 + rnd() * 0.25
+            events.push([e.to[0], e.to[1], e.to[2], now])
+            if (events.length > 10) events.shift()
+            hits++
+          } else e.p = [e.p[0] + (dx / dist) * v, e.p[1] + (dy / dist) * v, e.p[2] + (dz / dist) * v]
+        } else {
+          e.timer -= d
+          if (e.timer <= 0) {
+            if (e.p[0] > 1.35) { el[n] = spawn(); continue }
+            e.to = pick(e.p)
+            e.dir = norm([e.to[0] - e.p[0], e.to[1] - e.p[1], e.to[2] - e.p[2]])
+            e.state = 'fly'
+          }
+        }
+      }
+    }
+    // start in equilibrium: stagger the electrons across the crystal and let them run for a few seconds
+    el.forEach((e, n) => { e.p = [-1.8 + n * 0.9, e.p[1], e.p[2]]; e.to = pick(e.p); e.dir = norm([e.to[0] - e.p[0], e.to[1] - e.p[1], e.to[2] - e.p[2]]) })
+    let tPre = 0
+    for (let i = 0; i < 240; i++) { tPre += 1 / 60; stepE(1 / 60, tPre) }
 
-    let raf = 0, visible = false, last = performance.now(), t = 0, first = true
+    let raf = 0, visible = false, last = performance.now(), t = tPre, first = true
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting })
     io.observe(cv)
@@ -190,33 +250,16 @@ export function FieldVolume({ kind, onEvent }: { kind: Kind; onEvent?: (n: numbe
       gl.uniform3fv(U('uEye'), eye); gl.uniform3fv(U('uRight'), right); gl.uniform3fv(U('uUp'), up); gl.uniform3fv(U('uFwd'), fwd)
       if (kind === 'photon') {
         const span = 5.2
-        gl.uniform1f(U('uX0'), ((t * 1.1) % span) - span / 2)
+        gl.uniform1f(U('uX0'), (t * 1.1) % span)
       } else {
-        if (W.stall > 0) {
-          W.stall -= d
-          W.sig = Math.min(0.5, W.sig + d * 0.5)
-          if (W.stall <= 0) { W.dir = newDir(); W.seg = 0; W.free = 0.3 + rnd() * 0.45 }
-        } else {
-          W.sig = Math.max(0.32, W.sig - d * 0.35)
-          const v = 0.55
-          W.c = [W.c[0] + W.dir[0] * v * d, W.c[1] + W.dir[1] * v * d, W.c[2] + W.dir[2] * v * d]
-          W.seg += v * d
-          for (const ax of [1, 2] as const) if (Math.abs(W.c[ax]) > 0.62) { W.dir[ax] *= -1; W.c[ax] = Math.sign(W.c[ax]) * 0.62 }
-          if (W.c[0] > 1.75) { W.c = [-1.75, (rnd() - 0.5) * 0.6, (rnd() - 0.5) * 0.6]; W.dir = [1, 0, 0] }
-          if (W.seg > W.free) {
-            W.stall = 0.45
-            W.events.push([W.c[0], W.c[1], W.c[2], t])
-            if (W.events.length > 6) W.events.shift()
-            W.hits++
-            cb.current?.(W.hits)
-          }
-        }
-        gl.uniform3fv(U('uC'), W.c)
-        const k = W.stall > 0 ? 9 : 22
-        gl.uniform3fv(U('uK'), [W.dir[0] * k, W.dir[1] * k, W.dir[2] * k])
-        gl.uniform1f(U('uSig'), W.sig)
-        const ev = new Float32Array(24).fill(-1)
-        W.events.forEach((e, i) => ev.set(e, i * 4))
+        stepE(d, t)
+        cb.current?.(hits)
+        const E = new Float32Array(16), K = new Float32Array(12)
+        el.forEach((e, n) => { E.set([e.p[0], e.p[1], e.p[2], e.state === 'fly' ? 1 : 0], n * 4); K.set([e.dir[0] * 24, e.dir[1] * 24, e.dir[2] * 24], n * 3) })
+        gl.uniform4fv(U('uE'), E)
+        gl.uniform3fv(U('uEk'), K)
+        const ev = new Float32Array(40).fill(-1)
+        events.forEach((e, i) => ev.set(e, i * 4))
         gl.uniform4fv(U('uEv'), ev)
       }
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)

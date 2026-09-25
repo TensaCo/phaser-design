@@ -8,9 +8,15 @@ export function Light() {
         <p className="eyebrow">01 / The light</p>
         <h2 id="light-h" className={s.h}>
           <span>Intelligence runs on electrons.</span>
-          <span className={s.dim}>Every one of them is paid for in heat.</span>
           <span className={s.red}>PHASER runs it on light.</span>
         </h2>
+        <div className={s.claim}>
+          <span className="num">1,000×</span>
+          <p>
+            <span>less energy per step than a GPU.</span>
+            <span className={s.note}>Modeled at one megapixel of optics · not yet built</span>
+          </p>
+        </div>
         <Carriers />
       </div>
     </section>

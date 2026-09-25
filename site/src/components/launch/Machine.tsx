@@ -63,10 +63,8 @@ export function MachineSection() {
     <section className={s.sec} id="machine" aria-labelledby="machine-h">
       <div className="wrap">
         <p className="eyebrow">02 / The machine</p>
-        <h2 id="machine-h" className={s.h}>
-          <span>Two mirrors. Seven panes of glass.</span>
-          <span className={s.red}>The light does the math.</span>
-        </h2>
+        <h2 id="machine-h" className={s.h}>Optical computation</h2>
+        <p className={s.lede}>Algorithms are mapped onto the diffusion process photons perform as they bounce within a resonance chamber.</p>
 
         <div className={s.anatomy} ref={stage}>
           <div className={s.col}>
