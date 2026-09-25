@@ -18,12 +18,11 @@ export function Hero() {
       </div>
       <div className={s.claim}>
         <p className={s.brand}>PHASER</p>
-        <h1 className={s.h1}>
-          <span>The fastest thing</span>
-          <span>in the universe,</span>
-          <span className={s.red}>put to work.</span>
-        </h1>
-        <p className={s.sub}>PHASER computes with light instead of electricity, so AI can keep growing without burning through the grid.</p>
+        <h1 className={s.h1}>A neural accelerator that runs at the <span className={s.red}>speed of light.</span></h1>
+        <p className={s.sub}>
+          Designed around parts the telecom and display industries already make by the million. No new fabs, no exotic
+          materials, and no new power plants.
+        </p>
       </div>
       <a className={s.scroll} href="#light"><span className="label">Why it matters</span><i /></a>
     </header>

@@ -7,10 +7,10 @@ const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variabl
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jacobfv.github.io/phaser-design/'),
-  title: 'PHASER — compute with light',
-  description: 'Light bouncing between two mirrors, computing on every pass. Modeled at one megapixel: about 1,000× less energy per step than a GPU.',
-  openGraph: { title: 'PHASER — compute with light', description: '~1,000× less energy per step than a GPU (modeled). Every bounce of light is a computation.', images: ['og.jpg'] },
-  twitter: { card: 'summary_large_image', title: 'PHASER — compute with light', description: '~1,000× less energy per step than a GPU (modeled).', images: ['og.jpg'] },
+  title: 'PHASER — a neural accelerator that runs at the speed of light',
+  description: 'A neural accelerator that runs at the speed of light, designed around parts the telecom and display industries already make by the million.',
+  openGraph: { title: 'PHASER — a neural accelerator that runs at the speed of light', description: 'A neural accelerator that runs at the speed of light. No new fabs, no exotic materials, no new power plants.', images: ['og.jpg'] },
+  twitter: { card: 'summary_large_image', title: 'PHASER — a neural accelerator that runs at the speed of light', description: 'A neural accelerator that runs at the speed of light.', images: ['og.jpg'] },
 }
 
 export const viewport: Viewport = { themeColor: '#0a0908', colorScheme: 'dark' }
