@@ -17,6 +17,7 @@ export function Hero() {
         </nav>
       </div>
       <div className={s.claim}>
+        <p className={s.brand}>PHASER</p>
         <h1 className={s.h1}>
           <span>The fastest thing</span>
           <span>in the universe,</span>
