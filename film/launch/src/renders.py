@@ -83,6 +83,47 @@ def fly(t, i):
                 beamGain=piece([(0, 3.2), (12, 2.4), (18, 2.0), (22, 0.6), (26, 0.0), (29, 1.2), (30, 1.4)], T),
                 dt=1 / FPS * piece([(0, 0.45), (7, 0.6), (12, 2.4), (16, 1.0), (30, 0.8)], T), depth=True)
 SHOTS['r3-fly'] = (30.0, fly)
+
+# ── v4: short, fast, low "grazing" moves, rendered at SUB sub-frames per frame and averaged (src/blur.py) ─────────────
+SUB = 4
+def fast(name, secs, keys_pos, keys_tgt, keys_fov, **scalars):
+    """scalars: name -> [(t, v)] keyframes in seconds (piecewise-smooth) or a constant"""
+    n = round(secs * FPS * SUB); fr = []
+    for i in range(n):
+        T = i / (FPS * SUB)
+        d = dict(cam=C(catmull(keys_pos, T), catmull(keys_tgt, T), catmull(keys_fov, T)), light=1, hardware=1, packets=None, beamGain=1.6,
+                 plates=True, dt=1 / (FPS * SUB), depth=(i % SUB == SUB // 2))
+        for k, v in scalars.items(): d[k] = piece(v, T) if isinstance(v, list) else v
+        if 'packets' in d and d['packets'] is not None: d['packets'] = int(d['packets'])
+        if 'dtscale' in d: d['dt'] = d.pop('dtscale') / (FPS * SUB)
+        fr.append(d)
+    os.makedirs('gen/v4/render', exist_ok=True)
+    json.dump(fr, open(f'gen/v4/render/{name}.json', 'w'))
+V4 = {
+ # skim low over the dev board toward the stack, then pull up the cage
+ 'r4-board': lambda: fast('r4-board', 3.2, [(0, [-6, -26.5, 40]), (1.6, [-2, -25.5, 14]), (3.2, [3, -6, 12])],
+                          [(0, [0, -27, 0]), (1.6, [0, -18, -4]), (3.2, [0, 10, 0])], [(0, 58), (3.2, 50)], light=[(0, 0.5), (3.2, 0.7)], dtscale=0.8),
+ # rocket up the canyon between the rods and the cells, beam streaking alongside
+ 'r4-canyon': lambda: fast('r4-canyon', 2.6, [(0, [7, 1, 8]), (1.3, [8, 13, 7]), (2.6, [6, 27, 9])], [(0, [0, 9, 0]), (1.3, [0, 20, 0]), (2.6, [0, 34, 0])],
+                           [(0, 64), (2.6, 58)], light=0.45, packets=36, beamGain=2.6, dtscale=2.5),
+ # graze the etched face of phase plate 2: its 64 x 64 pixels of phase
+ 'r4-plate': lambda: fast('r4-plate', 3.0, [(0, [-0.35, 11.1, 0.55]), (1.5, [0.0, 11.0, 0.25]), (3.0, [0.35, 10.9, -0.1])],
+                          [(0, [-0.2, 10.0, -0.1]), (1.5, [0.15, 10.0, -0.35]), (3.0, [0.45, 10.0, -0.65])], [(0, 54), (3.0, 48)], light=0.55, beamGain=1.2, dtscale=0.4),
+ # the round trip, whipping: science layer, one pulse, two trips in two seconds
+ 'r4-trip': lambda: fast('r4-trip', 2.6, [(0, [14, 30, 38]), (2.6, [18, 34, 32])], [(0, [0, 12.5, 0]), (2.6, [0, 12.5, 0])], [(0, 20), (2.6, 19)],
+                         light=0, hardware=0, packets=1, beamGain=3.2, dtscale=5.0),
+ # white studio: a quick expand and snap back, then the hero
+ 'r4-expand': lambda: fast('r4-expand', 5.0, [(0, [-150, 60, 250]), (2.2, [-120, 70, 290]), (5.0, [-62, 46, 205])],
+                           [(0, [0, 6, 0]), (2.2, [0, 10, 0]), (5.0, [0, 3, 0])], [(0, 30), (5.0, 25)], studio=1,
+                           explode=[(0, 0), (0.9, 0.75), (2.4, 0.75), (3.4, 0), (5, 0)], packets=36, beamGain=[(0, 1.0), (2.8, 0.2), (4, 1.4)], dtscale=1.0),
+ # ignition: the machine in the dark, the gain crosses threshold and the cavity lights up
+ 'r4-ignite': lambda: fast('r4-ignite', 6.0, [(0, [36, 22, 64]), (6, [26, 18, 50])], [(0, [0, 12, 0]), (6, [0, 12.5, 0])], [(0, 30), (6, 30)],
+                           light=[(0, 0.18), (3.0, 0.18), (3.3, 0.55), (6, 0.5)], packets=[(0, 0), (2.9, 0), (3.1, 36), (6, 36)],
+                           beamGain=[(0, 0), (2.95, 0), (3.2, 5.0), (4.2, 2.6), (6, 2.4)], dtscale=1.2),
+}
 if __name__ == '__main__':
+    if '--v4' in sys.argv:
+        for f in V4.values(): f()
+        print(' '.join(V4)); sys.exit()
     for k, (s, fn) in SHOTS.items(): shot(k, s, fn)
     print(' '.join(SHOTS))

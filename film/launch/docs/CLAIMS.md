@@ -55,3 +55,20 @@ round trip (modeled) and 1.28 mm × 25 mm cavity geometry; the film shows the ge
 | Customer (head of platform): "thought the dashboard was broken" / "that's our energy bill?" | Dramatized; depicted future | No customers exist. On screen: "Dramatization. PHASER energy figures are modeled." |
 | Globe: NASA Black Marble 2016 night lights | Real imagery | Public domain (NASA Earth Observatory). |
 | Cold open CRT | Prop | A generic, unbranded industrial CRT terminal (an Apple Macintosh the model first produced was replaced). |
+
+## v4 additions
+| Spoken / on screen | Category | Derivation |
+|---|---|---|
+| "Two hundred and sixty picoseconds" / **0.26 ns** | Modeled | One round trip of the linear stack (site footnote 5). |
+| "Seven hundred times less energy than NVIDIA's H100" / **700×** | Modeled + projected vs external | PHASER ≤ 0.001 pJ (0.06–1 fJ) per *equivalent* multiply, modeled and extrapolated to 10⁶ optical modes; NVIDIA H100 INT8 ≈ 0.71 pJ per MAC at chip level (site footnote 2). 0.71 pJ / 1 fJ = 710× at PHASER's worst modeled case; the film rounds down to 700×. |
+| "Twelve hundred times less than Google's TPU v4" / **1,200×** | Same | TPU v4 ≈ 1.24 pJ per MAC at chip level; 1.24 pJ / 1 fJ = 1,240×, rounded down to 1,200×. |
+| 3D stack-up: H100, TPU v4, PHASER bars to linear scale | Same numbers | Heights 0.71 : 1.24 : 0.001. |
+| "Each plate is fused silica, etched with 4,096 pixels of phase, each twenty microns across" | Design | 64 × 64 px at 20 µm (site, VISUAL_BIBLE). |
+| "One step of a recurrent neural network, done by physics" | Architecture | The linear stack is one recurrent step per round trip (Exps. 30, 33). |
+| Ignition story ("the cavity ignited") | Depicted future | Lasing threshold, when gain exceeds loss with the cavity aligned, is the physical meaning; no hardware has been built. |
+| Cole: "…when thinking stops costing the Earth" | Rhetoric | Vision statement, no quantitative claim. |
+
+Not said, deliberately: "world's fastest", or any speed multiple over a named chip. The 0.26 ns step is a modeled
+optical round trip, not comparable to a GPU clock cycle, and no source ranks PHASER against every computing system.
+The density argument (≈10¹⁸ equivalent multiplies/s in a few cm³ at 10⁶ modes and 10 GHz) stacks extrapolations and
+ignores the readout (≈10¹⁶ samples/s of detector bandwidth), which the research lists as the open bottleneck.

@@ -2,6 +2,7 @@
 // with a scripted camera so every product shot in the film is the same machine the site draws.
 import * as THREE from 'three'
 import { StackScene, yAt } from './site_machine/StackScene'
+import { PLANE_DATA, inputPattern, N, DX, LAMBDA, SPACING } from '@/lib/phaser-sim'
 
 type Cam = { pos: [number, number, number]; target: [number, number, number]; fov: number }
 type FrameSpec = {
@@ -172,4 +173,5 @@ s.layoutCrests = () => {
   return color + '|' + depth + '|' + nf
 }
 ;(window as any).S = s
+;(window as any).SIM = () => { const ip = inputPattern(); return { N, DX, LAMBDA, SPACING, phases: PLANE_DATA.map((p) => Array.from(p.phase)), inRe: Array.from(ip.re), inIm: Array.from(ip.im) } }
 ;(window as any).ready = true

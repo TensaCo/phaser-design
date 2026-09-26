@@ -25,3 +25,8 @@ echo '<!doctype html><html><body style="margin:0;background:#000"><script type="
 $HOME/Documents/tensaco.ai/node_modules/.bin/esbuild globe.ts --bundle --format=esm --outfile=dist/globe.js --log-level=warning
 echo '<!doctype html><html><body style="margin:0;background:#000"><script type="module" src="globe.js"></script></body></html>' > dist/globe.html
 cp blackmarble-8k.jpg dist/ 2>/dev/null || true
+$HOME/Documents/tensaco.ai/node_modules/.bin/esbuild field.ts --bundle --format=esm --outfile=dist/field.js --log-level=warning
+echo '<!doctype html><html><body style="margin:0;background:#000"><script type="module" src="field.js"></script></body></html>' > dist/field.html
+$HOME/Documents/tensaco.ai/node_modules/.bin/esbuild bars.ts --bundle --format=esm --outfile=dist/bars.js --log-level=warning
+echo '<!doctype html><html><body style="margin:0;background:#000"><script type="module" src="bars.js"></script></body></html>' > dist/bars.html
+cp ../gen/v4/field/meta.json dist/field-meta.json 2>/dev/null || true; cp ../gen/v4/field/frames.bin dist/field-frames.bin 2>/dev/null || true

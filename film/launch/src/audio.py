@@ -139,6 +139,9 @@ def load_stereo(path):
 def mix(edl, T, version, narration=True, meta=None):
     """meta (v2): vo_dir, speakers {line: speaker}, score (path to the composed score, starts at 0:00), score_db"""
     meta = meta or {}
+    if meta.get('mixer') == 'v4':
+        import audio_v4
+        return audio_v4.mix(edl, T, version, narration, meta)
     speakers = meta.get('speakers', SPEAKER); vo_dir = meta.get('vo_dir', 'gen/vo')
     n = int((T + 0.5) * SR)
     dia, nar, fx, bed, lvl = (np.zeros(n, np.float32) for _ in range(5))

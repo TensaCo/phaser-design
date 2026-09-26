@@ -54,7 +54,7 @@ def text_layer(W, H, item, ink=False):
     if item[-1] == 'noscrim': item = item[:-1]; scrim = False
     kind, content = item[2], item[3:]
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-    if kind in ('num', 'end', 'lower', 'note', 'lower3') and scrim:
+    if kind in ('num', 'end', 'lower', 'note', 'lower3', 'big') and scrim:
         a = np.clip((np.arange(H) / H - 0.55) / 0.4, 0, 1) ** 1.5 * (190 if kind == 'end' else 150)
         sc = np.zeros((H, W, 4), np.uint8); sc[..., 3] = a[:, None].astype(np.uint8)
         im = Image.fromarray(sc, 'RGBA')
@@ -84,7 +84,8 @@ def text_layer(W, H, item, ink=False):
         d.text((M, y), name, font=f, fill=FG + (255,), anchor='ls')
         tracked(d, (M, y + 34 * s), sub.upper(), fs, FG + (190,), 0.12)
     elif kind == 'lower3':
-        name, title, tag = content[:3]
+        name, title = content[:2]; tag = content[2] if len(content) > 2 and content[2] not in ('right', 'top') else ''
+        if len(content) == 3 and content[2] in ('right', 'top'): content = (name, title, '', content[2])
         right = len(content) > 3 and content[3] == 'right' and not v
         top = len(content) > 3 and content[3] == 'top' and not v
         f = archivo(int(38 * s), 600, 100); ft = archivo(int(24 * s), 450, 100); fs = mono(int(15 * s), 'Medium')
@@ -92,8 +93,18 @@ def text_layer(W, H, item, ink=False):
         x, an = (W - M, 'rs') if right else (M, 'ls')
         d.text((x, y), name, font=f, fill=FG + (255,), anchor=an)
         d.text((x, y + 34 * s), title, font=ft, fill=FG + (235,), anchor=an)
-        if right: d.text((x, y + 62 * s), tag.upper().replace('\u039c', '\u00b5'), font=fs, fill=FG + (185,), anchor=an)
+        if not tag: pass
+        elif right: d.text((x, y + 62 * s), tag.upper().replace('\u039c', '\u00b5'), font=fs, fill=FG + (185,), anchor=an)
         else: tracked(d, (x, y + 62 * s), tag.upper(), fs, FG + (185,), 0.12)
+    elif kind == 'big':
+        f = archivo(int(170 * s), 700, 75)
+        tracked(d, (M, H * (0.76 if v else 0.80)), content[0], f, (RED if not ink else (216, 32, 10)) + (255,), -0.01)
+    elif kind == 'smallprint':
+        fs = mono(int(15 * s), 'Regular'); y = H * (0.60 if v else 0.66)
+        for para in content:
+            for ln in wrap(d, para, fs, W - 2 * M - (0 if v else 260), 0.08):
+                tracked(d, (W / 2, y), ln, fs, GRAPHITE + (255,), 0.08, 'ms'); y += 22 * s
+            y += 10 * s
     elif kind == 'name':
         f = archivo(int(150 * s), 700, 75)
         if len(content) > 1 and content[1] == 'left' and not v: tracked(d, (M, H * 0.82), content[0], f, FG + (255,), 0.06)
@@ -121,9 +132,10 @@ def text_layer(W, H, item, ink=False):
     return np.asarray(im).astype(np.float32) / 255
 
 
-def label_layer(W, H):
+def label_layer(W, H, overlay=None):
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     v = H > W
+    if overlay: return overlay_layer(W, H, overlay)
     lines = ['PLANNED FUTURE', 'PRODUCT LAUNCH VIDEO'] if v else [LABEL]
     f = mono(40 if v else 34, 'SemiBold'); tr = 0.14
     ws = [sum(d.textlength(c, font=f) + tr * f.size for c in ln) - tr * f.size for ln in lines]
@@ -131,6 +143,20 @@ def label_layer(W, H):
     x0, y0 = (W - bw) / 2, (H - bh) / 2
     d.rectangle([x0, y0, x0 + bw, y0 + bh], fill=(0, 0, 0, 125), outline=PAPER + (170,), width=2)
     for k, ln in enumerate(lines): tracked(d, (W / 2, y0 + 17 + lh * (k + 0.78)), ln, f, PAPER + (245,), tr, 'ms')
+    return np.asarray(im).astype(np.float32) / 255
+
+
+def overlay_layer(W, H, lines):
+    """the one place every disclosure lives: the planned-future line, and a second, smaller line"""
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im); v = H > W
+    main = ['PLANNED FUTURE', 'PRODUCT LAUNCH VIDEO'] if v else [lines[0]]
+    f = mono(40 if v else 34, 'SemiBold'); f2 = mono(28 if v else 23, 'SemiBold'); tr = 0.14
+    wid = lambda ln, ff: sum(d.textlength(c, font=ff) + tr * ff.size for c in ln) - tr * ff.size
+    lh = f.size * 1.35; bw = max([wid(ln, f) for ln in main] + [wid(lines[1], f2)]) + 64; bh = lh * len(main) + f2.size * 1.6 + 38
+    x0, y0 = (W - bw) / 2, (H - bh) / 2
+    d.rectangle([x0, y0, x0 + bw, y0 + bh], fill=(0, 0, 0, 125), outline=PAPER + (170,), width=2)
+    for k, ln in enumerate(main): tracked(d, (W / 2, y0 + 17 + lh * (k + 0.78)), ln, f, PAPER + (245,), tr, 'ms')
+    tracked(d, (W / 2, y0 + 17 + lh * len(main) + f2.size * 1.05), lines[1], f2, PAPER + (215,), tr, 'ms')
     return np.asarray(im).astype(np.float32) / 255
 
 
@@ -226,7 +252,8 @@ def frames_mp4(path, t_in, dur, speed, crop):
     vf = []
     if crop: x0, y0, x1, y1 = crop; vf.append(f'crop=iw*{x1 - x0}:ih*{y1 - y0}:iw*{x0}:ih*{y0}')
     vf.append('scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080')
-    if speed != 1: vf += [f'setpts=PTS/{speed}', 'minterpolate=fps=24:mi_mode=mci:mc_mode=aobmc:vsbmc=1']
+    if speed < 1: vf += [f'setpts=PTS/{speed}', 'minterpolate=fps=24:mi_mode=mci:mc_mode=aobmc:vsbmc=1']
+    elif speed > 1: vf += [f'setpts=PTS/{speed}', 'fps=24']
     else: vf.append('fps=24')
     cmd = [FF, '-loglevel', 'error', '-ss', str(t_in), '-i', path, '-t', str(src_len), '-vf', ','.join(vf), '-threads', '4',
            '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-']
@@ -316,7 +343,8 @@ def render(version):
     enc = subprocess.Popen([FF, '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS),
                             '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', '16', '-pix_fmt', 'yuv420p', '-threads', '4',
                             '-movflags', '+faststart', silent], stdin=subprocess.PIPE)
-    label = Layer(label_layer(W, H))
+    meta = getattr(_m, 'META', {}) or {}
+    label = Layer(label_layer(W, H, meta.get('overlay')))
     tags = {'people': Layer(tag_layer(W, H, 'DRAMATIZATION · AI-GENERATED PEOPLE, PLACES AND VOICES')),
             'gen': Layer(tag_layer(W, H, 'AI-GENERATED IMAGERY')),
             'stock': Layer(tag_layer(W, H, 'STOCK FOOTAGE'))}
@@ -331,8 +359,9 @@ def render(version):
         layers = [] if notype else [(it[0], it[1], Layer(text_layer(W, H, it, ink=c.get('ink', False)))) for it in c.get('text', [])]
         cams = json.load(open(src[4:] + '.json')) if c.get('labels') else None
         tag = None
-        if src.startswith('mp4:gen/'): tag = tags['people'] if c.get('people') else tags['gen']
-        elif src.startswith('mp4:assets/stock'): tag = tags['stock']
+        if meta.get('tags') is False: pass
+        elif src.startswith('mp4:gen/'): tag = tags['people'] if c.get('people') else tags['gen']
+        elif src.startswith('mp4:assets/stock') and meta.get('tags') is not False: tag = tags['stock']
         z0, z1 = c.get('push', (1.0, 1.0))
         for i in range(n):
             t = i / FPS
