@@ -25,7 +25,9 @@ for (let i = 0; i < frames.length; i++) {
   const out = path.join(outDir, String(i).padStart(5, '0') + '.png')
   if (fs.existsSync(out) && !frames[i].force) { await page.evaluate((f) => shot(f), { ...frames[i], dt: frames[i].dt }); continue }
   const url = await page.evaluate((f) => shot(f), frames[i])
-  fs.writeFileSync(out, Buffer.from(url.split(',')[1], 'base64'))
+  const [color, depth, nf] = url.split('|')
+  fs.writeFileSync(out, Buffer.from(color.split(',')[1], 'base64'))
+  if (depth) { fs.writeFileSync(out.replace('.png', '.depth.png'), Buffer.from(depth.split(',')[1], 'base64')); fs.writeFileSync(out.replace('.png', '.depth.txt'), nf) }
   if (i % 24 === 0) console.log(`${i}/${frames.length} ${((Date.now() - t0) / 1000 / (i + 1)).toFixed(2)} s/frame`)
 }
 await browser.close(); srv.close()

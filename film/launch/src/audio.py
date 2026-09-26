@@ -44,6 +44,7 @@ def amb(kind, n):
     t = np.arange(n) / SR
     if kind in ('none', None): return np.zeros(n, np.float32)
     if kind == 'studio': return bp(pink(n), 40, 600) * db(-66)
+    if kind == 'studio_room': return bp(pink(n), 60, 3000) * db(-58)  # a quiet sound stage
     if kind == 'elec':
         ramp = np.linspace(0.2, 1.0, n)
         crack = np.zeros(n, np.float32); idx = rng.integers(0, n, int(n / SR * 30)); crack[idx] = rng.uniform(-1, 1, len(idx))
@@ -118,7 +119,15 @@ def score(n, level):
     return (pad * level + motif * level * grow).astype(np.float32)
 
 
-def mix(edl, T, version, narration=True):
+def load_stereo(path):
+    raw = subprocess.run([FF, '-loglevel', 'error', '-i', path, '-f', 'f32le', '-ac', '2', '-ar', str(SR), '-'], capture_output=True).stdout
+    return np.frombuffer(raw, np.float32).reshape(-1, 2).copy()
+
+
+def mix(edl, T, version, narration=True, meta=None):
+    """meta (v2): vo_dir, speakers {line: speaker}, score (path to the composed score, starts at 0:00), score_db"""
+    meta = meta or {}
+    speakers = meta.get('speakers', SPEAKER); vo_dir = meta.get('vo_dir', 'gen/vo')
     n = int((T + 0.5) * SR)
     dia, nar, fx, bed, lvl = (np.zeros(n, np.float32) for _ in range(5))
     t0 = 0.0
@@ -131,9 +140,10 @@ def mix(edl, T, version, narration=True):
         lvl[i0:i0 + m] = c.get('music', 0.0)
         for ts, name in c.get('sfx', []):
             x = sfx(name); j = int((t0 + ts) * SR); fx[j:j + len(x)] += x[:max(0, n - j)]
-        for ts, lid in c.get('vo', []):
-            x = load(f'gen/vo/{lid}.mp3'); spk = SPEAKER[lid]
-            if spk == 'NAR':
+        for v_ in c.get('vo', []):
+            ts, lid = v_[0], v_[1]; sync = len(v_) > 2 and v_[2] == 'sync'
+            x = load(f'{vo_dir}/{lid}.mp3'); spk = speakers[lid]
+            if spk == 'NAR' or (meta and not sync):  # narration, or (v2) any voice-over
                 if not narration: continue
                 x = reverb(x, 0.6, 0.06, 9000); tgt = nar
             else:
@@ -144,18 +154,27 @@ def mix(edl, T, version, narration=True):
     k = int(1.2 * SR); lvl = np.convolve(lvl, np.ones(k) / k, 'same')
     voice = np.convolve(np.abs(dia) + np.abs(nar), np.ones(int(0.3 * SR)) / (0.3 * SR), 'same')
     duck = 1 - 0.45 * np.clip(voice / 0.02, 0, 1)
-    mus = score(n, lvl) * duck
+    if meta.get('score'):
+        sc = load_stereo(meta['score'])[:n]
+        mus2 = np.zeros((n, 2), np.float32); mus2[:len(sc)] = sc
+        g = db(meta.get('score_db', -4.0)) * np.convolve(np.clip(1 - 0.68 * np.clip(voice / 0.02, 0, 1), 0, 1), np.ones(int(0.25 * SR)) / (0.25 * SR), 'same')
+        mus2 *= g[:, None] * np.where(lvl > 0, lvl, 1.0)[:, None] if meta.get('use_levels') else g[:, None]
+        mus = mus2.mean(1)
+    else:
+        mus2 = None
+        mus = score(n, lvl) * duck
     # every version ends in near silence: the last second fades
     tail = np.clip((T - np.arange(n) / SR) / 1.2, 0, 1)
     stems = {'dialogue': dia * db(-1), 'narration': nar * db(0), 'music': mus, 'effects-ambience': (fx + bed) * tail}
-    total = sum(stems.values()) * tail
+    total = (stems['dialogue'] + stems['narration'] + stems['effects-ambience'] + (0 if mus2 is not None else mus)) * tail
     os.makedirs('out/stems', exist_ok=True)
     def wav(path, x):
         st = np.stack([x, x], 1) if x.ndim == 1 else x
         subprocess.run([FF, '-loglevel', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '2', '-i', '-', path], input=st.astype(np.float32).tobytes(), check=True)
-    raw = f'out/.{version}-mix-raw.wav'; out = f'out/.{version}-mix.wav'
+    tagv = meta.get('tag', ''); raw = f'out/.{tagv}{version}-mix-raw.wav'; out = f'out/.{tagv}{version}-mix.wav'
     # stereo: decorrelate the beds a little
-    L = total; R = total.copy(); R += 0.15 * (bp(stems['effects-ambience'], 200) - np.roll(bp(stems['effects-ambience'], 200), 480))
+    L = total.copy(); R = total.copy(); R += 0.15 * (bp(stems['effects-ambience'], 200) - np.roll(bp(stems['effects-ambience'], 200), 480))
+    if mus2 is not None: L += mus2[:, 0] * tail; R += mus2[:, 1] * tail
     wav(raw, np.stack([L, R], 1))
     # two-pass linear loudness normalisation (keeps the film's dynamics: silence stays silent), then a true-peak limiter
     import json as _j
@@ -165,5 +184,8 @@ def mix(edl, T, version, narration=True):
     af = f"volume={gain:.2f}dB,alimiter=limit=0.84:attack=2:release=60:level=false"
     subprocess.run([FF, '-loglevel', 'error', '-y', '-i', raw, '-af', af, '-ar', str(SR), out], check=True)
     if version == 'master':
-        for k2, x in stems.items(): wav(f'out/stems/{k2}.wav', x * tail)
+        sd = meta.get('stems_dir', 'out/stems'); os.makedirs(sd, exist_ok=True)
+        for k2, x in stems.items():
+            if k2 == 'music' and mus2 is not None: wav(f'{sd}/{k2}.wav', mus2 * tail[:, None])
+            else: wav(f'{sd}/{k2}.wav', x * tail)
     return out

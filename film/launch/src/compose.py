@@ -1,17 +1,20 @@
 """Compositor: EDL → graded frames + typography + the persistent label → H.264, and the sound mix (audio.py).
 python src/compose.py <version>   versions: master | vertical | nonarr | notype | cut60 | cut30 | cut15 | cut60v ...
 Every frame carries the centre label PLANNED FUTURE PRODUCT LAUNCH VIDEO (no version removes it)."""
-import copy, glob, os, subprocess, sys
+import copy, glob, json, os, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from scipy.ndimage import gaussian_filter
 sys.path.insert(0, os.path.dirname(__file__))
-from edl import EDL, CUTS
+import importlib
+EDL_MOD = next((a.split('=', 1)[1] for a in sys.argv if a.startswith('--edl=')), 'edl')
+_m = importlib.import_module(EDL_MOD); EDL, CUTS = _m.EDL, _m.CUTS
+import optics
 
 FF = os.path.join(os.path.dirname(__file__), 'ffmpeg')
 FPS = 24
 FONT = 'assets/fonts/'
-PAPER, GRAPHITE, RED = (233, 229, 220), (138, 133, 124), (255, 42, 18)
+PAPER, GRAPHITE, RED, INK = (233, 229, 220), (138, 133, 124), (255, 42, 18), (22, 20, 18)
 LABEL = 'PLANNED FUTURE PRODUCT LAUNCH VIDEO'
 
 
@@ -24,6 +27,7 @@ def mono(size, weight='Regular'): return ImageFont.truetype(FONT + f'IBMPlexMono
 
 
 def tracked(draw, xy, text, font, fill, track=0.0, anchor='ls'):
+    text = text.replace('\u039c', '\u00b5')  # str.upper() turns µ into Greek capital Mu, which the mono face lacks
     """draw text with letter spacing (em); returns width. anchor: 'ls' left-baseline or 'ms' centre-baseline"""
     size = font.size
     widths = [draw.textlength(c, font=font) + track * size for c in text]
@@ -44,21 +48,24 @@ def wrap(draw, text, font, maxw, track=0.0):
     return lines + [cur]
 
 
-def text_layer(W, H, item):
-    """RGBA layer for one text item"""
+def text_layer(W, H, item, ink=False):
+    """RGBA layer for one text item; ink=True sets it dark for the white studio"""
+    scrim = not ink
+    if item[-1] == 'noscrim': item = item[:-1]; scrim = False
     kind, content = item[2], item[3:]
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-    if kind in ('num', 'end', 'lower', 'note'):
+    if kind in ('num', 'end', 'lower', 'note', 'lower3') and scrim:
         a = np.clip((np.arange(H) / H - 0.55) / 0.4, 0, 1) ** 1.5 * (190 if kind == 'end' else 150)
         sc = np.zeros((H, W, 4), np.uint8); sc[..., 3] = a[:, None].astype(np.uint8)
         im = Image.fromarray(sc, 'RGBA')
     d = ImageDraw.Draw(im)
+    FG = INK if ink else PAPER
     v = H > W; M = 80 if v else 150; s = 0.92 if v else 1.0
     if kind == 'line':
         f = archivo(int(64 * s), 500, 100)
         lines = wrap(d, content[0], f, W - 2 * M)
         y = H * (0.73 if v else 0.74)
-        for k, ln in enumerate(lines): tracked(d, (W / 2, y + k * f.size * 1.2), ln, f, PAPER + (255,), -0.005, 'ms')
+        for k, ln in enumerate(lines): tracked(d, (W / 2, y + k * f.size * 1.2), ln, f, FG + (255,), -0.005, 'ms')
     elif kind == 'num':
         big, cap, q = content
         col = PAPER if 'weeks' in big else RED
@@ -67,19 +74,33 @@ def text_layer(W, H, item):
         tracked(d, (M, y0), big, f, col + (255,), -0.01)
         fc = archivo(int(28 * s), 450, 100)
         y = y0 + 52 * s
-        for ln in wrap(d, cap, fc, W - 2 * M): d.text((M, y), ln, font=fc, fill=PAPER + (240,), anchor='ls'); y += 36 * s
+        for ln in wrap(d, cap, fc, W - 2 * M): d.text((M, y), ln, font=fc, fill=FG + (240,), anchor='ls'); y += 36 * s
         fq = mono(int(19 * s), 'Medium')
         for ln in wrap(d, q.upper(), fq, W - 2 * M, 0.12): tracked(d, (M, y + 6), ln, fq, GRAPHITE + (255,), 0.12); y += 26 * s
     elif kind == 'lower':
         name, sub = content
         f = archivo(int(36 * s), 600, 100); fs = mono(int(16 * s), 'Medium')
         y = H * (0.80 if v else 0.83)
-        d.text((M, y), name, font=f, fill=PAPER + (255,), anchor='ls')
-        tracked(d, (M, y + 34 * s), sub.upper(), fs, PAPER + (190,), 0.12)
+        d.text((M, y), name, font=f, fill=FG + (255,), anchor='ls')
+        tracked(d, (M, y + 34 * s), sub.upper(), fs, FG + (190,), 0.12)
+    elif kind == 'lower3':
+        name, title, tag = content[:3]
+        right = len(content) > 3 and content[3] == 'right' and not v
+        f = archivo(int(38 * s), 600, 100); ft = archivo(int(24 * s), 450, 100); fs = mono(int(15 * s), 'Medium')
+        y = H * (0.80 if v else 0.82)
+        x, an = (W - M, 'rs') if right else (M, 'ls')
+        d.text((x, y), name, font=f, fill=FG + (255,), anchor=an)
+        d.text((x, y + 34 * s), title, font=ft, fill=FG + (235,), anchor=an)
+        if right: d.text((x, y + 62 * s), tag.upper().replace('\u039c', '\u00b5'), font=fs, fill=FG + (185,), anchor=an)
+        else: tracked(d, (x, y + 62 * s), tag.upper(), fs, FG + (185,), 0.12)
+    elif kind == 'name':
+        f = archivo(int(150 * s), 700, 75)
+        if len(content) > 1 and content[1] == 'left' and not v: tracked(d, (M, H * 0.82), content[0], f, FG + (255,), 0.06)
+        else: tracked(d, (W / 2, H * (0.78 if v else 0.80)), content[0], f, FG + (255,), 0.06, 'ms')
     elif kind == 'note':
         fs = mono(int(18 * s), 'Medium')
         y = H * (0.86 if v else 0.9)
-        for ln in wrap(d, content[0].upper(), fs, W - 2 * M, 0.1): tracked(d, (M, y), ln, fs, PAPER + (220,), 0.1); y += 28 * s
+        for ln in wrap(d, content[0].upper(), fs, W - 2 * M, 0.1): tracked(d, (M, y), ln, fs, FG + (220,), 0.1); y += 28 * s
     elif kind == 'slate':
         fs = mono(int(17 * s), 'Medium'); y = H * 0.88
         for ln in content: tracked(d, (M, y), ln, fs, GRAPHITE + (255,), 0.16); y += 28
@@ -93,8 +114,8 @@ def text_layer(W, H, item):
         word, tag, url = content
         f = archivo(int(128 * s), 700, 75); ft = archivo(int(32 * s), 400, 100); fu = mono(int(19 * s), 'Medium')
         y = H * (0.73 if v else 0.74)
-        tracked(d, (W / 2, y), word, f, PAPER + (255,), 0.06, 'ms')
-        for k, ln in enumerate(wrap(d, tag, ft, W - 2 * M)): d.text((W / 2, y + 58 * s + k * 40 * s), ln, font=ft, fill=PAPER + (235,), anchor='ms')
+        tracked(d, (W / 2, y), word, f, FG + (255,), 0.06, 'ms')
+        for k, ln in enumerate(wrap(d, tag, ft, W - 2 * M)): d.text((W / 2, y + 58 * s + k * 40 * s), ln, font=ft, fill=FG + (235,), anchor='ms')
         tracked(d, (W / 2, y + (126 if v else 112) * s), url.upper(), fu, GRAPHITE + (255,), 0.16, 'ms')
     return np.asarray(im).astype(np.float32) / 255
 
@@ -116,7 +137,9 @@ def tag_layer(W, H, text):
     im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     v = H > W; f = mono(15 if not v else 20, 'Medium'); M = 80 if v else 150
     w = sum(d.textlength(c, font=f) + 0.12 * f.size for c in text)
-    tracked(d, (W - M - w, H * 0.06 + 10), text, f, PAPER + (175,), 0.12)
+    y = H * 0.06 + 10
+    d.rounded_rectangle([W - M - w - 12, y - f.size - 6, W - M + 10, y + 8], radius=4, fill=(0, 0, 0, 70))
+    tracked(d, (W - M - w, y), text, f, PAPER + (215,), 0.12)
     return np.asarray(im).astype(np.float32) / 255
 
 
@@ -129,6 +152,38 @@ class Layer:
         self.box = (ys[0], ys[-1] + 1, xs[0], xs[-1] + 1)
         y0, y1, x0, x1 = self.box; c = rgba[y0:y1, x0:x1]
         self.a = c[..., 3:4].copy(); self.rgb = c[..., :3] * self.a
+
+EXPLODE_PARTS = [  # (label, sub, point in mm when assembled, explode offset in mm, side)
+    ('End mirror', 'concave, R 120 mm · kinematic mount', (0, 26.5, 3.5), (0, 46, 0), 'right'),
+    ('Etched phase plates ×4', 'fused silica · 64 × 64 px · 20 µm', (2.4, 15, 2.4), (0, 25, 0), 'right'),
+    ('Gain crystal', 'input and output coupler, 5 %', (-1.5, -4, 1.5), (0, 0, 0), 'left'),
+    ('Pump diode', 'TO-56 in a copper heatsink', (11.9, -2.2, 1.5), (16, 0, 0), 'right'),
+    ('Camera', 'reads the 5 % output tap', (-2, -21, 2), (0, -13, 0), 'left'),
+    ('Readout board', 'ESP32-S3', (-9, -31.4, 8), (0, -28, 0), 'left'),
+]
+def explode_labels(W, H, fr, ink=False):
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    ex = fr.get('explode', 0) or 0
+    a = int(255 * max(0.0, min(1.0, (ex - 0.8) / 0.15)))
+    if a <= 0: return np.asarray(im).astype(np.float32) / 255
+    FG = INK if ink else PAPER
+    fn, fs = archivo(26, 600, 100), mono(15, 'Medium')
+    rows = {'left': [], 'right': []}
+    for name, sub, p, off, side in EXPLODE_PARTS:
+        x, y = optics.project(fr['cam'], [p[k] + ex * off[k] for k in range(3)], W, H)
+        rows[side].append((y, x, name, sub))
+    for side, items in rows.items():
+        items.sort(); last = -1e9
+        for y, x, name, sub in items:
+            ty = max(y, last + 64); last = ty
+            tx = W * (0.63 if side == 'right' else 0.37)
+            d.line([(x, y), (tx + (-12 if side == 'right' else 12), ty)], fill=FG + (int(a * 0.8),), width=1)
+            d.ellipse([x - 3, y - 3, x + 3, y + 3], fill=FG + (a,))
+            anchor = 'ls' if side == 'right' else 'rs'
+            d.text((tx, ty + 6), name, font=fn, fill=FG + (a,), anchor=anchor)
+            d.text((tx, ty + 30), sub.upper().replace('\u039c', '\u00b5'), font=fs, fill=FG + (int(a * 0.8),), anchor=anchor)
+    return np.asarray(im).astype(np.float32) / 255
+
 
 def over(img, layer, a=1.0):
     if not isinstance(layer, Layer): layer = Layer(layer)
@@ -155,7 +210,7 @@ def frames_mp4(path, t_in, dur, speed, crop):
 
 
 def frames_png(d, t_in, dur):
-    fs = sorted(glob.glob(d + '/*.png')); n = int(round(dur * FPS)); k0 = int(round(t_in * FPS))
+    fs = sorted(f for f in glob.glob(d + '/*.png') if not f.endswith('.depth.png')); n = int(round(dur * FPS)); k0 = int(round(t_in * FPS))
     return [fs[min(len(fs) - 1, k0 + i)] for i in range(n)]
 
 
@@ -169,9 +224,11 @@ def vignette(W, H, k):
     return VIG[key]
 
 rng = np.random.default_rng(1)
-def grade(img, kind):
+def grade(img, kind, gi=0):
     H, W = img.shape[:2]
-    if kind == 'studio':
+    if kind == 'white':
+        img = 0.006 + img * 0.99; img = img + 0.04 * (img - 0.5) * (1 - np.abs(2 * img - 1)); img = img * vignette(W, H, 0.10); g = 0.008
+    elif kind == 'studio':
         small = img[::4, ::4]
         glow = np.clip(small - 0.25, 0, None); glow[..., 1:] *= 0.35
         glow = gaussian_filter(glow, (5, 5, 0))
@@ -186,17 +243,17 @@ def grade(img, kind):
         img = 0.014 + img * 0.975; img = img * vignette(W, H, 0.16); g = 0.02
     else:
         img = img * vignette(W, H, 0.2); g = 0.008
-    noise = grain(H, W)
+    noise = grain(H, W, gi)
     lum = img[..., 1:2]
     img += (g * noise) * (0.35 + 0.65 * lum)
     return np.clip(img, 0, 1, out=img)
 
 GRAIN = {}
-def grain(H, W):
-    """16 precomputed grain frames (2-px grain), picked at random each frame"""
+def grain(H, W, gi=0):
+    """16 precomputed grain frames (2-px grain); which one is a pure function of (clip, frame)"""
     if (H, W) not in GRAIN:
         GRAIN[(H, W)] = [np.repeat(np.repeat(rng.standard_normal((H // 2, W // 2), dtype=np.float32), 2, 0), 2, 1)[:H, :W, None] for _ in range(16)]
-    return GRAIN[(H, W)][rng.integers(16)]
+    return GRAIN[(H, W)][gi % 16]
 
 
 def zoom(img, z, cx=0.5, cy=0.5):
@@ -224,7 +281,7 @@ def render(version):
     W, H = (1080, 1920) if vertical else (1920, 1080)
     edl = build_edl(version)
     os.makedirs('out', exist_ok=True)
-    silent = f'out/.{version}-video.mp4'
+    silent = f'out/.{EDL_MOD}-{version}-video.mp4'
     enc = subprocess.Popen([FF, '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', str(FPS),
                             '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', '16', '-pix_fmt', 'yuv420p', '-threads', '4',
                             '-movflags', '+faststart', silent], stdin=subprocess.PIPE)
@@ -240,7 +297,8 @@ def render(version):
         if src == 'black': frames = [None] * n
         elif src.startswith('png:'): frames = frames_png(src[4:], t_in, dur)
         else: frames = frames_mp4(src[4:], t_in, dur, speed, c.get('crop'))
-        layers = [] if notype else [(it[0], it[1], Layer(text_layer(W, H, it))) for it in c.get('text', [])]
+        layers = [] if notype else [(it[0], it[1], Layer(text_layer(W, H, it, ink=c.get('ink', False)))) for it in c.get('text', [])]
+        cams = json.load(open(src[4:] + '.json')) if c.get('labels') else None
         tag = None
         if src.startswith('mp4:gen/'): tag = tags['people'] if c.get('people') else tags['gen']
         elif src.startswith('mp4:assets/stock'): tag = tags['stock']
@@ -251,8 +309,16 @@ def render(version):
             if f is None: img = np.zeros((1080, 1920, 3), np.float32)
             elif isinstance(f, str): img = np.asarray(Image.open(f).convert('RGB')).astype(np.float32) / 255
             else: img = f.astype(np.float32) / 255
+            if isinstance(f, str) and c.get('dof') and os.path.exists(f.replace('.png', '.depth.png')):
+                z, dist = optics.load_depth(f.replace('.png', '.depth.png'))
+                img = optics.depth_of_field(img, z, dist * c['dof'].get('focus', 1.0), c['dof'].get('strength', 6.0))
             img = zoom(img, z0 + (z1 - z0) * i / max(1, n - 1))
-            if src != 'black': img = grade(img, c.get('grade', 'doc'))
+            if src != 'black':
+                img = grade(img, c.get('grade', 'doc'), optics.seed(c['id'], i))
+                img = optics.camera_motion(img, t, c['id'], c.get('camera'))
+                if c.get('lens', True): img = optics.lens(img, t, c['id'], halation=0.0 if c.get('grade') == 'white' else 0.07)
+                if c.get('rack'): img = optics.rack(img, t)
+            if cams is not None: img = over(img, Layer(explode_labels(W, H, cams[min(len(cams) - 1, int(round(t_in * FPS)) + i)], ink=c.get('ink', False))), 1.0)
             if vertical:
                 cw = 1080 * 1080 / 1920; cx = c.get('vx', 0.5) * 1920
                 x0 = int(min(max(0, cx - cw / 2), 1920 - cw))
@@ -276,12 +342,12 @@ if __name__ == '__main__':
     v = sys.argv[1]
     only_audio = '--audio' in sys.argv
     if not only_audio: silent, edl, T = render(v)
-    else: silent, edl = f'out/.{v}-video.mp4', build_edl(v); T = sum(c['dur'] for c in edl)
-    wav = audio.mix(edl, T, v, narration=(v != 'nonarr'))
+    else: silent, edl = f'out/.{EDL_MOD}-{v}-video.mp4', build_edl(v); T = sum(c['dur'] for c in edl)
+    wav = audio.mix(edl, T, v, narration=(v != 'nonarr'), meta=getattr(_m, 'META', None))
     names = {'master': 'PHASER-launch-film-master-1080p', 'vertical': 'PHASER-launch-film-9x16', 'nonarr': 'PHASER-launch-film-clean-no-narration',
              'notype': 'PHASER-launch-film-clean-no-typography', 'cut60': 'PHASER-launch-60s', 'cut30': 'PHASER-launch-30s', 'cut15': 'PHASER-reveal-15s',
              'cut60v': 'PHASER-launch-60s-9x16', 'cut30v': 'PHASER-launch-30s-9x16', 'cut15v': 'PHASER-reveal-15s-9x16'}
-    out = f"out/{names.get(v, v)}.mp4"
+    out = f"out/{names.get(v, v)}{'' if EDL_MOD == 'edl' else '-' + EDL_MOD.split('_')[-1]}.mp4"
     subprocess.run([FF, '-loglevel', 'error', '-y', '-i', silent, '-i', wav, '-map', '0:v', '-map', '1:a', '-c:v', 'copy',
                     '-c:a', 'aac', '-b:a', '256k', '-shortest', '-movflags', '+faststart', out], check=True)
     print('wrote', out)

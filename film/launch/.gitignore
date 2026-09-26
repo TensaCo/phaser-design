@@ -5,3 +5,4 @@ assets/stock/*.mp4
 assets/ref/png/
 src/ffmpeg
 __pycache__/
+site_machine/

@@ -11,7 +11,9 @@
 | Cooling towers by a river | Tom Fisk, Pexels | Pexels License |
 | SuperMUC datacenter aisle | "SuperMUC: First Commercial Hot-Water Cooled Supercomputer to Consume 40% Less Energy" by IBM Research, **CC BY 3.0**, via Wikimedia Commons (excerpt, re-encoded) | CC BY 3.0 — **attribution required** in any public release (credit line or description) |
 | Fonts | Archivo (Omnibus-Type), IBM Plex Mono (IBM) | SIL Open Font License 1.1 |
-| Sound and score | synthesized in `src/audio.py` | TensaCo |
+| Sound and score (v1) | synthesized in `src/audio.py` | TensaCo |
+| Score (v2) | composed with ElevenLabs Music via fal (`fal-ai/elevenlabs/music`), plan in `gen/v2/music.json` | per fal/ElevenLabs terms |
+| Mei-Lin Zhou, Diane Kowalski (v2) | TensaCo AI-agent personas; likenesses AI-generated from their tensaco.ai headshots | TensaCo |
 
 Stock sources and licences are the same files the site uses (`apps/phaser/public/video/broll/credits.json`, copied to
 `assets/stock/credits-source.json`); the film uses the original UHD files from the same Pexels URLs.
