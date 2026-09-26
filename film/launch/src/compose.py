@@ -349,7 +349,7 @@ def render(version):
                 img = optics.camera_motion(img, t, c['id'], c.get('camera'))
                 if c.get('lens', True): img = optics.lens(img, t, c['id'], halation=0.0 if c.get('grade') == 'white' else 0.07)
                 if c.get('rack'): img = optics.rack(img, t)
-            if cams is not None: img = over(img, Layer(explode_labels(W, H, cams[min(len(cams) - 1, int(round(t_in * FPS)) + i)], ink=c.get('ink', False))), 1.0)
+            if cams is not None: img = over(img, Layer(explode_labels(1920, 1080, cams[min(len(cams) - 1, int(round(t_in * FPS)) + i)], ink=c.get('ink', False))), 1.0)
             if vertical:
                 cw = 1080 * 1080 / 1920; cx = c.get('vx', 0.5) * 1920
                 x0 = int(min(max(0, cx - cw / 2), 1920 - cw))
