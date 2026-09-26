@@ -27,7 +27,7 @@ def mono(size, weight='Regular'): return ImageFont.truetype(FONT + f'IBMPlexMono
 
 
 def tracked(draw, xy, text, font, fill, track=0.0, anchor='ls'):
-    text = text.replace('\u039c', '\u00b5')  # str.upper() turns µ into Greek capital Mu, which the mono face lacks
+    text = text.replace('\u039c', '\u00b5').replace('\u00b5M', '\u00b5m')  # str.upper() turns µ into Greek Mu (missing from the mono face) and m into M (a different unit)
     """draw text with letter spacing (em); returns width. anchor: 'ls' left-baseline or 'ms' centre-baseline"""
     size = font.size
     widths = [draw.textlength(c, font=font) + track * size for c in text]
@@ -86,8 +86,9 @@ def text_layer(W, H, item, ink=False):
     elif kind == 'lower3':
         name, title, tag = content[:3]
         right = len(content) > 3 and content[3] == 'right' and not v
+        top = len(content) > 3 and content[3] == 'top' and not v
         f = archivo(int(38 * s), 600, 100); ft = archivo(int(24 * s), 450, 100); fs = mono(int(15 * s), 'Medium')
-        y = H * (0.80 if v else 0.82)
+        y = H * (0.80 if v else (0.2 if top else 0.82))
         x, an = (W - M, 'rs') if right else (M, 'ls')
         d.text((x, y), name, font=f, fill=FG + (255,), anchor=an)
         d.text((x, y + 34 * s), title, font=ft, fill=FG + (235,), anchor=an)
@@ -181,7 +182,7 @@ def explode_labels(W, H, fr, ink=False):
             d.ellipse([x - 3, y - 3, x + 3, y + 3], fill=FG + (a,))
             anchor = 'ls' if side == 'right' else 'rs'
             d.text((tx, ty + 6), name, font=fn, fill=FG + (a,), anchor=anchor)
-            d.text((tx, ty + 30), sub.upper().replace('\u039c', '\u00b5'), font=fs, fill=FG + (int(a * 0.8),), anchor=anchor)
+            d.text((tx, ty + 30), sub.upper().replace('\u039c', '\u00b5').replace('\u00b5M', '\u00b5m'), font=fs, fill=FG + (int(a * 0.8),), anchor=anchor)
     return np.asarray(im).astype(np.float32) / 255
 
 

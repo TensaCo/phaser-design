@@ -54,7 +54,7 @@ EDL = [
     dict(id='C10', src=G + 'ls-d2.mp4', dur=5.6, grade='white', amb='studio_room', people=True, camera='breath', vx=0.45, ink=True,
          vo=[(0.3, 'd2', 'sync')], text=[(0.4, 5.9, 'note', 'Dramatization. PHASER energy figures are modeled.')]),
     dict(id='C11', src=G + 'ls-b1.mp4', dur=5.3, grade='white', amb='studio_room', people=True, camera='breath', vx=0.62, ink=True,
-         vo=[(0.3, 'b1', 'sync')], text=[(0.3, 4.9, 'lower3', 'Head of inference, AI company', 'Customer', 'dramatization · AI-generated', 'right')]),
+         vo=[(0.3, 'b1', 'sync')], text=[(0.3, 4.9, 'lower3', 'Head of inference, AI company', 'Customer', 'dramatization · AI-generated', 'top')]),
     # ── BUILD 2:00–2:30 ─────────────────────────────────────────────────────────────────────────────────────────────
     dict(id='D1', src='mp4:gen/video/v-b7.mp4', dur=6.8, speed=0.73, grade='doc', amb='office', people=True, camera='handheld', vx=0.45, vo=[(0.2, 'd3')]),
     dict(id='D2', src='mp4:gen/video/v-rack.mp4', dur=6.0, speed=0.83, grade='world', amb='datacenter', camera='dolly', vx=0.5, vo=[(0.2, 'd4')]),
