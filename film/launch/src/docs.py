@@ -2,11 +2,12 @@
 import json, os, sys
 sys.path.insert(0, os.path.dirname(__file__))
 import importlib
-V2 = '--v2' in sys.argv
-_e = importlib.import_module('edl_v2' if V2 else 'edl'); EDL, CUTS = _e.EDL, _e.CUTS
-_s = importlib.import_module('script_v2' if V2 else 'script'); LINES, VOICE = _s.LINES, _s.VOICE
-SUF = '-v2' if V2 else ''
-VO_DIR = 'gen/v2/vo' if V2 else 'gen/vo'
+VER = 'v3' if '--v3' in sys.argv else 'v2' if '--v2' in sys.argv else ''
+V2 = bool(VER)
+_e = importlib.import_module(f'edl_{VER}' if VER else 'edl'); EDL, CUTS = _e.EDL, _e.CUTS
+_s = importlib.import_module(f'script_{VER}' if VER else 'script'); LINES, VOICE = _s.LINES, _s.VOICE
+LINES = LINES + ([('k1a', 'CM', 'Here’s the thing. Most of the energy in a chip goes into pushing charge through wire… and then pulling the heat back out of the room.'), ('k1b', 'CM', 'Light crossing glass barely loses anything. That’s the whole trick.')] if VER == 'v3' else [])
+SUF = f'-{VER}' if VER else ''
 
 TEXT = {i: (s, t) for i, s, t in LINES}
 WHO = {'NAR': 'Narrator', 'ENG': 'Optical engineer (dramatized)', 'B1': 'Head of inference, AI company (dramatized)',
@@ -14,7 +15,8 @@ WHO = {'NAR': 'Narrator', 'ENG': 'Optical engineer (dramatized)', 'B1': 'Head of
 if V2: WHO = _s.WHO
 ACT = {'a': 'ACT 1 — The physical limit', 'b': 'ACT 2 — PHASER reveal', 'c': 'ACT 3 — The engineer', 'd': 'ACT 4 — The people who use it',
        'e': 'ACT 5 — The bottleneck moves outward', 'f': 'ACT 6 — Human stakes', 'g': 'ACT 7 — Resolution', 'h': 'ACT 8 — End frame'}
-if V2: ACT = {'A': 'COLD OPEN (score: near silence)', 'B': 'HERO (score: hero theme)', 'C': 'MIDDLE (score: intimate piano)', 'D': 'BUILD (score: rising ostinato)',
+if VER == 'v3': ACT = {'A': 'DARKNESS → LIGHTS ON (one shot)', 'B': 'HERO: the fly-through', 'C': 'MAKING IT', 'D': 'CUSTOMERS, THEN THE CEO', 'E': 'PLANET', 'F': 'GALLERY', 'G': 'CLIMAX', 'H': 'SIGNATURE'}
+elif V2: ACT = {'A': 'COLD OPEN (score: near silence)', 'B': 'HERO (score: hero theme)', 'C': 'MIDDLE (score: intimate piano)', 'D': 'BUILD (score: rising ostinato)',
             'E': 'HUMAN STAKES (score: strings open)', 'F': 'CLIMAX (score: hero theme returns)', 'G': 'END (score: motif alone, fade)'}
 
 def tc(t): return f'{int(t // 60)}:{t % 60:05.2f}'
@@ -65,8 +67,9 @@ def main():
     open(f'docs/TYPOGRAPHY{SUF}.md', 'w').write('\n'.join(typo) + '\n')
     hdr = lambda title, note: [f'# {title}', '', note, '']
     if V2:
-        for spk, name in (('ML', 'meilin'), ('DK', 'diane'), ('B1', 'customer')):
-            open(f'docs/TRANSCRIPT-{name}-v2.md', 'w').write('\n'.join([f'# {WHO[spk]}', '', f"AI voice: ElevenLabs v3 '{VOICE[spk]}'. AI-generated likeness; on-camera lines lip-synced with sync-lipsync v2. A dramatization, not a real statement.", ''] + by_spk.get(spk, [])) + '\n')
+        for spk, name in ((('ML', 'meilin'), ('CM', 'cole'), ('B1', 'customer1'), ('C2', 'customer2')) if VER == 'v3' else (('ML', 'meilin'), ('DK', 'diane'), ('B1', 'customer'))):
+            if spk not in WHO: continue
+            open(f'docs/TRANSCRIPT-{name}{SUF}.md', 'w').write('\n'.join([f'# {WHO[spk]}', '', f"AI voice: ElevenLabs v3 '{VOICE[spk]}'. AI-generated likeness; on-camera lines lip-synced with sync-lipsync v2. A dramatization, not a real statement.", ''] + by_spk.get(spk, [])) + '\n')
         print('docs written; running time', tc(t)); return
     open('docs/TRANSCRIPT-engineer.md', 'w').write('\n'.join(hdr('Engineer interview (dramatized)', f"Role: optical engineer. AI-generated character (gen/char/eng.png), AI voice (ElevenLabs v3 '{VOICE['ENG']}'), lip-synced with sync-lipsync v2 on the on-camera lines. Not a real person and not a real statement.") + eng) + '\n')
     open('docs/TRANSCRIPT-business.md', 'w').write('\n'.join(hdr('Business interviews (dramatized)', f"Roles: head of inference at an AI company (voice '{VOICE['B1']}') and infrastructure lead at a datacenter operator (voice '{VOICE['B2']}'). AI-generated characters and voices. Not real people, customers or endorsements; no customer data exists behind these lines.") + biz) + '\n')

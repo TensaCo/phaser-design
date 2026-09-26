@@ -54,6 +54,35 @@ SHOTS.update({
  'r2-studio-explode': (8.0, lambda t, i: dict(cam=orbit(ease(t), 0.55, 0.75, lerp(215, 330, ease(t)), lerp(50, 70, ease(t)), [0, lerp(3, 10, ease(t)), 0], 30),
      studio=1, light=1, explode=ease(min(1, t / 0.7)), packets=0, beamGain=0, depth=True)),
 })
+
+# ── v3: one continuous fly-through (Catmull-Rom through keyframes) ─────────────────────────────────────────────────────
+def catmull(keys, t):
+    """keys: [(time, value or list)], smooth through every key"""
+    ts = [k[0] for k in keys]
+    i = max(0, min(len(keys) - 2, next((j for j in range(len(ts) - 1) if ts[j] <= t <= ts[j + 1]), len(ts) - 2)))
+    p0, p1, p2, p3 = (keys[max(0, i - 1)][1], keys[i][1], keys[i + 1][1], keys[min(len(keys) - 1, i + 2)][1])
+    u = (t - ts[i]) / max(1e-9, ts[i + 1] - ts[i])
+    f = lambda a, b, c, d: 0.5 * ((2 * b) + (-a + c) * u + (2 * a - 5 * b + 4 * c - d) * u * u + (-a + 3 * b - 3 * c + d) * u ** 3)
+    return [f(*z) for z in zip(p0, p1, p2, p3)] if isinstance(p1, list) else f(p0, p1, p2, p3)
+def piece(keys, t):
+    """piecewise-smooth scalar (no overshoot)"""
+    for (t0, a), (t1, b) in zip(keys, keys[1:]):
+        if t0 <= t <= t1: return a + (b - a) * ease((t - t0) / max(1e-9, t1 - t0))
+    return keys[-1][1] if t > keys[-1][0] else keys[0][1]
+FLY_POS = [(0, [0, 1.5, 11.5]), (4, [4, 9, 11.5]), (8, [15, 15, 19]), (12, [30, 26, 30]), (14, [30, 48, 40]), (16, [16, 68, 44]), (20, [-40, 50, 90]),
+           (25, [-160, 70, 300]), (28, [-90, 52, 230]), (30, [-66, 48, 212])]
+FLY_TGT = [(0, [0, 12, 0]), (4, [0, 14, 0]), (8, [0, 13, 0]), (12, [0, 14, 0]), (14, [0, 24, 0]), (16, [0, 22, 0]), (20, [0, 10, 0]), (25, [0, 7, 0]), (28, [0, 4, 0]), (30, [0, 3, 0])]
+FLY_FOV = [(0, 62), (4, 54), (8, 42), (12, 36), (14, 34), (16, 36), (20, 32), (25, 30), (30, 25)]
+def fly(t, i):
+    T = t * 30
+    return dict(cam=C(catmull(FLY_POS, T), catmull(FLY_TGT, T), catmull(FLY_FOV, T)),
+                light=piece([(0, 0.14), (6, 0.3), (12, 0.45), (16, 0.6), (19, 0.7), (23, 1.0), (30, 1.0)], T),
+                studio=piece([(0, 0), (19, 0), (23, 1), (30, 1)], T),
+                explode=piece([(0, 0), (18.5, 0), (23, 1), (26.5, 1), (29.5, 0), (30, 0)], T),
+                packets=int(piece([(0, 1), (7, 1), (12, 36), (30, 36)], T)),
+                beamGain=piece([(0, 3.2), (12, 2.4), (18, 2.0), (22, 0.6), (26, 0.0), (29, 1.2), (30, 1.4)], T),
+                dt=1 / FPS * piece([(0, 0.45), (7, 0.6), (12, 2.4), (16, 1.0), (30, 0.8)], T), depth=True)
+SHOTS['r3-fly'] = (30.0, fly)
 if __name__ == '__main__':
     for k, (s, fn) in SHOTS.items(): shot(k, s, fn)
     print(' '.join(SHOTS))

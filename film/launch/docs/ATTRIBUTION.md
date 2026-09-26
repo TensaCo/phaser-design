@@ -10,6 +10,9 @@
 | Transmission towers through forest | Traveling on the Go, Pexels | Pexels License |
 | Cooling towers by a river | Tom Fisk, Pexels | Pexels License |
 | SuperMUC datacenter aisle | "SuperMUC: First Commercial Hot-Water Cooled Supercomputer to Consume 40% Less Energy" by IBM Research, **CC BY 3.0**, via Wikimedia Commons (excerpt, re-encoded) | CC BY 3.0 — **attribution required** in any public release (credit line or description) |
+| Earth at night (v3) | NASA Earth Observatory, Black Marble 2016 (3 km) | Public domain (NASA) |
+| Score (v3) | ElevenLabs Music via fal, plan in `gen/v3/music.json`; riser and impacts synthesized in `src/audio.py` | per fal/ElevenLabs terms |
+| Cole Mercer (v3) | TensaCo AI-agent persona; likeness AI-generated from his tensaco.ai headshot | TensaCo |
 | Fonts | Archivo (Omnibus-Type), IBM Plex Mono (IBM) | SIL Open Font License 1.1 |
 | Sound and score (v1) | synthesized in `src/audio.py` | TensaCo |
 | Score (v2) | composed with ElevenLabs Music via fal (`fal-ai/elevenlabs/music`), plan in `gen/v2/music.json` | per fal/ElevenLabs terms |

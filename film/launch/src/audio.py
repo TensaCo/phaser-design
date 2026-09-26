@@ -44,6 +44,8 @@ def amb(kind, n):
     t = np.arange(n) / SR
     if kind in ('none', None): return np.zeros(n, np.float32)
     if kind == 'studio': return bp(pink(n), 40, 600) * db(-66)
+    if kind == 'crt': return (tone(n, 15734, 1) * db(-58) + hum(n, 60, [1, .5, .3]) * db(-50) + bp(pink(n), 80, 3000) * db(-60))  # a CRT's line whine and hum
+    if kind == 'space': return bp(brown(n), hi=120) * db(-44)
     if kind == 'studio_room': return bp(pink(n), 60, 3000) * db(-58)  # a quiet sound stage
     if kind == 'elec':
         ramp = np.linspace(0.2, 1.0, n)
@@ -93,6 +95,16 @@ def sfx(name):
             gap = 0.8 if name == 'cavity' else max(0.03, 0.8 * max(0.0, 1 - s / 4.2) ** 2.2)
             s += gap
         return reverb(x, 1.5, 0.35, 9000) * db(-30)
+    if name == 'riser':  # 2 s swell that lands on an impact placed 2 s later
+        n = 2 * SR; t = np.arange(n) / SR
+        sw = bp(noise(n), 800, 9000) * (t / 2) ** 3 * db(-18)
+        pitch = np.sin(2 * np.pi * np.cumsum(220 + 880 * (t / 2) ** 2) / SR) * (t / 2) ** 2.5 * db(-26)
+        return reverb(sw + pitch, 1.2, 0.3)
+    if name == 'impact':  # sub boom + a bright transient, long tail
+        n = int(4 * SR); t = np.arange(n) / SR
+        boom = np.sin(2 * np.pi * (38 + 30 * np.exp(-t * 9)) * t) * np.exp(-t * 1.6)
+        hit = bp(noise(n), 1500, 12000) * np.exp(-t * 28)
+        return reverb(boom * db(-7) + hit * db(-16), 3.0, 0.35, 7000)
     if name in ('click', 'key', 'plug'):
         m = 3000; c = bp(noise(m), 2500, 8000) * np.exp(-np.arange(m) / 90) + tone(m, 4200) * np.exp(-np.arange(m) / 300) * 0.3
         if name == 'plug': c = np.concatenate([c, np.zeros(2400, np.float32), c * 0.7, bp(noise(4800), hi=300) * np.exp(-np.arange(4800) / 600) * 2])
@@ -158,7 +170,9 @@ def mix(edl, T, version, narration=True, meta=None):
         sc = load_stereo(meta['score'])[:n]
         mus2 = np.zeros((n, 2), np.float32); mus2[:len(sc)] = sc
         g = db(meta.get('score_db', -4.0)) * np.convolve(np.clip(1 - 0.68 * np.clip(voice / 0.02, 0, 1), 0, 1), np.ones(int(0.25 * SR)) / (0.25 * SR), 'same')
-        mus2 *= g[:, None] * np.where(lvl > 0, lvl, 1.0)[:, None] if meta.get('use_levels') else g[:, None]
+        if meta.get('score_automation'):
+            kt, kv = zip(*meta['score_automation']); g = g * db(np.interp(np.arange(n) / SR, kt, kv)).astype(np.float32)
+        mus2 *= g[:, None]
         mus = mus2.mean(1)
     else:
         mus2 = None

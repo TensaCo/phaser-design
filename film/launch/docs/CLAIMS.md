@@ -46,3 +46,12 @@ round trip (modeled) and 1.28 mm × 25 mm cavity geometry; the film shows the ge
 - No "measured" anything; no benchmark, customer, deployment, saving, volume, certification or approval.
 - No 10⁶× figure (the research found that would need ≥ 7.5 × 10⁸ modes).
 - No claim that PHASER solves energy scarcity, hunger, or healthcare.
+
+## v3 additions
+| On screen / spoken | Category | Source / note |
+|---|---|---|
+| **~945 TWh**: data-centre electricity use by 2030, more than Japan uses today · IEA, Energy and AI (2025) · projection | External projection | IEA *Energy and AI* (Apr 2025): data-centre demand reaches ~945 TWh in 2030, slightly more than Japan's total electricity consumption today. The PHASER site cites the same comparison. |
+| Cole: "Most of the energy in a chip goes into pushing charge through wire… and then pulling the heat back out of the room. Light crossing glass barely loses anything." | Physics framing | Matches the site's copy ("Pushing charge through a wire costs energy every time. Light crossing glass barely loses any…"). PHASER still loses 10–30 % per round trip to mirrors and coatings and pays for gain and readout (Exps. 33–34); the film does not claim zero loss. |
+| Customer (head of platform): "thought the dashboard was broken" / "that's our energy bill?" | Dramatized; depicted future | No customers exist. On screen: "Dramatization. PHASER energy figures are modeled." |
+| Globe: NASA Black Marble 2016 night lights | Real imagery | Public domain (NASA Earth Observatory). |
+| Cold open CRT | Prop | A generic, unbranded industrial CRT terminal (an Apple Macintosh the model first produced was replaced). |

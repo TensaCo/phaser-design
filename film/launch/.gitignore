@@ -6,3 +6,5 @@ assets/ref/png/
 src/ffmpeg
 __pycache__/
 site_machine/
+harness/blackmarble-8k.jpg
+assets/stock/blackmarble.jpg

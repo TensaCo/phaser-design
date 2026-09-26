@@ -5,6 +5,11 @@ A 3:39 launch film for PHASER, set on **14 November 2026** (after the pre-seed),
 PHASER is depicted as built and launched; today every PHASER number is *modeled*, nothing is built, and every person
 is an AI-generated dramatized role. Read `docs/CLAIMS.md` before showing it.
 
+## v3 (current)
+
+The current cut is **v3** (2:59): see `docs/V3.md`. Files end in `-v3`; rebuild with `python src/compose.py master --edl=edl_v3`
+then `bash src/finalize_v3.sh`.
+
 ## v2
 
 The current cut is **v2** (3:32): white-studio interviews with Mei-Lin Zhou and Diane Kowalski, an exploded-view reveal,

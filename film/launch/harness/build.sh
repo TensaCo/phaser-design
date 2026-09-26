@@ -22,3 +22,6 @@ PY
 $HOME/Documents/tensaco.ai/node_modules/.bin/esbuild machine.ts --bundle --format=esm --alias:@=$SITE \
   --outfile=dist/machine.js --log-level=warning
 echo '<!doctype html><html><body style="margin:0;background:#000"><script type="module" src="machine.js"></script></body></html>' > dist/index.html
+$HOME/Documents/tensaco.ai/node_modules/.bin/esbuild globe.ts --bundle --format=esm --outfile=dist/globe.js --log-level=warning
+echo '<!doctype html><html><body style="margin:0;background:#000"><script type="module" src="globe.js"></script></body></html>' > dist/globe.html
+cp blackmarble-8k.jpg dist/ 2>/dev/null || true

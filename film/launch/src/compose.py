@@ -144,6 +144,32 @@ def tag_layer(W, H, text):
     return np.asarray(im).astype(np.float32) / 255
 
 
+def signature(W, H, t):
+    """iPhone-style end signature: a single 650 nm beam draws in, collapses to a point, and the wordmark resolves from it"""
+    img = np.zeros((H, W, 3), np.float32)
+    y = int(H * 0.36); cx = W / 2
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    fade_out = max(0.0, min(1.0, (8.0 - t) / 1.2))
+    if 0.5 <= t < 1.7:
+        if t < 1.3: x0, x1 = 0, (t - 0.5) / 0.8 * cx          # the beam arrives from the left
+        else: k = (t - 1.3) / 0.4; x0, x1 = cx * k, cx         # and collapses into a point
+        d.line([(x0, y), (x1, y)], fill=RED + (255,), width=3)
+        d.ellipse([x1 - 5, y - 5, x1 + 5, y + 5], fill=(255, 190, 170, 255))
+    if t >= 1.55:
+        a = min(1.0, (t - 1.55) / 0.9) * fade_out
+        f = archivo(int(W * 0.078), 700, 75)
+        tracked(d, (cx, y + f.size * 0.36), 'PHASER', f, PAPER + (int(255 * a),), 0.08, 'ms')
+    if t >= 3.4:
+        a = min(1.0, (t - 3.4) / 0.8) * fade_out
+        tracked(d, (cx, H * 0.64), 'PHASER.TENSACO.AI', mono(int(W * 0.0105), 'Medium'), GRAPHITE + (int(255 * a),), 0.22, 'ms')
+    lay = np.asarray(im).astype(np.float32) / 255
+    img = over(img, lay)
+    if t < 1.5:  # only the beam glows; the wordmark stays clean white
+        glow = gaussian_filter(img[::2, ::2] * np.array([1.0, 0.25, 0.15], np.float32), (6, 6, 0))
+        img = img + 0.9 * np.repeat(np.repeat(glow, 2, 0), 2, 1)[:H, :W]
+    return np.clip(img, 0, 1)
+
+
 class Layer:
     """an RGBA overlay cropped to the rows/cols it touches"""
     def __init__(self, rgba):
@@ -229,6 +255,10 @@ def grade(img, kind, gi=0):
     H, W = img.shape[:2]
     if kind == 'white':
         img = 0.006 + img * 0.99; img = img + 0.04 * (img - 0.5) * (1 - np.abs(2 * img - 1)); img = img * vignette(W, H, 0.10); g = 0.008
+    elif kind == 'space':
+        small = img[::4, ::4]; glow = gaussian_filter(np.clip(small - 0.35, 0, None), (6, 6, 0))
+        img = img + 0.8 * np.repeat(np.repeat(glow, 4, 0), 4, 1)[:H, :W] * np.array([1.0, 0.85, 0.7], np.float32)
+        img = np.clip((img - 0.01) / 0.99, 0, 1) * vignette(W, H, 0.22); g = 0.012
     elif kind == 'studio':
         small = img[::4, ::4]
         glow = np.clip(small - 0.25, 0, None); glow[..., 1:] *= 0.35
@@ -290,12 +320,12 @@ def render(version):
     tags = {'people': Layer(tag_layer(W, H, 'DRAMATIZATION · AI-GENERATED PEOPLE, PLACES AND VOICES')),
             'gen': Layer(tag_layer(W, H, 'AI-GENERATED IMAGERY')),
             'stock': Layer(tag_layer(W, H, 'STOCK FOOTAGE'))}
-    t_total = 0
+    t_total = 0; prev_last = None; clean_last = None
     for c in edl:
         dur, t_in, speed = c['dur'], c.get('in', 0.0), c.get('speed', 1.0)
         n = int(round(dur * FPS))
         src = c['src']
-        if src == 'black': frames = [None] * n
+        if src in ('black', 'sig'): frames = [None] * n
         elif src.startswith('png:'): frames = frames_png(src[4:], t_in, dur)
         else: frames = frames_mp4(src[4:], t_in, dur, speed, c.get('crop'))
         layers = [] if notype else [(it[0], it[1], Layer(text_layer(W, H, it, ink=c.get('ink', False)))) for it in c.get('text', [])]
@@ -307,14 +337,14 @@ def render(version):
         for i in range(n):
             t = i / FPS
             f = frames[i]
-            if f is None: img = np.zeros((1080, 1920, 3), np.float32)
+            if f is None: img = signature(1920, 1080, t) if src == 'sig' else np.zeros((1080, 1920, 3), np.float32)
             elif isinstance(f, str): img = np.asarray(Image.open(f).convert('RGB')).astype(np.float32) / 255
             else: img = f.astype(np.float32) / 255
             if isinstance(f, str) and c.get('dof') and os.path.exists(f.replace('.png', '.depth.png')):
                 z, dist = optics.load_depth(f.replace('.png', '.depth.png'))
                 img = optics.depth_of_field(img, z, dist * c['dof'].get('focus', 1.0), c['dof'].get('strength', 6.0))
             img = zoom(img, z0 + (z1 - z0) * i / max(1, n - 1))
-            if src != 'black':
+            if src not in ('black', 'sig'):
                 img = grade(img, c.get('grade', 'doc'), optics.seed(c['id'], i))
                 img = optics.camera_motion(img, t, c['id'], c.get('camera'))
                 if c.get('lens', True): img = optics.lens(img, t, c['id'], halation=0.0 if c.get('grade') == 'white' else 0.07)
@@ -330,8 +360,12 @@ def render(version):
                     img = over(img, L, max(0, a))
             if tag is not None: img = over(img, tag, 1.0)
             if c.get('fadeout') and t > dur - c['fadeout']: img = img * max(0, (dur - t) / c['fadeout'])
+            if c.get('xfade') and prev_last is not None and i < c['xfade']:
+                k = (i + 1) / (c['xfade'] + 1); img = prev_last * (1 - k) + img * k
+            clean_last = img.copy()
             img = over(img, label, 1.0)
             enc.stdin.write((np.clip(img, 0, 1) * 255 + 0.5).astype(np.uint8).tobytes())
+        prev_last = clean_last if n else prev_last
         t_total += dur
         print(f"{version} {c['id']} done t={t_total:.1f}s", flush=True)
     enc.stdin.close(); enc.wait()
