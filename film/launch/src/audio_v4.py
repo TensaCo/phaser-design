@@ -273,7 +273,7 @@ def mix(edl, T, version, narration=True, meta=None):
     wav(raw, total)
     r = subprocess.run([A.FF, '-hide_banner', '-i', raw, '-af', 'loudnorm=I=-16:TP=-1.5:print_format=json', '-f', 'null', '-'], capture_output=True, text=True).stderr
     m = json.loads(r[r.rindex('{'):r.rindex('}') + 1]); gain = -16.0 - float(m['input_i'])
-    subprocess.run([A.FF, '-loglevel', 'error', '-y', '-i', raw, '-af', f"volume={gain:.2f}dB,alimiter=limit=0.84:attack=2:release=60:level=false", '-ar', str(SR), out], check=True)
+    subprocess.run([A.FF, '-loglevel', 'error', '-y', '-i', raw, '-af', f"volume={gain:.2f}dB,alimiter=limit=0.78:attack=1:release=50:level=false", '-ar', str(SR), out], check=True)
     if version == 'master':
         sd = meta.get('stems_dir')
         for k, x in (('dialogue', dia), ('narration', nar), ('music', MUS * db(-2.0)), ('effects-ambience', FX + bed)): wav(f'{sd}/{k}.wav', x * tail)
