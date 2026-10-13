@@ -352,6 +352,89 @@ Both.
 4. More input channels; workloads where digital costs explode (many channels, GHz streaming, long memory).
 5. Finish the cancelled runs: 512² K 10, 1024² KS and capacity (`g1024`), ESN 16384 capacity.
 
+## Experiment 48 (2026-10-13) — the ring as a linear feedback system: no gain, plus a reference beam
+
+Question from the owner: would it help to boost the light every round trip and saturate it to a level, so the ring stays in a
+linear feedback range? Code: `48-spectrum.py`, `48-linear.py`; queues `48-queue.sh`, `48b/c/d-queue.sh`; log `out/48.log`;
+results in `out/45/results.json` (kind `optical-linear`) and `out/48/`.
+
+### 48a — where the Exp. 30/31 ring actually operates
+
+Eigenvalues of the passive round trip (gain set to 1) of the 64² ring, dense (`out/48/res_n64.json`):
+
+* |λ_1| = 0.820 (33 % power loss per trip for the best mode); √G0·|λ_1| = **1.037: the ring is a laser just above threshold**.
+  The fast global gain then clamps the net gain of the lasing mode to exactly 1.
+* The cavity is nearly degenerate: **111 modes within 1 % of |λ_1|**, 162 within 10 %, 292 within 30 %. Relative to the lasing
+  mode, ~100 modes have memories of hundreds to thousands of trips.
+* The input patterns overlap weakly with the top modes: 3 % of their energy is in the top 10, 21 % in the top 50, 63 % in the
+  top 100, 82 % in the top 400.
+
+So the lasing ring's effective spectral radius is 1 for ~100 modes: memory far longer than KS wants (the tuned ESN's optimum is
+ρ 0.5–0.7), and old inputs never wash out except through slow mode competition. This also explains Exp. 47a: a better SLM at the
+same G0 runs further above threshold, so the circulating lasing light grows and the fixed-amplitude input becomes relatively
+weaker. (The 256² eigen-solve with ARPACK, k 400, did not finish in 30 min on CPU and was stopped.)
+
+### 48b — linear ring on KS, noise-free
+
+`48-linear.py`: the same 256² ring and 64 input patterns, gain constant (no saturation; G0 = 1 is passive, G0 < 1 adds loss,
+G0 > 1 is gain below threshold), plus a constant coherent carrier c·P_c injected with the signal (a fixed random-sign sum of the
+input patterns at the signal's scale; physically, a DC offset on the input modulator). Detection |c·E_c + E_s|² then contains
+the linear terms 2c·Re(E_c* E_s) (homodyne) as well as the quadratic |E_s|². Bin 4 (4,096 features), KS h = 1, 4, 16.
+
+| G0 (per-trip amplitude ρ = √G0·0.82) | carrier 0 | 10 | 30 | 100 | 300 |
+|---|---|---|---|---|---|
+| 1.4 (ρ 0.97, below threshold) | 0.0375 | 0.0075 | — | 0.0017 | — |
+| 1.2 (ρ 0.90) | 0.0062 | 0.0022 | — | — | — |
+| **1.0 (ρ 0.82, passive: no gain)** | 0.0029 | 0.0018 | 0.00084 | 0.00051 | **0.00035** |
+| 0.7 (ρ 0.69) | — | 0.0013 | 0.00089 | 0.00055 | — |
+| 0.5 (ρ 0.58) | — | 0.0013 | 0.0011 | 0.00055 | — |
+| 0.3 (ρ 0.45) | — | 0.0014 | 0.0012 | 0.00072 | — |
+| K 1, G0 1.0 | — | 0.0023 | 0.0014 | 0.00066 | — |
+| K 1, G0 0.7 | — | 0.0018 | 0.0011 | 0.00053 | — |
+
+(NMSE at h 4. Lasing ring, Exp. 45: 0.0029. Tuned ESN-1024: 0.00043; tuned ESN-4096: 0.00035.)
+The best point, passive with carrier 300: h1 7.9e-7, h4 **0.00035**, h16 **0.208**, equal to the tuned 4,096-unit ESN
+(4.1e-7 / 0.00035 / 0.206) and better than ESN-1024. Passive with carrier 100 (0.00051 / 0.223) is at ESN-1024 parity.
+
+**Result.** More gain is worse, monotonically: 0.0029 passive → 0.0062 at G0 1.2 → 0.0375 at G0 1.4 (no carrier). The gain
+medium and its saturation were hurting, not helping. The passive ring at K 2 already has ρ_step ≈ 0.67, the ESN's sweet spot;
+extra loss (G0 0.5–0.7) is neutral to slightly better at small carriers. The missing ingredient was the coherent reference:
+it supplies the linear terms that intensity detection alone cannot, and it closes the noise-free 7–10× gap to tuned ESNs.
+
+### 48c/d — the same under shot noise
+
+Poisson + 2 e⁻ read noise per detector bin (4,096 bins). Two accountings: D = all detected photons per step including the
+carrier's (48c), or D = the signal's photons with the carrier's light added on top (48d, homodyne accounting: the reference is
+extra laser power whose shot noise is included). NMSE at h 4, passive ring:
+
+| D (photons/step) | carrier 0 | c 10, D signal | c 30, D total | c 30, D signal | c 100, D signal | c 300, D signal |
+|---|---|---|---|---|---|---|
+| 1e6 | 0.0107 | 0.0107 | — | 0.0090 | 0.0088 | 0.0086 |
+| 1e7 | 0.0066 | 0.0059 | — | 0.0045 | 0.0043 | 0.0041 |
+| 1e8 | 0.0048 | 0.0037 | 0.0173 | 0.0026 | 0.0024 | 0.0022 |
+| 1e9 | 0.0038 | 0.0027 | 0.0088 | 0.0017 | 0.0015 | 0.0013 |
+| 1e10 | 0.0033 | 0.0023 | 0.0044 | 0.0013 | 0.00099 | 0.00078 |
+| 1e12 | 0.0030 | — | 0.0017 | — | — | — |
+
+**Result.** With homodyne accounting, the carrier helps at every signal budget (≈ 2× at 1e8–1e9, 4× at 1e10). But it costs light:
+the carrier carries c² times the signal's power. At 0.75 G steps/s, 1e10 detected photons per step is ≈ 2.3 W of detected
+light (hν = 3.1e-19 J). So at the full GHz rate a practical budget is ~1e10 photons per step *in total*, i.e. c ≈ 10 on 1e8 signal
+photons → h4 ≈ 0.0037, no better than the lasing ring noise-free. The noise-free ESN parity needs either a lower step rate
+(more photons per step at the same power; 10–100 MS/s gives 75–7.5 × 1e10 at 2.3 W) or a better readout. Untested: the optical
+readout (Exp. 44) for KS, a local oscillator added only at the detector (not circulating), and balanced detection.
+
+### Implications
+
+* The answer to "boost and saturate each trip": for short-memory tasks like KS, *no* — the best ring is passive, and fast
+  saturating gain is what made the lasing ring worse. For long-memory tasks (NARMA, linear memory capacity) the idea is right
+  in the form "net gain just below threshold, held there by a SLOW servo" (a long-lifetime gain medium such as Er/Yb/Nd, or a
+  pump feedback loop), never a per-trip saturation, which acts as a global nonlinearity and makes one mode win.
+* A passive ring drops the gain chip and pump ($3–15k prototype, $0.3–2k volume, 2–20 W in Exp. 46), and its carrier is a DC
+  offset on the input modulator. A constant-gain, linear ring also removes Exp. 32's ~1 ns gain-recovery requirement for time-slot
+  multiplexing and lets wavelength channels share the optics without gain cross-talk.
+* The ring is then a linear dynamical system read out by a quadratic detector: a second-order Volterra model with an optical
+  memory. Tasks needing higher-order nonlinearity still need a per-mode nonlinear element.
+
 ## Status at the end of the day (2026-10-12)
 
 | experiment | status |
@@ -370,3 +453,4 @@ Both.
 | 46 economics (modeled) | done; viable only for single-stream GHz-rate workloads unless capability keeps scaling |
 | 47a professional SLM | run at unchanged gain: worse; needs G0 re-tuned (not run) |
 | 47b effective dimension | done; sublinear growth, 60–80 strong directions at every size |
+| 48 linear ring (2026-10-13) | **passive ring + reference beam = tuned ESN-4096 on KS, noise-free**; gain is harmful; at a ~1e10-photon budget per step (≈ 2 W at 0.75 GS/s) the advantage shrinks to ≈ lasing-ring level |
