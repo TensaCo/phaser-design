@@ -1,0 +1,52 @@
+[
+ {
+  "tag": "e42_go12_NAND_jit02_d0",
+  "spec": "out/designs/e42_go12_NAND_jit02_d0_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.01,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 3,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.1017597008178366,
+    "max_off": 0.055601260670000506,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.6988774544019208,
+    "max_off": 0.04962618571133041,
+    "ripple": 1.2189999049575775
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.6712428841373403,
+    "max_off": 0.028735722708898754,
+    "ripple": 2.4868995751603507e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 846,
+    "first_violation": 1513,
+    "min_on": 9.195588358527461,
+    "max_off": 0.4635203261347254,
+    "ripple": 2.2679180788040973
+   }
+  ]
+ }
+]

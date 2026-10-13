@@ -1,0 +1,25 @@
+jit 0.01 s1 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@356
+jit 0.01 s2 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@346
+jit 0.01 s3 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@1513
+jit 0.02 s1 e42_go12_NAND_jit02_d0: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.02 s2 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@205
+jit 0.02 s3 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@609
+jit 0.03 s1 e42_go12_NAND_jit02_d0: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.03 s2 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@175
+jit 0.03 s3 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@255
+jit 0.05 s1 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:x@259 | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.05 s2 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@110
+jit 0.05 s3 e42_go12_NAND_jit02_d0: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@161
+jit 0.01 s1 e42_go12_NAND_jit02_s16_d8: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.01 s2 e42_go12_NAND_jit02_s16_d8: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.01 s3 e42_go12_NAND_jit02_s16_d8: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.02 s1 e42_go12_NAND_jit02_s16_d8: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:ok
+jit 0.02 s2 e42_go12_NAND_jit02_s16_d8: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@371
+jit 0.02 s3 e42_go12_NAND_jit02_s16_d8: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.03 s1 e42_go12_NAND_jit02_s16_d8: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:ok
+jit 0.03 s2 e42_go12_NAND_jit02_s16_d8: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@139
+jit 0.03 s3 e42_go12_NAND_jit02_s16_d8: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.05 s1 e42_go12_NAND_jit02_s16_d8: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:ok
+jit 0.05 s2 e42_go12_NAND_jit02_s16_d8: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@80
+jit 0.05 s3 e42_go12_NAND_jit02_s16_d8: 2/4 cases fail to H=10000 | NAND00:x@289 | NAND01:x@96 | NAND10:ok | NAND11:ok
+SWEEPDONE

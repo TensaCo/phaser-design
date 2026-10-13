@@ -20,3 +20,5 @@ __pycache__/
 !2026-10-12/out/designs/e40_ld100_NAND_jit03_s16_d4_*.f64
 !2026-10-12/out/designs/e40_ld100_NAND_jit03_s16_d5_*.f64
 !2026-10-12/out/designs/e40_ld100_NAND_jit03_s16_d8_*.f64
+!2026-10-12/out/designs/e42_go12_NAND_jit02_d0_*.f64
+!2026-10-12/out/designs/e42_go12_NAND_jit02_s16_d8_*.f64

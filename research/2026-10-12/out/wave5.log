@@ -1,0 +1,5 @@
+done e42_go12_NAND_jit03_s32: 0 designs pass 1e4
+done e42_go12_NAND_jit02_s16: 1 designs pass 1e4
+done e42_go12_NAND_jit03_s16: 0 designs pass 1e4
+done e42_go12_NAND_jit02: 1 designs pass 1e4
+queue wave5.jobs finished

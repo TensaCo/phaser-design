@@ -168,6 +168,28 @@ Neither loss finds an oscillation from a cold start. Exp. 21b's cross-gain limit
 the next step is to start from those (search for limit cycles first, then tune the period), not from a gradient on a target
 waveform.
 
+## Experiment 42 — phase-error training on the 12 mm gain sheet
+
+The Exp. 40 recipe on the `A64s_amp_go12` twin (local gain sheet 12 mm off the image plane, no diffusion), 16 seeds per run.
+
+| run | training jitter | seeds | pass 10⁴ (GPU and JS) |
+|---|---|---|---|
+| jit03_s16, jit03_s32 | 0.03 rad | 16–47 | 0/32 |
+| jit02 | 0.02 rad | 0–15 | 1/16 (d0) |
+| jit02_s16 | 0.02 rad | 16–31 | 1/16 (d8) |
+
+| design | 0.01 rad | 0.02 rad | 0.03 rad | 0.05 rad |
+|---|---|---|---|---|
+| e37_go12_NAND_d1 (no jitter training) | — | 1/3 | 1/3 | 0/3 |
+| e42_go12_NAND_jit02_d0 | 0/3 | 1/3 | 1/3 | 0/3 |
+| e42_go12_NAND_jit02_s16_d8 | **3/3** | 1/3 | 1/3 | 0/3 |
+
+**Result.** The gain sheet now has three verified NANDs, but none is robust: the best (s16_d8) is clean at 0.01 rad and passes
+one draw in three from 0.02 rad. Training at 0.03 rad finds nothing on the sheet (it does with the L_d 100 µm model, Exp. 40),
+so the sheet's NAND has less margin than the diffusion model's. Failures are again NAND11 and NAND01. The phase-stability
+budget for a sheet-based gate is therefore ≈ 0.01 rad rms static SLM error with the current recipe. Next: an explicit margin
+term (`w_margin`), longer training at 0.02 rad, and more seeds.
+
 ## Status at the end of the day (2026-10-12)
 
 | experiment | status |
@@ -178,4 +200,5 @@ waveform.
 | 38 latch, held pulses | not achieved (dark collapse) |
 | 39 composition | not started (needs the 128² ring; the fused kernel is 64²-only) |
 | 40 phase-error-trained NAND | **3 designs pass 3/3 draws at 0.03 rad** |
+| 42 same, on the 12 mm sheet | 3 sheet NANDs verified; best is clean only to 0.01 rad |
 | 41 clock | not achieved |
