@@ -1,0 +1,186 @@
+== 11:52:08 /home/brandonin/work/ext/venvs/psi/bin/python 51-train-rnn.py 256 tanh 3000
+/home/brandonin/phaser/research/2026-10-12/51-train-rnn.py:58: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  print(f'it {it} loss {float(loss):.3f} nmse h1/h4/h16 {e[0]:.2e} {e[1]:.2e} {e[2]:.3f} loglam {float(loglam):.2f} {time.time() - t0:.0f}s', flush=True)
+it 0 loss -3.663 nmse h1/h4/h16 1.87e-03 2.35e-02 0.399 loglam -2.05 1s
+it 100 loss -7.485 nmse h1/h4/h16 1.63e-06 4.74e-04 0.237 loglam -5.64 2s
+it 200 loss -8.114 nmse h1/h4/h16 4.33e-07 2.73e-04 0.239 loglam -7.27 4s
+it 300 loss -8.514 nmse h1/h4/h16 2.18e-07 1.85e-04 0.214 loglam -7.92 6s
+it 400 loss -8.677 nmse h1/h4/h16 1.52e-07 1.59e-04 0.225 loglam -8.28 8s
+it 500 loss -8.785 nmse h1/h4/h16 1.33e-07 1.45e-04 0.226 loglam -8.51 10s
+it 600 loss -8.937 nmse h1/h4/h16 1.09e-07 1.22e-04 0.191 loglam -8.72 12s
+it 700 loss -8.929 nmse h1/h4/h16 1.03e-07 1.23e-04 0.211 loglam -8.83 14s
+it 800 loss -8.967 nmse h1/h4/h16 9.35e-08 1.20e-04 0.216 loglam -8.93 16s
+it 900 loss -9.007 nmse h1/h4/h16 8.31e-08 1.07e-04 0.230 loglam -9.01 18s
+it 1000 loss -9.150 nmse h1/h4/h16 7.02e-08 9.63e-05 0.203 loglam -9.11 20s
+it 1100 loss -9.141 nmse h1/h4/h16 7.25e-08 9.76e-05 0.204 loglam -9.17 22s
+it 1200 loss -9.286 nmse h1/h4/h16 5.88e-08 8.34e-05 0.191 loglam -9.24 24s
+it 1300 loss -9.211 nmse h1/h4/h16 6.07e-08 8.86e-05 0.211 loglam -9.31 26s
+it 1400 loss -9.224 nmse h1/h4/h16 5.86e-08 8.95e-05 0.214 loglam -9.38 28s
+it 1500 loss -9.225 nmse h1/h4/h16 5.78e-08 8.94e-05 0.211 loglam -9.43 30s
+it 1600 loss -9.338 nmse h1/h4/h16 4.98e-08 7.69e-05 0.200 loglam -9.52 31s
+it 1700 loss -9.441 nmse h1/h4/h16 4.26e-08 6.99e-05 0.194 loglam -9.59 33s
+it 1800 loss -9.422 nmse h1/h4/h16 4.33e-08 6.98e-05 0.203 loglam -9.66 35s
+it 1900 loss -9.536 nmse h1/h4/h16 3.71e-08 6.43e-05 0.184 loglam -9.72 37s
+it 2000 loss -9.479 nmse h1/h4/h16 3.78e-08 6.59e-05 0.209 loglam -9.79 39s
+it 2100 loss -9.631 nmse h1/h4/h16 3.24e-08 5.77e-05 0.178 loglam -9.83 41s
+it 2200 loss -9.630 nmse h1/h4/h16 3.23e-08 5.77e-05 0.185 loglam -9.91 43s
+it 2300 loss -9.564 nmse h1/h4/h16 3.25e-08 6.10e-05 0.204 loglam -9.96 45s
+it 2400 loss -9.675 nmse h1/h4/h16 2.93e-08 5.46e-05 0.186 loglam -10.01 47s
+it 2500 loss -9.700 nmse h1/h4/h16 2.84e-08 5.39e-05 0.184 loglam -10.05 49s
+it 2600 loss -9.784 nmse h1/h4/h16 2.42e-08 4.78e-05 0.183 loglam -10.09 51s
+it 2700 loss -9.736 nmse h1/h4/h16 2.63e-08 5.08e-05 0.186 loglam -10.12 53s
+it 2800 loss -9.932 nmse h1/h4/h16 2.07e-08 4.07e-05 0.158 loglam -10.14 55s
+it 2900 loss -9.736 nmse h1/h4/h16 2.55e-08 5.20e-05 0.186 loglam -10.15 57s
+it 2999 loss -9.751 nmse h1/h4/h16 2.62e-08 5.05e-05 0.186 loglam -10.15 59s
+{"nmse_h1": 1.757728985361791e-08, "nmse_h4": 3.738927879687107e-05, "nmse_h16": 0.1137999222359147, "label": "RNN-trained N=256 tanh", "features": 256, "secs": 0.21474480628967285, "kind": "rnn-trained", "N": 256, "act": "tanh", "iters": 3000, "B": 384, "seed": 0, "train_secs": 59.54305124282837}
+   exit 0 free 115 GB
+== 11:53:10 /home/brandonin/work/ext/venvs/psi/bin/python 51-train-rnn.py 256 quad 3000
+/home/brandonin/phaser/research/2026-10-12/51-train-rnn.py:58: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  print(f'it {it} loss {float(loss):.3f} nmse h1/h4/h16 {e[0]:.2e} {e[1]:.2e} {e[2]:.3f} loglam {float(loglam):.2f} {time.time() - t0:.0f}s', flush=True)
+it 0 loss -2.977 nmse h1/h4/h16 5.21e-03 4.41e-02 0.599 loglam -2.05 1s
+it 100 loss -5.767 nmse h1/h4/h16 3.05e-05 2.70e-03 0.389 loglam -6.18 5s
+it 200 loss -6.775 nmse h1/h4/h16 4.44e-06 1.01e-03 0.350 loglam -8.60 9s
+it 300 loss -7.511 nmse h1/h4/h16 1.21e-06 4.83e-04 0.291 loglam -10.79 13s
+it 400 loss -7.477 nmse h1/h4/h16 1.32e-06 4.74e-04 0.300 loglam -12.35 17s
+it 500 loss -7.312 nmse h1/h4/h16 1.83e-06 5.52e-04 0.313 loglam -12.91 21s
+it 600 loss -7.048 nmse h1/h4/h16 3.78e-06 6.77e-04 0.266 loglam -12.90 25s
+it 700 loss -7.050 nmse h1/h4/h16 3.38e-06 6.92e-04 0.293 loglam -12.86 29s
+it 800 loss -7.095 nmse h1/h4/h16 3.05e-06 6.72e-04 0.289 loglam -12.94 33s
+it 900 loss -6.997 nmse h1/h4/h16 3.53e-06 7.19e-04 0.314 loglam -12.99 37s
+it 1000 loss -6.863 nmse h1/h4/h16 5.20e-06 8.13e-04 0.279 loglam -12.86 41s
+it 1100 loss -6.937 nmse h1/h4/h16 4.42e-06 7.63e-04 0.284 loglam -12.88 45s
+it 1200 loss -7.025 nmse h1/h4/h16 3.58e-06 7.13e-04 0.285 loglam -12.92 49s
+it 1300 loss -6.788 nmse h1/h4/h16 5.61e-06 8.75e-04 0.301 loglam -12.86 53s
+it 1400 loss -6.962 nmse h1/h4/h16 3.65e-06 7.57e-04 0.324 loglam -13.00 57s
+it 1500 loss -6.749 nmse h1/h4/h16 6.12e-06 9.13e-04 0.296 loglam -12.83 61s
+it 1600 loss -6.766 nmse h1/h4/h16 6.30e-06 8.84e-04 0.281 loglam -12.77 65s
+it 1700 loss -6.770 nmse h1/h4/h16 6.55e-06 8.87e-04 0.269 loglam -12.77 69s
+it 1800 loss -6.769 nmse h1/h4/h16 5.83e-06 9.01e-04 0.296 loglam -12.89 73s
+it 1900 loss -6.758 nmse h1/h4/h16 6.61e-06 9.05e-04 0.270 loglam -12.79 77s
+it 2000 loss -6.731 nmse h1/h4/h16 5.85e-06 9.37e-04 0.323 loglam -12.95 81s
+it 2100 loss -6.841 nmse h1/h4/h16 5.65e-06 8.20e-04 0.271 loglam -12.83 85s
+it 2200 loss -6.804 nmse h1/h4/h16 5.77e-06 8.49e-04 0.289 loglam -12.79 89s
+it 2300 loss -6.709 nmse h1/h4/h16 6.70e-06 9.31e-04 0.298 loglam -12.76 93s
+it 2400 loss -6.721 nmse h1/h4/h16 6.84e-06 9.22e-04 0.285 loglam -12.75 98s
+it 2500 loss -6.703 nmse h1/h4/h16 7.02e-06 9.41e-04 0.288 loglam -12.75 102s
+it 2600 loss -6.716 nmse h1/h4/h16 7.16e-06 9.20e-04 0.279 loglam -12.73 106s
+it 2700 loss -6.689 nmse h1/h4/h16 7.45e-06 9.55e-04 0.279 loglam -12.73 110s
+it 2800 loss -6.751 nmse h1/h4/h16 7.10e-06 8.82e-04 0.263 loglam -12.73 114s
+it 2900 loss -6.629 nmse h1/h4/h16 8.00e-06 1.02e-03 0.290 loglam -12.72 118s
+it 2999 loss -6.675 nmse h1/h4/h16 7.50e-06 9.74e-04 0.283 loglam -12.72 122s
+{"nmse_h1": 1.0029713245582355, "nmse_h4": 1.0029861880313775, "nmse_h16": 1.0030404648839752, "label": "RNN-trained N=256 quad", "features": 512, "secs": 2.0577187538146973, "kind": "rnn-trained", "N": 256, "act": "quad", "iters": 3000, "B": 384, "seed": 0, "train_secs": 123.17615389823914}
+   exit 0 free 115 GB
+== 11:55:17 /home/brandonin/work/ext/venvs/psi/bin/python 51-train-rnn.py 1024 tanh 3000
+/home/brandonin/phaser/research/2026-10-12/51-train-rnn.py:58: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  print(f'it {it} loss {float(loss):.3f} nmse h1/h4/h16 {e[0]:.2e} {e[1]:.2e} {e[2]:.3f} loglam {float(loglam):.2f} {time.time() - t0:.0f}s', flush=True)
+it 0 loss -4.349 nmse h1/h4/h16 5.84e-04 1.09e-02 0.354 loglam -2.05 1s
+it 100 loss -7.603 nmse h1/h4/h16 1.18e-06 4.33e-04 0.254 loglam -5.34 12s
+it 200 loss -8.330 nmse h1/h4/h16 2.86e-07 2.27e-04 0.228 loglam -6.33 23s
+it 300 loss -8.636 nmse h1/h4/h16 1.64e-07 1.71e-04 0.217 loglam -6.66 34s
+it 400 loss -8.793 nmse h1/h4/h16 1.30e-07 1.46e-04 0.197 loglam -6.79 45s
+it 500 loss -9.053 nmse h1/h4/h16 8.69e-08 1.10e-04 0.182 loglam -6.89 56s
+it 600 loss -8.872 nmse h1/h4/h16 9.85e-08 1.38e-04 0.217 loglam -6.98 67s
+it 700 loss -9.062 nmse h1/h4/h16 7.34e-08 1.11e-04 0.204 loglam -7.04 78s
+it 800 loss -9.155 nmse h1/h4/h16 6.16e-08 1.00e-04 0.202 loglam -7.14 89s
+it 900 loss -9.197 nmse h1/h4/h16 5.67e-08 9.84e-05 0.197 loglam -7.18 100s
+it 1000 loss -9.277 nmse h1/h4/h16 5.24e-08 9.03e-05 0.189 loglam -7.24 112s
+it 1100 loss -9.399 nmse h1/h4/h16 4.12e-08 7.73e-05 0.190 loglam -7.30 123s
+it 1200 loss -9.559 nmse h1/h4/h16 3.31e-08 6.63e-05 0.173 loglam -7.38 134s
+it 1300 loss -9.630 nmse h1/h4/h16 2.98e-08 6.33e-05 0.169 loglam -7.42 145s
+it 1400 loss -9.647 nmse h1/h4/h16 2.80e-08 6.06e-05 0.171 loglam -7.50 156s
+it 1500 loss -9.768 nmse h1/h4/h16 2.33e-08 5.43e-05 0.165 loglam -7.56 167s
+it 1600 loss -9.815 nmse h1/h4/h16 2.12e-08 5.50e-05 0.161 loglam -7.63 178s
+it 1700 loss -9.921 nmse h1/h4/h16 1.76e-08 4.60e-05 0.159 loglam -7.70 190s
+it 1800 loss -10.105 nmse h1/h4/h16 1.36e-08 3.71e-05 0.148 loglam -7.74 201s
+it 1900 loss -10.126 nmse h1/h4/h16 1.28e-08 3.72e-05 0.149 loglam -7.82 212s
+it 2000 loss -10.225 nmse h1/h4/h16 1.07e-08 3.32e-05 0.144 loglam -7.88 223s
+it 2100 loss -10.174 nmse h1/h4/h16 1.10e-08 3.59e-05 0.156 loglam -7.93 234s
+it 2200 loss -10.462 nmse h1/h4/h16 7.60e-09 2.64e-05 0.130 loglam -8.00 245s
+it 2300 loss -10.351 nmse h1/h4/h16 8.59e-09 3.08e-05 0.137 loglam -8.04 257s
+it 2400 loss -10.539 nmse h1/h4/h16 6.62e-09 2.46e-05 0.129 loglam -8.08 268s
+it 2500 loss -10.679 nmse h1/h4/h16 5.46e-09 2.10e-05 0.116 loglam -8.13 279s
+it 2600 loss -10.816 nmse h1/h4/h16 4.73e-09 1.87e-05 0.104 loglam -8.18 290s
+it 2700 loss -10.808 nmse h1/h4/h16 4.58e-09 1.90e-05 0.108 loglam -8.21 301s
+it 2800 loss -10.942 nmse h1/h4/h16 3.69e-09 1.56e-05 0.106 loglam -8.24 313s
+it 2900 loss -10.777 nmse h1/h4/h16 4.48e-09 2.03e-05 0.115 loglam -8.25 324s
+it 2999 loss -10.951 nmse h1/h4/h16 3.74e-09 1.66e-05 0.102 loglam -8.26 335s
+{"nmse_h1": 3.5946849531060617e-09, "nmse_h4": 1.7454373415106568e-05, "nmse_h16": 0.11499782631338792, "label": "RNN-trained N=1024 tanh", "features": 1024, "secs": 0.6103594303131104, "kind": "rnn-trained", "N": 1024, "act": "tanh", "iters": 3000, "B": 384, "seed": 0, "train_secs": 336.85170125961304}
+   exit 0 free 115 GB
+== 12:00:56 /home/brandonin/work/ext/venvs/psi/bin/python 51-train-rnn.py 1024 quad 3000
+/home/brandonin/phaser/research/2026-10-12/51-train-rnn.py:58: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  print(f'it {it} loss {float(loss):.3f} nmse h1/h4/h16 {e[0]:.2e} {e[1]:.2e} {e[2]:.3f} loglam {float(loglam):.2f} {time.time() - t0:.0f}s', flush=True)
+it 0 loss -3.110 nmse h1/h4/h16 4.10e-03 3.68e-02 0.609 loglam -2.05 1s
+it 100 loss -6.415 nmse h1/h4/h16 1.09e-05 1.41e-03 0.299 loglam -6.41 32s
+it 200 loss -8.011 nmse h1/h4/h16 4.49e-07 3.21e-04 0.268 loglam -9.09 63s
+it 300 loss -8.796 nmse h1/h4/h16 1.17e-07 1.42e-04 0.225 loglam -10.86 94s
+it 400 loss -8.857 nmse h1/h4/h16 1.18e-07 1.27e-04 0.202 loglam -11.21 126s
+it 500 loss -8.882 nmse h1/h4/h16 1.31e-07 1.16e-04 0.187 loglam -11.33 157s
+it 600 loss -8.790 nmse h1/h4/h16 1.18e-07 1.38e-04 0.227 loglam -11.47 188s
+it 700 loss -8.671 nmse h1/h4/h16 1.69e-07 1.43e-04 0.217 loglam -11.51 219s
+it 800 loss -8.865 nmse h1/h4/h16 1.12e-07 1.23e-04 0.212 loglam -11.52 250s
+it 900 loss -8.728 nmse h1/h4/h16 1.47e-07 1.40e-04 0.215 loglam -11.58 282s
+it 1000 loss -8.824 nmse h1/h4/h16 1.29e-07 1.30e-04 0.204 loglam -11.48 313s
+it 1100 loss -8.922 nmse h1/h4/h16 1.10e-07 1.14e-04 0.202 loglam -11.64 344s
+it 1200 loss -9.029 nmse h1/h4/h16 9.36e-08 1.05e-04 0.188 loglam -11.62 375s
+it 1300 loss -8.922 nmse h1/h4/h16 1.21e-07 1.14e-04 0.188 loglam -11.58 406s
+it 1400 loss -8.931 nmse h1/h4/h16 1.12e-07 1.13e-04 0.191 loglam -11.59 438s
+it 1500 loss -9.001 nmse h1/h4/h16 1.00e-07 1.07e-04 0.188 loglam -11.48 469s
+it 1600 loss -8.878 nmse h1/h4/h16 1.30e-07 1.21e-04 0.187 loglam -11.46 500s
+it 1700 loss -8.999 nmse h1/h4/h16 1.03e-07 1.05e-04 0.183 loglam -11.44 531s
+it 1800 loss -9.113 nmse h1/h4/h16 9.11e-08 9.24e-05 0.169 loglam -11.41 563s
+it 1900 loss -9.122 nmse h1/h4/h16 8.67e-08 9.16e-05 0.174 loglam -11.32 594s
+it 2000 loss -9.045 nmse h1/h4/h16 9.92e-08 9.70e-05 0.176 loglam -11.29 625s
+it 2100 loss -9.056 nmse h1/h4/h16 8.95e-08 9.99e-05 0.185 loglam -11.23 656s
+it 2200 loss -9.115 nmse h1/h4/h16 9.13e-08 9.14e-05 0.168 loglam -11.18 687s
+it 2300 loss -9.210 nmse h1/h4/h16 7.01e-08 9.06e-05 0.166 loglam -11.14 719s
+it 2400 loss -9.160 nmse h1/h4/h16 8.14e-08 8.76e-05 0.170 loglam -11.10 750s
+it 2500 loss -9.368 nmse h1/h4/h16 5.62e-08 7.29e-05 0.159 loglam -11.05 781s
+it 2600 loss -9.351 nmse h1/h4/h16 6.23e-08 7.33e-05 0.152 loglam -11.02 812s
+it 2700 loss -9.344 nmse h1/h4/h16 6.01e-08 7.44e-05 0.157 loglam -11.00 843s
+it 2800 loss -9.352 nmse h1/h4/h16 6.10e-08 6.97e-05 0.159 loglam -10.98 875s
+it 2900 loss -9.209 nmse h1/h4/h16 7.24e-08 8.55e-05 0.170 loglam -10.97 906s
+it 2999 loss -9.319 nmse h1/h4/h16 6.41e-08 7.63e-05 0.158 loglam -10.97 937s
+{"nmse_h1": 1.0029713245582355, "nmse_h4": 1.0029861880313775, "nmse_h16": 1.0030404648839752, "label": "RNN-trained N=1024 quad", "features": 2048, "secs": 18.889639377593994, "kind": "rnn-trained", "N": 1024, "act": "quad", "iters": 3000, "B": 384, "seed": 0, "train_secs": 939.9494383335114}
+   exit 0 free 115 GB
+== 12:16:57 /home/brandonin/work/ext/venvs/psi/bin/python 51-train-rnn.py 4096 tanh 3000 256
+/home/brandonin/phaser/research/2026-10-12/51-train-rnn.py:58: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  print(f'it {it} loss {float(loss):.3f} nmse h1/h4/h16 {e[0]:.2e} {e[1]:.2e} {e[2]:.3f} loglam {float(loglam):.2f} {time.time() - t0:.0f}s', flush=True)
+it 0 loss -4.578 nmse h1/h4/h16 3.27e-04 8.62e-03 0.401 loglam -2.05 1s
+it 100 loss -4.308 nmse h1/h4/h16 4.38e-04 1.09e-02 0.549 loglam -4.51 91s
+it 200 loss -4.074 nmse h1/h4/h16 7.12e-04 1.29e-02 0.614 loglam -4.96 180s
+it 300 loss -3.459 nmse h1/h4/h16 1.87e-03 3.18e-02 0.600 loglam -5.41 269s
+it 400 loss -3.831 nmse h1/h4/h16 1.04e-03 2.02e-02 0.576 loglam -5.32 358s
+it 500 loss -3.635 nmse h1/h4/h16 1.43e-03 2.53e-02 0.603 loglam -5.48 447s
+it 600 loss -3.862 nmse h1/h4/h16 1.02e-03 1.88e-02 0.585 loglam -5.52 537s
+it 700 loss -4.310 nmse h1/h4/h16 5.57e-04 1.15e-02 0.497 loglam -6.05 626s
+it 800 loss -3.258 nmse h1/h4/h16 2.42e-03 3.98e-02 0.688 loglam -5.09 716s
+it 900 loss -4.175 nmse h1/h4/h16 6.05e-04 1.25e-02 0.541 loglam -5.51 806s
+it 1000 loss -4.371 nmse h1/h4/h16 4.48e-04 9.85e-03 0.561 loglam -5.77 896s
+it 1100 loss -4.380 nmse h1/h4/h16 4.27e-04 1.02e-02 0.554 loglam -5.79 985s
+it 1200 loss -3.751 nmse h1/h4/h16 1.14e-03 2.16e-02 0.627 loglam -5.28 1075s
+it 1300 loss -4.067 nmse h1/h4/h16 7.97e-04 1.49e-02 0.548 loglam -5.59 1165s
+it 1400 loss -4.296 nmse h1/h4/h16 5.34e-04 1.07e-02 0.483 loglam -5.27 1254s
+it 1500 loss -4.401 nmse h1/h4/h16 4.39e-04 9.55e-03 0.507 loglam -5.46 1344s
+it 1600 loss -4.598 nmse h1/h4/h16 3.14e-04 7.47e-03 0.481 loglam -5.53 1434s
+it 1700 loss -3.890 nmse h1/h4/h16 1.13e-03 2.04e-02 0.498 loglam -5.49 1523s
+it 1800 loss -3.770 nmse h1/h4/h16 1.21e-03 2.12e-02 0.558 loglam -5.01 1613s
+it 1900 loss -4.100 nmse h1/h4/h16 7.33e-04 1.44e-02 0.532 loglam -4.92 1703s
+it 2000 loss -4.431 nmse h1/h4/h16 4.29e-04 9.35e-03 0.470 loglam -5.08 1792s
+it 2100 loss -4.509 nmse h1/h4/h16 4.15e-04 8.99e-03 0.453 loglam -5.12 1882s
+it 2200 loss -4.292 nmse h1/h4/h16 6.05e-04 1.21e-02 0.469 loglam -5.12 1972s
+it 2300 loss -4.126 nmse h1/h4/h16 8.09e-04 1.50e-02 0.508 loglam -4.93 2061s
+it 2400 loss -4.268 nmse h1/h4/h16 6.62e-04 1.26e-02 0.468 loglam -4.93 2151s
+it 2500 loss -4.073 nmse h1/h4/h16 9.06e-04 1.63e-02 0.472 loglam -4.83 2241s
+it 2600 loss -4.205 nmse h1/h4/h16 7.46e-04 1.35e-02 0.438 loglam -4.73 2331s
+it 2700 loss -4.184 nmse h1/h4/h16 7.06e-04 1.33e-02 0.473 loglam -4.70 2420s
+it 2800 loss -4.253 nmse h1/h4/h16 6.81e-04 1.27e-02 0.420 loglam -4.69 2510s
+it 2900 loss -4.261 nmse h1/h4/h16 6.76e-04 1.22e-02 0.429 loglam -4.68 2600s
+it 2999 loss -4.234 nmse h1/h4/h16 6.67e-04 1.27e-02 0.464 loglam -4.68 2689s
+{"nmse_h1": 0.00044616104365462737, "nmse_h4": 0.008214816853281348, "nmse_h16": 0.27781055849256, "label": "RNN-trained N=4096 tanh", "features": 4096, "secs": 7.113358020782471, "kind": "rnn-trained", "N": 4096, "act": "tanh", "iters": 3000, "B": 256, "seed": 0, "train_secs": 2701.56521320343}
+   exit 0 free 115 GB
+ALLDONE

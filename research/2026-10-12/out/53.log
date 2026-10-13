@@ -1,0 +1,476 @@
+== 13:07:04 NOISE_D= /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 64 4 2 100 mpca 1500
+/home/brandonin/phaser/research/2026-10-12/50-train.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  curve.append(dict(it=it, loss=float(loss), nmse=e, loglam=float(prm['loglam']), secs=time.time() - t0))
+it 0 loss -3.317 nmse h1/h4/h16 2.96e-03 3.68e-02 0.456 loglam -2.05 1s
+it 25 loss -5.171 nmse h1/h4/h16 1.11e-04 5.40e-03 0.317 loglam -3.12 11s
+it 50 loss -5.763 nmse h1/h4/h16 3.74e-05 2.82e-03 0.302 loglam -3.93 22s
+it 75 loss -6.062 nmse h1/h4/h16 2.06e-05 2.21e-03 0.295 loglam -4.46 32s
+it 100 loss -6.349 nmse h1/h4/h16 1.29e-05 1.63e-03 0.268 loglam -4.76 43s
+it 125 loss -6.532 nmse h1/h4/h16 9.48e-06 1.29e-03 0.263 loglam -5.03 54s
+it 150 loss -6.699 nmse h1/h4/h16 7.05e-06 1.13e-03 0.246 loglam -5.23 64s
+it 175 loss -6.796 nmse h1/h4/h16 5.64e-06 1.02e-03 0.254 loglam -5.37 75s
+it 200 loss -6.958 nmse h1/h4/h16 4.50e-06 8.73e-04 0.230 loglam -5.46 85s
+it 225 loss -6.952 nmse h1/h4/h16 4.11e-06 8.89e-04 0.252 loglam -5.53 96s
+it 250 loss -7.089 nmse h1/h4/h16 3.41e-06 7.64e-04 0.233 loglam -5.60 106s
+it 275 loss -7.134 nmse h1/h4/h16 3.13e-06 7.55e-04 0.225 loglam -5.64 117s
+it 300 loss -7.186 nmse h1/h4/h16 2.78e-06 7.14e-04 0.234 loglam -5.69 128s
+it 325 loss -7.300 nmse h1/h4/h16 2.41e-06 6.23e-04 0.216 loglam -5.68 138s
+it 350 loss -7.325 nmse h1/h4/h16 2.23e-06 6.23e-04 0.215 loglam -5.73 149s
+it 375 loss -7.368 nmse h1/h4/h16 2.10e-06 5.92e-04 0.211 loglam -5.74 159s
+it 400 loss -7.316 nmse h1/h4/h16 2.09e-06 6.46e-04 0.228 loglam -5.79 170s
+it 425 loss -7.453 nmse h1/h4/h16 1.78e-06 5.32e-04 0.214 loglam -5.79 180s
+it 450 loss -7.474 nmse h1/h4/h16 1.66e-06 5.27e-04 0.222 loglam -5.82 191s
+it 475 loss -7.448 nmse h1/h4/h16 1.74e-06 5.67e-04 0.214 loglam -5.84 202s
+it 500 loss -7.575 nmse h1/h4/h16 1.45e-06 4.86e-04 0.202 loglam -5.84 212s
+it 525 loss -7.655 nmse h1/h4/h16 1.35e-06 4.44e-04 0.193 loglam -5.87 223s
+it 550 loss -7.600 nmse h1/h4/h16 1.35e-06 4.83e-04 0.199 loglam -5.87 233s
+it 575 loss -7.624 nmse h1/h4/h16 1.27e-06 4.72e-04 0.205 loglam -5.93 244s
+it 600 loss -7.625 nmse h1/h4/h16 1.29e-06 4.79e-04 0.199 loglam -5.91 254s
+it 625 loss -7.633 nmse h1/h4/h16 1.24e-06 4.57e-04 0.210 loglam -5.93 265s
+it 650 loss -7.764 nmse h1/h4/h16 1.04e-06 3.94e-04 0.196 loglam -5.95 276s
+it 675 loss -7.735 nmse h1/h4/h16 1.09e-06 4.12e-04 0.197 loglam -5.95 286s
+it 700 loss -7.782 nmse h1/h4/h16 9.93e-07 3.93e-04 0.198 loglam -5.96 297s
+it 725 loss -7.860 nmse h1/h4/h16 9.03e-07 3.67e-04 0.179 loglam -5.96 307s
+it 750 loss -7.794 nmse h1/h4/h16 9.52e-07 3.90e-04 0.197 loglam -5.97 318s
+it 775 loss -7.792 nmse h1/h4/h16 9.36e-07 3.84e-04 0.205 loglam -5.98 328s
+it 800 loss -7.926 nmse h1/h4/h16 8.08e-07 3.42e-04 0.181 loglam -5.98 339s
+it 825 loss -7.848 nmse h1/h4/h16 8.51e-07 3.75e-04 0.195 loglam -5.98 350s
+it 850 loss -7.994 nmse h1/h4/h16 7.37e-07 3.13e-04 0.174 loglam -5.98 360s
+it 875 loss -7.834 nmse h1/h4/h16 8.50e-07 3.83e-04 0.201 loglam -6.01 371s
+it 900 loss -7.923 nmse h1/h4/h16 7.92e-07 3.61e-04 0.178 loglam -5.99 381s
+it 925 loss -7.852 nmse h1/h4/h16 8.17e-07 3.85e-04 0.194 loglam -5.99 392s
+it 950 loss -7.963 nmse h1/h4/h16 7.08e-07 3.41e-04 0.182 loglam -6.00 402s
+it 975 loss -7.976 nmse h1/h4/h16 7.07e-07 3.32e-04 0.180 loglam -5.99 413s
+it 1000 loss -7.977 nmse h1/h4/h16 7.09e-07 3.42e-04 0.176 loglam -5.99 424s
+it 1025 loss -7.996 nmse h1/h4/h16 6.70e-07 3.25e-04 0.185 loglam -5.98 434s
+it 1050 loss -7.962 nmse h1/h4/h16 6.89e-07 3.37e-04 0.193 loglam -5.97 445s
+it 1075 loss -8.058 nmse h1/h4/h16 6.36e-07 3.07e-04 0.175 loglam -5.97 455s
+it 1100 loss -8.056 nmse h1/h4/h16 6.20e-07 3.13e-04 0.179 loglam -5.96 466s
+it 1125 loss -8.104 nmse h1/h4/h16 5.95e-07 2.94e-04 0.169 loglam -5.96 476s
+it 1150 loss -8.007 nmse h1/h4/h16 6.25e-07 3.29e-04 0.189 loglam -5.96 487s
+it 1175 loss -8.102 nmse h1/h4/h16 5.67e-07 2.99e-04 0.173 loglam -5.95 498s
+it 1200 loss -8.189 nmse h1/h4/h16 5.03e-07 2.67e-04 0.166 loglam -5.94 508s
+it 1225 loss -8.103 nmse h1/h4/h16 5.60e-07 3.03e-04 0.172 loglam -5.93 519s
+it 1250 loss -8.187 nmse h1/h4/h16 5.16e-07 2.76e-04 0.159 loglam -5.92 529s
+it 1275 loss -8.189 nmse h1/h4/h16 5.06e-07 2.68e-04 0.165 loglam -5.91 540s
+it 1300 loss -8.053 nmse h1/h4/h16 5.76e-07 3.18e-04 0.186 loglam -5.91 550s
+it 1325 loss -8.177 nmse h1/h4/h16 4.94e-07 2.75e-04 0.171 loglam -5.90 561s
+it 1350 loss -8.243 nmse h1/h4/h16 4.79e-07 2.55e-04 0.156 loglam -5.90 572s
+it 1375 loss -8.200 nmse h1/h4/h16 5.02e-07 2.69e-04 0.164 loglam -5.90 582s
+it 1400 loss -8.190 nmse h1/h4/h16 5.01e-07 2.74e-04 0.166 loglam -5.89 593s
+it 1425 loss -8.327 nmse h1/h4/h16 4.29e-07 2.34e-04 0.152 loglam -5.89 603s
+it 1450 loss -8.129 nmse h1/h4/h16 5.17e-07 2.87e-04 0.181 loglam -5.88 614s
+it 1475 loss -8.135 nmse h1/h4/h16 5.34e-07 2.94e-04 0.169 loglam -5.88 624s
+it 1499 loss -8.255 nmse h1/h4/h16 4.61e-07 2.54e-04 0.158 loglam -5.88 634s
+{"nmse_h1": 5.94038212764482e-07, "nmse_h4": 0.00031122239052659565, "nmse_h16": 0.1818893843982039, "label": "optical-trained n=64", "features": 256, "secs": 0.7760913372039795, "kind": "optical-trained", "n": 64, "modes": 4096, "bin": 4, "K": 2, "G0": 1.0, "carrier": 100.0, "trained": "mpca", "iters": 1500, "B": 384, "seed": 0, "train_secs": 646.7637598514557, "loaded": null, "D_total": null, "c_final": 100.0, "logIs": -4.320180892944336, "signal_fraction": null}
+   exit 0 free 115 GB
+== 13:17:54 NOISE_D=1e10 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 64 4 2 10 none 0
+{"nmse_h1": 0.0007490557827607648, "nmse_h4": 0.01603467918996329, "nmse_h16": 0.3667342055354511, "label": "optical-trained n=64", "features": 256, "secs": 1.0185625553131104, "kind": "optical-trained", "n": 64, "modes": 4096, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "none", "iters": 0, "B": 384, "seed": 0, "train_secs": 17.280755281448364, "loaded": null, "D_total": 10000000000.0, "c_final": 10.0, "logIs": 0.0, "signal_fraction": 0.014593405573168588}
+   exit 0 free 115 GB
+== 13:18:23 NOISE_D=1e10 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 64 4 2 10 mpcs 1500
+/home/brandonin/phaser/research/2026-10-12/50-train.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  curve.append(dict(it=it, loss=float(loss), nmse=e, loglam=float(prm['loglam']), secs=time.time() - t0))
+it 0 loss -3.275 nmse h1/h4/h16 3.44e-03 3.60e-02 0.454 loglam -2.05 1s
+it 25 loss -4.648 nmse h1/h4/h16 3.26e-04 8.16e-03 0.341 loglam -3.06 8s
+it 50 loss -4.931 nmse h1/h4/h16 1.98e-04 6.05e-03 0.321 loglam -3.67 16s
+it 75 loss -5.017 nmse h1/h4/h16 1.62e-04 5.70e-03 0.322 loglam -4.18 23s
+it 100 loss -5.018 nmse h1/h4/h16 1.50e-04 5.86e-03 0.341 loglam -4.58 31s
+it 125 loss -5.162 nmse h1/h4/h16 1.28e-04 5.01e-03 0.301 loglam -4.83 38s
+it 150 loss -5.174 nmse h1/h4/h16 1.23e-04 4.93e-03 0.307 loglam -4.98 46s
+it 175 loss -5.170 nmse h1/h4/h16 1.20e-04 4.92e-03 0.321 loglam -5.07 53s
+it 200 loss -5.162 nmse h1/h4/h16 1.18e-04 5.02e-03 0.328 loglam -5.13 61s
+it 225 loss -5.214 nmse h1/h4/h16 1.12e-04 4.80e-03 0.312 loglam -5.17 69s
+it 250 loss -5.242 nmse h1/h4/h16 1.08e-04 4.61e-03 0.306 loglam -5.19 76s
+it 275 loss -5.244 nmse h1/h4/h16 1.07e-04 4.59e-03 0.307 loglam -5.23 84s
+it 300 loss -5.317 nmse h1/h4/h16 9.99e-05 4.23e-03 0.288 loglam -5.25 91s
+it 325 loss -5.240 nmse h1/h4/h16 1.04e-04 4.57e-03 0.321 loglam -5.27 99s
+it 350 loss -5.333 nmse h1/h4/h16 9.67e-05 4.14e-03 0.292 loglam -5.28 106s
+it 375 loss -5.331 nmse h1/h4/h16 9.61e-05 4.12e-03 0.292 loglam -5.29 114s
+it 400 loss -5.356 nmse h1/h4/h16 9.23e-05 3.99e-03 0.292 loglam -5.30 121s
+it 425 loss -5.384 nmse h1/h4/h16 8.93e-05 3.81e-03 0.290 loglam -5.31 129s
+it 450 loss -5.399 nmse h1/h4/h16 8.89e-05 3.75e-03 0.285 loglam -5.32 136s
+it 475 loss -5.364 nmse h1/h4/h16 8.90e-05 4.01e-03 0.298 loglam -5.32 144s
+it 500 loss -5.429 nmse h1/h4/h16 8.57e-05 3.70e-03 0.276 loglam -5.33 151s
+it 525 loss -5.345 nmse h1/h4/h16 9.37e-05 4.13e-03 0.290 loglam -5.33 159s
+it 550 loss -5.410 nmse h1/h4/h16 8.50e-05 3.74e-03 0.292 loglam -5.35 167s
+it 575 loss -5.444 nmse h1/h4/h16 8.36e-05 3.69e-03 0.272 loglam -5.36 174s
+it 600 loss -5.378 nmse h1/h4/h16 8.71e-05 3.91e-03 0.298 loglam -5.36 182s
+it 625 loss -5.404 nmse h1/h4/h16 8.49e-05 3.83e-03 0.289 loglam -5.35 189s
+it 650 loss -5.469 nmse h1/h4/h16 8.07e-05 3.52e-03 0.274 loglam -5.36 197s
+it 675 loss -5.484 nmse h1/h4/h16 8.10e-05 3.54e-03 0.261 loglam -5.36 204s
+it 700 loss -5.441 nmse h1/h4/h16 8.17e-05 3.71e-03 0.282 loglam -5.37 212s
+it 725 loss -5.477 nmse h1/h4/h16 7.88e-05 3.51e-03 0.277 loglam -5.38 219s
+it 750 loss -5.512 nmse h1/h4/h16 7.71e-05 3.36e-03 0.262 loglam -5.39 227s
+it 775 loss -5.435 nmse h1/h4/h16 7.97e-05 3.71e-03 0.294 loglam -5.39 234s
+it 800 loss -5.490 nmse h1/h4/h16 7.80e-05 3.50e-03 0.271 loglam -5.39 242s
+it 825 loss -5.492 nmse h1/h4/h16 7.77e-05 3.45e-03 0.273 loglam -5.39 249s
+it 850 loss -5.477 nmse h1/h4/h16 7.84e-05 3.57e-03 0.270 loglam -5.40 257s
+it 875 loss -5.503 nmse h1/h4/h16 7.69e-05 3.43e-03 0.270 loglam -5.39 265s
+it 900 loss -5.507 nmse h1/h4/h16 7.70e-05 3.45e-03 0.262 loglam -5.40 272s
+it 925 loss -5.435 nmse h1/h4/h16 8.21e-05 3.76e-03 0.279 loglam -5.40 280s
+it 950 loss -5.506 nmse h1/h4/h16 7.65e-05 3.42e-03 0.268 loglam -5.41 287s
+it 975 loss -5.492 nmse h1/h4/h16 7.71e-05 3.49e-03 0.271 loglam -5.41 295s
+it 1000 loss -5.488 nmse h1/h4/h16 7.72e-05 3.49e-03 0.271 loglam -5.41 302s
+it 1025 loss -5.507 nmse h1/h4/h16 7.60e-05 3.37e-03 0.271 loglam -5.41 310s
+it 1050 loss -5.553 nmse h1/h4/h16 7.36e-05 3.20e-03 0.256 loglam -5.41 317s
+it 1075 loss -5.529 nmse h1/h4/h16 7.53e-05 3.28e-03 0.261 loglam -5.41 325s
+it 1100 loss -5.499 nmse h1/h4/h16 7.66e-05 3.43e-03 0.273 loglam -5.41 332s
+it 1125 loss -5.472 nmse h1/h4/h16 7.88e-05 3.53e-03 0.276 loglam -5.41 340s
+it 1150 loss -5.512 nmse h1/h4/h16 7.58e-05 3.39e-03 0.264 loglam -5.41 347s
+it 1175 loss -5.498 nmse h1/h4/h16 7.83e-05 3.45e-03 0.269 loglam -5.41 355s
+it 1200 loss -5.519 nmse h1/h4/h16 7.61e-05 3.36e-03 0.260 loglam -5.41 362s
+it 1225 loss -5.512 nmse h1/h4/h16 7.71e-05 3.42e-03 0.262 loglam -5.41 370s
+it 1250 loss -5.490 nmse h1/h4/h16 7.80e-05 3.42e-03 0.276 loglam -5.41 378s
+it 1275 loss -5.483 nmse h1/h4/h16 7.92e-05 3.51e-03 0.269 loglam -5.41 385s
+it 1300 loss -5.535 nmse h1/h4/h16 7.59e-05 3.29e-03 0.257 loglam -5.41 393s
+it 1325 loss -5.477 nmse h1/h4/h16 8.10e-05 3.54e-03 0.270 loglam -5.41 400s
+it 1350 loss -5.458 nmse h1/h4/h16 8.08e-05 3.66e-03 0.273 loglam -5.41 408s
+it 1375 loss -5.496 nmse h1/h4/h16 7.86e-05 3.46e-03 0.267 loglam -5.41 415s
+it 1400 loss -5.483 nmse h1/h4/h16 7.98e-05 3.49e-03 0.267 loglam -5.41 423s
+it 1425 loss -5.514 nmse h1/h4/h16 7.72e-05 3.35e-03 0.262 loglam -5.40 430s
+it 1450 loss -5.480 nmse h1/h4/h16 8.06e-05 3.56e-03 0.266 loglam -5.40 438s
+it 1475 loss -5.431 nmse h1/h4/h16 8.23e-05 3.69e-03 0.288 loglam -5.40 445s
+it 1499 loss -5.469 nmse h1/h4/h16 8.05e-05 3.58e-03 0.271 loglam -5.40 453s
+{"nmse_h1": 7.187169984098905e-05, "nmse_h4": 0.003255513046173061, "nmse_h16": 0.25073686543411666, "label": "optical-trained n=64", "features": 256, "secs": 0.8132021427154541, "kind": "optical-trained", "n": 64, "modes": 4096, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "mpcs", "iters": 1500, "B": 384, "seed": 0, "train_secs": 470.33902955055237, "loaded": null, "D_total": 10000000000.0, "c_final": 193.96963500976562, "logIs": 0.0, "signal_fraction": 6.138906319751306e-05}
+   exit 0 free 115 GB
+== 13:26:25 NOISE_D=1e10 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 64 4 2 10 mpcsa 1500
+/home/brandonin/phaser/research/2026-10-12/50-train.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  curve.append(dict(it=it, loss=float(loss), nmse=e, loglam=float(prm['loglam']), secs=time.time() - t0))
+it 0 loss -3.156 nmse h1/h4/h16 3.92e-03 4.27e-02 0.476 loglam -2.05 1s
+it 25 loss -4.519 nmse h1/h4/h16 4.13e-04 9.39e-03 0.347 loglam -3.09 11s
+it 50 loss -4.874 nmse h1/h4/h16 2.15e-04 6.54e-03 0.325 loglam -3.69 22s
+it 75 loss -5.022 nmse h1/h4/h16 1.62e-04 5.71e-03 0.317 loglam -4.17 33s
+it 100 loss -5.057 nmse h1/h4/h16 1.42e-04 5.59e-03 0.334 loglam -4.55 43s
+it 125 loss -5.195 nmse h1/h4/h16 1.20e-04 4.78e-03 0.305 loglam -4.79 54s
+it 150 loss -5.214 nmse h1/h4/h16 1.14e-04 4.67e-03 0.308 loglam -4.94 65s
+it 175 loss -5.249 nmse h1/h4/h16 1.06e-04 4.44e-03 0.318 loglam -5.05 75s
+it 200 loss -5.259 nmse h1/h4/h16 1.03e-04 4.50e-03 0.315 loglam -5.12 86s
+it 225 loss -5.281 nmse h1/h4/h16 9.98e-05 4.43e-03 0.311 loglam -5.17 96s
+it 250 loss -5.355 nmse h1/h4/h16 9.16e-05 4.07e-03 0.291 loglam -5.21 107s
+it 275 loss -5.340 nmse h1/h4/h16 9.14e-05 4.09e-03 0.302 loglam -5.25 118s
+it 300 loss -5.408 nmse h1/h4/h16 8.52e-05 3.80e-03 0.286 loglam -5.28 128s
+it 325 loss -5.354 nmse h1/h4/h16 8.54e-05 4.03e-03 0.316 loglam -5.30 139s
+it 350 loss -5.443 nmse h1/h4/h16 7.95e-05 3.67e-03 0.288 loglam -5.33 149s
+it 375 loss -5.451 nmse h1/h4/h16 7.72e-05 3.61e-03 0.291 loglam -5.34 160s
+it 400 loss -5.466 nmse h1/h4/h16 7.49e-05 3.53e-03 0.295 loglam -5.36 171s
+it 425 loss -5.518 nmse h1/h4/h16 7.15e-05 3.27e-03 0.282 loglam -5.37 181s
+it 450 loss -5.510 nmse h1/h4/h16 7.25e-05 3.31e-03 0.284 loglam -5.39 192s
+it 475 loss -5.467 nmse h1/h4/h16 7.28e-05 3.56e-03 0.300 loglam -5.40 203s
+it 500 loss -5.537 nmse h1/h4/h16 6.93e-05 3.27e-03 0.277 loglam -5.40 213s
+it 525 loss -5.479 nmse h1/h4/h16 7.26e-05 3.52e-03 0.294 loglam -5.41 224s
+it 550 loss -5.526 nmse h1/h4/h16 6.84e-05 3.26e-03 0.292 loglam -5.43 234s
+it 575 loss -5.573 nmse h1/h4/h16 6.62e-05 3.19e-03 0.271 loglam -5.44 245s
+it 600 loss -5.525 nmse h1/h4/h16 6.65e-05 3.32e-03 0.294 loglam -5.44 256s
+it 625 loss -5.540 nmse h1/h4/h16 6.58e-05 3.28e-03 0.289 loglam -5.45 266s
+it 650 loss -5.598 nmse h1/h4/h16 6.29e-05 3.01e-03 0.277 loglam -5.46 277s
+it 675 loss -5.613 nmse h1/h4/h16 6.29e-05 3.08e-03 0.265 loglam -5.46 287s
+it 700 loss -5.565 nmse h1/h4/h16 6.40e-05 3.22e-03 0.283 loglam -5.47 298s
+it 725 loss -5.605 nmse h1/h4/h16 6.10e-05 3.03e-03 0.279 loglam -5.49 309s
+it 750 loss -5.643 nmse h1/h4/h16 5.97e-05 2.92e-03 0.262 loglam -5.50 319s
+it 775 loss -5.563 nmse h1/h4/h16 6.25e-05 3.20e-03 0.293 loglam -5.51 330s
+it 800 loss -5.618 nmse h1/h4/h16 6.08e-05 3.00e-03 0.274 loglam -5.51 340s
+it 825 loss -5.610 nmse h1/h4/h16 6.16e-05 3.04e-03 0.272 loglam -5.51 351s
+it 850 loss -5.601 nmse h1/h4/h16 6.10e-05 3.12e-03 0.273 loglam -5.52 362s
+it 875 loss -5.639 nmse h1/h4/h16 5.93e-05 2.96e-03 0.267 loglam -5.52 372s
+it 900 loss -5.638 nmse h1/h4/h16 5.98e-05 2.95e-03 0.265 loglam -5.52 383s
+it 925 loss -5.558 nmse h1/h4/h16 6.39e-05 3.28e-03 0.285 loglam -5.52 393s
+it 950 loss -5.637 nmse h1/h4/h16 5.95e-05 2.93e-03 0.268 loglam -5.53 404s
+it 975 loss -5.620 nmse h1/h4/h16 6.00e-05 3.04e-03 0.271 loglam -5.53 415s
+it 1000 loss -5.624 nmse h1/h4/h16 5.95e-05 3.02e-03 0.267 loglam -5.54 425s
+it 1025 loss -5.637 nmse h1/h4/h16 5.89e-05 2.91e-03 0.274 loglam -5.55 436s
+it 1050 loss -5.692 nmse h1/h4/h16 5.63e-05 2.74e-03 0.256 loglam -5.55 446s
+it 1075 loss -5.672 nmse h1/h4/h16 5.75e-05 2.81e-03 0.259 loglam -5.55 457s
+it 1100 loss -5.651 nmse h1/h4/h16 5.79e-05 2.88e-03 0.268 loglam -5.56 468s
+it 1125 loss -5.605 nmse h1/h4/h16 6.07e-05 3.05e-03 0.276 loglam -5.55 478s
+it 1150 loss -5.654 nmse h1/h4/h16 5.83e-05 2.91e-03 0.261 loglam -5.56 489s
+it 1175 loss -5.632 nmse h1/h4/h16 5.97e-05 2.97e-03 0.270 loglam -5.56 500s
+it 1200 loss -5.641 nmse h1/h4/h16 5.92e-05 2.96e-03 0.263 loglam -5.55 510s
+it 1225 loss -5.661 nmse h1/h4/h16 5.87e-05 2.89e-03 0.257 loglam -5.56 521s
+it 1250 loss -5.627 nmse h1/h4/h16 5.99e-05 2.94e-03 0.276 loglam -5.56 531s
+it 1275 loss -5.618 nmse h1/h4/h16 6.07e-05 3.02e-03 0.272 loglam -5.56 542s
+it 1300 loss -5.665 nmse h1/h4/h16 5.85e-05 2.86e-03 0.260 loglam -5.56 553s
+it 1325 loss -5.618 nmse h1/h4/h16 6.17e-05 3.02e-03 0.268 loglam -5.56 563s
+it 1350 loss -5.600 nmse h1/h4/h16 6.20e-05 3.14e-03 0.270 loglam -5.56 574s
+it 1375 loss -5.633 nmse h1/h4/h16 6.03e-05 2.97e-03 0.265 loglam -5.56 584s
+it 1400 loss -5.629 nmse h1/h4/h16 6.03e-05 2.98e-03 0.268 loglam -5.56 595s
+it 1425 loss -5.650 nmse h1/h4/h16 5.88e-05 2.91e-03 0.262 loglam -5.56 606s
+it 1450 loss -5.623 nmse h1/h4/h16 6.17e-05 3.07e-03 0.260 loglam -5.56 616s
+it 1475 loss -5.577 nmse h1/h4/h16 6.27e-05 3.14e-03 0.284 loglam -5.56 627s
+it 1499 loss -5.601 nmse h1/h4/h16 6.21e-05 3.11e-03 0.272 loglam -5.56 637s
+{"nmse_h1": 5.5148672114162504e-05, "nmse_h4": 0.0027898696065703204, "nmse_h16": 0.24542938853847673, "label": "optical-trained n=64", "features": 256, "secs": 0.7705919742584229, "kind": "optical-trained", "n": 64, "modes": 4096, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "mpcsa", "iters": 1500, "B": 384, "seed": 0, "train_secs": 661.2069931030273, "loaded": null, "D_total": 10000000000.0, "c_final": 131.34646606445312, "logIs": -1.6060435771942139, "signal_fraction": 3.069360889229006e-05}
+   exit 0 free 115 GB
+== 13:37:41 NOISE_D=1e12 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 64 4 2 10 none 0
+{"nmse_h1": 0.00050009975106315, "nmse_h4": 0.012253125786440803, "nmse_h16": 0.34776751827095365, "label": "optical-trained n=64", "features": 256, "secs": 1.0490636825561523, "kind": "optical-trained", "n": 64, "modes": 4096, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "none", "iters": 0, "B": 384, "seed": 0, "train_secs": 17.637930631637573, "loaded": null, "D_total": 1000000000000.0, "c_final": 10.0, "logIs": 0.0, "signal_fraction": 0.014593405573168588}
+   exit 0 free 115 GB
+== 13:38:10 NOISE_D=1e12 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 64 4 2 10 mpcs 1500
+/home/brandonin/phaser/research/2026-10-12/50-train.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  curve.append(dict(it=it, loss=float(loss), nmse=e, loglam=float(prm['loglam']), secs=time.time() - t0))
+it 0 loss -3.294 nmse h1/h4/h16 3.35e-03 3.53e-02 0.450 loglam -2.05 1s
+it 25 loss -4.968 nmse h1/h4/h16 1.75e-04 6.11e-03 0.327 loglam -3.10 8s
+it 50 loss -5.567 nmse h1/h4/h16 6.14e-05 3.23e-03 0.290 loglam -3.82 16s
+it 75 loss -5.709 nmse h1/h4/h16 4.69e-05 2.79e-03 0.285 loglam -4.21 23s
+it 100 loss -5.727 nmse h1/h4/h16 4.32e-05 2.80e-03 0.294 loglam -4.43 31s
+it 125 loss -5.852 nmse h1/h4/h16 3.80e-05 2.42e-03 0.265 loglam -4.64 38s
+it 150 loss -5.850 nmse h1/h4/h16 3.73e-05 2.43e-03 0.271 loglam -4.86 46s
+it 175 loss -5.868 nmse h1/h4/h16 3.50e-05 2.39e-03 0.282 loglam -5.07 53s
+it 200 loss -5.840 nmse h1/h4/h16 3.50e-05 2.51e-03 0.291 loglam -5.25 61s
+it 225 loss -5.866 nmse h1/h4/h16 3.45e-05 2.49e-03 0.279 loglam -5.38 68s
+it 250 loss -5.901 nmse h1/h4/h16 3.30e-05 2.37e-03 0.272 loglam -5.51 76s
+it 275 loss -5.867 nmse h1/h4/h16 3.36e-05 2.43e-03 0.286 loglam -5.61 83s
+it 300 loss -5.943 nmse h1/h4/h16 3.09e-05 2.21e-03 0.271 loglam -5.69 91s
+it 325 loss -5.856 nmse h1/h4/h16 3.28e-05 2.45e-03 0.300 loglam -5.76 99s
+it 350 loss -5.947 nmse h1/h4/h16 3.04e-05 2.22e-03 0.273 loglam -5.81 106s
+it 375 loss -5.947 nmse h1/h4/h16 3.04e-05 2.20e-03 0.272 loglam -5.86 114s
+it 400 loss -5.968 nmse h1/h4/h16 2.97e-05 2.16e-03 0.268 loglam -5.90 121s
+it 425 loss -6.000 nmse h1/h4/h16 2.86e-05 2.05e-03 0.267 loglam -5.94 129s
+it 450 loss -5.999 nmse h1/h4/h16 2.85e-05 2.05e-03 0.269 loglam -5.97 136s
+it 475 loss -5.948 nmse h1/h4/h16 2.94e-05 2.24e-03 0.278 loglam -6.00 144s
+it 500 loss -6.023 nmse h1/h4/h16 2.83e-05 2.01e-03 0.259 loglam -6.02 151s
+it 525 loss -5.923 nmse h1/h4/h16 3.05e-05 2.29e-03 0.283 loglam -6.04 159s
+it 550 loss -5.975 nmse h1/h4/h16 2.85e-05 2.13e-03 0.280 loglam -6.07 166s
+it 575 loss -6.029 nmse h1/h4/h16 2.77e-05 2.03e-03 0.257 loglam -6.09 174s
+it 600 loss -5.976 nmse h1/h4/h16 2.84e-05 2.15e-03 0.275 loglam -6.10 181s
+it 625 loss -5.978 nmse h1/h4/h16 2.83e-05 2.14e-03 0.275 loglam -6.12 189s
+it 650 loss -6.056 nmse h1/h4/h16 2.67e-05 1.94e-03 0.259 loglam -6.13 197s
+it 675 loss -6.069 nmse h1/h4/h16 2.71e-05 1.95e-03 0.246 loglam -6.15 204s
+it 700 loss -5.997 nmse h1/h4/h16 2.81e-05 2.12e-03 0.267 loglam -6.16 212s
+it 725 loss -6.051 nmse h1/h4/h16 2.63e-05 1.96e-03 0.260 loglam -6.18 219s
+it 750 loss -6.080 nmse h1/h4/h16 2.62e-05 1.91e-03 0.247 loglam -6.19 227s
+it 775 loss -5.969 nmse h1/h4/h16 2.81e-05 2.16e-03 0.285 loglam -6.20 234s
+it 800 loss -6.071 nmse h1/h4/h16 2.61e-05 1.92e-03 0.255 loglam -6.22 242s
+it 825 loss -6.050 nmse h1/h4/h16 2.68e-05 1.99e-03 0.254 loglam -6.22 249s
+it 850 loss -6.038 nmse h1/h4/h16 2.72e-05 2.05e-03 0.250 loglam -6.23 257s
+it 875 loss -6.077 nmse h1/h4/h16 2.63e-05 1.93e-03 0.247 loglam -6.24 264s
+it 900 loss -6.066 nmse h1/h4/h16 2.68e-05 1.96e-03 0.245 loglam -6.24 272s
+it 925 loss -5.994 nmse h1/h4/h16 2.81e-05 2.16e-03 0.263 loglam -6.25 279s
+it 950 loss -6.080 nmse h1/h4/h16 2.60e-05 1.91e-03 0.249 loglam -6.25 287s
+it 975 loss -6.068 nmse h1/h4/h16 2.62e-05 1.97e-03 0.248 loglam -6.26 294s
+it 1000 loss -6.047 nmse h1/h4/h16 2.69e-05 2.00e-03 0.251 loglam -6.27 302s
+it 1025 loss -6.076 nmse h1/h4/h16 2.59e-05 1.92e-03 0.252 loglam -6.28 310s
+it 1050 loss -6.123 nmse h1/h4/h16 2.54e-05 1.80e-03 0.238 loglam -6.28 317s
+it 1075 loss -6.106 nmse h1/h4/h16 2.53e-05 1.85e-03 0.242 loglam -6.28 325s
+it 1100 loss -6.081 nmse h1/h4/h16 2.61e-05 1.91e-03 0.247 loglam -6.29 332s
+it 1125 loss -6.043 nmse h1/h4/h16 2.67e-05 2.03e-03 0.254 loglam -6.29 340s
+it 1150 loss -6.094 nmse h1/h4/h16 2.60e-05 1.90e-03 0.239 loglam -6.30 347s
+it 1175 loss -6.085 nmse h1/h4/h16 2.59e-05 1.92e-03 0.244 loglam -6.30 355s
+it 1200 loss -6.091 nmse h1/h4/h16 2.61e-05 1.92e-03 0.238 loglam -6.30 362s
+it 1225 loss -6.111 nmse h1/h4/h16 2.61e-05 1.86e-03 0.232 loglam -6.31 370s
+it 1250 loss -6.065 nmse h1/h4/h16 2.64e-05 1.97e-03 0.251 loglam -6.31 377s
+it 1275 loss -6.057 nmse h1/h4/h16 2.66e-05 1.97e-03 0.251 loglam -6.31 385s
+it 1300 loss -6.110 nmse h1/h4/h16 2.53e-05 1.88e-03 0.238 loglam -6.31 392s
+it 1325 loss -6.075 nmse h1/h4/h16 2.66e-05 1.94e-03 0.243 loglam -6.31 400s
+it 1350 loss -6.052 nmse h1/h4/h16 2.70e-05 2.03e-03 0.246 loglam -6.31 407s
+it 1375 loss -6.091 nmse h1/h4/h16 2.62e-05 1.92e-03 0.242 loglam -6.32 415s
+it 1400 loss -6.088 nmse h1/h4/h16 2.60e-05 1.91e-03 0.241 loglam -6.32 423s
+it 1425 loss -6.116 nmse h1/h4/h16 2.53e-05 1.86e-03 0.236 loglam -6.32 430s
+it 1450 loss -6.088 nmse h1/h4/h16 2.62e-05 1.95e-03 0.236 loglam -6.32 438s
+it 1475 loss -6.048 nmse h1/h4/h16 2.70e-05 1.98e-03 0.253 loglam -6.32 445s
+it 1499 loss -6.067 nmse h1/h4/h16 2.64e-05 1.98e-03 0.245 loglam -6.32 452s
+{"nmse_h1": 2.307339812101934e-05, "nmse_h4": 0.001749024761570737, "nmse_h16": 0.22978210816053368, "label": "optical-trained n=64", "features": 256, "secs": 0.6447670459747314, "kind": "optical-trained", "n": 64, "modes": 4096, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "mpcs", "iters": 1500, "B": 384, "seed": 0, "train_secs": 469.9560372829437, "loaded": null, "D_total": 1000000000000.0, "c_final": 391.5828857421875, "logIs": 0.0, "signal_fraction": 1.0520721878046505e-05}
+   exit 0 free 115 GB
+== 13:46:11 NOISE_D=1e12 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 64 4 2 10 mpcsa 1500
+/home/brandonin/phaser/research/2026-10-12/50-train.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  curve.append(dict(it=it, loss=float(loss), nmse=e, loglam=float(prm['loglam']), secs=time.time() - t0))
+it 0 loss -3.174 nmse h1/h4/h16 3.83e-03 4.20e-02 0.472 loglam -2.05 1s
+it 25 loss -4.696 nmse h1/h4/h16 2.84e-04 8.03e-03 0.348 loglam -3.10 11s
+it 50 loss -5.333 nmse h1/h4/h16 9.32e-05 4.14e-03 0.301 loglam -3.78 22s
+it 75 loss -5.644 nmse h1/h4/h16 5.24e-05 3.04e-03 0.286 loglam -4.25 33s
+it 100 loss -5.696 nmse h1/h4/h16 4.50e-05 2.91e-03 0.298 loglam -4.48 43s
+it 125 loss -5.859 nmse h1/h4/h16 3.74e-05 2.40e-03 0.266 loglam -4.66 54s
+it 150 loss -5.873 nmse h1/h4/h16 3.58e-05 2.38e-03 0.270 loglam -4.84 65s
+it 175 loss -5.896 nmse h1/h4/h16 3.34e-05 2.32e-03 0.280 loglam -5.03 75s
+it 200 loss -5.867 nmse h1/h4/h16 3.35e-05 2.45e-03 0.289 loglam -5.19 86s
+it 225 loss -5.915 nmse h1/h4/h16 3.19e-05 2.36e-03 0.273 loglam -5.31 96s
+it 250 loss -5.939 nmse h1/h4/h16 3.10e-05 2.28e-03 0.268 loglam -5.44 107s
+it 275 loss -5.919 nmse h1/h4/h16 3.11e-05 2.31e-03 0.279 loglam -5.55 118s
+it 300 loss -6.000 nmse h1/h4/h16 2.86e-05 2.10e-03 0.260 loglam -5.64 128s
+it 325 loss -5.902 nmse h1/h4/h16 3.06e-05 2.34e-03 0.293 loglam -5.71 139s
+it 350 loss -5.992 nmse h1/h4/h16 2.86e-05 2.12e-03 0.265 loglam -5.79 150s
+it 375 loss -5.991 nmse h1/h4/h16 2.82e-05 2.11e-03 0.268 loglam -5.84 160s
+it 400 loss -6.024 nmse h1/h4/h16 2.68e-05 2.05e-03 0.266 loglam -5.89 171s
+it 425 loss -6.050 nmse h1/h4/h16 2.59e-05 1.94e-03 0.268 loglam -5.93 181s
+it 450 loss -6.055 nmse h1/h4/h16 2.59e-05 1.94e-03 0.264 loglam -5.97 192s
+it 475 loss -6.018 nmse h1/h4/h16 2.64e-05 2.10e-03 0.269 loglam -6.00 203s
+it 500 loss -6.087 nmse h1/h4/h16 2.50e-05 1.89e-03 0.255 loglam -6.03 213s
+it 525 loss -6.003 nmse h1/h4/h16 2.67e-05 2.12e-03 0.275 loglam -6.06 224s
+it 550 loss -6.057 nmse h1/h4/h16 2.51e-05 1.95e-03 0.271 loglam -6.09 235s
+it 575 loss -6.111 nmse h1/h4/h16 2.43e-05 1.88e-03 0.248 loglam -6.12 245s
+it 600 loss -6.055 nmse h1/h4/h16 2.46e-05 1.98e-03 0.270 loglam -6.14 256s
+it 625 loss -6.053 nmse h1/h4/h16 2.45e-05 1.99e-03 0.274 loglam -6.16 266s
+it 650 loss -6.122 nmse h1/h4/h16 2.32e-05 1.83e-03 0.257 loglam -6.18 277s
+it 675 loss -6.145 nmse h1/h4/h16 2.33e-05 1.82e-03 0.244 loglam -6.19 288s
+it 700 loss -6.103 nmse h1/h4/h16 2.33e-05 1.91e-03 0.260 loglam -6.21 298s
+it 725 loss -6.158 nmse h1/h4/h16 2.18e-05 1.74e-03 0.255 loglam -6.24 309s
+it 750 loss -6.181 nmse h1/h4/h16 2.21e-05 1.73e-03 0.237 loglam -6.26 320s
+it 775 loss -6.066 nmse h1/h4/h16 2.37e-05 1.98e-03 0.275 loglam -6.28 330s
+it 800 loss -6.164 nmse h1/h4/h16 2.20e-05 1.76e-03 0.250 loglam -6.30 341s
+it 825 loss -6.151 nmse h1/h4/h16 2.24e-05 1.80e-03 0.247 loglam -6.31 351s
+it 850 loss -6.147 nmse h1/h4/h16 2.22e-05 1.84e-03 0.245 loglam -6.33 362s
+it 875 loss -6.179 nmse h1/h4/h16 2.15e-05 1.75e-03 0.246 loglam -6.34 373s
+it 900 loss -6.170 nmse h1/h4/h16 2.21e-05 1.76e-03 0.242 loglam -6.35 383s
+it 925 loss -6.089 nmse h1/h4/h16 2.34e-05 1.96e-03 0.261 loglam -6.35 394s
+it 950 loss -6.198 nmse h1/h4/h16 2.11e-05 1.69e-03 0.241 loglam -6.37 404s
+it 975 loss -6.180 nmse h1/h4/h16 2.15e-05 1.76e-03 0.242 loglam -6.38 415s
+it 1000 loss -6.162 nmse h1/h4/h16 2.18e-05 1.79e-03 0.246 loglam -6.39 426s
+it 1025 loss -6.197 nmse h1/h4/h16 2.07e-05 1.69e-03 0.247 loglam -6.40 436s
+it 1050 loss -6.245 nmse h1/h4/h16 2.03e-05 1.59e-03 0.232 loglam -6.40 447s
+it 1075 loss -6.225 nmse h1/h4/h16 2.05e-05 1.64e-03 0.236 loglam -6.41 458s
+it 1100 loss -6.194 nmse h1/h4/h16 2.11e-05 1.71e-03 0.244 loglam -6.42 468s
+it 1125 loss -6.149 nmse h1/h4/h16 2.18e-05 1.83e-03 0.250 loglam -6.42 479s
+it 1150 loss -6.220 nmse h1/h4/h16 2.05e-05 1.68e-03 0.236 loglam -6.43 489s
+it 1175 loss -6.201 nmse h1/h4/h16 2.08e-05 1.71e-03 0.241 loglam -6.44 500s
+it 1200 loss -6.208 nmse h1/h4/h16 2.06e-05 1.71e-03 0.237 loglam -6.44 511s
+it 1225 loss -6.235 nmse h1/h4/h16 2.05e-05 1.64e-03 0.229 loglam -6.45 521s
+it 1250 loss -6.198 nmse h1/h4/h16 2.07e-05 1.70e-03 0.248 loglam -6.45 532s
+it 1275 loss -6.191 nmse h1/h4/h16 2.09e-05 1.71e-03 0.245 loglam -6.45 542s
+it 1300 loss -6.225 nmse h1/h4/h16 2.04e-05 1.67e-03 0.235 loglam -6.46 553s
+it 1325 loss -6.192 nmse h1/h4/h16 2.13e-05 1.74e-03 0.239 loglam -6.46 564s
+it 1350 loss -6.167 nmse h1/h4/h16 2.17e-05 1.81e-03 0.243 loglam -6.46 574s
+it 1375 loss -6.214 nmse h1/h4/h16 2.06e-05 1.69e-03 0.238 loglam -6.46 585s
+it 1400 loss -6.200 nmse h1/h4/h16 2.07e-05 1.70e-03 0.244 loglam -6.47 596s
+it 1425 loss -6.230 nmse h1/h4/h16 2.02e-05 1.65e-03 0.236 loglam -6.47 606s
+it 1450 loss -6.215 nmse h1/h4/h16 2.08e-05 1.72e-03 0.230 loglam -6.47 617s
+it 1475 loss -6.167 nmse h1/h4/h16 2.15e-05 1.77e-03 0.249 loglam -6.47 627s
+it 1499 loss -6.183 nmse h1/h4/h16 2.10e-05 1.76e-03 0.245 loglam -6.48 638s
+{"nmse_h1": 1.8321577584066274e-05, "nmse_h4": 0.0015426322078879937, "nmse_h16": 0.22420143143253546, "label": "optical-trained n=64", "features": 256, "secs": 0.7543544769287109, "kind": "optical-trained", "n": 64, "modes": 4096, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "mpcsa", "iters": 1500, "B": 384, "seed": 0, "train_secs": 661.8362877368927, "loaded": null, "D_total": 1000000000000.0, "c_final": 270.3857727050781, "logIs": -1.3787415027618408, "signal_fraction": 6.725128247952163e-06}
+   exit 0 free 115 GB
+== 13:57:28 NOISE_D=1e10 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 128 4 2 10 mpcs 1500 256
+/home/brandonin/phaser/research/2026-10-12/50-train.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  curve.append(dict(it=it, loss=float(loss), nmse=e, loglam=float(prm['loglam']), secs=time.time() - t0))
+it 0 loss -3.360 nmse h1/h4/h16 3.01e-03 2.94e-02 0.504 loglam -2.05 2s
+it 25 loss -4.589 nmse h1/h4/h16 3.06e-04 8.18e-03 0.434 loglam -2.92 33s
+it 50 loss -4.780 nmse h1/h4/h16 2.24e-04 6.74e-03 0.410 loglam -2.98 64s
+it 75 loss -5.012 nmse h1/h4/h16 1.79e-04 5.09e-03 0.336 loglam -3.02 95s
+it 100 loss -4.936 nmse h1/h4/h16 1.78e-04 5.64e-03 0.385 loglam -3.02 126s
+it 125 loss -4.985 nmse h1/h4/h16 1.66e-04 5.31e-03 0.377 loglam -2.99 157s
+it 150 loss -5.077 nmse h1/h4/h16 1.53e-04 4.84e-03 0.342 loglam -3.01 188s
+it 175 loss -5.116 nmse h1/h4/h16 1.45e-04 4.41e-03 0.352 loglam -3.00 219s
+it 200 loss -5.111 nmse h1/h4/h16 1.39e-04 4.60e-03 0.355 loglam -3.01 249s
+it 225 loss -5.203 nmse h1/h4/h16 1.27e-04 4.17e-03 0.326 loglam -3.01 280s
+it 250 loss -5.232 nmse h1/h4/h16 1.23e-04 4.01e-03 0.323 loglam -3.02 311s
+it 275 loss -5.186 nmse h1/h4/h16 1.24e-04 4.38e-03 0.337 loglam -3.00 342s
+it 300 loss -5.274 nmse h1/h4/h16 1.14e-04 3.89e-03 0.317 loglam -3.02 373s
+it 325 loss -5.230 nmse h1/h4/h16 1.13e-04 4.03e-03 0.348 loglam -3.02 404s
+it 350 loss -5.213 nmse h1/h4/h16 1.16e-04 4.10e-03 0.350 loglam -3.02 435s
+it 375 loss -5.317 nmse h1/h4/h16 1.09e-04 3.68e-03 0.307 loglam -3.02 466s
+it 400 loss -5.340 nmse h1/h4/h16 1.06e-04 3.50e-03 0.312 loglam -3.02 497s
+it 425 loss -5.295 nmse h1/h4/h16 1.05e-04 3.67e-03 0.341 loglam -3.03 528s
+it 450 loss -5.356 nmse h1/h4/h16 1.00e-04 3.54e-03 0.308 loglam -3.04 559s
+it 475 loss -5.339 nmse h1/h4/h16 1.01e-04 3.62e-03 0.317 loglam -3.03 590s
+it 500 loss -5.356 nmse h1/h4/h16 1.01e-04 3.44e-03 0.315 loglam -3.02 621s
+it 525 loss -5.413 nmse h1/h4/h16 9.43e-05 3.29e-03 0.293 loglam -3.02 652s
+it 550 loss -5.414 nmse h1/h4/h16 9.40e-05 3.38e-03 0.291 loglam -3.05 683s
+it 575 loss -5.350 nmse h1/h4/h16 9.59e-05 3.55e-03 0.327 loglam -3.02 714s
+it 600 loss -5.436 nmse h1/h4/h16 8.80e-05 3.23e-03 0.302 loglam -3.03 745s
+it 625 loss -5.432 nmse h1/h4/h16 8.85e-05 3.22e-03 0.307 loglam -3.03 776s
+it 650 loss -5.411 nmse h1/h4/h16 8.97e-05 3.33e-03 0.312 loglam -3.04 807s
+it 675 loss -5.423 nmse h1/h4/h16 8.83e-05 3.31e-03 0.307 loglam -3.04 838s
+it 700 loss -5.353 nmse h1/h4/h16 9.24e-05 3.53e-03 0.337 loglam -3.04 869s
+it 725 loss -5.432 nmse h1/h4/h16 8.82e-05 3.21e-03 0.308 loglam -3.02 900s
+it 750 loss -5.475 nmse h1/h4/h16 8.63e-05 3.14e-03 0.284 loglam -3.04 931s
+it 775 loss -5.436 nmse h1/h4/h16 8.65e-05 3.21e-03 0.307 loglam -3.05 962s
+it 800 loss -5.505 nmse h1/h4/h16 8.26e-05 2.97e-03 0.288 loglam -3.05 993s
+it 825 loss -5.499 nmse h1/h4/h16 8.29e-05 3.07e-03 0.279 loglam -3.03 1024s
+it 850 loss -5.457 nmse h1/h4/h16 8.28e-05 3.08e-03 0.314 loglam -3.05 1055s
+it 875 loss -5.501 nmse h1/h4/h16 8.05e-05 2.99e-03 0.292 loglam -3.05 1086s
+it 900 loss -5.524 nmse h1/h4/h16 8.14e-05 2.98e-03 0.276 loglam -3.05 1117s
+it 925 loss -5.573 nmse h1/h4/h16 7.77e-05 2.71e-03 0.272 loglam -3.05 1148s
+it 950 loss -5.506 nmse h1/h4/h16 8.05e-05 3.02e-03 0.291 loglam -3.05 1179s
+it 975 loss -5.518 nmse h1/h4/h16 7.88e-05 2.91e-03 0.294 loglam -3.04 1210s
+it 1000 loss -5.513 nmse h1/h4/h16 7.91e-05 2.97e-03 0.291 loglam -3.05 1241s
+it 1025 loss -5.535 nmse h1/h4/h16 7.89e-05 2.86e-03 0.286 loglam -3.05 1272s
+it 1050 loss -5.525 nmse h1/h4/h16 7.77e-05 2.91e-03 0.290 loglam -3.05 1303s
+it 1075 loss -5.574 nmse h1/h4/h16 7.75e-05 2.78e-03 0.268 loglam -3.05 1334s
+it 1100 loss -5.558 nmse h1/h4/h16 7.70e-05 2.77e-03 0.282 loglam -3.03 1365s
+it 1125 loss -5.570 nmse h1/h4/h16 7.54e-05 2.71e-03 0.282 loglam -3.05 1396s
+it 1150 loss -5.561 nmse h1/h4/h16 7.59e-05 2.76e-03 0.284 loglam -3.03 1427s
+it 1175 loss -5.501 nmse h1/h4/h16 7.97e-05 2.91e-03 0.306 loglam -3.04 1458s
+it 1200 loss -5.567 nmse h1/h4/h16 7.63e-05 2.74e-03 0.277 loglam -3.04 1489s
+it 1225 loss -5.653 nmse h1/h4/h16 7.18e-05 2.46e-03 0.253 loglam -3.04 1520s
+it 1250 loss -5.518 nmse h1/h4/h16 7.81e-05 2.98e-03 0.290 loglam -3.04 1551s
+it 1275 loss -5.611 nmse h1/h4/h16 7.15e-05 2.59e-03 0.273 loglam -3.04 1582s
+it 1300 loss -5.584 nmse h1/h4/h16 7.47e-05 2.74e-03 0.269 loglam -3.04 1613s
+it 1325 loss -5.617 nmse h1/h4/h16 7.33e-05 2.60e-03 0.260 loglam -3.04 1644s
+it 1350 loss -5.585 nmse h1/h4/h16 7.48e-05 2.72e-03 0.271 loglam -3.04 1675s
+it 1375 loss -5.599 nmse h1/h4/h16 7.32e-05 2.67e-03 0.270 loglam -3.04 1706s
+it 1400 loss -5.667 nmse h1/h4/h16 7.16e-05 2.42e-03 0.249 loglam -3.04 1737s
+it 1425 loss -5.546 nmse h1/h4/h16 7.64e-05 2.83e-03 0.288 loglam -3.04 1768s
+it 1450 loss -5.645 nmse h1/h4/h16 7.02e-05 2.46e-03 0.267 loglam -3.04 1799s
+it 1475 loss -5.596 nmse h1/h4/h16 7.42e-05 2.64e-03 0.270 loglam -3.04 1830s
+it 1499 loss -5.526 nmse h1/h4/h16 7.83e-05 2.87e-03 0.295 loglam -3.04 1860s
+{"nmse_h1": 4.595116476144569e-05, "nmse_h4": 0.002273068859957593, "nmse_h16": 0.2353260005887104, "label": "optical-trained n=128", "features": 1024, "secs": 3.7856054306030273, "kind": "optical-trained", "n": 128, "modes": 16384, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "mpcs", "iters": 1500, "B": 256, "seed": 0, "train_secs": 1878.570795059204, "loaded": null, "D_total": 10000000000.0, "c_final": 58.834110260009766, "logIs": 0.0, "signal_fraction": 0.0005131182008993743}
+   exit 0 free 115 GB
+== 14:29:02 NOISE_D=1e12 /home/brandonin/work/ext/venvs/psi/bin/python 50-train.py 128 4 2 10 mpcs 1500 256
+/home/brandonin/phaser/research/2026-10-12/50-train.py:160: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  curve.append(dict(it=it, loss=float(loss), nmse=e, loglam=float(prm['loglam']), secs=time.time() - t0))
+it 0 loss -3.431 nmse h1/h4/h16 2.69e-03 2.71e-02 0.496 loglam -2.05 2s
+it 25 loss -4.882 nmse h1/h4/h16 1.69e-04 6.38e-03 0.421 loglam -3.00 33s
+it 50 loss -5.343 nmse h1/h4/h16 7.10e-05 4.17e-03 0.390 loglam -3.28 64s
+it 75 loss -5.733 nmse h1/h4/h16 4.36e-05 2.63e-03 0.313 loglam -3.47 94s
+it 100 loss -5.680 nmse h1/h4/h16 4.22e-05 2.81e-03 0.353 loglam -3.54 125s
+it 125 loss -5.736 nmse h1/h4/h16 3.81e-05 2.65e-03 0.352 loglam -3.54 156s
+it 150 loss -5.856 nmse h1/h4/h16 3.37e-05 2.33e-03 0.313 loglam -3.60 187s
+it 175 loss -5.895 nmse h1/h4/h16 3.15e-05 2.12e-03 0.327 loglam -3.59 218s
+it 200 loss -5.899 nmse h1/h4/h16 2.98e-05 2.21e-03 0.324 loglam -3.61 249s
+it 225 loss -5.971 nmse h1/h4/h16 2.81e-05 2.06e-03 0.302 loglam -3.61 280s
+it 250 loss -5.996 nmse h1/h4/h16 2.65e-05 1.99e-03 0.308 loglam -3.64 311s
+it 275 loss -5.935 nmse h1/h4/h16 2.76e-05 2.22e-03 0.318 loglam -3.61 342s
+it 300 loss -6.049 nmse h1/h4/h16 2.47e-05 1.88e-03 0.298 loglam -3.62 373s
+it 325 loss -6.004 nmse h1/h4/h16 2.45e-05 1.96e-03 0.324 loglam -3.63 404s
+it 350 loss -5.977 nmse h1/h4/h16 2.49e-05 2.05e-03 0.332 loglam -3.64 435s
+it 375 loss -6.085 nmse h1/h4/h16 2.35e-05 1.83e-03 0.286 loglam -3.64 466s
+it 400 loss -6.106 nmse h1/h4/h16 2.25e-05 1.75e-03 0.295 loglam -3.63 497s
+it 425 loss -6.063 nmse h1/h4/h16 2.24e-05 1.84e-03 0.320 loglam -3.62 528s
+it 450 loss -6.136 nmse h1/h4/h16 2.15e-05 1.71e-03 0.288 loglam -3.62 559s
+it 475 loss -6.103 nmse h1/h4/h16 2.18e-05 1.82e-03 0.299 loglam -3.62 590s
+it 500 loss -6.117 nmse h1/h4/h16 2.16e-05 1.74e-03 0.298 loglam -3.61 620s
+it 525 loss -6.174 nmse h1/h4/h16 1.96e-05 1.67e-03 0.286 loglam -3.63 651s
+it 550 loss -6.175 nmse h1/h4/h16 2.03e-05 1.71e-03 0.273 loglam -3.62 682s
+it 575 loss -6.104 nmse h1/h4/h16 2.09e-05 1.80e-03 0.309 loglam -3.60 713s
+it 600 loss -6.184 nmse h1/h4/h16 1.91e-05 1.66e-03 0.288 loglam -3.60 744s
+it 625 loss -6.194 nmse h1/h4/h16 1.90e-05 1.63e-03 0.293 loglam -3.60 775s
+it 650 loss -6.164 nmse h1/h4/h16 1.90e-05 1.68e-03 0.306 loglam -3.61 806s
+it 675 loss -6.165 nmse h1/h4/h16 1.90e-05 1.75e-03 0.296 loglam -3.60 837s
+it 700 loss -6.101 nmse h1/h4/h16 1.97e-05 1.84e-03 0.325 loglam -3.61 868s
+it 725 loss -6.201 nmse h1/h4/h16 1.83e-05 1.63e-03 0.292 loglam -3.58 899s
+it 750 loss -6.260 nmse h1/h4/h16 1.79e-05 1.56e-03 0.261 loglam -3.59 930s
+it 775 loss -6.199 nmse h1/h4/h16 1.79e-05 1.63e-03 0.296 loglam -3.59 961s
+it 800 loss -6.285 nmse h1/h4/h16 1.72e-05 1.47e-03 0.272 loglam -3.59 992s
+it 825 loss -6.267 nmse h1/h4/h16 1.71e-05 1.56e-03 0.268 loglam -3.58 1023s
+it 850 loss -6.225 nmse h1/h4/h16 1.73e-05 1.57e-03 0.297 loglam -3.56 1054s
+it 875 loss -6.274 nmse h1/h4/h16 1.65e-05 1.49e-03 0.284 loglam -3.57 1085s
+it 900 loss -6.311 nmse h1/h4/h16 1.65e-05 1.48e-03 0.258 loglam -3.57 1116s
+it 925 loss -6.359 nmse h1/h4/h16 1.58e-05 1.35e-03 0.256 loglam -3.57 1146s
+it 950 loss -6.276 nmse h1/h4/h16 1.65e-05 1.54e-03 0.279 loglam -3.55 1177s
+it 975 loss -6.315 nmse h1/h4/h16 1.58e-05 1.44e-03 0.273 loglam -3.58 1208s
+it 1000 loss -6.301 nmse h1/h4/h16 1.57e-05 1.48e-03 0.276 loglam -3.55 1239s
+it 1025 loss -6.331 nmse h1/h4/h16 1.54e-05 1.41e-03 0.272 loglam -3.55 1270s
+it 1050 loss -6.331 nmse h1/h4/h16 1.51e-05 1.42e-03 0.274 loglam -3.55 1301s
+it 1075 loss -6.372 nmse h1/h4/h16 1.53e-05 1.36e-03 0.253 loglam -3.54 1332s
+it 1100 loss -6.349 nmse h1/h4/h16 1.50e-05 1.39e-03 0.270 loglam -3.53 1363s
+it 1125 loss -6.366 nmse h1/h4/h16 1.47e-05 1.34e-03 0.269 loglam -3.55 1394s
+it 1150 loss -6.355 nmse h1/h4/h16 1.49e-05 1.39e-03 0.270 loglam -3.53 1425s
+it 1175 loss -6.299 nmse h1/h4/h16 1.55e-05 1.46e-03 0.289 loglam -3.52 1456s
+it 1200 loss -6.361 nmse h1/h4/h16 1.47e-05 1.37e-03 0.266 loglam -3.53 1487s
+it 1225 loss -6.454 nmse h1/h4/h16 1.37e-05 1.23e-03 0.242 loglam -3.53 1518s
+it 1250 loss -6.308 nmse h1/h4/h16 1.50e-05 1.52e-03 0.281 loglam -3.52 1549s
+it 1275 loss -6.415 nmse h1/h4/h16 1.36e-05 1.27e-03 0.263 loglam -3.51 1580s
+it 1300 loss -6.393 nmse h1/h4/h16 1.42e-05 1.35e-03 0.256 loglam -3.51 1611s
+it 1325 loss -6.437 nmse h1/h4/h16 1.36e-05 1.28e-03 0.246 loglam -3.50 1641s
+it 1350 loss -6.400 nmse h1/h4/h16 1.41e-05 1.32e-03 0.257 loglam -3.51 1672s
+it 1375 loss -6.404 nmse h1/h4/h16 1.39e-05 1.33e-03 0.258 loglam -3.51 1703s
+it 1400 loss -6.508 nmse h1/h4/h16 1.31e-05 1.13e-03 0.234 loglam -3.50 1734s
+it 1425 loss -6.352 nmse h1/h4/h16 1.43e-05 1.43e-03 0.277 loglam -3.50 1765s
+it 1450 loss -6.467 nmse h1/h4/h16 1.29e-05 1.21e-03 0.250 loglam -3.50 1796s
+it 1475 loss -6.418 nmse h1/h4/h16 1.36e-05 1.30e-03 0.257 loglam -3.50 1827s
+it 1499 loss -6.336 nmse h1/h4/h16 1.45e-05 1.46e-03 0.280 loglam -3.50 1857s
+{"nmse_h1": 1.0290824682214753e-05, "nmse_h4": 0.0010911108388677307, "nmse_h16": 0.20796313758080062, "label": "optical-trained n=128", "features": 1024, "secs": 4.10347843170166, "kind": "optical-trained", "n": 128, "modes": 16384, "bin": 4, "K": 2, "G0": 1.0, "carrier": 10.0, "trained": "mpcs", "iters": 1500, "B": 256, "seed": 0, "train_secs": 1876.51700091362, "loaded": null, "D_total": 1000000000000.0, "c_final": 101.2018814086914, "logIs": 0.0, "signal_fraction": 9.653486910266587e-05}
+   exit 0 free 115 GB
+ALLDONE
