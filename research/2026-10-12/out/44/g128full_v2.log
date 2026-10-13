@@ -1,0 +1,84 @@
+optical M_out=1 done 1479s
+optical M_out=64 done 2954s
+electronic bin 4 done 3093s
+electronic bin 16 done 3105s
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+06', 'qbits': None, 'narma10_nmse': '0.1663', 'narma20_nmse': '0.2611', 'mc_1_60': '49.79', 'xor_d2': '0.9718'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+06', 'qbits': 8, 'narma10_nmse': '0.1665', 'narma20_nmse': '0.261', 'mc_1_60': '49.79', 'xor_d2': '0.9722'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+06', 'qbits': 6, 'narma10_nmse': '0.1668', 'narma20_nmse': '0.2618', 'mc_1_60': '49.72', 'xor_d2': '0.971'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+06', 'qbits': 4, 'narma10_nmse': '0.1777', 'narma20_nmse': '0.2769', 'mc_1_60': '49.48', 'xor_d2': '0.9636'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+07', 'qbits': None, 'narma10_nmse': '0.07434', 'narma20_nmse': '0.05564', 'mc_1_60': '57.12', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+07', 'qbits': 8, 'narma10_nmse': '0.0744', 'narma20_nmse': '0.05563', 'mc_1_60': '57.11', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+07', 'qbits': 6, 'narma10_nmse': '0.07632', 'narma20_nmse': '0.05629', 'mc_1_60': '57.07', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+07', 'qbits': 4, 'narma10_nmse': '0.05278', 'narma20_nmse': '0.0701', 'mc_1_60': '56.23', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+08', 'qbits': None, 'narma10_nmse': '0.02578', 'narma20_nmse': '0.02997', 'mc_1_60': '58.54', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+08', 'qbits': 8, 'narma10_nmse': '0.02584', 'narma20_nmse': '0.03021', 'mc_1_60': '58.53', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+08', 'qbits': 6, 'narma10_nmse': '0.02781', 'narma20_nmse': '0.03282', 'mc_1_60': '58.36', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+08', 'qbits': 4, 'narma10_nmse': '0.08061', 'narma20_nmse': '0.04931', 'mc_1_60': '57.09', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+09', 'qbits': None, 'narma10_nmse': '0.02091', 'narma20_nmse': '0.02142', 'mc_1_60': '59.01', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+09', 'qbits': 8, 'narma10_nmse': '0.02094', 'narma20_nmse': '0.02276', 'mc_1_60': '58.96', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+09', 'qbits': 6, 'narma10_nmse': '0.02293', 'narma20_nmse': '0.02474', 'mc_1_60': '58.77', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+09', 'qbits': 4, 'narma10_nmse': '0.07563', 'narma20_nmse': '0.04721', 'mc_1_60': '57.22', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+10', 'qbits': None, 'narma10_nmse': '0.01842', 'narma20_nmse': '0.01776', 'mc_1_60': '59.17', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+10', 'qbits': 8, 'narma10_nmse': '0.0195', 'narma20_nmse': '0.01901', 'mc_1_60': '59.13', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+10', 'qbits': 6, 'narma10_nmse': '0.02242', 'narma20_nmse': '0.02398', 'mc_1_60': '58.8', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+10', 'qbits': 4, 'narma10_nmse': '0.0751', 'narma20_nmse': '0.04698', 'mc_1_60': '57.24', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+11', 'qbits': None, 'narma10_nmse': '0.01816', 'narma20_nmse': '0.01666', 'mc_1_60': '59.25', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+11', 'qbits': 8, 'narma10_nmse': '0.01923', 'narma20_nmse': '0.01867', 'mc_1_60': '59.14', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+11', 'qbits': 6, 'narma10_nmse': '0.02237', 'narma20_nmse': '0.02392', 'mc_1_60': '58.8', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+11', 'qbits': 4, 'narma10_nmse': '0.07504', 'narma20_nmse': '0.04696', 'mc_1_60': '57.23', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+12', 'qbits': None, 'narma10_nmse': '0.01813', 'narma20_nmse': '0.01543', 'mc_1_60': '59.32', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+12', 'qbits': 8, 'narma10_nmse': '0.0192', 'narma20_nmse': '0.01865', 'mc_1_60': '59.14', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+12', 'qbits': 6, 'narma10_nmse': '0.02236', 'narma20_nmse': '0.02392', 'mc_1_60': '58.8', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': '1e+12', 'qbits': 4, 'narma10_nmse': '0.07503', 'narma20_nmse': '0.04696', 'mc_1_60': '57.23', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': None, 'qbits': None, 'narma10_nmse': '0.01813', 'narma20_nmse': '0.01463', 'mc_1_60': '59.37', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': None, 'qbits': 8, 'narma10_nmse': '0.01919', 'narma20_nmse': '0.01865', 'mc_1_60': '59.14', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': None, 'qbits': 6, 'narma10_nmse': '0.02236', 'narma20_nmse': '0.02392', 'mc_1_60': '58.8', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 1, 'detectors': 2, 'D': None, 'qbits': 4, 'narma10_nmse': '0.07503', 'narma20_nmse': '0.04695', 'mc_1_60': '57.23', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+06', 'qbits': None, 'narma10_nmse': '0.7153', 'narma20_nmse': '0.8368', 'mc_1_60': '8.849', 'xor_d2': '0.5656'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+06', 'qbits': 8, 'narma10_nmse': '0.7154', 'narma20_nmse': '0.8368', 'mc_1_60': '8.852', 'xor_d2': '0.5654'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+06', 'qbits': 6, 'narma10_nmse': '0.716', 'narma20_nmse': '0.8362', 'mc_1_60': '8.863', 'xor_d2': '0.5656'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+06', 'qbits': 4, 'narma10_nmse': '0.6964', 'narma20_nmse': '0.826', 'mc_1_60': '9.251', 'xor_d2': '0.573'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+07', 'qbits': None, 'narma10_nmse': '0.2954', 'narma20_nmse': '0.2921', 'mc_1_60': '34.43', 'xor_d2': '0.7854'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+07', 'qbits': 8, 'narma10_nmse': '0.2954', 'narma20_nmse': '0.2921', 'mc_1_60': '34.43', 'xor_d2': '0.7846'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+07', 'qbits': 6, 'narma10_nmse': '0.2948', 'narma20_nmse': '0.2922', 'mc_1_60': '34.4', 'xor_d2': '0.7876'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+07', 'qbits': 4, 'narma10_nmse': '0.2905', 'narma20_nmse': '0.293', 'mc_1_60': '34.52', 'xor_d2': '0.79'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+08', 'qbits': None, 'narma10_nmse': '0.1166', 'narma20_nmse': '0.1788', 'mc_1_60': '52.11', 'xor_d2': '0.9918'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+08', 'qbits': 8, 'narma10_nmse': '0.1168', 'narma20_nmse': '0.1787', 'mc_1_60': '52.11', 'xor_d2': '0.9922'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+08', 'qbits': 6, 'narma10_nmse': '0.1171', 'narma20_nmse': '0.1795', 'mc_1_60': '52.08', 'xor_d2': '0.9912'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+08', 'qbits': 4, 'narma10_nmse': '0.1278', 'narma20_nmse': '0.1943', 'mc_1_60': '51.44', 'xor_d2': '0.9846'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+09', 'qbits': None, 'narma10_nmse': '0.05494', 'narma20_nmse': '0.04747', 'mc_1_60': '57.49', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+09', 'qbits': 8, 'narma10_nmse': '0.055', 'narma20_nmse': '0.04747', 'mc_1_60': '57.49', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+09', 'qbits': 6, 'narma10_nmse': '0.05694', 'narma20_nmse': '0.04811', 'mc_1_60': '57.45', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+09', 'qbits': 4, 'narma10_nmse': '0.1099', 'narma20_nmse': '0.0618', 'mc_1_60': '56.58', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+10', 'qbits': None, 'narma10_nmse': '0.02383', 'narma20_nmse': '0.02673', 'mc_1_60': '58.7', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+10', 'qbits': 8, 'narma10_nmse': '0.02389', 'narma20_nmse': '0.02697', 'mc_1_60': '58.69', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+10', 'qbits': 6, 'narma10_nmse': '0.02586', 'narma20_nmse': '0.02957', 'mc_1_60': '58.52', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+10', 'qbits': 4, 'narma10_nmse': '0.07863', 'narma20_nmse': '0.04848', 'mc_1_60': '57.13', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+11', 'qbits': None, 'narma10_nmse': '0.01992', 'narma20_nmse': '0.01993', 'mc_1_60': '59.07', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+11', 'qbits': 8, 'narma10_nmse': '0.02102', 'narma20_nmse': '0.02124', 'mc_1_60': '59.03', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+11', 'qbits': 6, 'narma10_nmse': '0.02273', 'narma20_nmse': '0.02443', 'mc_1_60': '58.78', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+11', 'qbits': 4, 'narma10_nmse': '0.07543', 'narma20_nmse': '0.04712', 'mc_1_60': '57.23', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+12', 'qbits': None, 'narma10_nmse': '0.01832', 'narma20_nmse': '0.01782', 'mc_1_60': '59.19', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+12', 'qbits': 8, 'narma10_nmse': '0.01939', 'narma20_nmse': '0.01887', 'mc_1_60': '59.13', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+12', 'qbits': 6, 'narma10_nmse': '0.0224', 'narma20_nmse': '0.02396', 'mc_1_60': '58.8', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': '1e+12', 'qbits': 4, 'narma10_nmse': '0.07508', 'narma20_nmse': '0.04697', 'mc_1_60': '57.24', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': None, 'qbits': None, 'narma10_nmse': '0.01813', 'narma20_nmse': '0.01463', 'mc_1_60': '59.37', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': None, 'qbits': 8, 'narma10_nmse': '0.01919', 'narma20_nmse': '0.01865', 'mc_1_60': '59.14', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': None, 'qbits': 6, 'narma10_nmse': '0.02236', 'narma20_nmse': '0.02392', 'mc_1_60': '58.8', 'xor_d2': '1'}
+{'readout': 'optical', 'M_out': 64, 'detectors': 128, 'D': None, 'qbits': 4, 'narma10_nmse': '0.07503', 'narma20_nmse': '0.04695', 'mc_1_60': '57.23', 'xor_d2': '1'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': '1e+06', 'narma10_nmse': '0.1387', 'narma20_nmse': '0.178', 'mc_1_60': '42.83', 'xor_d2': '0.8654'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': '1e+07', 'narma10_nmse': '0.1076', 'narma20_nmse': '0.137', 'mc_1_60': '49.58', 'xor_d2': '0.952'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': '1e+08', 'narma10_nmse': '0.08308', 'narma20_nmse': '0.1059', 'mc_1_60': '53.83', 'xor_d2': '0.9932'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': '1e+09', 'narma10_nmse': '0.06369', 'narma20_nmse': '0.0814', 'mc_1_60': '55.91', 'xor_d2': '0.9982'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': '1e+10', 'narma10_nmse': '0.05473', 'narma20_nmse': '0.06851', 'mc_1_60': '56.82', 'xor_d2': '0.9996'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': '1e+11', 'narma10_nmse': '0.04952', 'narma20_nmse': '0.06186', 'mc_1_60': '57.22', 'xor_d2': '0.9998'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': '1e+12', 'narma10_nmse': '0.04667', 'narma20_nmse': '0.05832', 'mc_1_60': '57.41', 'xor_d2': '0.9998'}
+{'readout': 'electronic', 'bin': 4, 'detectors': 1024, 'D': None, 'narma10_nmse': '0.04605', 'narma20_nmse': '0.05648', 'mc_1_60': '57.49', 'xor_d2': '1'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': '1e+06', 'narma10_nmse': '0.4355', 'narma20_nmse': '0.4758', 'mc_1_60': '10.67', 'xor_d2': '0.6176'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': '1e+07', 'narma10_nmse': '0.3574', 'narma20_nmse': '0.4193', 'mc_1_60': '17.24', 'xor_d2': '0.679'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': '1e+08', 'narma10_nmse': '0.3193', 'narma20_nmse': '0.3737', 'mc_1_60': '23.15', 'xor_d2': '0.7058'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': '1e+09', 'narma10_nmse': '0.2963', 'narma20_nmse': '0.3436', 'mc_1_60': '25.9', 'xor_d2': '0.7222'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': '1e+10', 'narma10_nmse': '0.2905', 'narma20_nmse': '0.34', 'mc_1_60': '26.4', 'xor_d2': '0.724'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': '1e+11', 'narma10_nmse': '0.2905', 'narma20_nmse': '0.3398', 'mc_1_60': '26.47', 'xor_d2': '0.724'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': '1e+12', 'narma10_nmse': '0.2901', 'narma20_nmse': '0.3396', 'mc_1_60': '26.47', 'xor_d2': '0.7258'}
+{'readout': 'electronic', 'bin': 16, 'detectors': 64, 'D': None, 'narma10_nmse': '0.2902', 'narma20_nmse': '0.3396', 'mc_1_60': '26.47', 'xor_d2': '0.7262'}

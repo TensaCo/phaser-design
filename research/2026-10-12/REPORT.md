@@ -1,4 +1,4 @@
-# PHASER research sprint — 2026-10-12: GPU design engine, physical cross-gain, latch
+# PHASER research sprint — 2026-10-12: GPU design engine, physical cross-gain, latch, economic viability
 
 > Continues `research/2026-09-14/REPORT.md` (Experiments 1–35). It picks up the "Next experiments" of Exp. 28: the latch,
 > a physical realisation of cross-gain, composition, the phase-stability budget and a clock. Heavy jobs run on the compute
@@ -190,6 +190,168 @@ so the sheet's NAND has less margin than the diffusion model's. Failures are aga
 budget for a sheet-based gate is therefore ≈ 0.01 rad rms static SLM error with the current recipe. Next: an explicit margin
 term (`w_margin`), longer training at 0.02 rad, and more seeds.
 
+## Part 2 — is a built PHASER an economically viable alternative? (Exps. 43–47)
+
+The question changed in the evening: not "can it compute" but "at what scale, for which workloads, would a built PHASER beat
+buying GPUs", even if that only appears at ≥ $10k investment. Five experiments, all on the Exp. 30/31 reservoir ring
+(`Apre_lin`: `slmRing`, random phase mask seed 3 depth 0.1, f 40 mm, global gain G0 1.6, Is 0.05, input amplitude 6,
+aperture 1.2 mm·n/64). Code: `res-dump.ts` (exports the twin and a JS reference run), `res_gpu.py` (GPU twin), `res_lib.py`
+(GPU ridge with the 30-lib protocol, GPU ESN), `43-scale.py`, `44-optread.py`, `ks.py` + `45-ks.py`, `46-econ.py`,
+`47-effdim.py`; queues `43-queue.sh`, `45-queue.sh`, `rerun-queue.sh`.
+
+**GPU twin.** `res_gpu.py` matches the JS reference to 3–6e-8 (complex128) and 1e-5 to 3e-5 (complex64) from 64² to 1024²;
+1024² runs at 38 ms per step (K 10, batch 2), about 10 min per 16k steps.
+
+**Incident.** At 21:25–21:27 five concurrent jobs exhausted the GB10's single 119 GB CPU+GPU memory pool
+(`NVRM NV_ERR_NO_MEMORY`) and the peer rebooted at 21:36, killing everything. The remaining work was rerun one job at a time
+(`rerun-queue.sh`). Rule since then: summed peak memory well under ~90 GB, big jobs sequential.
+
+### Experiment 43 — reservoir scaling to 262k modes (GPU)
+
+The Exp. 31 protocol (16 modes per detector bin, K 10 trips per input, 16k steps) on the GPU twin. It reproduces Exp. 31
+exactly at 64²–256² and extends it to 512².
+
+| ring | modes | features | capacity (lin + quad) | NARMA10 NMSE | MC 1–60 | XOR(d2) |
+|---|---|---|---|---|---|---|
+| g64 | 4,096 | 256 | 115.6 | 0.095 | 37.4 | 0.996 |
+| g128 | 16,384 | 1,024 | 260.3 | 0.046 | 57.5 | 1.000 |
+| g256 | 65,536 | 4,096 | 416.7 | 0.0080 | 59.8 | 1.000 |
+| g512 | 262,144 | 16,384 | **431.7** | 0.0139 | 59.8 | 1.000 |
+| ESN 4096 (best NARMA of 9 settings) | — | 4,096 | 256.5 | 0.0048 | 46.3 | 1.000 |
+| ESN 8192 (best NARMA) | — | 8,192 | 261.9 | 0.0034 | 51.3 | 1.000 |
+
+**Result.** Capacity saturates between 65k and 262k modes (417 → 432) and NARMA10 gets slightly *worse* (16k training samples
+for 16k features is part of it, but the capacity metric is less sample-limited). The 1024² run (`g1024`) was cancelled when the
+work was wound down; it needs ≈ 40 GB while scoring and would take ≈ 2 h.
+
+### Experiment 44 — optical readout: 2 detectors per output instead of one per 16 modes
+
+The readout's weighted sum done in optics: an amplitude mask (one pixel per mode) in front of a polarising beam splitter and
+two bucket detectors, D+ − D− = Σ (2T_p − 1) n_p. Weights are trained offline on noise-free full-resolution features (a
+calibration camera), quantised, and the noise of each output is the shot noise of all the tapped light. 128² ring at full
+resolution (`g128full`), NMSE of NARMA10 on the test split at D detected photons per step:
+
+| D (photons/step) | optical, 1 output (2 det.) | optical, 64 outputs (128 det.) | electronic, bin 4 (1,024 det.) | electronic, bin 16 (64 det.) |
+|---|---|---|---|---|
+| 1e6 | 0.166 | 0.715 | 0.139 | 0.435 |
+| 1e7 | 0.074 | 0.295 | 0.108 | 0.357 |
+| 1e8 | **0.026** | 0.117 | 0.083 | 0.319 |
+| 1e9 | 0.021 | 0.055 | 0.064 | 0.296 |
+| 1e10 | 0.018 | 0.024 | 0.055 | 0.291 |
+| noise-free | 0.018 | 0.018 | 0.046 | 0.290 |
+
+8-bit mask transmissions lose almost nothing (0.019 noise-free), 6-bit is close, 4-bit gives ≈ 0.075. 64 outputs split the
+light 64 ways and need ≈ 1e9–1e10 photons per step in total to match one output at 1e8.
+
+**Result.** The optical readout beats 1,024 per-bin detectors at every photon budget from 1e7 up, with 2 detectors instead of
+1,024, because it reads every mode at full resolution. This removes the electronics that dominated the Exp. 34 energy and
+the Exp. 46 cost. Caveat: the weights are trained offline, so the cavity, mask and gain must stay stable between calibrations;
+drift was not modelled.
+
+### Experiment 45 — Kuramoto–Sivashinsky forecasting (a harder, high-dimensional task)
+
+KS on L 60, simulated on 128 points with ETDRK4 (h 0.025) and kept at Q 64 channels, sampled every 0.25 (`ks.py`; two fixes
+were needed: project to real each step, because round-off's imaginary part grew at the unstable wavenumbers, and zero the
+odd derivative at Nyquist). 32,000 samples. The reservoir sees the 64 channels through 64 fixed input patterns; the target is
+the open-loop forecast x(t + h), h = 1, 4, 16 samples. NMSE on the test split; best setting per model:
+
+| model | features | h 1 | h 4 | h 16 |
+|---|---|---|---|---|
+| linear in x(t) (floor) | — | 4.0e-3 | 0.060 | 0.54 |
+| optical 64² (K 10, amp 100) | 256 | 2.2e-3 | 0.035 | 0.42 |
+| optical 128² (K 10, amp 100) | 1,024 | 8.6e-5 | 0.0054 | 0.33 |
+| optical 256² (K 2, amp 100) | 4,096 | 3.4e-5 | **0.0029** | 0.33 |
+| optical 512² (K 2, amp 300) | 16,384 | 2.7e-5 | 0.0029 | 0.36 |
+| NG-RC k 2 (quadratic monomials of 2 lags) | 8,384 | 2.7e-6 | 0.0015 | 0.32 |
+| ESN 256, untuned grid | 256 | 4.5e-4 | 0.0105 | 0.34 |
+| ESN 16384, untuned grid | 16,384 | 5.8e-5 | 0.0037 | 0.32 |
+| **ESN 1024, tuned (rho 0.7, input 0.01)** | 1,024 | 1.2e-6 | **0.00043** | 0.22 |
+| **ESN 4096, tuned (rho 0.7, input 0.01)** | 4,096 | 4.1e-7 | **0.00035** | 0.21 |
+
+**Result.** On KS a *tuned* 1,024-unit ESN beats the 65k-mode ring by ≈ 7× at h 4 (and ≈ 30× at h 1), and the ring stops
+improving from 65k to 262k modes. The ESN only won after its input scale was cut to 0.01 (a nearly linear regime); with the
+first grid (input 0.1–0.5) a 16k-unit ESN was no better than the ring. The optical side was tuned on three knobs only (trips
+per input K, input amplitude, nothing else) and was still improving slightly with input amplitude at 300. The 512² K 10 and
+1024² runs were cancelled when the work was wound down.
+
+**What this means for the Exp. 31 equivalence.** Exp. 31 found 16–44 modes per ESN unit against a *fixed-recipe* ESN on
+capacity tasks. Against a tuned ESN on KS the ratio is > 64 modes per unit at 65k modes, and it grows with size because the ring
+saturates. The scaling assumption in Exp. 46 is therefore optimistic.
+
+### Experiment 47a — professional SLM (higher reflectivity), gain unchanged
+
+The same 256² ring with the SLM reflectivity raised from 0.75 (aluminium LCOS, the default) to 0.95 and 0.99 (dielectric-mirror
+SLMs), KS, K 2:
+
+| SLM reflectivity | h 1 | h 4 | h 16 |
+|---|---|---|---|
+| 0.75 (default) | 3.4e-5 | **0.0029** | 0.33 |
+| 0.95 | 3.6e-4 | 0.0093 | 0.40 |
+| 0.99 | 8.3e-4 | 0.0133 | 0.41 |
+
+**Result: worse, but not a fair test.** G0 was left at 1.6, so with less loss the ring runs much further above threshold, the
+global gain saturates harder and the dominant mode takes more of the energy. A real comparison needs G0 (or the pump) re-tuned
+to the same distance from threshold at each reflectivity; that was not run. What this does show is that the operating point
+(net round-trip gain), not loss alone, sets reservoir quality.
+
+### Experiment 47b — how many dimensions does the optical state use?
+
+Eigen-spectrum of the centred feature covariance (one input channel, uniform stream, same input for all):
+
+| state | eigenvalues > 1e-3 of the largest | > 1e-5 | > 1e-7 | participation ratio |
+|---|---|---|---|---|
+| optical 4k modes (g64) | 26 | 55 | 74 | 2.3 |
+| optical 16k (g128) | 78 | 229 | 305 | 7.0 |
+| optical 65k (g256) | 69 | 383 | 1,107 | 5.4 |
+| optical 262k (g512) | 60 | 626 | 2,815 | 3.1 |
+| ESN 1024 | 17 | 101 | 427 | 4.6 |
+| ESN 4096 | 17 | 109 | 564 | 4.7 |
+
+**Result.** The optical state is not low-dimensional next to an ESN (383 against 109 directions above 1e-5), but it grows
+sublinearly: 64× more modes give ≈ 11× more weak directions and *no* more strong ones (60–80 above 1e-3 throughout). Most of the
+variance sits in 3–7 directions.
+
+### Experiment 46 — techno-economic model (MODELED)
+
+`46-econ.py`: low/high price and power ranges for a prototype (lab parts) and volume (≥ 1k units) PHASER against H100-class GPUs
+running a dense ESN of N = modes / r units, r = 16–44 modes per unit from Exp. 31. Every input is a stated assumption in the
+script; nothing here is measured, and r is the optimistic Exp. 31 value (see Exp. 45). One input, one output, ring at
+0.75 G steps/s, r 44:
+
+| modes | readout | PHASER prototype | PHASER volume | PHASER power | GPUs for the same MAC rate | GPU single-stream max rate |
+|---|---|---|---|---|---|---|
+| 65k | optical | $21k–75k | $0.9k–5.4k | 13–79 W | 1.7–3.3 | 2e5 steps/s |
+| 65k | electronic | $0.8M–4.2M | $21k–128k | 0.2–2.1 kW | 1.7–3.3 | 2e5 steps/s |
+| 262k | optical | $21k–75k | $0.9k–5.4k | 13–79 W | 27–53 | 9e4 steps/s |
+| 1M | optical | $21k–75k | $0.9k–5.4k | 13–79 W | 430–850 | 6e3 steps/s |
+
+64 outputs raise the optical-readout power to ≈ 1 kW (photon budget). With a "digital efficiency" of 100 (a digital model 100×
+cheaper per step than a dense ESN at the same quality, which NG-RC and a tuned small ESN already are on KS), the cost advantage
+only appears around 1M modes, and Exps. 43 and 45 say the ring's capability has stopped growing well before that.
+
+**Where it could still win.** A single stream at ≥ 1e8 steps/s: no number of GPUs runs one recurrent stream that fast (one
+sequential step needs at least a kernel launch, ≈ 5 µs), while the ring runs at 0.75–1.5e9 steps/s. So the economic case is
+latency-bound streaming (RF, optical-link or sensor streams at GHz rates with short memory), not throughput against batched
+GPUs. Energy and power figures here are modelled (cf. Exp. 29), not measured.
+
+### Conclusions of Part 2 — physics or algorithms?
+
+Both.
+* **Physics of this design.** The ring is linear in the field between gain passes with one *global* gain, so the features are
+  quadratic in the input history (from detection); loss and the spectral gap set the memory; the input enters through a few
+  fixed patterns; and the transfer operator is a few masks plus propagation, so mode count ≠ degrees of freedom. Result:
+  dimension grows sublinearly and capability saturates at 65k–262k modes.
+* **Algorithms and operating point.** The mask is random and untrained, the operating point barely tuned (Exp. 47a shows it
+  matters a lot), and the digital baseline only won after tuning.
+
+**Next experiments, in order.**
+1. Gradient-train the phase masks for the task through the differentiable twin (the Exp. 36 engine).
+2. A per-mode intracavity nonlinearity (saturable absorber or Kerr; already in the logic physics) to get past quadratic
+   features.
+3. Re-run 47a with G0 re-tuned to a fixed distance from threshold at each SLM reflectivity.
+4. More input channels; workloads where digital costs explode (many channels, GHz streaming, long memory).
+5. Finish the cancelled runs: 512² K 10, 1024² KS and capacity (`g1024`), ESN 16384 capacity.
+
 ## Status at the end of the day (2026-10-12)
 
 | experiment | status |
@@ -202,3 +364,9 @@ term (`w_margin`), longer training at 0.02 rad, and more seeds.
 | 40 phase-error-trained NAND | **3 designs pass 3/3 draws at 0.03 rad** |
 | 42 same, on the 12 mm sheet | 3 sheet NANDs verified; best is clean only to 0.01 rad |
 | 41 clock | not achieved |
+| 43 reservoir scaling | done to 262k modes; capacity saturates (417 → 432); 1024² cancelled |
+| 44 optical readout | **done: 2 detectors beat 1,024 per-bin detectors from 1e7 photons/step** |
+| 45 KS forecasting | done to 262k modes; tuned ESN-1024 beats the 65k ring ≈ 7× at h 4; 1024² cancelled |
+| 46 economics (modeled) | done; viable only for single-stream GHz-rate workloads unless capability keeps scaling |
+| 47a professional SLM | run at unchanged gain: worse; needs G0 re-tuned (not run) |
+| 47b effective dimension | done; sublinear growth, 60–80 strong directions at every size |
