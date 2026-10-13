@@ -1,0 +1,191 @@
+{
+ "task": "osc",
+ "twin": "A64s_amp_go12",
+ "Ig": 1.0,
+ "Ld": 0,
+ "s": -0.8,
+ "Ia": 0.2,
+ "kerr": 0.0,
+ "I_init": 1.5,
+ "I_hi": 0.6,
+ "I_lo": 0.1,
+ "cells": {
+  "A": [
+   28,
+   31,
+   3
+  ],
+  "B": [
+   34,
+   31,
+   3
+  ]
+ },
+ "cases": [
+  {
+   "name": "run",
+   "init_on": [],
+   "inject": [
+    {
+     "t": 1,
+     "cell": "A",
+     "amp": 6.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "A",
+     "value": 1,
+     "t_from": 220,
+     "t_to": 280
+    },
+    {
+     "cell": "B",
+     "value": 0,
+     "t_from": 220,
+     "t_to": 280
+    },
+    {
+     "cell": "A",
+     "value": 0,
+     "t_from": 320,
+     "t_to": 380
+    },
+    {
+     "cell": "B",
+     "value": 1,
+     "t_from": 320,
+     "t_to": 380
+    },
+    {
+     "cell": "A",
+     "value": 1,
+     "t_from": 420,
+     "t_to": 480
+    },
+    {
+     "cell": "B",
+     "value": 0,
+     "t_from": 420,
+     "t_to": 480
+    },
+    {
+     "cell": "A",
+     "value": 0,
+     "t_from": 520,
+     "t_to": 580
+    },
+    {
+     "cell": "B",
+     "value": 1,
+     "t_from": 520,
+     "t_to": 580
+    },
+    {
+     "cell": "A",
+     "value": 1,
+     "t_from": 620,
+     "t_to": 680
+    },
+    {
+     "cell": "B",
+     "value": 0,
+     "t_from": 620,
+     "t_to": 680
+    },
+    {
+     "cell": "A",
+     "value": 0,
+     "t_from": 720,
+     "t_to": 780
+    },
+    {
+     "cell": "B",
+     "value": 1,
+     "t_from": 720,
+     "t_to": 780
+    }
+   ]
+  }
+ ],
+ "tag": "e41_go12_osc_p200_log_d10",
+ "run": "e41_go12_osc_p200_log",
+ "seed": 10,
+ "n": 64,
+ "mask_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e41_go12_osc_p200_log_d10_mask.f64",
+ "G0": 2.7054250240325928,
+ "T_train": 780,
+ "design_acc": 0.5,
+ "params": {
+  "twin": "A64s_amp_go12",
+  "G0": 2.0,
+  "Ig": 1.0,
+  "s": -0.8,
+  "Ia": 0.2,
+  "kerr": 0.0,
+  "I_init": 1.5,
+  "I_hi": 0.6,
+  "I_lo": 0.1,
+  "bg_max": 10,
+  "w_bg": 0,
+  "inj_amp": 6.0,
+  "iters": 800,
+  "lr": 0.05,
+  "noise": 0.01,
+  "learn_gain": true,
+  "dtype": "c64",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "G0s": [
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0
+  ],
+  "lr_amp": 0.2,
+  "w": 3,
+  "w_stat": 0,
+  "amp_margin": 0,
+  "amp_bg": -1,
+  "log_every": 25,
+  "loss_log": true,
+  "Ld": 0,
+  "dist": 6,
+  "period": 200,
+  "margin": 20,
+  "T": 800,
+  "tag": "e41_go12_osc_p200_log",
+  "task": "osc"
+ },
+ "amp_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e41_go12_osc_p200_log_d10_amp.f64",
+ "amp_dark": 0.0
+}

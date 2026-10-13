@@ -1,0 +1,514 @@
+[
+ {
+  "tag": "e37_go3_NOT_d0",
+  "spec": "out/designs/e37_go3_NOT_d0_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 5.779136701410975e-204,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d10",
+  "spec": "out/designs/e37_go3_NOT_d10_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.974005375272757,
+    "max_off": 0.00503577857996957,
+    "ripple": 5.329070518200751e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d11",
+  "spec": "out/designs/e37_go3_NOT_d11_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 4.1755128729295325,
+    "max_off": 0.007554335088450513,
+    "ripple": 7.993605777301127e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d12",
+  "spec": "out/designs/e37_go3_NOT_d12_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 1.449776624175912e-203,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d13",
+  "spec": "out/designs/e37_go3_NOT_d13_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.41270920138778,
+    "max_off": 0.0031834424157512753,
+    "ripple": 5.329070518200751e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d14",
+  "spec": "out/designs/e37_go3_NOT_d14_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.886630647112145,
+    "max_off": 0.0039726583475229935,
+    "ripple": 3.9968028886505635e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d15",
+  "spec": "out/designs/e37_go3_NOT_d15_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 3.940940127254482,
+    "max_off": 0.008117347528460918,
+    "ripple": 8.43769498715119e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d1",
+  "spec": "out/designs/e37_go3_NOT_d1_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.129138473174248,
+    "max_off": 0.0029551940292707867,
+    "ripple": 5.329070518200751e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d2",
+  "spec": "out/designs/e37_go3_NOT_d2_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.932502930394273,
+    "max_off": 0.003838706717645335,
+    "ripple": 4.884981308350689e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d3",
+  "spec": "out/designs/e37_go3_NOT_d3_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 4.153398400366087,
+    "max_off": 0.006958888768318534,
+    "ripple": 7.105427357601002e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d4",
+  "spec": "out/designs/e37_go3_NOT_d4_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 3.4689824984982226e-202,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d5",
+  "spec": "out/designs/e37_go3_NOT_d5_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.160776699578225,
+    "max_off": 0.0029709650527715696,
+    "ripple": 4.884981308350689e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d6",
+  "spec": "out/designs/e37_go3_NOT_d6_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 3.478102054213854,
+    "max_off": 0.005737237530259735,
+    "ripple": 5.773159728050814e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d7",
+  "spec": "out/designs/e37_go3_NOT_d7_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 4.304831861488031,
+    "max_off": 0.006680131549558378,
+    "ripple": 7.105427357601002e-15
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d8",
+  "spec": "out/designs/e37_go3_NOT_d8_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 5.256080261593762e-203,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e37_go3_NOT_d9",
+  "spec": "out/designs/e37_go3_NOT_d9_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 2,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NOT0",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "NOT1",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.4026818664943193,
+    "max_off": 0.0034902252535461966,
+    "ripple": 4.440892098500626e-15
+   }
+  ]
+ }
+]

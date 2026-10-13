@@ -51,6 +51,10 @@ export interface RingOptions extends ArchOptions {
   /** Exp. 33 loss budget: override component losses and insert extra thin elements (e.g. glass slabs) after a route element */
   losses?: { slmR?: number; slmDead?: number; lensT?: number; foldR?: number; inR?: number; outR?: number }
   extra?: { spec: OpticalElementSpec; after: string }[]
+  /** 2026-10-12 (Exp. 37): place the gain element this far (m) downstream of the SLM/image plane instead of in it (inputFirst
+   *  compact route only). Light from a cell is defocused there, so its saturation is shared with neighbouring cells: a physical
+   *  cross-gain mechanism without long carrier diffusion. The saturable absorber (nl) stays in the image plane. */
+  gainOffset?: number
 }
 
 /**
@@ -95,7 +99,9 @@ export function slmRing(o: RingOptions = {}): PhysicsConfig {
   const route0: CustomRouteItem[] = o.compact === false
     ? [E('slm'), ...act.ids.map(E), P(40e-3), E('lensR'), P(40e-3), E('fold'), E('roof'), P(20e-3), E('out'), P(40e-3), E('lensL'), P(20e-3), P(20e-3), E('in'), P(20e-3)]
     : o.inputFirst
-      ? [E('in'), E('slm'), ...act.ids.map(E), P(40e-3), E('lensR'), E('fold'), E('roof'), E('out'), P(100e-3), E('lensL'), P(60e-3 + (o.defocus ?? 0))]
+      ? (o.gainOffset
+          ? [E('in'), E('slm'), ...act.ids.filter((id) => id !== 'gain').map(E), P(o.gainOffset), E('gain'), P(40e-3 - o.gainOffset), E('lensR'), E('fold'), E('roof'), E('out'), P(100e-3), E('lensL'), P(60e-3 + (o.defocus ?? 0))]
+          : [E('in'), E('slm'), ...act.ids.map(E), P(40e-3), E('lensR'), E('fold'), E('roof'), E('out'), P(100e-3), E('lensL'), P(60e-3 + (o.defocus ?? 0))])
       : [E('slm'), ...act.ids.map(E), P(40e-3), E('lensR'), E('fold'), E('roof'), E('out'), P(100e-3), E('lensL'), E('in'), P(60e-3 + (o.defocus ?? 0))]
   if (o.ampMask) route0.splice(route0.findIndex((r) => r.kind === 'element' && r.elementId === 'slm') + 1, 0, E('amp'))
   for (const x of o.extra ?? []) route0.splice(route0.findIndex((r) => r.kind === 'element' && r.elementId === x.after) + 1, 0, E(x.spec.id))

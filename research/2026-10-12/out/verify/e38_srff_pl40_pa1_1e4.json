@@ -1,0 +1,1378 @@
+[
+ {
+  "tag": "e38_srff_pl40_pa1_d0",
+  "spec": "out/designs/e38_srff_pl40_pa1_d0_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.098856642807472e-255,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.098856642807472e-255,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.272684905009541e-262,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.272684905009541e-262,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.5448322848124998e-169,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 2.3341437727081558e-163,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d10",
+  "spec": "out/designs/e38_srff_pl40_pa1_d10_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.112371703584952e-285,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.112371703584952e-285,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 2.2402681728981687e-284,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 2.2402681728981687e-284,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 3.002026037030888e-183,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 6.456582024030467e-184,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d11",
+  "spec": "out/designs/e38_srff_pl40_pa1_d11_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.5562093425910264e-262,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.5562093425910264e-262,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 2.251172382671917e-260,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 2.251172382671917e-260,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 4.272141284017511e-167,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 6.748738768537187e-169,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d12",
+  "spec": "out/designs/e38_srff_pl40_pa1_d12_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.721156901545484e-294,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.721156901545484e-294,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 6.071053613042959e-296,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 6.071053613042959e-296,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.814330079626395e-190,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.1120651091024e-188,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d13",
+  "spec": "out/designs/e38_srff_pl40_pa1_d13_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 9.8123606176773e-294,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 9.8123606176773e-294,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.195941374069418e-294,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.195941374069418e-294,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 3.833884915637938e-189,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.9313307270368242e-188,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d14",
+  "spec": "out/designs/e38_srff_pl40_pa1_d14_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 8.756506915171599e-281,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 8.756506915171599e-281,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.118404743658664e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.118404743658664e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.5261494595320428e-184,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.8771993034665483e-179,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d15",
+  "spec": "out/designs/e38_srff_pl40_pa1_d15_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.149469929781846e-239,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.149469929781846e-239,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.410124008408605e-239,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.410124008408605e-239,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.904901667818063e-154,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.7923151763232845e-154,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d1",
+  "spec": "out/designs/e38_srff_pl40_pa1_d1_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.0827621766771749e-272,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.0827621766771749e-272,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 8.954264797508014e-271,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 8.954264797508014e-271,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 3.742376963670524e-174,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 4.5265400021635535e-176,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d2",
+  "spec": "out/designs/e38_srff_pl40_pa1_d2_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.0889433121932974e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 3.0889433121932974e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.2144861922117364e-268,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.2144861922117364e-268,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 4.760751723598441e-173,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 3.489320293599221e-172,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d3",
+  "spec": "out/designs/e38_srff_pl40_pa1_d3_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.0784679056798503e-283,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.0784679056798503e-283,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.1640421385896997e-288,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.1640421385896997e-288,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.3673162095158052e-186,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 4.792666158638532e-181,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d4",
+  "spec": "out/designs/e38_srff_pl40_pa1_d4_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.5265166073184252e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.5265166073184252e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.892687214615669e-287,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.892687214615669e-287,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 6.407332901502488e-185,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.2392514285669154e-184,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d5",
+  "spec": "out/designs/e38_srff_pl40_pa1_d5_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 8.772806464297666e-288,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 8.772806464297666e-288,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.754702467294142e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.754702467294142e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.2920487398614991e-183,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.4616703679522156e-185,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d6",
+  "spec": "out/designs/e38_srff_pl40_pa1_d6_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.8592807864209995e-272,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.8592807864209995e-272,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.821031746507163e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.821031746507163e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.6260283050408544e-170,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.6378792585242173e-175,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d7",
+  "spec": "out/designs/e38_srff_pl40_pa1_d7_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 2.172224014127125e-273,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 2.172224014127125e-273,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.8856479413030007e-276,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.8856479413030007e-276,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.2008321104546455e-176,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 9.772697641362013e-175,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d8",
+  "spec": "out/designs/e38_srff_pl40_pa1_d8_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.3056655503551223e-279,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.3056655503551223e-279,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 6.564772718373677e-280,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 6.564772718373677e-280,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 5.7531576687154975e-180,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 1.1442436922273924e-179,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_srff_pl40_pa1_d9",
+  "spec": "out/designs/e38_srff_pl40_pa1_d9_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.562172803448112e-283,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.562172803448112e-283,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 9881,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 9.035208234273122e-285,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 9.035208234273122e-285,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 5.551107735044343e-184,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9691,
+    "first_violation": 230,
+    "min_on": 0.0,
+    "max_off": 2.8029362544567655e-182,
+    "ripple": 0.0
+   }
+  ]
+ }
+]

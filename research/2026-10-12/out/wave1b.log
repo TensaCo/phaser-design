@@ -1,0 +1,5 @@
+done e37_go12_NOT: 0 designs pass 1e4
+done e37_go12_NAND: 1 designs pass 1e4
+done e37_ld100_NOT: 0 designs pass 1e4
+done e37_ld100_NAND: 2 designs pass 1e4
+queue wave1b.jobs finished

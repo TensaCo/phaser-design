@@ -1,0 +1,52 @@
+[
+ {
+  "tag": "e37_ld100_NAND_d11",
+  "spec": "out/designs/e37_ld100_NAND_d11_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.02,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.2342176198185137,
+    "max_off": 0.022461821974549625,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.49959132221916364,
+    "max_off": 0.12226259856751114,
+    "ripple": 1.6090244510893292
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9434,
+    "first_violation": 567,
+    "min_on": 0.07502451562959643,
+    "max_off": 28.175830107412445,
+    "ripple": 4.322921984862742
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 2980,
+    "first_violation": 413,
+    "min_on": 22.64176013189146,
+    "max_off": 0.6713223311392005,
+    "ripple": 4.322764759228225
+   }
+  ]
+ }
+]

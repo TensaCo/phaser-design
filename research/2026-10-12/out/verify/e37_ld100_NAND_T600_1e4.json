@@ -1,0 +1,802 @@
+[
+ {
+  "tag": "e37_ld100_NAND_T600_d0",
+  "spec": "out/designs/e37_ld100_NAND_T600_d0_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 5.178040570010167,
+    "max_off": 0.010391496728207134,
+    "ripple": 2.4868995751603507e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.010391495329903183,
+    "max_off": 0.0036651163368480824,
+    "ripple": 2.842170943040401e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 4.440273640561736,
+    "max_off": 0.1911221431753427,
+    "ripple": 0.6276321400274831
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.17520589224507827,
+    "max_off": 4.666319587977244,
+    "ripple": 0.6276320623415081
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d10",
+  "spec": "out/designs/e37_ld100_NAND_T600_d10_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.006759735753377828,
+    "max_off": 0.008690574087879807,
+    "ripple": 4.263256414560601e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.002636930172484186,
+    "max_off": 0.053003798011633345,
+    "ripple": 1.059532560945808
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.006146683283527936,
+    "max_off": 0.037162794138465974,
+    "ripple": 0.25772080094062844
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 19.498255565518214,
+    "max_off": 0.014126461881717544,
+    "ripple": 1.277151393228582
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d11",
+  "spec": "out/designs/e37_ld100_NAND_T600_d11_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0161073574878788,
+    "max_off": 0.008242581311449504,
+    "ripple": 3.907985046680551e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.00655129941029029,
+    "max_off": 0.10292751099557473,
+    "ripple": 0.9217368049855743
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.013555323034764782,
+    "max_off": 0.04560477254877895,
+    "ripple": 0.4661921654981107
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 23.117576874834832,
+    "max_off": 0.03090120596797833,
+    "ripple": 1.3060945962903254
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d12",
+  "spec": "out/designs/e37_ld100_NAND_T600_d12_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.7224699199928897,
+    "max_off": 0.007704427943543283,
+    "ripple": 2.3092638912203256e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 3576,
+    "first_violation": 127,
+    "min_on": 0.09479904908560287,
+    "max_off": 0.05020912117477953,
+    "ripple": 1.915251896114837
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9801,
+    "first_violation": 200,
+    "min_on": 0.07815768655024191,
+    "max_off": 8.93482237380498,
+    "ripple": 1.852227633858174
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 3966,
+    "first_violation": 183,
+    "min_on": 7.082591832192252,
+    "max_off": 0.5459770815003189,
+    "ripple": 1.8522267263611942
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d13",
+  "spec": "out/designs/e37_ld100_NAND_T600_d13_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.9907509249990762,
+    "max_off": 0.008859971338290171,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 2610,
+    "first_violation": 109,
+    "min_on": 0.27180441885572365,
+    "max_off": 0.025429407164394353,
+    "ripple": 0.8191580036296399
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.3562254017479225,
+    "max_off": 0.021176383950103815,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9406,
+    "first_violation": 83,
+    "min_on": 6.510271887147695,
+    "max_off": 0.8587107487086817,
+    "ripple": 0.43478986552149834
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d14",
+  "spec": "out/designs/e37_ld100_NAND_T600_d14_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 6,
+    "first_violation": 92,
+    "min_on": 0.6193077245107265,
+    "max_off": 0.34968646573607337,
+    "ripple": 2.842170943040401e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9915,
+    "first_violation": 80,
+    "min_on": 0.34968646573607104,
+    "max_off": 0.002646321801270227,
+    "ripple": 2.842170943040401e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9702,
+    "first_violation": 299,
+    "min_on": 0.3381316112058596,
+    "max_off": 0.3966610212779551,
+    "ripple": 0.001986855345942118
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 307,
+    "first_violation": 80,
+    "min_on": 0.35733291642503917,
+    "max_off": 0.34599412092246457,
+    "ripple": 0.00198451988336501
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d15",
+  "spec": "out/designs/e37_ld100_NAND_T600_d15_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9768,
+    "first_violation": 168,
+    "min_on": 0.24237397405275832,
+    "max_off": 33.39040401613028,
+    "ripple": 3.1400055465308223
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9806,
+    "first_violation": 80,
+    "min_on": 0.24237689321920108,
+    "max_off": 33.39023720294697,
+    "ripple": 3.1414738939685565
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 5703,
+    "first_violation": 80,
+    "min_on": 0.33108559986669833,
+    "max_off": 0.48192730025689023,
+    "ripple": 0.9522278699714839
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 6135,
+    "first_violation": 80,
+    "min_on": 0.1956254068696396,
+    "max_off": 0.36700426096814726,
+    "ripple": 0.952229553928202
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d1",
+  "spec": "out/designs/e37_ld100_NAND_T600_d1_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 3,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.760307877310598,
+    "max_off": 0.0037590096200919264,
+    "ripple": 2.4868995751603507e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 5,
+    "first_violation": 80,
+    "min_on": 1.464986878427208,
+    "max_off": 0.03564647480505223,
+    "ripple": 0.26490421001169295
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.7758231206530188,
+    "max_off": 0.049245149741904914,
+    "ripple": 0.1760025153684701
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 20.79517689292473,
+    "max_off": 0.08554892246349595,
+    "ripple": 0.25516744323424945
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d2",
+  "spec": "out/designs/e37_ld100_NAND_T600_d2_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.027186406997778603,
+    "max_off": 0.00961246163992023,
+    "ripple": 3.907985046680551e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.009488595481363635,
+    "max_off": 0.06426554219265425,
+    "ripple": 0.8642969001134695
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.02086344067830443,
+    "max_off": 0.05049707453460642,
+    "ripple": 0.46484790541054366
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 18.52517967415274,
+    "max_off": 0.05678138742970244,
+    "ripple": 1.3989875193153232
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d3",
+  "spec": "out/designs/e37_ld100_NAND_T600_d3_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 73,
+    "first_violation": 80,
+    "min_on": 18.158117753102335,
+    "max_off": 0.3159399769753969,
+    "ripple": 3.7491074475271624
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.27655681036251245,
+    "max_off": 0.013719646596875523,
+    "ripple": 3.749756948543805
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.20627152266951682,
+    "max_off": 0.2647704999084098,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9890,
+    "first_violation": 111,
+    "min_on": 0.26473848627958946,
+    "max_off": 0.206314884818427,
+    "ripple": 3.197442310920451e-14
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d4",
+  "spec": "out/designs/e37_ld100_NAND_T600_d4_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 3,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.348349287276823,
+    "max_off": 0.01729387051937121,
+    "ripple": 2.1316282072803006e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.8178172701468214,
+    "max_off": 0.01998832636950388,
+    "ripple": 0.9159529372066171
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.8451600410906432,
+    "max_off": 0.06495239522713347,
+    "ripple": 0.5243755194529953
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 8480,
+    "first_violation": 1521,
+    "min_on": 8.308778740538264,
+    "max_off": 1.550608633118316,
+    "ripple": 1.1621268552350088
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d5",
+  "spec": "out/designs/e37_ld100_NAND_T600_d5_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9710,
+    "first_violation": 291,
+    "min_on": 0.3504239644750081,
+    "max_off": 14.494376352473441,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 228,
+    "first_violation": 118,
+    "min_on": 0.3505685894771763,
+    "max_off": 0.34774499168658496,
+    "ripple": 3.907985046680551e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.3477355810927949,
+    "max_off": 14.494378555278226,
+    "ripple": 4.618527782440651e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9775,
+    "first_violation": 80,
+    "min_on": 0.3477355810927947,
+    "max_off": 0.3505762447747254,
+    "ripple": 3.552713678800501e-14
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d6",
+  "spec": "out/designs/e37_ld100_NAND_T600_d6_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.01224469073963022,
+    "max_off": 0.009108720359785482,
+    "ripple": 3.907985046680551e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.00600718629401496,
+    "max_off": 0.034336337618128,
+    "ripple": 4.263256414560601e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.009825150604979502,
+    "max_off": 0.049813354898207506,
+    "ripple": 0.41221457929099614
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 20.09765243824887,
+    "max_off": 0.008443494504968445,
+    "ripple": 0.3764290710157958
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d7",
+  "spec": "out/designs/e37_ld100_NAND_T600_d7_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.012567511523584086,
+    "max_off": 0.010617543736301667,
+    "ripple": 4.263256414560601e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.00527425213107724,
+    "max_off": 0.08854228544861953,
+    "ripple": 1.0700332196388231
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.010729712310709492,
+    "max_off": 0.05648759504361163,
+    "ripple": 0.2831442790932961
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 20.733605680960626,
+    "max_off": 0.027912667827105678,
+    "ripple": 1.37947489308047
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d8",
+  "spec": "out/designs/e37_ld100_NAND_T600_d8_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.6681974230095494,
+    "max_off": 0.3413143706108736,
+    "ripple": 1.9539925233402755e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.3413143706023577,
+    "max_off": 0.0019446014186134458,
+    "ripple": 2.1316282072803006e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 5026,
+    "first_violation": 80,
+    "min_on": 0.30830775536288346,
+    "max_off": 0.4061951977578965,
+    "ripple": 1.1029792723202974
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 6319,
+    "first_violation": 80,
+    "min_on": 0.3352070587620972,
+    "max_off": 0.4246159854183871,
+    "ripple": 1.0904500987184793
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_T600_d9",
+  "spec": "out/designs/e37_ld100_NAND_T600_d9_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 3,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 8.345520582137866,
+    "max_off": 0.008092898930002979,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 5.848380335612921,
+    "max_off": 0.03250164066546919,
+    "ripple": 2.3651129098381993
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 5.994773142846471,
+    "max_off": 0.03973407609785788,
+    "ripple": 2.4865177597752774
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 19.898594383565253,
+    "max_off": 8.440827784084771,
+    "ripple": 4.56077986604094
+   }
+  ]
+ }
+]

@@ -1,0 +1,13 @@
+done e37_go3_NOT: 0 designs pass 1e4
+done e37_go3_NAND: 0 designs pass 1e4
+done e38_srff_pa1.5:  designs pass 1e4
+done e38_srff_pa3: 0 designs pass 1e4
+done e37_go5_NOT: 0 designs pass 1e4
+done e37_go5_NAND: 0 designs pass 1e4
+done e38_srff_v_pa1.5: 0 designs pass 1e4
+done e37_go2_NOT: 0 designs pass 1e4
+done e38_latch2_pa1.5: 0 designs pass 1e4
+done e37_go2_NAND: 0 designs pass 1e4
+done e37_go8_NOT: 0 designs pass 1e4
+done e37_go8_NAND: 0 designs pass 1e4
+queue wave1.jobs finished

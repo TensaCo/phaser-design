@@ -1,0 +1,9 @@
+done e41_ld100_osc_p200:  designs pass 1e4
+done e40_ld100_NAND_jit03: 1 designs pass 1e4
+done e41_go12_osc_p200: 0 designs pass 1e4
+done e40_go12_NAND_jit03: 0 designs pass 1e4
+done e41_ld100_osc_p400: 0 designs pass 1e4
+done e38_go12_srff_pa1.5:  designs pass 1e4
+done e37_ld100_NAND_T600: 0 designs pass 1e4
+done e38_srff_pl40_pa1: 0 designs pass 1e4
+queue wave2.jobs finished

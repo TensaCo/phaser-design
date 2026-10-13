@@ -1,0 +1,17 @@
+e41_go12_osc_p200_log_d0: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d10: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d11: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d12: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d13: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d14: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d15: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d1: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d2: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d3: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d4: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d5: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d6: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d7: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d8: 0/1 cases fail to H=10000 | run:x@220
+e41_go12_osc_p200_log_d9: 0/1 cases fail to H=10000 | run:x@220
+  group of 16 verified in 103s

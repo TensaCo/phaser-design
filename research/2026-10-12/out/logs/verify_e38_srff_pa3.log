@@ -1,0 +1,17 @@
+e38_srff_pa3_d0: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d10: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d11: 4/8 cases fail to H=10000 | hold1:ok | hold0:ok | set_from0:x@210 | set_from1:ok | reset_from1:x@210 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d12: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d13: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d14: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d15: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d1: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d2: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d3: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d4: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d5: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d6: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d7: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d8: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+e38_srff_pa3_d9: 0/8 cases fail to H=10000 | hold1:x@40 | hold0:x@40 | set_from0:x@40 | set_from1:x@40 | reset_from1:x@40 | reset_from0:x@40 | set_then_reset:x@210 | reset_then_set:x@210
+  group of 16 verified in 525s

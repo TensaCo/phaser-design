@@ -1,0 +1,17 @@
+e37_go2_NOT_d0: 0/2 cases fail to H=10000 | NOT0:x@80 | NOT1:x@80
+e37_go2_NOT_d10: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d11: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d12: 0/2 cases fail to H=10000 | NOT0:x@80 | NOT1:x@80
+e37_go2_NOT_d13: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d14: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d15: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d1: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d2: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d3: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d4: 0/2 cases fail to H=10000 | NOT0:x@80 | NOT1:x@80
+e37_go2_NOT_d5: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d6: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d7: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+e37_go2_NOT_d8: 0/2 cases fail to H=10000 | NOT0:x@80 | NOT1:x@80
+e37_go2_NOT_d9: 1/2 cases fail to H=10000 | NOT0:x@80 | NOT1:ok
+  group of 16 verified in 90s

@@ -1,0 +1,13 @@
+jit 0.01 seed 1: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.01 seed 2: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.01 seed 3: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.02 seed 1: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.02 seed 2: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.02 seed 3: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.03 seed 1: e40_ld100_NAND_jit03_d12: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:ok
+jit 0.03 seed 2: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.03 seed 3: e40_ld100_NAND_jit03_d12: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:ok
+jit 0.05 seed 1: e40_ld100_NAND_jit03_d12: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:ok
+jit 0.05 seed 2: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+jit 0.05 seed 3: e40_ld100_NAND_jit03_d12: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:ok
+H1e5: e40_ld100_NAND_jit03_d12: 4/4 cases PASS to H=100000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok

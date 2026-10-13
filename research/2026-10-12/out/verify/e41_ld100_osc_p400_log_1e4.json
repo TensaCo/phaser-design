@@ -1,0 +1,370 @@
+[
+ {
+  "tag": "e41_ld100_osc_p400_log_d0",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d0_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d10",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d10_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 17.8069168548047,
+    "max_off": 19.629009614591684,
+    "ripple": 5.573064840264731
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d11",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d11_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d12",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d12_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 2904,
+    "first_violation": 440,
+    "min_on": 10.136454705249525,
+    "max_off": 0.060741656433089035,
+    "ripple": 2.4868995751603507e-14
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d13",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d13_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d14",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d14_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d15",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d15_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 2944,
+    "first_violation": 640,
+    "min_on": 0.0962894786985347,
+    "max_off": 6.995768645278518,
+    "ripple": 1.865174681370263e-14
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d1",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d1_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d2",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d2_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d3",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d3_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d4",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d4_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 15.037910606173638,
+    "max_off": 4.936356372411407,
+    "ripple": 2.930988785010413e-14
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d5",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d5_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d6",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d6_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 21.878320163088286,
+    "max_off": 18.199736532063262,
+    "ripple": 3.184480688649966
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d7",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d7_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d8",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d8_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e41_ld100_osc_p400_log_d9",
+  "spec": "out/designs/e41_ld100_osc_p400_log_d9_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 1,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "run",
+    "ok": false,
+    "n_bad_trips": 5848,
+    "first_violation": 440,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   }
+  ]
+ }
+]

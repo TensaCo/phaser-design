@@ -1,0 +1,2438 @@
+{
+ "task": "srff",
+ "twin": "A64s_amp",
+ "Ig": 1.0,
+ "Ld": 0.0001,
+ "s": -0.8,
+ "Ia": 0.2,
+ "kerr": 0.0,
+ "I_init": 1.5,
+ "I_hi": 0.6,
+ "I_lo": 0.1,
+ "cells": {
+  "S": [
+   22,
+   31,
+   3
+  ],
+  "Q": [
+   28,
+   31,
+   3
+  ],
+  "Qb": [
+   34,
+   31,
+   3
+  ],
+  "R": [
+   40,
+   31,
+   3
+  ]
+ },
+ "cases": [
+  {
+   "name": "hold1",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Q",
+     "amp": 6.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 1,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  },
+  {
+   "name": "hold0",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Qb",
+     "amp": 6.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 1,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  },
+  {
+   "name": "set_from0",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Qb",
+     "amp": 6.0,
+     "phase": 0.0
+    },
+    {
+     "t": 150,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 151,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 152,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 153,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 154,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 155,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 156,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 157,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 158,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 159,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 160,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 161,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 162,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 163,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 164,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 165,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 166,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 167,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 168,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 169,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 170,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 171,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 172,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 173,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 174,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 175,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 176,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 177,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 178,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 179,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 180,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 181,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 182,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 183,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 184,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 185,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 186,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 187,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 188,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 189,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "Qb",
+     "value": 1,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "Q",
+     "value": 1,
+     "t_from": 230,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  },
+  {
+   "name": "set_from1",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Q",
+     "amp": 6.0,
+     "phase": 0.0
+    },
+    {
+     "t": 150,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 151,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 152,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 153,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 154,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 155,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 156,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 157,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 158,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 159,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 160,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 161,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 162,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 163,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 164,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 165,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 166,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 167,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 168,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 169,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 170,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 171,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 172,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 173,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 174,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 175,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 176,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 177,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 178,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 179,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 180,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 181,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 182,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 183,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 184,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 185,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 186,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 187,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 188,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 189,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 1,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  },
+  {
+   "name": "reset_from1",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Q",
+     "amp": 6.0,
+     "phase": 0.0
+    },
+    {
+     "t": 150,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 151,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 152,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 153,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 154,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 155,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 156,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 157,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 158,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 159,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 160,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 161,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 162,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 163,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 164,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 165,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 166,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 167,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 168,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 169,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 170,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 171,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 172,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 173,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 174,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 175,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 176,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 177,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 178,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 179,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 180,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 181,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 182,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 183,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 184,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 185,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 186,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 187,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 188,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 189,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 1,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "Qb",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "Q",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 1,
+     "t_from": 230,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  },
+  {
+   "name": "reset_from0",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Qb",
+     "amp": 6.0,
+     "phase": 0.0
+    },
+    {
+     "t": 150,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 151,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 152,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 153,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 154,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 155,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 156,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 157,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 158,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 159,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 160,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 161,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 162,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 163,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 164,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 165,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 166,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 167,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 168,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 169,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 170,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 171,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 172,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 173,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 174,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 175,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 176,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 177,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 178,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 179,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 180,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 181,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 182,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 183,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 184,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 185,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 186,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 187,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 188,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 189,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 1,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  },
+  {
+   "name": "set_then_reset",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Qb",
+     "amp": 6.0,
+     "phase": 0.0
+    },
+    {
+     "t": 150,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 151,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 152,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 153,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 154,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 155,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 156,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 157,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 158,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 159,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 160,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 161,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 162,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 163,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 164,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 165,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 166,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 167,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 168,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 169,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 170,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 171,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 172,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 173,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 174,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 175,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 176,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 177,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 178,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 179,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 180,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 181,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 182,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 183,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 184,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 185,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 186,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 187,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 188,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 189,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 300,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 301,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 302,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 303,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 304,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 305,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 306,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 307,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 308,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 309,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 310,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 311,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 312,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 313,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 314,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 315,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 316,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 317,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 318,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 319,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 320,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 321,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 322,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 323,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 324,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 325,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 326,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 327,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 328,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 329,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 330,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 331,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 332,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 333,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 334,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 335,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 336,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 337,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 338,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 339,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 1,
+     "t_from": 230,
+     "t_to": 299
+    },
+    {
+     "cell": "Qb",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 299
+    },
+    {
+     "cell": "Q",
+     "value": 0,
+     "t_from": 380,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 1,
+     "t_from": 380,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 299
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 380,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  },
+  {
+   "name": "reset_then_set",
+   "inject": [
+    {
+     "t": 1,
+     "cell": "Q",
+     "amp": 6.0,
+     "phase": 0.0
+    },
+    {
+     "t": 150,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 151,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 152,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 153,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 154,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 155,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 156,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 157,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 158,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 159,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 160,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 161,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 162,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 163,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 164,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 165,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 166,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 167,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 168,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 169,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 170,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 171,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 172,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 173,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 174,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 175,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 176,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 177,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 178,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 179,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 180,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 181,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 182,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 183,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 184,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 185,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 186,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 187,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 188,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 189,
+     "cell": "R",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 300,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 301,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 302,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 303,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 304,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 305,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 306,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 307,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 308,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 309,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 310,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 311,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 312,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 313,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 314,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 315,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 316,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 317,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 318,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 319,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 320,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 321,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 322,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 323,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 324,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 325,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 326,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 327,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 328,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 329,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 330,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 331,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 332,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 333,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 334,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 335,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 336,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 337,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 338,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    },
+    {
+     "t": 339,
+     "cell": "S",
+     "amp": 1.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "Q",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 299
+    },
+    {
+     "cell": "Qb",
+     "value": 1,
+     "t_from": 230,
+     "t_to": 299
+    },
+    {
+     "cell": "Q",
+     "value": 1,
+     "t_from": 380,
+     "t_to": 600
+    },
+    {
+     "cell": "Qb",
+     "value": 0,
+     "t_from": 380,
+     "t_to": 600
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 299
+    },
+    {
+     "cell": "S",
+     "value": 0,
+     "t_from": 380,
+     "t_to": 600
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 40,
+     "t_to": 149
+    },
+    {
+     "cell": "R",
+     "value": 0,
+     "t_from": 230,
+     "t_to": 600
+    }
+   ],
+   "init_on": []
+  }
+ ],
+ "tag": "e38_srff_pl40_pa1_d15",
+ "run": "e38_srff_pl40_pa1",
+ "seed": 15,
+ "n": 64,
+ "mask_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e38_srff_pl40_pa1_d15_mask.f64",
+ "G0": 2.866715431213379,
+ "T_train": 600,
+ "design_acc": 0.7619406580924988,
+ "params": {
+  "twin": "A64s_amp",
+  "G0": 2.0,
+  "Ig": 1.0,
+  "s": -0.8,
+  "Ia": 0.2,
+  "kerr": 0.0,
+  "I_init": 1.5,
+  "I_hi": 0.6,
+  "I_lo": 0.1,
+  "bg_max": 10,
+  "w_bg": 0,
+  "inj_amp": 6.0,
+  "iters": 800,
+  "lr": 0.05,
+  "noise": 0.01,
+  "learn_gain": true,
+  "dtype": "c64",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "G0s": [
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0
+  ],
+  "lr_amp": 0.2,
+  "w": 3,
+  "w_stat": 5.0,
+  "stat_frac": 0.4,
+  "amp_margin": 0,
+  "amp_bg": -1,
+  "log_every": 25,
+  "Ld": 0.0001,
+  "T": 600,
+  "t_pulse": 150,
+  "gap": 150,
+  "pulse_len": 40,
+  "settle": 40,
+  "dist": 6,
+  "pulse_amp": 1.0,
+  "tag": "e38_srff_pl40_pa1",
+  "task": "srff"
+ },
+ "amp_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e38_srff_pl40_pa1_d15_amp.f64",
+ "amp_dark": 0.0
+}

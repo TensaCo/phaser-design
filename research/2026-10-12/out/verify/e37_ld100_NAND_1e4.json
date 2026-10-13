@@ -1,0 +1,802 @@
+[
+ {
+  "tag": "e37_ld100_NAND_d0",
+  "spec": "out/designs/e37_ld100_NAND_d0_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0038377171740676683,
+    "max_off": 0.0065100840308246815,
+    "ripple": 2.842170943040401e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0017227574595751211,
+    "max_off": 0.029120441422835614,
+    "ripple": 0.7787500799262492
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.003533169137320446,
+    "max_off": 0.026391049849044557,
+    "ripple": 0.3051354023683146
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 7.470707015048252,
+    "max_off": 0.008048086861233405,
+    "ripple": 1.75184523512333
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d10",
+  "spec": "out/designs/e37_ld100_NAND_d10_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 49,
+    "first_violation": 80,
+    "min_on": 0.6184740908149695,
+    "max_off": 0.34609040298773175,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9872,
+    "first_violation": 84,
+    "min_on": 0.34606314821739353,
+    "max_off": 0.005357001768177713,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9808,
+    "first_violation": 193,
+    "min_on": 0.34284600976942703,
+    "max_off": 0.35382388096467876,
+    "ripple": 3.375077994860476e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 191,
+    "first_violation": 80,
+    "min_on": 0.35358122042661616,
+    "max_off": 0.3445407187501091,
+    "ripple": 3.907985046680551e-14
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d11",
+  "spec": "out/designs/e37_ld100_NAND_d11_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 4,
+  "cases": 4,
+  "all_ok": true,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.3332574801350028,
+    "max_off": 0.022673405219241265,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.5914133474654772,
+    "max_off": 0.10904436508056708,
+    "ripple": 1.4518524870142038
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.7242260866714594,
+    "max_off": 0.06328678442748453,
+    "ripple": 4.973799150320701e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 24.79550625658561,
+    "max_off": 0.10408312415505931,
+    "ripple": 5.3290705182007514e-14
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d12",
+  "spec": "out/designs/e37_ld100_NAND_d12_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 23,
+    "first_violation": 80,
+    "min_on": 5.95876490110065,
+    "max_off": 0.01196407131970106,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 15,
+    "first_violation": 80,
+    "min_on": 4.28638801862174,
+    "max_off": 0.026219097614746154,
+    "ripple": 1.6504991763470143
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.04106981275273361,
+    "max_off": 0.016399156466691565,
+    "ripple": 0.26889312412787447
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9738,
+    "first_violation": 263,
+    "min_on": 14.728554176261799,
+    "max_off": 5.3423493345589,
+    "ripple": 1.715980202496414
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d13",
+  "spec": "out/designs/e37_ld100_NAND_d13_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 3,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.8307927775755223,
+    "max_off": 0.023129602079901425,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.4753185984251485,
+    "max_off": 0.031375568822376035,
+    "ripple": 0.5656032735034113
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.41127694835323997,
+    "max_off": 0.08632009703029041,
+    "ripple": 1.3074474357221142
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.04700400516256403,
+    "max_off": 0.5595384082660964,
+    "ripple": 1.3074521715747096
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d14",
+  "spec": "out/designs/e37_ld100_NAND_d14_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.5861594187964464,
+    "max_off": 0.027596865676365177,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 4157,
+    "first_violation": 80,
+    "min_on": 0.35788917194402164,
+    "max_off": 0.37282755498461223,
+    "ripple": 0.7382676986225185
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0020214603273776797,
+    "max_off": 0.027596865676365274,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.2982936441150297,
+    "max_off": 0.42009042739408714,
+    "ripple": 0.7382721785188089
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d15",
+  "spec": "out/designs/e37_ld100_NAND_d15_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.02450686606605678,
+    "max_off": 0.009059142269299287,
+    "ripple": 5.684341886080802e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.010831941255661207,
+    "max_off": 0.032472976214581825,
+    "ripple": 0.6408587148560372
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.022255683100620045,
+    "max_off": 0.07995713249650127,
+    "ripple": 0.5709739833461533
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 18.834302899799976,
+    "max_off": 0.04374440373800008,
+    "ripple": 1.5634431327514342
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d1",
+  "spec": "out/designs/e37_ld100_NAND_d1_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9866,
+    "first_violation": 135,
+    "min_on": 0.07457404046249624,
+    "max_off": 25.246917516442924,
+    "ripple": 1.0232469317004735
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 5098,
+    "first_violation": 80,
+    "min_on": 0.07457404737847442,
+    "max_off": 0.03242582214728122,
+    "ripple": 1.0232408303013827
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.355597033000795,
+    "max_off": 0.05872404619365646,
+    "ripple": 0.4674296309934505
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 3902,
+    "first_violation": 96,
+    "min_on": 20.152135719686846,
+    "max_off": 0.8378702085812697,
+    "ripple": 1.0841344995178552
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d2",
+  "spec": "out/designs/e37_ld100_NAND_d2_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.024360704680559866,
+    "max_off": 0.011085643611597544,
+    "ripple": 3.907985046680551e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.009178658708675083,
+    "max_off": 0.051823824683680395,
+    "ripple": 0.8129652025057545
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.019012821993267613,
+    "max_off": 0.08003403463889255,
+    "ripple": 0.4652266453406071
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 20.715794862302104,
+    "max_off": 0.04203601132341923,
+    "ripple": 1.9592681883182372
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d3",
+  "spec": "out/designs/e37_ld100_NAND_d3_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.04202743542506648,
+    "max_off": 0.00904570784928835,
+    "ripple": 4.973799150320701e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 5871,
+    "first_violation": 4130,
+    "min_on": 17.017103957214278,
+    "max_off": 33.27452109459169,
+    "ripple": 4.056519270332046
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.031146906813372878,
+    "max_off": 0.034581719403074335,
+    "ripple": 0.26240794175427595
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 17.688258312545273,
+    "max_off": 21.750469234390756,
+    "ripple": 4.175134183960669
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d4",
+  "spec": "out/designs/e37_ld100_NAND_d4_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.03159843652174489,
+    "max_off": 0.005474854747576055,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.01808300070042111,
+    "max_off": 0.03575448358881969,
+    "ripple": 1.3261724897901175
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.028108577405455606,
+    "max_off": 0.015337737662111843,
+    "ripple": 0.7528264772640867
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 9.550918054273017,
+    "max_off": 0.04117494475292205,
+    "ripple": 1.399516018256472
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d5",
+  "spec": "out/designs/e37_ld100_NAND_d5_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 0.6528819325691929,
+    "max_off": 0.034346307800438035,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9753,
+    "first_violation": 248,
+    "min_on": 0.282387527810814,
+    "max_off": 0.375160913711941,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.003943830312119259,
+    "max_off": 0.03434630780043812,
+    "ripple": 3.552713678800501e-14
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 157,
+    "first_violation": 80,
+    "min_on": 0.3626631873170122,
+    "max_off": 0.31000802951900064,
+    "ripple": 3.552713678800501e-14
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d6",
+  "spec": "out/designs/e37_ld100_NAND_d6_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 0,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9919,
+    "first_violation": 82,
+    "min_on": 0.6837861204263367,
+    "max_off": 0.35029723933903306,
+    "ripple": 3.197442310920451e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 2,
+    "first_violation": 80,
+    "min_on": 0.350297239339031,
+    "max_off": 0.002139256131556956,
+    "ripple": 2.4868995751603507e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 7558,
+    "first_violation": 80,
+    "min_on": 0.3497161706384192,
+    "max_off": 0.35118119191356656,
+    "ripple": 0.010807286173751152
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9913,
+    "first_violation": 88,
+    "min_on": 0.33524246320612716,
+    "max_off": 0.35054903436981905,
+    "ripple": 0.016848310604888894
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d7",
+  "spec": "out/designs/e37_ld100_NAND_d7_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.013190494702101095,
+    "max_off": 0.010432281439142141,
+    "ripple": 4.263256414560601e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.0055367702215459785,
+    "max_off": 0.08705887848499103,
+    "ripple": 1.0354768628262576
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 9921,
+    "first_violation": 80,
+    "min_on": 0.011248503585407906,
+    "max_off": 0.05690904806310167,
+    "ripple": 0.30237766680060574
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 20.90113030568396,
+    "max_off": 0.028674758862421764,
+    "ripple": 0.6547408870132827
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d8",
+  "spec": "out/designs/e37_ld100_NAND_d8_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 4,
+  "cases": 4,
+  "all_ok": true,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.60151813696796,
+    "max_off": 0.016014095245134415,
+    "ripple": 2.842170943040401e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.4984432969297918,
+    "max_off": 0.02897099450446901,
+    "ripple": 4.2378545117571775e-11
+   },
+   {
+    "case": "NAND10",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.4951141509995043,
+    "max_off": 0.041421998712722397,
+    "ripple": 0.0020500000083139014
+   },
+   {
+    "case": "NAND11",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 14.862913388897994,
+    "max_off": 0.12362584863153922,
+    "ripple": 0.7685266669880786
+   }
+  ]
+ },
+ {
+  "tag": "e37_ld100_NAND_d9",
+  "spec": "out/designs/e37_ld100_NAND_d9_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 1,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 7.551647746293379,
+    "max_off": 0.007183205823135629,
+    "ripple": 2.842170943040401e-14
+   },
+   {
+    "case": "NAND01",
+    "ok": false,
+    "n_bad_trips": 10,
+    "first_violation": 80,
+    "min_on": 7.19971753643116,
+    "max_off": 0.017696891890491735,
+    "ripple": 7.815970093361102e-14
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 154,
+    "first_violation": 80,
+    "min_on": 5.237583800984763,
+    "max_off": 0.05278604898021509,
+    "ripple": 2.3237802487149573
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9904,
+    "first_violation": 97,
+    "min_on": 20.153018662845774,
+    "max_off": 7.306065834186283,
+    "ripple": 1.8725963426719305
+   }
+  ]
+ }
+]

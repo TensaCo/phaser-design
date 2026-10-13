@@ -1,0 +1,3 @@
+done e40_ld100_NAND_jit05: 1 designs pass 1e4
+done e40_ld100_NAND_jit03_s16: 5 designs pass 1e4
+queue wave4.jobs finished

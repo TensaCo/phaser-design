@@ -1,0 +1,1378 @@
+[
+ {
+  "tag": "e38_latch2_pa1.5_d0",
+  "spec": "out/designs/e38_latch2_pa1.5_d0_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 1.3992207115976144e-281,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.3992207115976144e-281,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 6.682088750151507e-288,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 6.682088750151507e-288,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 1.15034223775385e-187,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 2.4532521560042763e-181,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d10",
+  "spec": "out/designs/e38_latch2_pa1.5_d10_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 7.492059518210218e-260,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.492059518210218e-260,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 2.1407300409295663e-258,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 2.1407300409295663e-258,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 1.651565306682849e-167,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 5.2904949110437664e-169,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d11",
+  "spec": "out/designs/e38_latch2_pa1.5_d11_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 1.3517186506027174e-266,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.3517186506027174e-266,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 8.996871127285427e-265,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 8.996871127285427e-265,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 2.1929710965080132e-172,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 3.2944454040369767e-174,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d12",
+  "spec": "out/designs/e38_latch2_pa1.5_d12_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 9.469734794666648e-270,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 9.469734794666648e-270,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 2.460847606010099e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 2.460847606010099e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 2.1635910483738245e-173,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 8.32729994811812e-176,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d13",
+  "spec": "out/designs/e38_latch2_pa1.5_d13_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 6.850907993870424e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 6.850907993870424e-286,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 4.1505246212286015e-291,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 4.1505246212286015e-291,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 9.568251190417505e-190,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 2.6161135029577876e-184,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d14",
+  "spec": "out/designs/e38_latch2_pa1.5_d14_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 2.5665475441121592e-253,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 2.5665475441121592e-253,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 2.62232245683718e-257,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 2.62232245683718e-257,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 7.696902335592948e-169,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 7.533194668028673e-165,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d15",
+  "spec": "out/designs/e38_latch2_pa1.5_d15_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 1.7776180178518107e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.7776180178518107e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 1.160737964629479e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 1.160737964629479e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 6.884454942013211e-175,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 1.0543233096851003e-174,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d1",
+  "spec": "out/designs/e38_latch2_pa1.5_d1_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 1.527083524534751e-293,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.527083524534751e-293,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 9.812559324792158e-292,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 9.812559324792158e-292,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 4.843148091767775e-190,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 7.533427004618044e-192,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d2",
+  "spec": "out/designs/e38_latch2_pa1.5_d2_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 7.136159546583701e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.136159546583701e-267,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 1.364414447157886e-275,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 1.364414447157886e-275,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 2.0451198134519385e-180,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 1.070238986555092e-171,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d3",
+  "spec": "out/designs/e38_latch2_pa1.5_d3_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 7.854386173323425e-272,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 7.854386173323425e-272,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 3.7183008426076535e-266,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 3.7183008426076535e-266,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 2.232999941542799e-171,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 4.730733559858316e-177,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d4",
+  "spec": "out/designs/e38_latch2_pa1.5_d4_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 5.45209737008762e-259,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 5.45209737008762e-259,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 7.184642450998186e-260,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 7.184642450998186e-260,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 5.612224185221751e-170,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 4.2588608866661394e-169,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d5",
+  "spec": "out/designs/e38_latch2_pa1.5_d5_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 9.410370504553742e-273,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 9.410370504553742e-273,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 7.171300237086595e-275,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 7.171300237086595e-275,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 1.0601056750276096e-178,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 1.3911965184941041e-176,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d6",
+  "spec": "out/designs/e38_latch2_pa1.5_d6_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 8.11696094125966e-255,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 8.11696094125966e-255,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 1.3972971236370682e-256,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 1.3972971236370682e-256,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 6.769094713195282e-168,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 3.932196998911618e-166,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d7",
+  "spec": "out/designs/e38_latch2_pa1.5_d7_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 5.029363963143444e-253,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 5.029363963143444e-253,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 3.868735196128862e-255,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 3.868735196128862e-255,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 1.128720656316852e-166,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 1.4673553127377082e-164,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d8",
+  "spec": "out/designs/e38_latch2_pa1.5_d8_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 1.0527622622421836e-273,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 1.0527622622421836e-273,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 2.729834148180538e-271,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 2.729834148180538e-271,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 1.304283901966004e-175,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 5.02999406765555e-178,
+    "ripple": 0.0
+   }
+  ]
+ },
+ {
+  "tag": "e38_latch2_pa1.5_d9",
+  "spec": "out/designs/e38_latch2_pa1.5_d9_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.0,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 8,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "hold0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "hold1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 0.0,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from0",
+    "ok": false,
+    "n_bad_trips": 9791,
+    "first_violation": 210,
+    "min_on": 0.0,
+    "max_off": 4.577602826210813e-265,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_from1",
+    "ok": false,
+    "n_bad_trips": 9961,
+    "first_violation": 40,
+    "min_on": 0.0,
+    "max_off": 4.577602826210813e-265,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from1",
+    "ok": false,
+    "n_bad_trips": 110,
+    "first_violation": 40,
+    "min_on": null,
+    "max_off": 4.2998609728485655e-264,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_from0",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": null,
+    "max_off": 4.2998609728485655e-264,
+    "ripple": 0.0
+   },
+   {
+    "case": "set_then_reset",
+    "ok": false,
+    "n_bad_trips": 90,
+    "first_violation": 210,
+    "min_on": null,
+    "max_off": 1.800452029253508e-172,
+    "ripple": 0.0
+   },
+   {
+    "case": "reset_then_set",
+    "ok": false,
+    "n_bad_trips": 9641,
+    "first_violation": 360,
+    "min_on": 0.0,
+    "max_off": 1.9167549994400253e-173,
+    "ripple": 0.0
+   }
+  ]
+ }
+]

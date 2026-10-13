@@ -1,0 +1,17 @@
+e38_latch2_pa1.5_d0: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d10: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d11: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d12: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d13: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d14: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d15: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d1: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d2: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d3: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d4: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d5: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d6: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d7: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d8: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+e38_latch2_pa1.5_d9: 2/8 cases fail to H=10000 | hold0:ok | hold1:x@40 | set_from0:x@210 | set_from1:x@40 | reset_from1:x@40 | reset_from0:ok | set_then_reset:x@210 | reset_then_set:x@360
+  group of 16 verified in 295s

@@ -1,0 +1,167 @@
+{
+ "task": "osc",
+ "twin": "A64s_amp",
+ "Ig": 1.0,
+ "Ld": 0.0001,
+ "s": -0.8,
+ "Ia": 0.2,
+ "kerr": 0.0,
+ "I_init": 1.5,
+ "I_hi": 0.6,
+ "I_lo": 0.1,
+ "cells": {
+  "A": [
+   28,
+   31,
+   3
+  ],
+  "B": [
+   34,
+   31,
+   3
+  ]
+ },
+ "cases": [
+  {
+   "name": "run",
+   "init_on": [],
+   "inject": [
+    {
+     "t": 1,
+     "cell": "A",
+     "amp": 6.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "A",
+     "value": 1,
+     "t_from": 440,
+     "t_to": 560
+    },
+    {
+     "cell": "B",
+     "value": 0,
+     "t_from": 440,
+     "t_to": 560
+    },
+    {
+     "cell": "A",
+     "value": 0,
+     "t_from": 640,
+     "t_to": 760
+    },
+    {
+     "cell": "B",
+     "value": 1,
+     "t_from": 640,
+     "t_to": 760
+    },
+    {
+     "cell": "A",
+     "value": 1,
+     "t_from": 840,
+     "t_to": 960
+    },
+    {
+     "cell": "B",
+     "value": 0,
+     "t_from": 840,
+     "t_to": 960
+    },
+    {
+     "cell": "A",
+     "value": 0,
+     "t_from": 1040,
+     "t_to": 1160
+    },
+    {
+     "cell": "B",
+     "value": 1,
+     "t_from": 1040,
+     "t_to": 1160
+    }
+   ]
+  }
+ ],
+ "tag": "e41_ld100_osc_p400_log_d12",
+ "run": "e41_ld100_osc_p400_log",
+ "seed": 12,
+ "n": 64,
+ "mask_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e41_ld100_osc_p400_log_d12_mask.f64",
+ "G0": 2.3850066661834717,
+ "T_train": 1160,
+ "design_acc": 0.5,
+ "params": {
+  "twin": "A64s_amp",
+  "G0": 2.0,
+  "Ig": 1.0,
+  "s": -0.8,
+  "Ia": 0.2,
+  "kerr": 0.0,
+  "I_init": 1.5,
+  "I_hi": 0.6,
+  "I_lo": 0.1,
+  "bg_max": 10,
+  "w_bg": 0,
+  "inj_amp": 6.0,
+  "iters": 800,
+  "lr": 0.05,
+  "noise": 0.01,
+  "learn_gain": true,
+  "dtype": "c64",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "G0s": [
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0
+  ],
+  "lr_amp": 0.2,
+  "w": 3,
+  "w_stat": 0,
+  "amp_margin": 0,
+  "amp_bg": -1,
+  "log_every": 25,
+  "loss_log": true,
+  "Ld": 0.0001,
+  "dist": 6,
+  "period": 400,
+  "margin": 40,
+  "T": 1200,
+  "tag": "e41_ld100_osc_p400_log",
+  "task": "osc"
+ },
+ "amp_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e41_ld100_osc_p400_log_d12_amp.f64",
+ "amp_dark": 0.0
+}

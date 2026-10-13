@@ -1,0 +1,17 @@
+e40_ld100_NAND_jit05_d0: 2/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:x@80
+e40_ld100_NAND_jit05_d10: 0/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:x@821
+e40_ld100_NAND_jit05_d11: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@80
+e40_ld100_NAND_jit05_d12: 2/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:ok | NAND11:x@185
+e40_ld100_NAND_jit05_d13: 3/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:x@80
+e40_ld100_NAND_jit05_d14: 1/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:ok
+e40_ld100_NAND_jit05_d15: 1/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:ok
+e40_ld100_NAND_jit05_d1: 1/4 cases fail to H=10000 | NAND00:ok | NAND01:x@80 | NAND10:x@80 | NAND11:x@80
+e40_ld100_NAND_jit05_d2: 4/4 cases PASS to H=10000 | NAND00:ok | NAND01:ok | NAND10:ok | NAND11:ok
+e40_ld100_NAND_jit05_d3: 1/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:ok
+e40_ld100_NAND_jit05_d4: 2/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:x@80 | NAND11:x@80
+e40_ld100_NAND_jit05_d5: 0/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:x@771
+e40_ld100_NAND_jit05_d6: 1/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:ok
+e40_ld100_NAND_jit05_d7: 1/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:ok
+e40_ld100_NAND_jit05_d8: 2/4 cases fail to H=10000 | NAND00:ok | NAND01:ok | NAND10:x@80 | NAND11:x@80
+e40_ld100_NAND_jit05_d9: 0/4 cases fail to H=10000 | NAND00:x@80 | NAND01:x@80 | NAND10:x@80 | NAND11:x@80
+  group of 16 verified in 155s

@@ -1,0 +1,52 @@
+[
+ {
+  "tag": "e40_ld100_NAND_jit05_d2",
+  "spec": "out/designs/e40_ld100_NAND_jit05_d2_spec.json",
+  "H": 10000,
+  "noise": 0.0,
+  "jitter": 0.03,
+  "flicker": "0:0",
+  "g0scale": 1.0,
+  "passed": 2,
+  "cases": 4,
+  "all_ok": false,
+  "rows": [
+   {
+    "case": "NAND00",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 2.129636682912692,
+    "max_off": 0.02821095836613993,
+    "ripple": 6.643547638468774
+   },
+   {
+    "case": "NAND01",
+    "ok": true,
+    "n_bad_trips": 0,
+    "first_violation": null,
+    "min_on": 1.7511847712499125,
+    "max_off": 0.014657544170000666,
+    "ripple": 6.775492016231643
+   },
+   {
+    "case": "NAND10",
+    "ok": false,
+    "n_bad_trips": 22,
+    "first_violation": 80,
+    "min_on": 0.8569360042726497,
+    "max_off": 0.04519165119453135,
+    "ripple": 6.91374459196567
+   },
+   {
+    "case": "NAND11",
+    "ok": false,
+    "n_bad_trips": 9480,
+    "first_violation": 511,
+    "min_on": 7.6109522122638955,
+    "max_off": 7.718118268182939,
+    "ripple": 7.30166768883368
+   }
+  ]
+ }
+]

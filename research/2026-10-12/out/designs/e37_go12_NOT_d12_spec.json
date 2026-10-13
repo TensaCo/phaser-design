@@ -1,0 +1,151 @@
+{
+ "task": "gate",
+ "twin": "A64s_amp_go12",
+ "Ig": 1.0,
+ "Ld": 0,
+ "s": -0.8,
+ "Ia": 0.2,
+ "kerr": 0.0,
+ "I_init": 1.5,
+ "I_hi": 0.6,
+ "I_lo": 0.1,
+ "cells": {
+  "in0": [
+   25,
+   31,
+   3
+  ],
+  "out": [
+   31,
+   31,
+   3
+  ]
+ },
+ "cases": [
+  {
+   "name": "NOT0",
+   "init_on": [],
+   "inject": [],
+   "targets": [
+    {
+     "cell": "out",
+     "value": 1,
+     "t_from": 80,
+     "t_to": 400
+    },
+    {
+     "cell": "in0",
+     "value": 0,
+     "t_from": 80,
+     "t_to": 400
+    }
+   ]
+  },
+  {
+   "name": "NOT1",
+   "init_on": [],
+   "inject": [
+    {
+     "t": 1,
+     "cell": "in0",
+     "amp": 6.0,
+     "phase": 0.0
+    }
+   ],
+   "targets": [
+    {
+     "cell": "out",
+     "value": 0,
+     "t_from": 80,
+     "t_to": 400
+    },
+    {
+     "cell": "in0",
+     "value": 1,
+     "t_from": 80,
+     "t_to": 400
+    }
+   ]
+  }
+ ],
+ "tag": "e37_go12_NOT_d12",
+ "run": "e37_go12_NOT",
+ "seed": 12,
+ "n": 64,
+ "mask_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e37_go12_NOT_d12_mask.f64",
+ "G0": 2.4050590991973877,
+ "T_train": 400,
+ "design_acc": 0.75,
+ "params": {
+  "twin": "A64s_amp_go12",
+  "G0": 2.0,
+  "Ig": 1.0,
+  "s": -0.8,
+  "Ia": 0.2,
+  "kerr": 0.0,
+  "I_init": 1.5,
+  "I_hi": 0.6,
+  "I_lo": 0.1,
+  "bg_max": 10,
+  "w_bg": 0,
+  "inj_amp": 6.0,
+  "iters": 500,
+  "lr": 0.05,
+  "noise": 0.01,
+  "learn_gain": true,
+  "dtype": "c64",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "G0s": [
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0,
+   2.4,
+   2.6,
+   2.8,
+   3.0
+  ],
+  "lr_amp": 0.2,
+  "w": 3,
+  "w_stat": 5.0,
+  "stat_frac": 0.4,
+  "amp_margin": 0,
+  "amp_bg": -1,
+  "log_every": 25,
+  "Ld": 0,
+  "T": 400,
+  "settle": 80,
+  "gate": "NOT",
+  "dist": 6,
+  "io_dx": 6,
+  "tag": "e37_go12_NOT",
+  "task": "gate"
+ },
+ "amp_file": "/home/brandonin/phaser/research/2026-10-12/out/designs/e37_go12_NOT_d12_amp.f64",
+ "amp_dark": 0.0
+}

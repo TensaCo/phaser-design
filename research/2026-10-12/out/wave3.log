@@ -1,0 +1,5 @@
+done e41_ld100_osc_p200_log: 0 designs pass 1e4
+done e41_ld100_osc_p200_rail_log: 0 designs pass 1e4
+done e41_ld100_osc_p400_log: 0 designs pass 1e4
+done e41_go12_osc_p200_log: 0 designs pass 1e4
+queue wave3.jobs finished
